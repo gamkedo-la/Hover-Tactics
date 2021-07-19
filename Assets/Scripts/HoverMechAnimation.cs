@@ -21,10 +21,13 @@ public class HoverMechAnimation : MonoBehaviour
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
 
+            Quaternion quaternionRotation = transform.rotation;
             Vector3 rotation = transform.rotation.eulerAngles;
-            rotation.x = Mathf.Lerp(rotation.x, 45.0f + (vertical * maxMoveRotation), Time.deltaTime * lerpFactor);
-            rotation.z = Mathf.Lerp(rotation.z, 45.0f + (horizontal * -maxMoveRotation), Time.deltaTime * lerpFactor);
-            transform.rotation = Quaternion.Euler(rotation);
+            rotation.x = vertical * maxMoveRotation;
+            rotation.z = horizontal * -maxMoveRotation;
+            quaternionRotation = Quaternion.Euler(rotation);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, quaternionRotation, Time.deltaTime * lerpFactor);
         }
     }
 }
