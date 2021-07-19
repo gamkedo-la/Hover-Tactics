@@ -51,6 +51,12 @@ public class ObjectPooler : MonoBehaviour {
 		objectToSpawn.SetActive(true);
 		objectToSpawn.transform.position = position;
 		objectToSpawn.transform.rotation = rotation;
+
+		Rigidbody rigidbody = objectToSpawn.GetComponent<Rigidbody>();
+		if(rigidbody)
+		{
+			rigidbody.velocity = rigidbody.angularVelocity = Vector3.zero;
+		}
 	
 		poolDictionary[tag].Enqueue(objectToSpawn);
 		
