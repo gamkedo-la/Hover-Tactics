@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float forwardSpeed;
+    [SerializeField] float backwardSpeed;
+    [SerializeField] float sideSpeed;
+    [Space]
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
     
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         Vector3 rightDirection = transform.right;
         rightDirection.y = 0.0f;
-        Vector3 movementDirection = transform.forward * v + rightDirection * h;
-        transform.position += movementDirection.normalized * speed * Time.deltaTime;
+        Vector3 movement =
+            (transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
+            (rightDirection * horizontal * sideSpeed);
+        transform.position += movement * Time.deltaTime;
         HandleMouseInput();
     }
 
