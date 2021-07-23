@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class SnapToGround : MonoBehaviour
 {
+#if UNITY_EDITOR
     [MenuItem("Custom/Snap To Ground %g")]
+
     public static void Ground()
     {
         foreach(var transform in Selection.transforms)
@@ -19,4 +21,5 @@ public class SnapToGround : MonoBehaviour
             }
         }
     }
+#endif
 }
