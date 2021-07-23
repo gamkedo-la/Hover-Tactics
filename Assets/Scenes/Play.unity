@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2595,6 +2595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoverMech3
       objectReference: {fileID: 0}
+    - target: {fileID: 5300834565054401766, guid: fd9055a6a20256e429230b6b54b0f95c,
+        type: 3}
+      propertyPath: Cursor
+      value: 
+      objectReference: {fileID: 1748713127}
     - target: {fileID: 5300834565054401766, guid: fd9055a6a20256e429230b6b54b0f95c,
         type: 3}
       propertyPath: sideSpeed
@@ -19024,6 +19029,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 102912209}
+    - target: {fileID: 6730692806992436536, guid: ad976f060e841ad4a82b39ef59708348,
+        type: 3}
+      propertyPath: Cursor
+      value: 
+      objectReference: {fileID: 1748713127}
     - target: {fileID: 6730692806992436537, guid: ad976f060e841ad4a82b39ef59708348,
         type: 3}
       propertyPath: m_RootOrder
@@ -20269,6 +20279,11 @@ PrefabInstance:
       propertyPath: speed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5300834565054401766, guid: fd9055a6a20256e429230b6b54b0f95c,
+        type: 3}
+      propertyPath: Cursor
+      value: 
+      objectReference: {fileID: 1748713127}
     - target: {fileID: 5300834565054401766, guid: fd9055a6a20256e429230b6b54b0f95c,
         type: 3}
       propertyPath: m_Enabled

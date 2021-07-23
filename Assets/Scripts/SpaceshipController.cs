@@ -10,6 +10,8 @@ public class SpaceshipController : MonoBehaviour
     [Space]
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
+    [Space]
+    [SerializeField] GameObject Cursor;
     
     void Update()
     {
@@ -27,10 +29,13 @@ public class SpaceshipController : MonoBehaviour
 
     void HandleMouseInput()
     {
-        Camera cam = Camera.main;
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        float distance = Vector3.Distance(cam.transform.position, transform.position);
-        Vector3 targetPoint = ray.GetPoint(distance);
+        //Camera cam = Camera.main;
+        //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        //float distance = Vector3.Distance(cam.transform.position, transform.position);
+        //Vector3 targetPoint = ray.GetPoint(distance);
+
+        Vector3 targetPoint = Cursor.transform.position;
+
         Vector3 relativeDirection = transform.InverseTransformPoint(targetPoint);
         float turnDir = Mathf.Atan2(relativeDirection.x, relativeDirection.z) * Mathf.Rad2Deg * turnSensitivity;
         turnDir = Mathf.Clamp(turnDir, -1, 1);
