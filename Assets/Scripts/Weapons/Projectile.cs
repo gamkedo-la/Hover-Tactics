@@ -49,7 +49,11 @@ public class Projectile : MonoBehaviour
             building.Damage(damage);
         }
 
-        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation);
+        ContactPoint contact = collision.contacts[0];
+
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+
+        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
         audioSource.PlayOneShot(explosionSound);
         meshRenderer.enabled = false;
         collider.enabled = false;

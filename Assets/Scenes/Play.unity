@@ -13776,6 +13776,10 @@ MonoBehaviour:
     prefab: {fileID: 2930784101856683723, guid: a24170fd768a7214882171835b315ebb,
       type: 3}
     size: 20
+  - tag: TestExplosion2
+    prefab: {fileID: 7106769922058505212, guid: 1d4c9b841b9e85948b2f1d37e6b487ec,
+      type: 3}
+    size: 20
 --- !u!43 &1689703225
 Mesh:
   m_ObjectHideFlags: 0
