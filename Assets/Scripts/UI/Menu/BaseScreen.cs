@@ -4,17 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class StartScreen : MonoBehaviour
+public class BaseScreen : MonoBehaviour
 {
-    public enum Panels { StartGame, Controllers, Credits }
+    public enum Panels { Main, Controllers, Credits }
+    public Action<Panels> OnPanelActivated;
+    public Action OnButtonPressed;
+    public Action OnMainButtonPressed;
 
     [Header("Panels")]
     [SerializeField] private GameObject Root;
-    [SerializeField] private GameObject StartGamePanel;
+    [SerializeField] private GameObject MainScreenPanel;
     [SerializeField] private GameObject ControllersPanel;
     [SerializeField] private GameObject CreditsPanel;
 
     [Header("Buttons")]
+    [SerializeField] private Button MainButtonPressed;
     [SerializeField] private Button ShowControllersPanelButton;
     [SerializeField] private Button ShowCreditsPanelButton;
     [SerializeField] private Button BackButton;
@@ -25,38 +29,50 @@ public class StartScreen : MonoBehaviour
     private void Awake()
     {
         Root.SetActive(true);
-        ActivatePanel(Panels.StartGame);
+        ActivatePanel(Panels.Main);
         SetupButtonHandlers();
     }
 
     public void ActivatePanel(Panels panel)
     {
         if(logDebug) Debug.Log($"Activating Panel [{panel}]");
-        ToggleStartGamePanel(panel == Panels.StartGame);
+
+        OnPanelActivated?.Invoke(panel);
+        
+        ToggleMainPanel(panel == Panels.Main);
         ToggleControllersPanel(panel == Panels.Controllers);
         ToggleCreditsPanel(panel == Panels.Credits);
 
-        BackButton.gameObject.SetActive(panel != Panels.StartGame);
+        BackButton.gameObject.SetActive(panel != Panels.Main);
 
         if(logDebug) Debug.Log($"IsBackButtonActive? : [{BackButton.gameObject.activeSelf}]");
     }
 
     private void SetupButtonHandlers()
     {
+        MainButtonPressed.onClick.AddListener(
+            () => OnMainButtonPressed?.Invoke());
+
         BackButton.onClick.AddListener(
-            () => ActivatePanel(Panels.StartGame));
+            () => MenuButtonPressed(Panels.Main));
 
         ShowControllersPanelButton.onClick.AddListener(
-            () => ActivatePanel(Panels.Controllers));
+            () => MenuButtonPressed(Panels.Controllers));
 
         ShowCreditsPanelButton.onClick.AddListener(
-            () => ActivatePanel(Panels.Credits));
+            () => MenuButtonPressed(Panels.Credits));
     }
 
-    private void ToggleStartGamePanel(bool isVisible)
+    private void MenuButtonPressed(Panels panel)
     {
-        if(logDebug) Debug.Log($"ToggleStartGamePanel [{isVisible}]");
-        StartGamePanel.SetActive(isVisible);
+        OnButtonPressed?.Invoke();
+        ActivatePanel(panel);
+    }
+
+    private void ToggleMainPanel(bool isVisible)
+    {
+        if(logDebug) Debug.Log($"ToggleMainPanel [{isVisible}]");
+        MainScreenPanel.SetActive(isVisible);
         ShowControllersPanelButton.gameObject.SetActive(isVisible);
         ShowCreditsPanelButton.gameObject.SetActive(isVisible);
     }
