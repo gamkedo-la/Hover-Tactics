@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float forwardSpeed;
+    [SerializeField] float backwardSpeed;
+    [SerializeField] float sideSpeed;
+    [Space]
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
+    [Space]
+    [SerializeField] GameObject Cursor;
     
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         Vector3 rightDirection = transform.right;
         rightDirection.y = 0.0f;
-        Vector3 movementDirection = transform.forward * v + rightDirection * h;
-        transform.position += movementDirection.normalized * speed * Time.deltaTime;
+        Vector3 movement =
+            (transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
+            (rightDirection * horizontal * sideSpeed);
+        transform.position += movement * Time.deltaTime;
         HandleMouseInput();
     }
 
     void HandleMouseInput()
     {
-        Camera cam = Camera.main;
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        float distance = Vector3.Distance(cam.transform.position, transform.position);
-        Vector3 targetPoint = ray.GetPoint(distance);
+        //Camera cam = Camera.main;
+        //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        //float distance = Vector3.Distance(cam.transform.position, transform.position);
+        //Vector3 targetPoint = ray.GetPoint(distance);
+
+        Vector3 targetPoint = Cursor.transform.position;
+
         Vector3 relativeDirection = transform.InverseTransformPoint(targetPoint);
         float turnDir = Mathf.Atan2(relativeDirection.x, relativeDirection.z) * Mathf.Rad2Deg * turnSensitivity;
         turnDir = Mathf.Clamp(turnDir, -1, 1);

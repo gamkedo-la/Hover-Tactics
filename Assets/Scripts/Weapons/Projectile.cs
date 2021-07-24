@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private float damage = 1.0f;
     [SerializeField] private string explosionTag;
     [SerializeField] private AudioClip explosionSound;
 
@@ -40,9 +41,19 @@ public class Projectile : MonoBehaviour
         rigidbody.AddForce(force);
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision collision)
     {
-        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation);
+        Building building = collision.other.GetComponent<Building>();
+        if(building)
+        {
+            building.Damage(damage);
+        }
+
+        ContactPoint contact = collision.contacts[0];
+
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+
+        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
         audioSource.PlayOneShot(explosionSound);
         meshRenderer.enabled = false;
         collider.enabled = false;

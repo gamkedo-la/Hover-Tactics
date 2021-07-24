@@ -3,7 +3,9 @@ using UnityEngine;
  
 public static class GroupCommand
 {
+#if UNITY_EDITOR
     [MenuItem("GameObject/Group Selected %g")]
+
     private static void GroupSelected()
     {
         if (!Selection.activeTransform) return;
@@ -13,4 +15,5 @@ public static class GroupCommand
         foreach (var transform in Selection.transforms) Undo.SetTransformParent(transform, go.transform, "Group Selected");
         Selection.activeGameObject = go;
     }
+#endif
 }
