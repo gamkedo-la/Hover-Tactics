@@ -5,6 +5,8 @@ using System;
 
 public class FadeUIFX : MonoBehaviour
 {
+    [Header("Fade Config")]
+    [SerializeField] private AnimationCurve fadeCurve;
     [SerializeField] [Range(0.0f, 20.0f)] private float fadeTransitionInSecs = 1.0f;
     private BaseFadeFX[] canFadeUIArray;
 
@@ -69,11 +71,16 @@ public class FadeUIFX : MonoBehaviour
         SetAll(isFadeOut ? 0.0f : 1.0f);
     }
 
+    protected virtual float GetFadeValue(float fadePercentage)
+    {
+        return fadeCurve.Evaluate(fadePercentage);
+    }
+
     private void SetAll(float fadePercentage)
     {
         foreach(var item in canFadeUIArray)
         {
-            item.SetFadePercentage(fadePercentage);
+            item.SetFadePercentage(GetFadeValue(fadePercentage));
         }
     }
 }

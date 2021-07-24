@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class FadeUIPanel : BaseFadeFX
-{
-    [Header("Fade Config")]
-    [SerializeField] private AnimationCurve fadeCurve;
-    
+{    
     private Image[] imageArray;
     private TMPro.TMP_Text[] textArray;
 
@@ -69,7 +66,7 @@ public class FadeUIPanel : BaseFadeFX
             imageArray[i].color = Color.Lerp(
                 imgStartColors[i],
                 imageEndColors[i],
-                GetFadeValue(fadePercentage));
+                fadePercentage);
         }
     }
 
@@ -81,13 +78,8 @@ public class FadeUIPanel : BaseFadeFX
             textArray[i].color = Color.Lerp(
                 textStartColors[i],
                 textEndColors[i],
-                GetFadeValue(fadePercentage));
+                fadePercentage);
         }
-    }
-
-    protected virtual float GetFadeValue(float fadePercentage)
-    {
-        return fadeCurve.Evaluate(fadePercentage);
     }
 
     protected static void GetAllComponentsInChildren<TComponent>(Transform parent, ref List<TComponent> list)
