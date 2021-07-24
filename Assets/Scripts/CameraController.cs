@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         cam = GetComponent<Camera>();
     }
 
@@ -32,14 +33,9 @@ public class CameraController : MonoBehaviour
         );
         transform.position = Vector3.Lerp(transform.position, position, lerpFactor * Time.deltaTime);
 
-        Cursor.visible = false;
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;
-
         if(Physics.Raycast(ray, out hitData, 200))
-        {
             cursor.transform.position = hitData.point;
-        }
     }
 }
