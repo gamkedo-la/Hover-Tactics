@@ -282,6 +282,7 @@ MonoBehaviour:
   gameMenu: {fileID: 237725377}
   isShowingStartGameMenu: 1
   isShowingPauseGameMenu: 0
+  logDebug: 1
 --- !u!4 &66560579
 Transform:
   m_ObjectHideFlags: 0

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameMenuController : MonoBehaviour
 {
+    [Header("Reference")]
     [SerializeField] private GameMenu gameMenu;
 
+    [Header("Starting States (and current states)")]
     public bool isShowingStartGameMenu;
     public bool isShowingPauseGameMenu;
 
