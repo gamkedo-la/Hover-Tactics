@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         camController = Camera.main.GetComponent<CameraController>();
+        hoverMechs[activeIndex].transform.GetChild(3).gameObject.SetActive(false); //Shield
         hoverMechs[activeIndex].GetComponent<SpaceshipController>().enabled = true;
         camController.SetTransformToFollow(hoverMechs[activeIndex].transform);
     }
@@ -23,8 +24,10 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire3"))
         {
+            hoverMechs[activeIndex].transform.GetChild(3).gameObject.SetActive(true); //Shield
             hoverMechs[activeIndex++].GetComponent<SpaceshipController>().enabled = false;
             if(activeIndex >= hoverMechs.Length) activeIndex = 0;
+            hoverMechs[activeIndex].transform.GetChild(3).gameObject.SetActive(false); //Shield
             hoverMechs[activeIndex].GetComponent<SpaceshipController>().enabled = true;
             camController.SetTransformToFollow(hoverMechs[activeIndex].transform);
         }
