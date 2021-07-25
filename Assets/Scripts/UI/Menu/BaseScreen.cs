@@ -6,7 +6,7 @@ using System;
 
 public class BaseScreen : MonoBehaviour
 {
-    public enum Panels { Main, Controllers, Credits }
+    public enum Panels { None, Main, Controllers, Credits }
     public Action<Panels> OnPanelActivated;
     public Action OnButtonPressed;
     public Action OnMainButtonPressed;

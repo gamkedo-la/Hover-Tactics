@@ -10,7 +10,9 @@ public class GameMenu : MonoBehaviour
 
     [Header("Game Screens")]
     [SerializeField] private BaseScreen StartGameScreen;
+    [SerializeField] private FadeUIFX StartGameScreenFadeFx;
     [SerializeField] private BaseScreen PauseGameScreen;
+    [SerializeField] private FadeUIFX PauseGameScreenFadeFX;
 
     [Header("Debug")]
     [SerializeField] private bool logDebug;
@@ -27,14 +29,30 @@ public class GameMenu : MonoBehaviour
         PauseGameScreen.OnMainButtonPressed += HandlePauseScreenMainButtonPressed;
     }
 
-    public void ToggleStartGameScreen(bool isVisible)
+    public void ToggleStartGameScreen(bool isVisible, bool fadeFx = true)
     {
-        StartGameScreen.gameObject.SetActive(isVisible);
+        if(fadeFx == false)
+        {
+            StartGameScreen.gameObject.SetActive(isVisible);
+            return;
+        }
+
+        StartGameScreenFadeFx.Fade(isVisible, () => {
+            StartGameScreen.gameObject.SetActive(isVisible);
+        });
     }
-    
-    public void TogglePauseScreen(bool isVisible)
+
+    public void TogglePauseScreen(bool isVisible, bool fadeFx = true)
     {
-        PauseGameScreen.gameObject.SetActive(isVisible);
+        if(fadeFx == false)
+        {
+            PauseGameScreen.gameObject.SetActive(isVisible);
+            return;
+        }
+
+        PauseGameScreenFadeFX.Fade(isVisible, () => {
+            PauseGameScreen.gameObject.SetActive(isVisible);
+        });
     }
 
     private void HandleStartScreenMainButtonPressed()

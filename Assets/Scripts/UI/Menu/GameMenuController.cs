@@ -16,8 +16,8 @@ public class GameMenuController : MonoBehaviour
 
     private void Start()
     {
-        gameMenu.ToggleStartGameScreen(isShowingStartGameMenu);
-        gameMenu.TogglePauseScreen(isShowingPauseGameMenu);
+        gameMenu.ToggleStartGameScreen(isShowingStartGameMenu, fadeFx: false);
+        gameMenu.TogglePauseScreen(isShowingPauseGameMenu, fadeFx: false);
     }
     private void OnEnable()
     {

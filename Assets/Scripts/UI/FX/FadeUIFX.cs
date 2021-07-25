@@ -9,11 +9,10 @@ public class FadeUIFX : MonoBehaviour
     [SerializeField] private AnimationCurve fadeCurve;
     [SerializeField] [Range(0.0f, 20.0f)] private float fadeTransitionInSecs = 1.0f;
     private BaseFadeFX[] canFadeUIArray;
+    private bool isFading = false;
 
-    private void Awake()
-    {
-        canFadeUIArray = FindFadeUIInChildren();
-    }
+    [Header("Debug")]
+    [SerializeField] private bool logDebug;
 
     private void Update()
     {
@@ -26,6 +25,59 @@ public class FadeUIFX : MonoBehaviour
         {
             StartCoroutine(FadeInRoutine(null));
         }
+    }
+
+    public void Fade(bool isVisible, Action onEndCallback)
+    {
+        if(isVisible)
+        {
+            FadeIn(onEndCallback);
+        }
+        else
+        {
+            FadeOut(onEndCallback);
+        }
+    }
+
+    protected void FadeIn(Action onEndCallback)
+    {
+        if(logDebug) Debug.Log("FadeIn Called");
+
+        if(isFading)
+        {
+            return;
+        }
+
+        if(logDebug) Debug.Log("FadeIn Started");
+
+        isFading = true;
+        SetAll(0.0f);
+        this.gameObject.SetActive(true);
+        StartCoroutine(FadeInRoutine(() => {
+            isFading = false;
+            onEndCallback?.Invoke();
+            if(logDebug) Debug.Log("FadeIn Ended");
+        }));
+    }
+
+    protected void FadeOut(Action onEndCallback)
+    {
+        if(logDebug) Debug.Log("FadeOut Called");
+        if(isFading)
+        {
+            return;
+        }
+
+        if(logDebug) Debug.Log("FadeOut Started");
+
+        isFading = true;
+        SetAll(1.0f);
+        this.gameObject.SetActive(true);
+        StartCoroutine(FadeOutRoutine(() => {
+            if(logDebug) Debug.Log("FadeOut Started");
+            isFading = false;
+            onEndCallback?.Invoke();
+        }));
     }
 
     private BaseFadeFX[] FindFadeUIInChildren()
@@ -45,13 +97,13 @@ public class FadeUIFX : MonoBehaviour
 
     private IEnumerator FadeInRoutine(Action endOfAnimationCallback)
     {
-        yield return FadeRoutine(false);
+        yield return FadeRoutine(true);
         endOfAnimationCallback?.Invoke();
     }
 
     private IEnumerator FadeOutRoutine(Action endOfAnimationCallback)
     {
-        yield return FadeRoutine(true);
+        yield return FadeRoutine(false);
         endOfAnimationCallback?.Invoke();
     }
 
@@ -78,6 +130,11 @@ public class FadeUIFX : MonoBehaviour
 
     private void SetAll(float fadePercentage)
     {
+        if(canFadeUIArray == null)
+        {
+            canFadeUIArray = FindFadeUIInChildren();
+        }
+
         foreach(var item in canFadeUIArray)
         {
             item.SetFadePercentage(GetFadeValue(fadePercentage));

@@ -13,12 +13,6 @@ public class FadeUIPanel : BaseFadeFX
     private Color[] textStartColors;
     private Color[] textEndColors;
 
-    private void Awake()
-    {
-       InitImagesArray();
-       InitTextArray();
-    }
-
     private void InitImagesArray()
     {
         var imageList = new List<Image>();
@@ -60,6 +54,11 @@ public class FadeUIPanel : BaseFadeFX
 
     protected virtual void SetFadePercentageImages(float fadePercentage)
     {
+        if(imageArray == null)
+        {
+            InitImagesArray();
+        }
+
         var imageCount = imageArray.Length;
         for(int i = 0; i < imageCount; i++)
         {
@@ -72,6 +71,11 @@ public class FadeUIPanel : BaseFadeFX
 
     protected virtual void SetFadePercentageTexts(float fadePercentage)
     {
+        if(textArray == null)
+        {
+            InitTextArray();
+        }
+
         var textCount = textArray.Length;
         for(int i = 0; i < textCount; i++)
         {
