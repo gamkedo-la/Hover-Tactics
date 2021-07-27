@@ -30,7 +30,7 @@ public class SpaceshipController : MonoBehaviour
         Vector3 movement =
             (transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
             (rightDirection * horizontal * sideSpeed);
-        rigidbody.MovePosition(transform.position + (movement * Time.deltaTime));
+        rigidbody.velocity = movement;
         HandleMouseInput();
     }
 
