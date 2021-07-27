@@ -105,7 +105,8 @@ public class Weapon : MonoBehaviour
             GameObject newBullet = ObjectPooler.instance.SpawnFromPool(bulletTag, shootingPoint.position, shootingPoint.rotation);
             newBullet.GetComponent<Projectile>().SetForce((shootingPoint.forward * (speed/2.0f)) + (shootingPoint.up * (speed/2.0f)), Vector3.zero);
             Debug.Log("Playing Shoot Sound");
-            SoundFXManager.PlayOneShot(SoundFxKey.Shoot, audioSource);
-        }    
+        }
+        
+        SoundFXManager.PlayOneShot(SoundFxKey.Shoot, audioSource);
     }
 }
