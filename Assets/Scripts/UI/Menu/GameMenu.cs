@@ -21,12 +21,20 @@ public class GameMenu : MonoBehaviour
     {
         StartGameScreen.OnMainButtonPressed += HandleStartScreenMainButtonPressed;
         PauseGameScreen.OnMainButtonPressed += HandlePauseScreenMainButtonPressed; 
+
+        // menu button clicks
+        StartGameScreen.OnButtonPressed += PlaySelectedSound;
+        PauseGameScreen.OnButtonPressed += PlaySelectedSound;
     }
 
     private void OnDisable()
     {
         StartGameScreen.OnMainButtonPressed -= HandleStartScreenMainButtonPressed;
         PauseGameScreen.OnMainButtonPressed += HandlePauseScreenMainButtonPressed;
+
+        // menu button clicks
+        StartGameScreen.OnButtonPressed -= PlaySelectedSound;
+        PauseGameScreen.OnButtonPressed -= PlaySelectedSound;
     }
 
     public void ToggleStartGameScreen(bool isVisible, bool fadeFx = true)
@@ -65,5 +73,10 @@ public class GameMenu : MonoBehaviour
     {
         if (logDebug) Debug.Log("Resume Game Button Pressed");
         OnResumeGameButtonPressed?.Invoke();
+    }
+
+    private void PlaySelectedSound()
+    {
+        SoundFXManager.PlayOneShot(SoundFxKey.Select);
     }
 }

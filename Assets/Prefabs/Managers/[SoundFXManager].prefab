@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 6056424997892700907}
   - component: {fileID: 2668924595051455077}
   m_Layer: 0
-  m_Name: SoundFXManager
+  m_Name: '[SoundFXManager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainAudioSource: {fileID: 419135673822943499}
-  select: {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
+  select: {fileID: 8300000, guid: e12b8d5b733ebac45aee1832d65d38d5, type: 3}
   explosion: {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
   shoot: {fileID: 8300000, guid: 9cec47d379eceed41aa1f8099735b235, type: 3}
   logDebug: 0
