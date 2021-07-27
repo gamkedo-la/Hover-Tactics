@@ -25,6 +25,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Image weaponImage;
     [SerializeField] private Image cooldownBar;
 
+    [Header("Debug")]
+    [SerializeField] private bool logDebug;
+
     private float cooldownTimer = 0.0f;
     private float raycastLineTimer = 0.0f;
     private SpaceshipController controller;
@@ -80,7 +83,7 @@ public class Weapon : MonoBehaviour
     {
         if(bulletTag == "")
         {
-            Debug.Log("bulletTag is null");
+            if(logDebug) Debug.Log("bulletTag is null");
 
             lineRenderer.SetPosition(0, shootingPoint.position);
             lineRenderer.SetPosition(1, shootingPoint.position + (shootingPoint.forward * 1000.0f));
@@ -101,12 +104,12 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            Debug.Log("bulletTag is not null, spawning new bullet");
+            if(logDebug) Debug.Log("bulletTag is not null, spawning new bullet");
             GameObject newBullet = ObjectPooler.instance.SpawnFromPool(bulletTag, shootingPoint.position, shootingPoint.rotation);
             newBullet.GetComponent<Projectile>().SetForce((shootingPoint.forward * (speed/2.0f)) + (shootingPoint.up * (speed/2.0f)), Vector3.zero);
-            Debug.Log("Playing Shoot Sound");
         }
-        
+
+        if(logDebug) Debug.Log("Playing Shoot Sound");
         SoundFXManager.PlayOneShot(SoundFxKey.Shoot, audioSource);
     }
 }
