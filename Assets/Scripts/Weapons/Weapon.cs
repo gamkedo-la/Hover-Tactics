@@ -80,6 +80,8 @@ public class Weapon : MonoBehaviour
     {
         if(bulletTag == "")
         {
+            Debug.Log("bulletTag is null");
+
             lineRenderer.SetPosition(0, shootingPoint.position);
             lineRenderer.SetPosition(1, shootingPoint.position + (shootingPoint.forward * 1000.0f));
             lineRenderer.enabled = true;
@@ -99,9 +101,11 @@ public class Weapon : MonoBehaviour
         }
         else
         {
+            Debug.Log("bulletTag is not null, spawning new bullet");
             GameObject newBullet = ObjectPooler.instance.SpawnFromPool(bulletTag, shootingPoint.position, shootingPoint.rotation);
             newBullet.GetComponent<Projectile>().SetForce((shootingPoint.forward * (speed/2.0f)) + (shootingPoint.up * (speed/2.0f)), Vector3.zero);
-            audioSource.PlayOneShot(shootingSound);
-        }
+            Debug.Log("Playing Shoot Sound");
+            SoundFXManager.PlayOneShot(SoundFxKey.Shoot, audioSource);
+        }    
     }
 }

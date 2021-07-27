@@ -54,7 +54,8 @@ public class Projectile : MonoBehaviour
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
 
         ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
-        audioSource.PlayOneShot(explosionSound);
+        Debug.Log("Playing Explosion Sound");
+        SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
         meshRenderer.enabled = false;
         collider.enabled = false;
 
