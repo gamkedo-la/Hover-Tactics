@@ -12,7 +12,7 @@ public class SoundFXManager : MonoBehaviour
     [SerializeField] private AudioClip explosion;
     [SerializeField] private AudioClip shoot;
 
-    [Header("Debug Switch")]
+    [Header("Debug")]
     [SerializeField] private bool logDebug = false;
 
     private static SoundFXManager _instance;
@@ -69,6 +69,7 @@ public class SoundFXManager : MonoBehaviour
 
         if(false == TryGetRandomClip(soundFxKey, out AudioClip clip))
         {
+            if (Instance.logDebug) Debug.LogWarning($"no audio clip found for [{soundFxKey}]");
             return;
         }
 

@@ -13,11 +13,11 @@ public class SpaceshipController : MonoBehaviour
     [Space]
     [SerializeField] GameObject Cursor;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     
     void Update()
@@ -30,7 +30,7 @@ public class SpaceshipController : MonoBehaviour
         Vector3 movement =
             (transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
             (rightDirection * horizontal * sideSpeed);
-        rigidbody.velocity = movement;
+        rb.velocity = movement;
         HandleMouseInput();
     }
 
@@ -47,6 +47,6 @@ public class SpaceshipController : MonoBehaviour
     {
         Vector3 rotation = transform.rotation.eulerAngles;
         rotation.y += direction * turnSpeed * Time.deltaTime;
-        rigidbody.MoveRotation(Quaternion.Euler(rotation));
+        rb.MoveRotation(Quaternion.Euler(rotation));
     }
 }
