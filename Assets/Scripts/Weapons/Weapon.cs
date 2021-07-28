@@ -57,9 +57,11 @@ public class Weapon : MonoBehaviour
         {
             if(cooldownTimer <= 0.0f)
             {
-                if((type == Type.BASIC && Input.GetButtonDown("Fire1"))
+                if((type == Type.BASIC && Input.GetButton("Fire1"))
                 || (type == Type.SPECIAL && Input.GetButtonDown("Fire2")))
                 {
+                    shootingPoint.LookAt(CameraController.singleton.lastAimPoint);
+
                     Fire();
                     cooldownTimer = cooldownDelay;
                 }

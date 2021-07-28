@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         camController = Camera.main.GetComponent<CameraController>();
-        hoverMechs[activeIndex].transform.GetChild(3).gameObject.SetActive(false); //Shield
+        hoverMechs[activeIndex].transform.GetChild(2).gameObject.SetActive(false); //Shield
         hoverMechs[activeIndex].GetComponent<SpaceshipController>().enabled = true;
         camController.SetTransformToFollow(hoverMechs[activeIndex].transform);
     }

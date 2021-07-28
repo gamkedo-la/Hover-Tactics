@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController singleton;
     [SerializeField] private Transform transformToFollow;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float lerpFactor;
@@ -11,11 +12,18 @@ public class CameraController : MonoBehaviour
     [Space]
     [SerializeField] private GameObject cursor;
 
+    public Vector3 lastAimPoint { get; private set; }
     private Camera cam;
+
 
     public void SetTransformToFollow(Transform tr)
     {
         transformToFollow = tr;
+    }
+
+    private void Awake()
+    {
+        singleton = this;
     }
 
     void Start()
@@ -35,7 +43,9 @@ public class CameraController : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;
-        if(Physics.Raycast(ray, out hitData, 200))
-            cursor.transform.position = hitData.point;
+        if (Physics.Raycast(ray, out hitData, 200))
+            lastAimPoint = hitData.point;
+
+        cursor.transform.position = lastAimPoint;
     }
 }
