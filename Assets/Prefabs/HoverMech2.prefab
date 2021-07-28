@@ -786,9 +786,17 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 0}
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  m_SelectedVertices: 00000000000000000000000000000000
 --- !u!23 &1511064884537524408
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1568,6 +1576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4603662656988303429}
   - component: {fileID: 3988536482050178984}
+  - component: {fileID: 6867944242219888775}
   m_Layer: 0
   m_Name: ThrustEmitter
   m_TagString: Untagged
@@ -1696,6 +1705,78 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &6867944242219888775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252516787863727969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbadf4f9e47673f4cb7acbdf453487fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mechBoost: {fileID: 5300834565565048206}
+  trailRenderer: {fileID: 3988536482050178984}
+  modifiedColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.51687413, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0.019001007, a: 0.99607843}
+    key2: {r: 1, g: 0.1286972, b: 0, a: 0.4735294}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 6361
+    ctime1: 22937
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 14842
+    atime2: 65535
+    atime3: 65535
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 3
+  cooldownGradient:
+    serializedVersion: 2
+    key0: {r: 0.7924528, g: 0, b: 0, a: 1}
+    key1: {r: 0.047169805, g: 0.047169805, b: 0.047169805, a: 1}
+    key2: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0.4735294}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 17155
+    ctime1: 46646
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 53970
+    atime2: 65535
+    atime3: 65535
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 3
 --- !u!1 &5351465101959917737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1840,7 @@ GameObject:
   - component: {fileID: 6327884629601354384}
   - component: {fileID: 4411935305463015480}
   - component: {fileID: 491892219600123661}
+  - component: {fileID: 5300834565565048206}
   m_Layer: 0
   m_Name: HoverMech2
   m_TagString: Untagged
@@ -1801,6 +1883,7 @@ MonoBehaviour:
   sideSpeed: 30
   turnSpeed: 200
   turnSensitivity: 0.1
+  mechBoost: {fileID: 5300834565565048206}
   Cursor: {fileID: 0}
 --- !u!135 &59975626966411592
 SphereCollider:
@@ -1852,6 +1935,7 @@ MonoBehaviour:
   raycastLineDelay: 0.1
   weaponImage: {fileID: 0}
   cooldownBar: {fileID: 0}
+  logDebug: 0
 --- !u!82 &491892219600123661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1948,6 +2032,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5300834565565048206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730692806992436542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostValueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.37334403
+      outSlope: 0.37334403
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.43790054
+    - serializedVersion: 3
+      time: 0.42637628
+      value: 0.4053664
+      inSlope: 4.0319595
+      outSlope: 4.0319595
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.60202247
+      outWeight: 0.10088801
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.3701017
+      outSlope: 0.3701017
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3919508
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  boostMaxValue: 2.5
+  boostDuration: 2.5
+  boostCooldown: 2.5
 --- !u!1 &7202903047143826287
 GameObject:
   m_ObjectHideFlags: 0
