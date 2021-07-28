@@ -41,6 +41,14 @@ public class Weapon : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         audioSource = GetComponent<AudioSource>();
         laserController = GetComponent<LaserController>();
+
+        if(logDebug)
+        {
+            if(controller == null) Debug.LogWarning($"component [{nameof(SpaceshipController)}] not found in [{this.gameObject.name}]");
+            if(lineRenderer == null) Debug.LogWarning($"component [{nameof(LineRenderer)}] not found in [{this.gameObject.name}]");
+            if(audioSource == null) Debug.LogWarning($"component [{nameof(AudioSource)}] not found in [{this.gameObject.name}]");
+            if(laserController == null) Debug.LogWarning($"component [{nameof(LaserController)}] not found in [{this.gameObject.name}]");
+        }
     }
 
     void Update()
