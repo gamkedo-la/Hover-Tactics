@@ -15,9 +15,12 @@ public class Projectile : MonoBehaviour
     private float destroyTimer = 0.0f;
 
     private MeshRenderer meshRenderer;
-    private Rigidbody rigidbody;
-    private Collider collider;
+    private Rigidbody rb;
+    private Collider projectileCollider;
     private AudioSource audioSource;
+
+    [Header("Debug")]
+    [SerializeField] private bool logDebug = false;
 
     public void SetForce(Vector3 impactForce, Vector3 force)
     {
@@ -28,8 +31,8 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
+        projectileCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
         destroyTimer = destroyDelay;
     }
@@ -38,10 +41,10 @@ public class Projectile : MonoBehaviour
     {
         if(impactForce != Vector3.zero)
         {
-            rigidbody.AddForce(impactForce, ForceMode.Impulse);
+            rb.AddForce(impactForce, ForceMode.Impulse);
             impactForce = Vector3.zero;
         }
-        rigidbody.AddForce(force);
+        rb.AddForce(force);
 
         if(destroyTimer <= 0.0f)
         {
@@ -53,23 +56,23 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision col)
     {
-        Building building = collision.other.GetComponent<Building>();
+        Building building = col.transform.gameObject.GetComponent<Building>();
         if(building)
         {
             building.Damage(damage);
         }
 
-        ContactPoint contact = collision.contacts[0];
+        ContactPoint contact = col.contacts[0];
 
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
 
         ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
-        Debug.Log("Playing Explosion Sound");
+        if(logDebug) Debug.Log("Playing Explosion Sound");
         SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
         meshRenderer.enabled = false;
-        collider.enabled = false;
+        projectileCollider.enabled = false;
 
         Invoke("DisableObject", 1.0f);
     }
@@ -78,7 +81,7 @@ public class Projectile : MonoBehaviour
     {
         destroyTimer = destroyDelay;
         meshRenderer.enabled = true;
-        collider.enabled = true;
+        projectileCollider.enabled = true;
         impactForce = force = Vector3.zero;
         gameObject.SetActive(false);
     }

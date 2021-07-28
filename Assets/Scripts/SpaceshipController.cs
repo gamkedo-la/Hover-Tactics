@@ -8,45 +8,73 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] float backwardSpeed;
     [SerializeField] float sideSpeed;
     [Space]
+    [SerializeField] HoverMechAnimation hoverMechAnimation;
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
+    [SerializeField] MechBoost mechBoost;
     [Space]
     [SerializeField] GameObject Cursor;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
+
+    private float horizontal;
+    private float vertical;
+    private float turnDir;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     
-    void Update()
+    private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 rightDirection = transform.right;
-        rightDirection.y = 0.0f;
-        Vector3 movement =
-            (transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
-            (rightDirection * horizontal * sideSpeed);
-        rigidbody.velocity = movement;
+        HandleMovementInput();
         HandleMouseInput();
+        Turn();
     }
 
-    void HandleMouseInput()
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void HandleMovementInput()
+    {
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+
+        if(ShouldActivateBoost())
+        {
+            mechBoost.ActivateBoost();
+        }
+    }
+
+    private bool ShouldActivateBoost()
+    {
+        return mechBoost?.IsBoostActive() == false && Input.GetKeyDown(KeyCode.Space);
+    }
+
+    private void HandleMouseInput()
     {
         Vector3 targetPoint = Cursor.transform.position;
-        Vector3 relativeDirection = transform.InverseTransformPoint(targetPoint);
-        float turnDir = Mathf.Atan2(relativeDirection.x, relativeDirection.z) * Mathf.Rad2Deg * turnSensitivity;
+        Vector3 relativeDirection = hoverMechAnimation.transform.InverseTransformPoint(targetPoint);
+        turnDir = Mathf.Atan2(relativeDirection.x, relativeDirection.z) * Mathf.Rad2Deg * turnSensitivity;
         turnDir = Mathf.Clamp(turnDir, -1, 1);
-        Turn(turnDir);
     }
 
-    public void Turn(float direction)
+    private void Move()
     {
-        Vector3 rotation = transform.rotation.eulerAngles;
-        rotation.y += direction * turnSpeed * Time.deltaTime;
-        rigidbody.MoveRotation(Quaternion.Euler(rotation));
+        Vector3 rightDirection = hoverMechAnimation.transform.right;
+        rightDirection.y = 0.0f;
+        Vector3 movement =
+            (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
+            (rightDirection * horizontal * sideSpeed);
+        
+        rb.velocity = (mechBoost == null) ? movement : movement*mechBoost.GetBoostValue();
+    }
+
+    private void Turn()
+    {
+        hoverMechAnimation.SetYRotation(hoverMechAnimation.GetYRotation() + turnDir * turnSpeed * Time.deltaTime);
     }
 }

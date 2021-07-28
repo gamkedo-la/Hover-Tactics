@@ -10,6 +10,17 @@ public class HoverMechAnimation : MonoBehaviour
     [SerializeField] private float sideRotation = 20.0f;
 
     private SpaceshipController controller;
+    private float yRotation = 180.0f;
+
+    public float GetYRotation()
+    {
+        return yRotation;
+    }
+
+    public void SetYRotation(float rot)
+    {
+        yRotation = rot;
+    }
 
     void Start()
     {
@@ -26,6 +37,7 @@ public class HoverMechAnimation : MonoBehaviour
             Quaternion quaternionRotation = transform.rotation;
             Vector3 rotation = transform.rotation.eulerAngles;
             rotation.x = vertical * (vertical > 0 ? forwardRotation : backwardRotation);
+            rotation.y = 180.0f + yRotation;
             rotation.z = horizontal * -sideRotation;
             quaternionRotation = Quaternion.Euler(rotation);
 
