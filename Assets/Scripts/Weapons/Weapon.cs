@@ -33,12 +33,14 @@ public class Weapon : MonoBehaviour
     private SpaceshipController controller;
     private LineRenderer lineRenderer;
     private AudioSource audioSource;
+    private LaserController laserController;
 
     void Start()
     {
         controller = GetComponent<SpaceshipController>();
         lineRenderer = GetComponent<LineRenderer>();
         audioSource = GetComponent<AudioSource>();
+        laserController = GetComponent<LaserController>();
     }
 
     void Update()
@@ -62,6 +64,7 @@ public class Weapon : MonoBehaviour
 
         if(lineRenderer)
         {
+            /*
             if(raycastLineTimer <= 0.0f)
             {
                 lineRenderer.enabled = false;
@@ -76,6 +79,7 @@ public class Weapon : MonoBehaviour
                 lineRenderer.startColor = lineRenderer.endColor = color;
                 raycastLineTimer -= Time.deltaTime;
             }
+            */
         }
     }
 
@@ -87,19 +91,26 @@ public class Weapon : MonoBehaviour
 
             lineRenderer.SetPosition(0, shootingPoint.position);
             lineRenderer.SetPosition(1, shootingPoint.position + (shootingPoint.forward * 1000.0f));
-            lineRenderer.enabled = true;
-            raycastLineTimer = raycastLineDelay;
+            //lineRenderer.enabled = true;
+            //raycastLineTimer = raycastLineDelay;
+
 
             RaycastHit hitData;
-            if(Physics.Raycast(shootingPoint.position, shootingPoint.forward, out hitData))
+            if (Physics.Raycast(shootingPoint.position, shootingPoint.forward, out hitData))
             {
                 lineRenderer.SetPosition(1, hitData.point);
 
                 Building building = hitData.transform.gameObject.GetComponent<Building>();
-                if(building)
+                if (building)
                 {
                     building.Damage(0.1f);
                 }
+
+                laserController.Shoot(raycastLineDelay, Vector3.Distance(shootingPoint.position, hitData.point));
+            }
+            else
+            {
+                laserController.Shoot(raycastLineDelay, 1000);
             }
         }
         else
