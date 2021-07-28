@@ -8,6 +8,7 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] float backwardSpeed;
     [SerializeField] float sideSpeed;
     [Space]
+    [SerializeField] HoverMechAnimation hoverMechAnimation;
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
     [SerializeField] MechBoost mechBoost;
@@ -29,12 +30,12 @@ public class SpaceshipController : MonoBehaviour
     {
         HandleMovementInput();
         HandleMouseInput();
+        Turn();
     }
 
     private void FixedUpdate()
     {
         Move();
-        Turn();
     }
 
     private void HandleMovementInput()
@@ -56,17 +57,17 @@ public class SpaceshipController : MonoBehaviour
     private void HandleMouseInput()
     {
         Vector3 targetPoint = Cursor.transform.position;
-        Vector3 relativeDirection = transform.InverseTransformPoint(targetPoint);
+        Vector3 relativeDirection = hoverMechAnimation.transform.InverseTransformPoint(targetPoint);
         turnDir = Mathf.Atan2(relativeDirection.x, relativeDirection.z) * Mathf.Rad2Deg * turnSensitivity;
         turnDir = Mathf.Clamp(turnDir, -1, 1);
     }
 
     private void Move()
     {
-        Vector3 rightDirection = transform.right;
+        Vector3 rightDirection = hoverMechAnimation.transform.right;
         rightDirection.y = 0.0f;
         Vector3 movement =
-            (transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
+            (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
             (rightDirection * horizontal * sideSpeed);
         
         rb.velocity = (mechBoost == null) ? movement : movement*mechBoost.GetBoostValue();
@@ -74,8 +75,6 @@ public class SpaceshipController : MonoBehaviour
 
     private void Turn()
     {
-        Vector3 rotation = transform.rotation.eulerAngles;
-        rotation.y += turnDir * turnSpeed * Time.deltaTime;
-        rb.MoveRotation(Quaternion.Euler(rotation));
+        hoverMechAnimation.SetYRotation(hoverMechAnimation.GetYRotation() + turnDir * turnSpeed * Time.deltaTime);
     }
 }
