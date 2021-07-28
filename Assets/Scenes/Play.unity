@@ -4976,7 +4976,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660936827}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0
@@ -29726,6 +29726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: LaserUpTime
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009027189204138470, guid: fd9055a6a20256e429230b6b54b0f95c,
+        type: 3}
+      propertyPath: explosionTag
+      value: TestExplosion2
       objectReference: {fileID: 0}
     - target: {fileID: 3009027189204138470, guid: fd9055a6a20256e429230b6b54b0f95c,
         type: 3}

@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
 
     [Header("AudioVisual")]
     [SerializeField] private string bulletTag;
+    [SerializeField] private string explosionTag;
     [SerializeField] private AudioClip shootingSound;
     [SerializeField] private float LaserUpTime = 0.1f;
     [SerializeField] private float LaserDecayTime = 0.1f;
@@ -118,6 +119,10 @@ public class Weapon : MonoBehaviour
                 }
 
                 laserController.Shoot(LaserUpTime, LaserDecayTime, Vector3.Distance(shootingPoint.position, hitData.point));
+
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitData.normal);
+
+                ObjectPooler.instance.SpawnFromPool(explosionTag, hitData.point, rot);
             }
             else
             {
