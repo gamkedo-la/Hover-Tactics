@@ -8,9 +8,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float damage = 1.0f;
     [SerializeField] private string explosionTag;
     [SerializeField] private AudioClip explosionSound;
+    [SerializeField] private float destroyDelay = 2.0f;
 
     private Vector3 impactForce;
     private Vector3 force;
+    private float destroyTimer = 0.0f;
 
     private MeshRenderer meshRenderer;
     private Rigidbody rigidbody;
@@ -29,6 +31,7 @@ public class Projectile : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
+        destroyTimer = destroyDelay;
     }
 
     void Update()
@@ -39,6 +42,15 @@ public class Projectile : MonoBehaviour
             impactForce = Vector3.zero;
         }
         rigidbody.AddForce(force);
+
+        if(destroyTimer <= 0.0f)
+        {
+            DisableObject();
+        }
+        else
+        {
+            destroyTimer -= Time.deltaTime;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -54,7 +66,8 @@ public class Projectile : MonoBehaviour
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
 
         ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
-        audioSource.PlayOneShot(explosionSound);
+        Debug.Log("Playing Explosion Sound");
+        SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
         meshRenderer.enabled = false;
         collider.enabled = false;
 
@@ -63,6 +76,7 @@ public class Projectile : MonoBehaviour
 
     void DisableObject()
     {
+        destroyTimer = destroyDelay;
         meshRenderer.enabled = true;
         collider.enabled = true;
         impactForce = force = Vector3.zero;
