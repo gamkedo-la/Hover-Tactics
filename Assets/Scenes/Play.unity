@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3734,7 +3734,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1816
+  m_Name: pb_Mesh-22958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5066,6 +5066,54 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &660936829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660936827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostValueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.37334403
+      outSlope: 0.37334403
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.43790054
+    - serializedVersion: 3
+      time: 0.42637628
+      value: 0.4053664
+      inSlope: 4.0319595
+      outSlope: 4.0319595
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.60202247
+      outWeight: 0.10088801
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.3701017
+      outSlope: 0.3701017
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3919508
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  boostMaxValue: 2.5
+  boostDuration: 2.5
+  boostCooldown: 2.5
 --- !u!43 &682741367
 Mesh:
   m_ObjectHideFlags: 0
@@ -18146,7 +18194,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1826
+  m_Name: pb_Mesh-22968
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29759,6 +29807,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5300834565054401766, guid: fd9055a6a20256e429230b6b54b0f95c,
+        type: 3}
+      propertyPath: mechBoost
+      value: 
+      objectReference: {fileID: 660936829}
     - target: {fileID: 5300834565054401766, guid: fd9055a6a20256e429230b6b54b0f95c,
         type: 3}
       propertyPath: turnSpeed

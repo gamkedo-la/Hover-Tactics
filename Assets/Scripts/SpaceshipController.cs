@@ -10,6 +10,7 @@ public class SpaceshipController : MonoBehaviour
     [Space]
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
+    [SerializeField] MechBoost mechBoost;
     [Space]
     [SerializeField] GameObject Cursor;
 
@@ -40,6 +41,16 @@ public class SpaceshipController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        if(ShouldActivateBoost())
+        {
+            mechBoost.ActivateBoost();
+        }
+    }
+
+    private bool ShouldActivateBoost()
+    {
+        return mechBoost?.IsBoostActive() == false && Input.GetKeyDown(KeyCode.Space);
     }
 
     private void HandleMouseInput()
@@ -57,7 +68,8 @@ public class SpaceshipController : MonoBehaviour
         Vector3 movement =
             (transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
             (rightDirection * horizontal * sideSpeed);
-        rb.velocity = movement;
+        
+        rb.velocity = (mechBoost == null) ? movement : movement*mechBoost.GetBoostValue();
     }
 
     private void Turn()
