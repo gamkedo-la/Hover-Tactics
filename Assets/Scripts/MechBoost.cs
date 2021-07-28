@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class MechBoost : MonoBehaviour
 {
+    public enum BoostState { Inactive, Active, Coolindown }
     [SerializeField] protected AnimationCurve boostValueCurve;
     
     [Range(1.0f, 5f)]
@@ -12,8 +13,10 @@ public class MechBoost : MonoBehaviour
     [SerializeField] protected float boostDuration = 2.5f;
     [Range(1.0f, 5f)]
     [SerializeField] protected float boostCooldown = 2.5f;
-    [SerializeField] protected float boostValue = 1.0f;
+    protected float boostValue = 1.0f;
     protected bool isBoostActivated = false;
+    public Action<BoostState> BoostActivateToggled;
+
     public void ActivateBoost()
     {
         if(isBoostActivated)
@@ -36,7 +39,8 @@ public class MechBoost : MonoBehaviour
 
     private IEnumerator BoostRoutine()
     {
-        isBoostActivated = false;
+        isBoostActivated = true;
+        BoostActivateToggled?.Invoke(BoostState.Active);
 
         var elapsed = 0.0f;
         while(elapsed <= boostDuration)
@@ -51,8 +55,10 @@ public class MechBoost : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
         boostValue = 1.0f;
+        BoostActivateToggled?.Invoke(BoostState.Coolindown);
 
         yield return new WaitForSeconds(boostCooldown);
         isBoostActivated = false;
+        BoostActivateToggled?.Invoke(BoostState.Inactive);
     }
 }
