@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserController : MonoBehaviour
 {
-    public float LaserPause = .2f;
+    //public float LaserPause = .2f;
 
     private LineRenderer lineRenderer;
     private float LL;
@@ -15,7 +15,7 @@ public class LaserController : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        LL = 1 + LaserPause;
+        //LL = 1 + LaserPause;
         lineRenderer.enabled = false;
     }
 
@@ -38,14 +38,14 @@ public class LaserController : MonoBehaviour
     }
 
 
-    public void Shoot(float HangTime, float Length)
+    public void Shoot(float HangTime, float DecayTime, float Length)
     {
         lineRenderer.enabled = true;
 
         Active = true;
 
         LaserLife = HangTime;
-        LL = 1 + LaserPause;
+        LL = 1 + (DecayTime * HangTime);
 
         Vector4 T = new Vector4(Length, 1, 0, 0);
 

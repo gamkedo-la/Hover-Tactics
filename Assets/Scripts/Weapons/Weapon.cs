@@ -19,7 +19,8 @@ public class Weapon : MonoBehaviour
     [Header("AudioVisual")]
     [SerializeField] private string bulletTag;
     [SerializeField] private AudioClip shootingSound;
-    [SerializeField] private float raycastLineDelay = 0.1f;
+    [SerializeField] private float LaserUpTime = 0.1f;
+    [SerializeField] private float LaserDecayTime = 0.1f;
 
     [Header("UI")]
     [SerializeField] private Image weaponImage;
@@ -116,11 +117,11 @@ public class Weapon : MonoBehaviour
                     building.Damage(0.1f);
                 }
 
-                laserController.Shoot(raycastLineDelay, Vector3.Distance(shootingPoint.position, hitData.point));
+                laserController.Shoot(LaserUpTime, LaserDecayTime, Vector3.Distance(shootingPoint.position, hitData.point));
             }
             else
             {
-                laserController.Shoot(raycastLineDelay, 1000);
+                laserController.Shoot(LaserUpTime, LaserDecayTime, 1000);
             }
         }
         else
