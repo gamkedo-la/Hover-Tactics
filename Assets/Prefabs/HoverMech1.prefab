@@ -347,8 +347,10 @@ MonoBehaviour:
   shootingPoint: {fileID: 2764866125502653183}
   cooldownDelay: 0.1
   bulletTag: 
+  explosionTag: 
   shootingSound: {fileID: 8300000, guid: 9cec47d379eceed41aa1f8099735b235, type: 3}
-  raycastLineDelay: 0.025
+  LaserUpTime: 0.1
+  LaserDecayTime: 0.1
   weaponImage: {fileID: 0}
   cooldownBar: {fileID: 0}
   logDebug: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 public class SnapToGround : MonoBehaviour
 {
 #if UNITY_EDITOR
-    [MenuItem("Custom/Snap To Ground %g")]
+    [MenuItem("Custom/Snap To Ground %l")]
 
     public static void Ground()
     {

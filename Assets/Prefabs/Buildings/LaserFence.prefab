@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 6316184867829481138}
   - component: {fileID: 6316184867829481143}
   - component: {fileID: 6316184867829481136}
-  - component: {fileID: 6316184867829481137}
   m_Layer: 0
   m_Name: EndTurret
   m_TagString: Untagged
@@ -117,19 +116,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6316184867829481137
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316184867829481139}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6316184868573750282
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +127,6 @@ GameObject:
   - component: {fileID: 6316184868573750281}
   - component: {fileID: 6316184868573750286}
   - component: {fileID: 6316184868573750287}
-  - component: {fileID: 6316184868573750280}
   m_Layer: 0
   m_Name: StartTurret
   m_TagString: Untagged
@@ -212,19 +197,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6316184868573750280
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316184868573750282}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6316184868654251931
 GameObject:
   m_ObjectHideFlags: 0

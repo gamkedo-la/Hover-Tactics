@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 6056424997892700907}
   - component: {fileID: 2668924595051455077}
   m_Layer: 0
-  m_Name: '[SoundFXManager]'
+  m_Name: SFXManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
