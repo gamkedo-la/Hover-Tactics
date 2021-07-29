@@ -63,6 +63,10 @@ public class Weapon : MonoBehaviour
                 || (type == Type.SPECIAL && Input.GetButtonDown("Fire2")))
                 {
                     shootingPoint.LookAt(CameraController.singleton.lastAimPoint);
+                    Vector3 shootingPointEuler = shootingPoint.localRotation.eulerAngles;
+                    shootingPointEuler.y = 0;
+                    shootingPointEuler.z = 0;
+                    shootingPoint.localRotation = Quaternion.Euler(shootingPointEuler);
 
                     Fire();
                     cooldownTimer = cooldownDelay;
