@@ -4,19 +4,64 @@ using UnityEngine;
 
 public class LaserFence : MonoBehaviour
 {
-    public LineRenderer lineRenderer;
+    [SerializeField] private float[] laserHeights;
 
-    public GameObject startFence;
-    public GameObject endFence;
-    public float heightOffset;
+    private List<Vector3> positions;
+    private LineRenderer lineRenderer;
 
-    // Update is called once per frame
+    void Start()
+    {
+        positions = new List<Vector3>();
+        lineRenderer = transform.GetChild(1).GetComponent<LineRenderer>();
+        lineRenderer.positionCount = laserHeights.Length * transform.GetChild(0).childCount;
+        for(int h = 0; h < laserHeights.Length; h++)
+        {
+            if(h % 2 == 0)
+            {
+                for(int i = 0; i < transform.GetChild(0).childCount; i++)
+                {
+                    Vector3 position = transform.GetChild(0).GetChild(i).transform.position;
+                    position.y += laserHeights[h];
+                    positions.Add(position);
+                }
+            }
+            else
+            {
+                for(int i = transform.GetChild(0).childCount - 1; i >= 0; i--)
+                {
+                    Vector3 position = transform.GetChild(0).GetChild(i).transform.position;
+                    position.y += laserHeights[h];
+                    positions.Add(position);
+                }
+            }
+        }
+        lineRenderer.SetPositions(positions.ToArray());
+
+        for(int i = 0; i < lineRenderer.positionCount - 1; i++)
+        {
+            AddLineCollider(lineRenderer, lineRenderer.GetPosition(i), lineRenderer.GetPosition(i+1));
+        }
+    }
+
     void Update()
     {
-        if(lineRenderer != null)
-		{
-            lineRenderer.SetPosition(0, new Vector3(startFence.transform.position.x, startFence.transform.position.y + heightOffset, startFence.transform.position.z));
-            lineRenderer.SetPosition(1, new Vector3(endFence.transform.position.x, endFence.transform.position.y + heightOffset, endFence.transform.position.z));
-		}
+    }
+
+    void AddLineCollider(LineRenderer lineRenderer, Vector3 startPos, Vector3 endPos)
+    {
+        BoxCollider lineCollider = new GameObject("LineCollider").AddComponent<BoxCollider>();
+        lineCollider.transform.parent = lineRenderer.transform;
+
+        float lineWidth = lineRenderer.endWidth;
+        float lineLength = Vector3.Distance(startPos, endPos);
+        lineCollider.size = new Vector3(lineLength, lineWidth, 1.0f);
+
+        Vector3 midPoint = (startPos + endPos) / 2.0f;
+        lineCollider.transform.position = midPoint;
+
+        float angle = Mathf.Atan2((endPos.z - startPos.z), (endPos.x - startPos.x));
+        angle *= Mathf.Rad2Deg;
+        angle *= -1.0f;
+        lineCollider.transform.Rotate(0.0f, angle, 0.0f);
     }
 }
