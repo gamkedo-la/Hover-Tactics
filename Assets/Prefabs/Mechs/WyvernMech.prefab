@@ -849,36 +849,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511064884537524411}
   m_Mesh: {fileID: 0}
---- !u!1 &1511064884716204844
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1511064884716204819}
-  m_Layer: 0
-  m_Name: None
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1511064884716204819
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511064884716204844}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6730692806992436537}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1511064885904558309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,7 +1813,7 @@ GameObject:
   - component: {fileID: 491892219600123661}
   - component: {fileID: 5300834565565048206}
   m_Layer: 0
-  m_Name: HoverMech2
+  m_Name: WyvernMech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1861,7 +1831,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6965336205420608425}
-  - {fileID: 1511064884716204819}
   - {fileID: 5173596769702915005}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1886,6 +1855,7 @@ MonoBehaviour:
   turnSensitivity: 0.1
   mechBoost: {fileID: 5300834565565048206}
   Cursor: {fileID: 0}
+  MP: 1
 --- !u!135 &59975626966411592
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1932,11 +1902,12 @@ MonoBehaviour:
   shootingPoint: {fileID: 3649787712484487969}
   cooldownDelay: 0.1
   bulletTag: TestProjectile
+  explosionTag: 
   shootingSound: {fileID: 8300000, guid: 9cec47d379eceed41aa1f8099735b235, type: 3}
-  raycastLineDelay: 0.1
+  LaserUpTime: 0.1
+  LaserDecayTime: 0.1
   weaponImage: {fileID: 0}
   cooldownBar: {fileID: 0}
-  logDebug: 0
 --- !u!82 &491892219600123661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2111,7 +2082,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 6730692806992436537}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4166953720013325093
 MeshFilter:

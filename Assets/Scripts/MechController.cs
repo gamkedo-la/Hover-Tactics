@@ -19,15 +19,20 @@ public class MechController : MonoBehaviour
     //TEMP
     public float MP = 1.0f;
 
-    private Rigidbody rb;
+    private Rigidbody rigidbody;
 
     private float horizontal;
     private float vertical;
     private float turnDir;
 
+    public void StopMovement()
+    {
+        rigidbody.velocity = Vector3.zero;
+    }
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
     }
     
     private void Update()
@@ -74,7 +79,7 @@ public class MechController : MonoBehaviour
             (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
             (rightDirection * horizontal * sideSpeed);
         
-        rb.velocity = (mechBoost == null) ? movement : movement*mechBoost.GetBoostValue();
+        rigidbody.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
     }
 
     private void Turn()
