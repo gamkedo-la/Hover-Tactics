@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceshipController : MonoBehaviour
+public class MechController : MonoBehaviour
 {
+    [Header("Speeds")]
     [SerializeField] float forwardSpeed;
     [SerializeField] float backwardSpeed;
     [SerializeField] float sideSpeed;
-    [Space]
+    [Header("Turning")]
     [SerializeField] HoverMechAnimation hoverMechAnimation;
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
-    [SerializeField] MechBoost mechBoost;
     [Space]
+    [SerializeField] MechBoost mechBoost;
     [SerializeField] GameObject Cursor;
+
+    //TEMP
+    public float MP = 1.0f;
 
     private Rigidbody rb;
 

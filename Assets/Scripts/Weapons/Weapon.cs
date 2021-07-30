@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Assertions;
 
+//Subclasses: RaycastWeapon, ProjectileWeapon, PortalWeapon, BeamWeapon
 public class Weapon : MonoBehaviour
 {
     public enum Type {
@@ -11,64 +10,60 @@ public class Weapon : MonoBehaviour
     };
 
     [Header("Properties")]
-    [SerializeField] private Type type = Type.BASIC;
-    [SerializeField] private float speed = -1.0f; //-1 = raycast, 0> = projectile
-    [SerializeField] private Transform shootingPoint;
-    [SerializeField] private float cooldownDelay = 0.1f;
+    [SerializeField] protected Type type = Type.BASIC;
+    [SerializeField] protected Transform[] shootingPoints;
+    [SerializeField] protected float cooldownDelay = 0.1f;
+    [SerializeField] protected float MPDepletePerShot = 0.1f;
 
-    [Header("AudioVisual")]
-    [SerializeField] private string bulletTag;
-    [SerializeField] private string explosionTag;
-    [SerializeField] private AudioClip shootingSound;
-    [SerializeField] private float LaserUpTime = 0.1f;
-    [SerializeField] private float LaserDecayTime = 0.1f;
+    [Header("Effects")]
+    [SerializeField] protected string muzzleParticlesTag;
+    [SerializeField] protected SoundFxKey sound;
 
-    [Header("UI")]
-    [SerializeField] private Image weaponImage;
-    [SerializeField] private Image cooldownBar;
+    protected int shootingPointIndex = 0;
+    protected float cooldownTimer = 0.0f;
 
-    [Header("Debug")]
-    [SerializeField] private bool logDebug;
+    protected MechController mechController;
+    protected AudioSource audioSource;
 
-    private float cooldownTimer = 0.0f;
-    private float raycastLineTimer = 0.0f;
-    private SpaceshipController controller;
-    private LineRenderer lineRenderer;
-    private AudioSource audioSource;
-    private LaserController laserController;
-
-    void Start()
+    protected void Start()
     {
-        controller = GetComponent<SpaceshipController>();
-        lineRenderer = GetComponent<LineRenderer>();
+        mechController = GetComponent<MechController>();
         audioSource = GetComponent<AudioSource>();
-        laserController = GetComponent<LaserController>();
 
-        if(logDebug)
-        {
-            if(controller == null) Debug.LogWarning($"component [{nameof(SpaceshipController)}] not found in [{this.gameObject.name}]");
-            if(lineRenderer == null) Debug.LogWarning($"component [{nameof(LineRenderer)}] not found in [{this.gameObject.name}]");
-            if(audioSource == null) Debug.LogWarning($"component [{nameof(AudioSource)}] not found in [{this.gameObject.name}]");
-            if(laserController == null) Debug.LogWarning($"component [{nameof(LaserController)}] not found in [{this.gameObject.name}]");
-        }
+        Assert.IsNotNull(mechController, "Mech Controller is null!");
+        Assert.IsNotNull(audioSource, "Audio Source is null!");
     }
 
-    void Update()
+    protected void Update()
     {
-        if(controller.enabled)
+        if(mechController.enabled)
         {
-            if(cooldownTimer <= 0.0f)
+            if(cooldownTimer <= 0.0f
+
+            //TEMP
+            && mechController.MP >= MPDepletePerShot)
             {
                 if((type == Type.BASIC && Input.GetButton("Fire1"))
                 || (type == Type.SPECIAL && Input.GetButtonDown("Fire2")))
                 {
-                    shootingPoint.LookAt(CameraController.singleton.lastAimPoint);
-                    Vector3 shootingPointEuler = shootingPoint.localRotation.eulerAngles;
+                    shootingPoints[shootingPointIndex].LookAt(CameraController.singleton.lastAimPoint);
+                    Vector3 shootingPointEuler = shootingPoints[shootingPointIndex].localRotation.eulerAngles;
                     shootingPointEuler.y = 0;
                     shootingPointEuler.z = 0;
-                    shootingPoint.localRotation = Quaternion.Euler(shootingPointEuler);
+                    shootingPoints[shootingPointIndex].localRotation = Quaternion.Euler(shootingPointEuler);
 
                     Fire();
+                    Effects();
+
+                    //TEMP
+                    mechController.MP -= MPDepletePerShot;
+
+                    GameManager.instance.GetPlayerBars().UpdateMP(mechController.MP);
+
+                    shootingPointIndex++;
+                    if(shootingPointIndex > shootingPoints.Length - 1)
+                        shootingPointIndex = 0;
+
                     cooldownTimer = cooldownDelay;
                 }
             }
@@ -78,69 +73,22 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        if(lineRenderer)
-        {
-            /*
-            if(raycastLineTimer <= 0.0f)
-            {
-                lineRenderer.enabled = false;
-                Color color = lineRenderer.startColor;
-                color.a = 1.0f;
-                lineRenderer.startColor = lineRenderer.endColor = color;
-            }
-            else
-            {
-                Color color = lineRenderer.startColor;
-                color.a = raycastLineTimer / raycastLineDelay;
-                lineRenderer.startColor = lineRenderer.endColor = color;
-                raycastLineTimer -= Time.deltaTime;
-            }
-            */
-        }
+        //TEMP v
+        if(mechController.MP < 1.0f) mechController.MP += Time.deltaTime / 5.0f;
+        else mechController.MP = 1.0f;
+        GameManager.instance.GetPlayerBars().UpdateMP(mechController.MP);
+        //TEMP ^
     }
 
-    public virtual void Fire()
+    protected virtual void Fire() {}
+
+    protected void Effects()
     {
-        if(bulletTag == "")
-        {
-            if(logDebug) Debug.Log("bulletTag is null");
-
-            lineRenderer.SetPosition(0, shootingPoint.position);
-            lineRenderer.SetPosition(1, shootingPoint.position + (shootingPoint.forward * 1000.0f));
-            //lineRenderer.enabled = true;
-            //raycastLineTimer = raycastLineDelay;
-
-
-            RaycastHit hitData;
-            if (Physics.Raycast(shootingPoint.position, shootingPoint.forward, out hitData))
-            {
-                lineRenderer.SetPosition(1, hitData.point);
-
-                Building building = hitData.transform.gameObject.GetComponent<Building>();
-                if (building)
-                {
-                    building.Damage(0.1f);
-                }
-
-                laserController.Shoot(LaserUpTime, LaserDecayTime, Vector3.Distance(shootingPoint.position, hitData.point));
-
-                Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitData.normal);
-
-                ObjectPooler.instance.SpawnFromPool(explosionTag, hitData.point, rot);
-            }
-            else
-            {
-                laserController.Shoot(LaserUpTime, LaserDecayTime, 1000);
-            }
-        }
-        else
-        {
-            if(logDebug) Debug.Log("bulletTag is not null, spawning new bullet");
-            GameObject newBullet = ObjectPooler.instance.SpawnFromPool(bulletTag, shootingPoint.position, shootingPoint.rotation);
-            newBullet.GetComponent<Projectile>().SetForce((shootingPoint.forward * (speed/2.0f)) + (shootingPoint.up * (speed/2.0f)), Vector3.zero);
-        }
-
-        if(logDebug) Debug.Log("Playing Shoot Sound");
-        SoundFXManager.PlayOneShot(SoundFxKey.Shoot, audioSource);
+        ObjectPooler.instance.SpawnFromPool(
+            muzzleParticlesTag,
+            shootingPoints[shootingPointIndex].position,
+            shootingPoints[shootingPointIndex].rotation
+        );
+        SoundFXManager.PlayOneShot(sound, audioSource);
     }
 }

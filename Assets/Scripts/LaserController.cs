@@ -4,53 +4,42 @@ using UnityEngine;
 
 public class LaserController : MonoBehaviour
 {
-    //public float LaserPause = .2f;
-
+    //public float laserPause = .2f;
     private LineRenderer lineRenderer;
-    private float LL;
-    private float Alpha = 1;
-    private bool Active;
-    private float LaserLife;
+    private float laserTimer;
+    private float alpha = 1;
+    private bool active;
+    private float laserDelay;
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        //LL = 1 + LaserPause;
+        //laserTimer = 1 + laserPause;
         lineRenderer.enabled = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Active)
+        if (active)
         {
-            LL -= Time.deltaTime / LaserLife;
-
-            Alpha = Mathf.Lerp(0, 1, LL);
-
-            lineRenderer.material.SetFloat("Alpha", Alpha);
-
-            if(LL < 0)
+            laserTimer -= Time.deltaTime / laserDelay;
+            alpha = Mathf.Lerp(0, 1, laserTimer);
+            lineRenderer.material.SetFloat("Alpha", alpha);
+            if(laserTimer < 0)
             {
-                Active = false;
+                active = false;
                 lineRenderer.enabled = false;
             }
         }
     }
 
-
     public void Shoot(float HangTime, float DecayTime, float Length)
     {
         lineRenderer.enabled = true;
-
-        Active = true;
-
-        LaserLife = HangTime;
-        LL = 1 + (DecayTime * HangTime);
-
-        Vector4 T = new Vector4(Length, 1, 0, 0);
-
-        lineRenderer.material.SetVector("Tiling", T);
-
-
+        active = true;
+        laserDelay = HangTime;
+        laserTimer = 1 + (DecayTime * HangTime);
+        Vector4 vector = new Vector4(Length, 1, 0, 0);
+        lineRenderer.material.SetVector("Tiling", vector);
     }
 }

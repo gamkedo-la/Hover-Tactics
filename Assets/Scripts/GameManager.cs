@@ -12,18 +12,26 @@ public class GameManager : MonoBehaviour
     static public GameManager instance;
 
     private CameraController camController;
+    private RadialBars playerBars;
 
     public GameObject GetActiveHoverMech()
     {
         return hoverMechs[activeIndex];
     }
 
+    public RadialBars GetPlayerBars()
+    {
+        return playerBars;
+    }
+
     void Start()
     {
         instance = this;
         camController = Camera.main.GetComponent<CameraController>();
+        playerBars = transform.GetChild(0).GetComponent<RadialBars>();
+
         hoverMechs[activeIndex].transform.GetChild(2).gameObject.SetActive(false); //Shield
-        hoverMechs[activeIndex].GetComponent<SpaceshipController>().enabled = true;
+        hoverMechs[activeIndex].GetComponent<MechController>().enabled = true;
         camController.SetTransformToFollow(hoverMechs[activeIndex].transform);
     }
 
@@ -32,10 +40,10 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("Fire3"))
         {
             hoverMechs[activeIndex].transform.GetChild(2).gameObject.SetActive(true); //Shield
-            hoverMechs[activeIndex++].GetComponent<SpaceshipController>().enabled = false;
+            hoverMechs[activeIndex++].GetComponent<MechController>().enabled = false;
             if(activeIndex >= hoverMechs.Length) activeIndex = 0;
             hoverMechs[activeIndex].transform.GetChild(2).gameObject.SetActive(false); //Shield
-            hoverMechs[activeIndex].GetComponent<SpaceshipController>().enabled = true;
+            hoverMechs[activeIndex].GetComponent<MechController>().enabled = true;
             camController.SetTransformToFollow(hoverMechs[activeIndex].transform);
             mechChanged = true;
         }
