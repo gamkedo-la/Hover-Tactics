@@ -1331,7 +1331,7 @@ GameObject:
   - component: {fileID: 8649135902831774574}
   - component: {fileID: 448869580252606242}
   m_Layer: 0
-  m_Name: Building_TwinPyra
+  m_Name: B_TwinPyra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

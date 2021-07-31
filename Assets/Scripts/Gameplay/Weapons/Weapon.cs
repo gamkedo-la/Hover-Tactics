@@ -23,6 +23,7 @@ public class Weapon : MonoBehaviour
     protected float cooldownTimer = 0.0f;
 
     protected MechController mechController;
+    protected Power power;
     protected AudioSource audioSource;
 
     protected Transform GetShootingPoint()
@@ -33,9 +34,11 @@ public class Weapon : MonoBehaviour
     protected void Start()
     {
         mechController = GetComponent<MechController>();
+        power = GetComponent<Power>();
         audioSource = GetComponent<AudioSource>();
 
         Assert.IsNotNull(mechController, "Mech Controller is null!");
+        Assert.IsNotNull(power, "Power is null!");
         Assert.IsNotNull(audioSource, "Audio Source is null!");
     }
 
@@ -43,10 +46,7 @@ public class Weapon : MonoBehaviour
     {
         if(mechController.enabled)
         {
-            if(cooldownTimer <= 0.0f
-
-            //TEMP
-            && mechController.MP >= MPDepletePerShot)
+            if(cooldownTimer <= 0.0f && power.Get() >= MPDepletePerShot)
             {
                 if((type == Type.BASIC && Input.GetButton("Fire1"))
                 || (type == Type.SPECIAL && Input.GetButtonDown("Fire2")))
@@ -60,10 +60,7 @@ public class Weapon : MonoBehaviour
                     Fire();
                     Effects();
 
-                    //TEMP
-                    mechController.MP -= MPDepletePerShot;
-
-                    GameManager.instance.GetPlayerBars().UpdateMP(mechController.MP);
+                    power.ChangeBy(-MPDepletePerShot);
 
                     shootingPointIndex++;
                     if(shootingPointIndex > shootingPoints.Length - 1)
@@ -77,12 +74,6 @@ public class Weapon : MonoBehaviour
                 cooldownTimer -= Time.deltaTime;
             }
         }
-
-        //TEMP v
-        if(mechController.MP < 1.0f) mechController.MP += Time.deltaTime / 5.0f;
-        else mechController.MP = 1.0f;
-        GameManager.instance.GetPlayerBars().UpdateMP(mechController.MP);
-        //TEMP ^
     }
 
     protected virtual void Fire() {}

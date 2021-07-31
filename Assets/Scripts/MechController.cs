@@ -16,9 +16,6 @@ public class MechController : MonoBehaviour
     [SerializeField] MechBoost mechBoost;
     [SerializeField] GameObject Cursor;
 
-    //TEMP
-    public float MP = 1.0f;
-
     private Rigidbody rigidbody;
 
     private float horizontal;
