@@ -109,12 +109,6 @@ public class WeaponTEMP : MonoBehaviour
             {
                 lineRenderer.SetPosition(1, hitData.point);
 
-                Building building = hitData.transform.gameObject.GetComponent<Building>();
-                if (building)
-                {
-                    building.Damage(0.1f);
-                }
-
                 laserController.Shoot(LaserUpTime, LaserDecayTime, Vector3.Distance(shootingPoint.position, hitData.point));
 
                 Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitData.normal);

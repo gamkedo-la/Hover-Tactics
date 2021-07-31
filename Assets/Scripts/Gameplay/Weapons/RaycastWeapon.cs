@@ -5,6 +5,7 @@ using UnityEngine;
 public class RaycastWeapon : Weapon
 {
     [Header("Raycast")]
+    [SerializeField] private float damagePerHit = 0.05f;
     [SerializeField] private string hitImpactTag;
     [SerializeField] private float lineDelay = 0.05f;
     [SerializeField] private Material lineMaterial;
@@ -70,7 +71,8 @@ public class RaycastWeapon : Weapon
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitData.normal);
             ObjectPooler.instance.SpawnFromPool(hitImpactTag, hitData.point, rot);
 
-            //Decrease HP
+            Health health = hitData.transform.GetComponent<Health>();
+            if(health) health.ChangeBy(-damagePerHit);
         }
     }
 }

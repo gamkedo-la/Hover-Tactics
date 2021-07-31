@@ -1329,8 +1329,9 @@ GameObject:
   - component: {fileID: 4920072770334640203}
   - component: {fileID: 4920072770334640202}
   - component: {fileID: 8649135902831774574}
+  - component: {fileID: 448869580252606242}
   m_Layer: 0
-  m_Name: Building1
+  m_Name: Building_TwinPyra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1377,6 +1378,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071fe3351359cc849998f245647264da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoints: 3
   ruins: {fileID: 3837393294305279452, guid: 87a6cf8881ab911459ead5306b9622a2, type: 3}
   explosionTag: TestExplosion
+--- !u!114 &448869580252606242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920072770334640205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1f9cdd4ff3eb419b06d5d11de73d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3

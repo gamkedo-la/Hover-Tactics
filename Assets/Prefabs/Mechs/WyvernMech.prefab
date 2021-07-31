@@ -1808,6 +1808,7 @@ GameObject:
   - component: {fileID: 6730692806992436537}
   - component: {fileID: 6730692806992436536}
   - component: {fileID: 5471539628764871941}
+  - component: {fileID: 4727262786595552155}
   - component: {fileID: 59975626966411592}
   - component: {fileID: 6327884629601354384}
   - component: {fileID: 491892219600123661}
@@ -1875,6 +1876,19 @@ MonoBehaviour:
   muzzleParticlesTag: TestExplosion2
   sound: 2
   projectileTag: TestProjectile
+--- !u!114 &4727262786595552155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730692806992436542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1f9cdd4ff3eb419b06d5d11de73d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
 --- !u!135 &59975626966411592
 SphereCollider:
   m_ObjectHideFlags: 0

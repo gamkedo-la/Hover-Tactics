@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 5300834565054401766}
   - component: {fileID: 6035674963988836273}
   - component: {fileID: 6238674762069699473}
+  - component: {fileID: 4685571148011314329}
   - component: {fileID: 1453943607737333910}
   - component: {fileID: 4839478484875776846}
   - component: {fileID: 1309400562611693267}
@@ -350,6 +351,7 @@ MonoBehaviour:
   MPDepletePerShot: 0.05
   muzzleParticlesTag: TestExplosion2
   sound: 2
+  damagePerHit: 0.05
   hitImpactTag: TestExplosion2
   lineDelay: 0.05
   lineMaterial: {fileID: 2100000, guid: 9ce91bee0b3e3f541be8c44206a8bffd, type: 2}
@@ -378,6 +380,19 @@ MonoBehaviour:
   beamGrowFactor: 5
   beamDelay: 2
   beamShrinkFactor: 15
+--- !u!114 &4685571148011314329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300834565054401760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1f9cdd4ff3eb419b06d5d11de73d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
 --- !u!135 &1453943607737333910
 SphereCollider:
   m_ObjectHideFlags: 0

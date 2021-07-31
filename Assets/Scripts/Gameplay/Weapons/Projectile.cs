@@ -64,7 +64,8 @@ public class Projectile : MonoBehaviour
         projectileCollider.enabled = false;
         Invoke("DisableObject", 1.0f);
 
-        //Decrease HP
+        Health health = coll.transform.GetComponent<Health>();
+        if(health) health.ChangeBy(-damage);
     }
 
     void DestroyEffects(Collision coll)
