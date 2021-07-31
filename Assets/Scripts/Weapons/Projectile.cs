@@ -1,80 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
+    [Header("Forces")]
+    [SerializeField] private float forwardForce = 10.0f;
+    [SerializeField] private float upwardForce = 2.5f;
+    [Header("Properties")]
     [SerializeField] private float damage = 1.0f;
+    [Header("Effects")]
     [SerializeField] private string explosionTag;
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] private float destroyDelay = 2.0f;
 
     private Vector3 impactForce;
-    private Vector3 force;
     private float destroyTimer = 0.0f;
 
     private MeshRenderer meshRenderer;
-    private Rigidbody rb;
+    private Rigidbody rigidbody;
     private Collider projectileCollider;
     private AudioSource audioSource;
-
-    [Header("Debug")]
-    [SerializeField] private bool logDebug = false;
-
-    public void SetForce(Vector3 impactForce, Vector3 force)
-    {
-        this.impactForce = impactForce;
-        this.force = force;
-    }
 
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        rb = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
         projectileCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
+
+        Assert.IsNotNull(meshRenderer, "Mesh Renderer is null!");
+        Assert.IsNotNull(rigidbody, "Rigidbody is null!");
+        Assert.IsNotNull(projectileCollider, "Projectile Collider is null!");
+        Assert.IsNotNull(audioSource, "Audio Source is null!");
+    }
+
+    void OnEnable()
+    {
         destroyTimer = destroyDelay;
+        this.impactForce = (transform.forward * forwardForce) + (transform.up * upwardForce);
     }
 
     void Update()
     {
         if(impactForce != Vector3.zero)
         {
-            rb.AddForce(impactForce, ForceMode.Impulse);
+            rigidbody.AddForce(impactForce, ForceMode.Impulse);
             impactForce = Vector3.zero;
         }
-        rb.AddForce(force);
 
         if(destroyTimer <= 0.0f)
-        {
             DisableObject();
-        }
         else
-        {
             destroyTimer -= Time.deltaTime;
-        }
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision coll)
     {
-        Building building = col.transform.gameObject.GetComponent<Building>();
-        if(building)
-        {
-            building.Damage(damage);
-        }
-
-        ContactPoint contact = col.contacts[0];
-
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-
-        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
-        if(logDebug) Debug.Log("Playing Explosion Sound");
-        SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
+        DestroyEffects(coll);
         meshRenderer.enabled = false;
         projectileCollider.enabled = false;
-
         Invoke("DisableObject", 1.0f);
+
+        //Decrease HP
+    }
+
+    void DestroyEffects(Collision coll)
+    {
+        ContactPoint contact = coll.contacts[0];
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
+        SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
     }
 
     void DisableObject()
@@ -82,7 +80,7 @@ public class Projectile : MonoBehaviour
         destroyTimer = destroyDelay;
         meshRenderer.enabled = true;
         projectileCollider.enabled = true;
-        impactForce = force = Vector3.zero;
+        impactForce = Vector3.zero;
         gameObject.SetActive(false);
     }
 }

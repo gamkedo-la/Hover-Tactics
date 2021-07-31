@@ -25,6 +25,11 @@ public class Weapon : MonoBehaviour
     protected MechController mechController;
     protected AudioSource audioSource;
 
+    protected Transform GetShootingPoint()
+    {
+        return shootingPoints[shootingPointIndex];
+    }
+
     protected void Start()
     {
         mechController = GetComponent<MechController>();
@@ -46,11 +51,11 @@ public class Weapon : MonoBehaviour
                 if((type == Type.BASIC && Input.GetButton("Fire1"))
                 || (type == Type.SPECIAL && Input.GetButtonDown("Fire2")))
                 {
-                    shootingPoints[shootingPointIndex].LookAt(CameraController.singleton.lastAimPoint);
-                    Vector3 shootingPointEuler = shootingPoints[shootingPointIndex].localRotation.eulerAngles;
+                    GetShootingPoint().LookAt(CameraController.singleton.lastAimPoint);
+                    Vector3 shootingPointEuler = GetShootingPoint().localRotation.eulerAngles;
                     shootingPointEuler.y = 0;
                     shootingPointEuler.z = 0;
-                    shootingPoints[shootingPointIndex].localRotation = Quaternion.Euler(shootingPointEuler);
+                    GetShootingPoint().localRotation = Quaternion.Euler(shootingPointEuler);
 
                     Fire();
                     Effects();
@@ -86,8 +91,8 @@ public class Weapon : MonoBehaviour
     {
         ObjectPooler.instance.SpawnFromPool(
             muzzleParticlesTag,
-            shootingPoints[shootingPointIndex].position,
-            shootingPoints[shootingPointIndex].rotation
+            GetShootingPoint().position,
+            GetShootingPoint().rotation
         );
         SoundFXManager.PlayOneShot(sound, audioSource);
     }

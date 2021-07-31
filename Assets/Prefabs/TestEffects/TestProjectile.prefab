@@ -64,9 +64,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c337c6318fa1bcf43b9f657d1aaaf9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forwardForce: 400
+  upwardForce: 300
   damage: 1
   explosionTag: TestExplosion2
   explosionSound: {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
+  destroyDelay: 2
 --- !u!23 &7467973104759329034
 MeshRenderer:
   m_ObjectHideFlags: 0

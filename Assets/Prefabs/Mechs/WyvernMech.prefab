@@ -1687,7 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbadf4f9e47673f4cb7acbdf453487fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mechBoost: {fileID: 5300834565565048206}
+  mechBoost: {fileID: 0}
   trailRenderer: {fileID: 3988536482050178984}
   modifiedColor:
     serializedVersion: 2
@@ -1807,11 +1807,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6730692806992436537}
   - component: {fileID: 6730692806992436536}
+  - component: {fileID: 5471539628764871941}
   - component: {fileID: 59975626966411592}
   - component: {fileID: 6327884629601354384}
-  - component: {fileID: 4411935305463015480}
   - component: {fileID: 491892219600123661}
-  - component: {fileID: 5300834565565048206}
   m_Layer: 0
   m_Name: WyvernMech
   m_TagString: Untagged
@@ -1853,9 +1852,29 @@ MonoBehaviour:
   hoverMechAnimation: {fileID: 5049283021515742498}
   turnSpeed: 200
   turnSensitivity: 0.1
-  mechBoost: {fileID: 5300834565565048206}
+  mechBoost: {fileID: 0}
   Cursor: {fileID: 0}
   MP: 1
+--- !u!114 &5471539628764871941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730692806992436542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5a409853bfa18478a69d61c77a9cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  shootingPoints:
+  - {fileID: 3649787712484487969}
+  cooldownDelay: 0.5
+  MPDepletePerShot: 0.5
+  muzzleParticlesTag: TestExplosion2
+  sound: 2
+  projectileTag: TestProjectile
 --- !u!135 &59975626966411592
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1885,29 +1904,6 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 116
   m_CollisionDetection: 1
---- !u!114 &4411935305463015480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730692806992436542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93031b4ec149b0340a9486840dc8f611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  speed: 600
-  shootingPoint: {fileID: 3649787712484487969}
-  cooldownDelay: 0.1
-  bulletTag: TestProjectile
-  explosionTag: 
-  shootingSound: {fileID: 8300000, guid: 9cec47d379eceed41aa1f8099735b235, type: 3}
-  LaserUpTime: 0.1
-  LaserDecayTime: 0.1
-  weaponImage: {fileID: 0}
-  cooldownBar: {fileID: 0}
 --- !u!82 &491892219600123661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2004,54 +2000,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5300834565565048206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730692806992436542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boostValueCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.37334403
-      outSlope: 0.37334403
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.43790054
-    - serializedVersion: 3
-      time: 0.42637628
-      value: 0.4053664
-      inSlope: 4.0319595
-      outSlope: 4.0319595
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.60202247
-      outWeight: 0.10088801
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.3701017
-      outSlope: 0.3701017
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.3919508
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  boostMaxValue: 2.5
-  boostDuration: 2.5
-  boostCooldown: 2.5
 --- !u!1 &7202903047143826287
 GameObject:
   m_ObjectHideFlags: 0

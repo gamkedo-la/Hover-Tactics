@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2764866125502653183}
   m_Layer: 0
-  m_Name: ShootingPoint (1)
+  m_Name: RightShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201161515425391704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: 1.5}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8381684745374968439}
@@ -60,7 +60,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8381684745374968439}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &2567686538811469430
 TrailRenderer:
@@ -241,6 +241,36 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
+--- !u!1 &3522564694056997106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4535321928241183016}
+  m_Layer: 0
+  m_Name: MiddleShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4535321928241183016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3522564694056997106}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 1.3}
+  m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 8381684745374968439}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5300834565054401760
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +282,7 @@ GameObject:
   - component: {fileID: 5300834565054401767}
   - component: {fileID: 5300834565054401766}
   - component: {fileID: 6035674963988836273}
+  - component: {fileID: 6238674762069699473}
   - component: {fileID: 1453943607737333910}
   - component: {fileID: 4839478484875776846}
   - component: {fileID: 1309400562611693267}
@@ -323,6 +354,30 @@ MonoBehaviour:
   lineDelay: 0.05
   lineMaterial: {fileID: 2100000, guid: 9ce91bee0b3e3f541be8c44206a8bffd, type: 2}
   lineThickness: 0.75
+--- !u!114 &6238674762069699473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300834565054401760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4040efef7206141b32be8f49c144ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  shootingPoints:
+  - {fileID: 4535321928241183016}
+  cooldownDelay: 0.5
+  MPDepletePerShot: 1
+  muzzleParticlesTag: TestExplosion2
+  sound: 2
+  beamObject: {fileID: 1162497829734798004, guid: 2c816f7688a2eb3428654cc20386c483,
+    type: 3}
+  beamGrowFactor: 5
+  beamDelay: 2
+  beamShrinkFactor: 15
 --- !u!135 &1453943607737333910
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -477,6 +532,7 @@ Transform:
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_Children:
   - {fileID: 2764866125502653183}
+  - {fileID: 4535321928241183016}
   - {fileID: 3656998891429000962}
   - {fileID: 8681111568915530324}
   - {fileID: 3106110771858588059}
@@ -509,7 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3656998891429000962}
   m_Layer: 0
-  m_Name: ShootingPoint (2)
+  m_Name: LeftShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -523,11 +579,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7319217341267427501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 0, z: 1.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: 1.5}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8381684745374968439}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8578719201726280369
 GameObject:
@@ -620,7 +676,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}

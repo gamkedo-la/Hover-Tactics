@@ -17,6 +17,7 @@ public class RaycastWeapon : Weapon
     {
         base.Start();
 
+        //Adding Line Renderer for each Shooting Point to render Raycast Shooting
         lineRenderers = new List<LineRenderer>();
         lineTimers = new List<float>();
         for(int i = 0; i < shootingPoints.Length; i++)
@@ -35,6 +36,7 @@ public class RaycastWeapon : Weapon
     {
         base.Update();
 
+        //Decreasing Alpha (and ultimately, disabling) Line Renderer as the time passes for each Shooting Point
         for(int i = 0; i < shootingPoints.Length; i++)
         {
             if(lineTimers[i] <= 0.0f)
@@ -56,17 +58,19 @@ public class RaycastWeapon : Weapon
 
     protected override void Fire()
     {
-        lineRenderers[shootingPointIndex].SetPosition(0, shootingPoints[shootingPointIndex].position);
-        lineRenderers[shootingPointIndex].SetPosition(1, shootingPoints[shootingPointIndex].position + (shootingPoints[shootingPointIndex].forward * 1000.0f));
+        lineRenderers[shootingPointIndex].SetPosition(0, GetShootingPoint().position);
+        lineRenderers[shootingPointIndex].SetPosition(1, GetShootingPoint().position + (GetShootingPoint().forward * 1000.0f));
         lineRenderers[shootingPointIndex].enabled = true;
         lineTimers[shootingPointIndex] = lineDelay;
 
         RaycastHit hitData;
-        if (Physics.Raycast(shootingPoints[shootingPointIndex].position, shootingPoints[shootingPointIndex].forward, out hitData))
+        if (Physics.Raycast(GetShootingPoint().position, GetShootingPoint().forward, out hitData))
         {
             lineRenderers[shootingPointIndex].SetPosition(1, hitData.point);
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitData.normal);
             ObjectPooler.instance.SpawnFromPool(hitImpactTag, hitData.point, rot);
+
+            //Decrease HP
         }
     }
 }

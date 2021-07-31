@@ -27,14 +27,12 @@ public class ObjectPooler : MonoBehaviour {
 		foreach (Pool pool in pools)
 		{
 			Queue<GameObject> objectPool = new Queue<GameObject>();
-			
 			for(int i = 0; i < pool.size; i++)
 			{
 				GameObject obj = Instantiate(pool.prefab);
 				obj.SetActive(false);
 				objectPool.Enqueue(obj);
 			}
-			
 			poolDictionary.Add(pool.tag, objectPool);
 		}
 	}
@@ -47,19 +45,12 @@ public class ObjectPooler : MonoBehaviour {
 	public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
 	{
 		GameObject objectToSpawn = poolDictionary[tag].Dequeue();
-		
-		objectToSpawn.SetActive(true);
 		objectToSpawn.transform.position = position;
 		objectToSpawn.transform.rotation = rotation;
-
 		Rigidbody rigidbody = objectToSpawn.GetComponent<Rigidbody>();
-		if(rigidbody)
-		{
-			rigidbody.velocity = rigidbody.angularVelocity = Vector3.zero;
-		}
-	
+		if(rigidbody) rigidbody.velocity = rigidbody.angularVelocity = Vector3.zero;
 		poolDictionary[tag].Enqueue(objectToSpawn);
-		
+		objectToSpawn.SetActive(true);
 		return objectToSpawn;
 	}
 }

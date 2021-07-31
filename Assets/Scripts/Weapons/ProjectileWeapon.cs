@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ProjectileWeapon : Weapon
 {
+    [Header("Projectile")]
+    [SerializeField] private string projectileTag;
+
     void Start()
     {
         base.Start();
@@ -16,5 +19,6 @@ public class ProjectileWeapon : Weapon
 
     protected override void Fire()
     {
+        ObjectPooler.instance.SpawnFromPool(projectileTag, GetShootingPoint().position, GetShootingPoint().rotation);
     }
 }

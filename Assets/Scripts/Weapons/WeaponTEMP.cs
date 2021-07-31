@@ -128,8 +128,7 @@ public class WeaponTEMP : MonoBehaviour
         }
         else
         {
-            GameObject newBullet = ObjectPooler.instance.SpawnFromPool(bulletTag, shootingPoint.position, shootingPoint.rotation);
-            newBullet.GetComponent<Projectile>().SetForce((shootingPoint.forward * (speed/2.0f)) + (shootingPoint.up * (speed/2.0f)), Vector3.zero);
+            ObjectPooler.instance.SpawnFromPool(bulletTag, shootingPoint.position, shootingPoint.rotation);
         }
 
         SoundFXManager.PlayOneShot(SoundFxKey.Shoot, audioSource);
