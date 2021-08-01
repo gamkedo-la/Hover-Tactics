@@ -374,7 +374,7 @@ MonoBehaviour:
   cooldownDelay: 0.5
   MPDepletePerShot: 1
   muzzleParticlesTag: TestExplosion2
-  sound: 2
+  sound: 3
   beamObject: {fileID: 1162497829734798004, guid: 2c816f7688a2eb3428654cc20386c483,
     type: 3}
   beamGrowFactor: 5

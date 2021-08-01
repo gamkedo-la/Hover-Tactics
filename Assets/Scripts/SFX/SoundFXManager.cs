@@ -2,15 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SoundFxKey
+{
+    None,
+    Select,
+    Explosion,
+    Shoot,
+    RifleFire,
+};
+
+[System.Serializable]
+public class SoundFX
+{
+    public SoundFxKey key;
+    public AudioClip[] clips;
+}
+
 public class SoundFXManager : MonoBehaviour
 {
-    [Header("OneShot Audio Sources")]
     [SerializeField] private AudioSource mainAudioSource;
-
-    [Header("Audio Clips")]
-    [SerializeField] private AudioClip select;
-    [SerializeField] private AudioClip explosion;
-    [SerializeField] private AudioClip shoot;
+    [SerializeField] private SoundFX[] sounds;
 
     [Header("Debug")]
     [SerializeField] private bool logDebug = false;
@@ -46,9 +57,10 @@ public class SoundFXManager : MonoBehaviour
 
     private void SetupOneShotAudioClips()
     {
-        soundFxToAudioClipMap.Add(SoundFxKey.Select, new AudioClip[] { select });
-        soundFxToAudioClipMap.Add(SoundFxKey.Explosion, new AudioClip[] { explosion });
-        soundFxToAudioClipMap.Add(SoundFxKey.Shoot, new AudioClip[] { shoot });
+        foreach(SoundFX sound in sounds)
+        {
+            soundFxToAudioClipMap.Add(sound.key, sound.clips);
+        }
     }
 
     public static void PlayOneShot(SoundFxKey soundFxKey)

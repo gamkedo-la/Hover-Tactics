@@ -203,7 +203,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainAudioSource: {fileID: 419135673822943499}
-  select: {fileID: 8300000, guid: e12b8d5b733ebac45aee1832d65d38d5, type: 3}
-  explosion: {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
-  shoot: {fileID: 8300000, guid: 9cec47d379eceed41aa1f8099735b235, type: 3}
+  sounds:
+  - key: 1
+    clips:
+    - {fileID: 8300000, guid: e12b8d5b733ebac45aee1832d65d38d5, type: 3}
+  - key: 2
+    clips:
+    - {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
+  - key: 3
+    clips:
+    - {fileID: 8300000, guid: 9cec47d379eceed41aa1f8099735b235, type: 3}
+  - key: 4
+    clips:
+    - {fileID: 8300000, guid: 78cb2bd129761d0458f68a382d535e06, type: 3}
   logDebug: 0
