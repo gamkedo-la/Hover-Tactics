@@ -349,8 +349,8 @@ MonoBehaviour:
   - {fileID: 3656998891429000962}
   cooldownDelay: 0.05
   MPDepletePerShot: 0.05
-  muzzleParticlesTag: TestExplosion2
-  sound: 2
+  muzzleParticlesTag: RifleWeaponMuzzle
+  sound: 3
   damagePerHit: 0.05
   hitImpactTag: TestExplosion2
   lineDelay: 0.05

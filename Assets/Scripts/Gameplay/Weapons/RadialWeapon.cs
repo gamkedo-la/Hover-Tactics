@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeamWeapon : Weapon
+public class RadialWeapon : Weapon
 {
     [Header("Beam")]
     [SerializeField] private GameObject beamObject;

@@ -53,6 +53,7 @@ public class SoundFXManager : MonoBehaviour
 
     public static void PlayOneShot(SoundFxKey soundFxKey)
     {  
+        if(soundFxKey == SoundFxKey.None) return;
         PlayOneShot(soundFxKey, Instance.mainAudioSource);
     }
 
@@ -60,6 +61,8 @@ public class SoundFXManager : MonoBehaviour
     {
         // use this method to play oneshots in a specific audio source
         // this is useful when we want to play audio in specific places in the world.
+
+        if(soundFxKey == SoundFxKey.None) return;
 
         if(audioSource == null)
         {

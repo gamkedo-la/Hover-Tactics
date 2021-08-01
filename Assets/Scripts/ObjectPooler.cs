@@ -44,6 +44,7 @@ public class ObjectPooler : MonoBehaviour {
 	
 	public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
 	{
+		if(tag == "") return null;
 		GameObject objectToSpawn = poolDictionary[tag].Dequeue();
 		objectToSpawn.transform.position = position;
 		objectToSpawn.transform.rotation = rotation;

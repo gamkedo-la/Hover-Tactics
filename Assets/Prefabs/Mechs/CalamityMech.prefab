@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3717276390743100911}
   m_Layer: 0
-  m_Name: ShootingPoint (1)
+  m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 7032676375119676775}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &3921207510807085414
 TrailRenderer:
@@ -351,7 +351,6 @@ Transform:
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_Children:
   - {fileID: 3717276390743100911}
-  - {fileID: 2812754310666360850}
   - {fileID: 7904148037387578692}
   - {fileID: 4527159358710984331}
   m_Father: {fileID: 6654337600058745847}
@@ -383,7 +382,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6654337600058745847}
   - component: {fileID: 6654337600058745846}
-  - component: {fileID: 5047315136363954337}
+  - component: {fileID: 7593058205660559874}
+  - component: {fileID: 2996033301170762935}
   - component: {fileID: 2068957219282156062}
   - component: {fileID: 4850464849410009535}
   - component: {fileID: 136759709402847110}
@@ -432,7 +432,7 @@ MonoBehaviour:
   turnSensitivity: 0.1
   mechBoost: {fileID: 0}
   Cursor: {fileID: 0}
---- !u!114 &5047315136363954337
+--- !u!114 &7593058205660559874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -441,22 +441,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 6654337600058745840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8208bad9de5d35d49addaeb1862a8791, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b5a409853bfa18478a69d61c77a9cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   shootingPoints:
   - {fileID: 3717276390743100911}
-  - {fileID: 2812754310666360850}
-  cooldownDelay: 0.05
-  MPDepletePerShot: 0.05
-  muzzleParticlesTag: TestExplosion2
-  sound: 2
-  damagePerHit: 0.05
-  hitImpactTag: TestExplosion2
-  lineDelay: 0.05
-  lineMaterial: {fileID: 2100000, guid: 9ce91bee0b3e3f541be8c44206a8bffd, type: 2}
-  lineThickness: 0.75
+  cooldownDelay: 0.1
+  MPDepletePerShot: 0.1
+  muzzleParticlesTag: 
+  sound: 0
+  projectileTag: TestProjectile
+--- !u!114 &2996033301170762935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654337600058745840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a6b8b80ad241b46bbbf143a80d676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  shootingPoints:
+  - {fileID: 6654337600058745847}
+  cooldownDelay: 2
+  MPDepletePerShot: 1
+  muzzleParticlesTag: 
+  sound: 0
+  beamObject: {fileID: 1162497829734798004, guid: 2c816f7688a2eb3428654cc20386c483,
+    type: 3}
+  beamGrowFactor: 5
+  beamDelay: 2
+  beamShrinkFactor: 15
 --- !u!114 &2068957219282156062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,35 +737,5 @@ Transform:
   m_Children:
   - {fileID: 7332169094421765148}
   m_Father: {fileID: 7032676375119676775}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &8096268567168102333
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2812754310666360850}
-  m_Layer: 0
-  m_Name: ShootingPoint (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2812754310666360850
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8096268567168102333}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 0, z: 1.5}
-  m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
-  m_Children: []
-  m_Father: {fileID: 7032676375119676775}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}

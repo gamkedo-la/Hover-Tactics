@@ -1807,6 +1807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6730692806992436537}
   - component: {fileID: 6730692806992436536}
+  - component: {fileID: 8137829999247783970}
   - component: {fileID: 5471539628764871941}
   - component: {fileID: 4727262786595552155}
   - component: {fileID: 5689716451623988169}
@@ -1856,6 +1857,30 @@ MonoBehaviour:
   turnSensitivity: 0.1
   mechBoost: {fileID: 0}
   Cursor: {fileID: 0}
+--- !u!114 &8137829999247783970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730692806992436542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4040efef7206141b32be8f49c144ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  shootingPoints:
+  - {fileID: 3649787712484487969}
+  cooldownDelay: 0.01
+  MPDepletePerShot: 0.01
+  muzzleParticlesTag: 
+  sound: 0
+  beamObject: {fileID: 1162497829734798004, guid: cc6af1b7553f5744fb4467b3bb1b4e64,
+    type: 3}
+  beamGrowFactor: 100
+  beamDelay: 0.001
+  beamShrinkFactor: 100
 --- !u!114 &5471539628764871941
 MonoBehaviour:
   m_ObjectHideFlags: 0
