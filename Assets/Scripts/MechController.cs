@@ -49,7 +49,6 @@ public class MechController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-
         if(mechBoost != null)
         {
             if(Input.GetKeyDown(KeyCode.Space))

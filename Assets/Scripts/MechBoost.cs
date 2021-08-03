@@ -5,23 +5,48 @@ using System;
 public class MechBoost : MonoBehaviour
 {
     public enum BoostState { Inactive, Active }
-    [SerializeField] protected AnimationCurve boostValueCurve;
     
     [Range(1.0f, 5f)]
     [SerializeField] protected float boostMaxValue = 2.5f;
-    [Range(1.0f, 5f)]
-    [SerializeField] protected float boostDuration = 2.5f;
-    [Range(1.0f, 5f)]
-    [SerializeField] protected float boostCooldown = 2.5f;
+    [Range(0.11f, 5f)]
+    [SerializeField] protected float boostCostPerSecond = 0.2f;
+
+    [SerializeField] private Power mechPower;
+
     protected float boostValue = 1.0f;
     protected bool isBoostActivated = false;
     public Action<BoostState> BoostActivateToggled;
+    
+    private void Start()
+    {
+        if(mechPower == null)
+        {
+            Debug.LogWarning($"Power reference is null in game object [{this.gameObject.name}]");
+        }
+    }
+
+    private void Update()
+    {
+        if(IsBoostActive())
+        {
+            mechPower?.ChangeBy(-boostCostPerSecond * Time.deltaTime);
+            if(!HasEnoughPower())
+            {
+                DeactivateBoost();
+            }
+        }
+    }
 
     public void ActivateBoost()
     {
         if(isBoostActivated)
         {
              return;
+        }
+
+        if(!HasEnoughPower())
+        {
+            return;
         }
 
         boostValue = boostMaxValue;
@@ -44,5 +69,15 @@ public class MechBoost : MonoBehaviour
     public virtual float GetBoostValue()
     {
         return boostValue;
+    }
+
+    protected virtual bool HasEnoughPower()
+    {
+        return mechPower?.Get() > 0;
+    }
+
+    protected virtual void DepletePower(float value)
+    {
+        mechPower?.ChangeBy(value);
     }
 }

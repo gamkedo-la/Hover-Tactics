@@ -24009,6 +24009,11 @@ PrefabInstance:
       propertyPath: explosionTag
       value: TestExplosion2
       objectReference: {fileID: 0}
+    - target: {fileID: 4891581321264167179, guid: ad976f060e841ad4a82b39ef59708348,
+        type: 3}
+      propertyPath: boostCostPerSecond
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6730692806992436536, guid: ad976f060e841ad4a82b39ef59708348,
         type: 3}
       propertyPath: Cursor
@@ -24083,6 +24088,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8745927409812900009, guid: 36a81f760506f6644ae21bf23159447a,
+        type: 3}
+      propertyPath: boostCostPerSecond
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6654337600058745840, guid: 36a81f760506f6644ae21bf23159447a,
         type: 3}
       propertyPath: m_Name
@@ -25798,6 +25808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833851236495053071, guid: fd9055a6a20256e429230b6b54b0f95c,
+        type: 3}
+      propertyPath: boostCostPerSecond
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5974809571300658428, guid: fd9055a6a20256e429230b6b54b0f95c,
         type: 3}
