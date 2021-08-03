@@ -24,7 +24,16 @@ public class MechBoost : MonoBehaviour
              return;
         }
 
-        StartCoroutine(BoostRoutine());
+        boostValue = boostMaxValue;
+        isBoostActivated = true;
+
+        //StartCoroutine(BoostRoutine());
+    }
+
+    public void DeactivateBoost()
+    {
+        boostValue = 1.0f;
+        isBoostActivated = false;
     }
 
     public bool IsBoostActive()

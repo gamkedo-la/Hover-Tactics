@@ -49,15 +49,19 @@ public class MechController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if(ShouldActivateBoost())
-        {
-            mechBoost.ActivateBoost();
-        }
-    }
 
-    private bool ShouldActivateBoost()
-    {
-        return mechBoost?.IsBoostActive() == false && Input.GetKeyDown(KeyCode.Space);
+        if(mechBoost != null)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                mechBoost.ActivateBoost();
+            }
+
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                mechBoost.DeactivateBoost();
+            }
+        }
     }
 
     private void HandleMouseInput()
