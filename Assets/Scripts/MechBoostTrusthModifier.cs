@@ -10,7 +10,6 @@ public class MechBoostTrusthModifier : MonoBehaviour
 
     [Header("Configuration")]
     [SerializeField] protected Gradient modifiedColor;
-    [SerializeField] protected Gradient cooldownGradient;
     private Dictionary<MechBoost.BoostState, Gradient> gradientModifiers;
 
     private void Start()
@@ -18,7 +17,6 @@ public class MechBoostTrusthModifier : MonoBehaviour
         gradientModifiers = new Dictionary<MechBoost.BoostState, Gradient>();
         gradientModifiers.Add(MechBoost.BoostState.Inactive, trailRenderer.colorGradient);
         gradientModifiers.Add(MechBoost.BoostState.Active, modifiedColor);
-        gradientModifiers.Add(MechBoost.BoostState.Coolindown, cooldownGradient);
     }
 
     private void OnEnable()

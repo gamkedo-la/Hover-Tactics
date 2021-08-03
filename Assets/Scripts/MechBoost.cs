@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 public class MechBoost : MonoBehaviour
 {
-    public enum BoostState { Inactive, Active, Coolindown }
+    public enum BoostState { Inactive, Active }
     [SerializeField] protected AnimationCurve boostValueCurve;
     
     [Range(1.0f, 5f)]
@@ -26,14 +26,14 @@ public class MechBoost : MonoBehaviour
 
         boostValue = boostMaxValue;
         isBoostActivated = true;
-
-        //StartCoroutine(BoostRoutine());
+        BoostActivateToggled?.Invoke(BoostState.Active);
     }
 
     public void DeactivateBoost()
     {
         boostValue = 1.0f;
         isBoostActivated = false;
+        BoostActivateToggled?.Invoke(BoostState.Inactive);
     }
 
     public bool IsBoostActive()
@@ -44,30 +44,5 @@ public class MechBoost : MonoBehaviour
     public virtual float GetBoostValue()
     {
         return boostValue;
-    }
-
-    private IEnumerator BoostRoutine()
-    {
-        isBoostActivated = true;
-        BoostActivateToggled?.Invoke(BoostState.Active);
-
-        var elapsed = 0.0f;
-        while(elapsed <= boostDuration)
-        {
-            var percentage = elapsed/boostDuration;
-            boostValue = Mathf.Lerp(1.0f, boostMaxValue, boostValueCurve.Evaluate(1.0f));
-            yield return new WaitForEndOfFrame();
-            elapsed += Time.deltaTime;
-        }
-
-        boostValue = Mathf.Lerp(1.0f, boostMaxValue, boostValueCurve.Evaluate(1.0f));
-
-        yield return new WaitForEndOfFrame();
-        boostValue = 1.0f;
-        BoostActivateToggled?.Invoke(BoostState.Coolindown);
-
-        yield return new WaitForSeconds(boostCooldown);
-        isBoostActivated = false;
-        BoostActivateToggled?.Invoke(BoostState.Inactive);
     }
 }
