@@ -16,6 +16,8 @@ public class MechBoost : MonoBehaviour
     protected float boostValue = 1.0f;
     protected bool isBoostActivated = false;
     public Action<BoostState> BoostActivateToggled;
+
+    private Coroutine boostRoutine;
     
     private void Start()
     {
@@ -49,16 +51,47 @@ public class MechBoost : MonoBehaviour
             return;
         }
 
-        boostValue = boostMaxValue;
+        if(boostRoutine != null)
+        {
+            StopCoroutine(boostRoutine);
+        }
+
         isBoostActivated = true;
+        boostValue = boostMaxValue;
         BoostActivateToggled?.Invoke(BoostState.Active);
+
+        boostRoutine = StartCoroutine(BoostRoutine());
     }
 
     public void DeactivateBoost()
     {
+        if(boostRoutine != null)
+        {
+            StopCoroutine(boostRoutine);
+        }
+
         boostValue = 1.0f;
         isBoostActivated = false;
         BoostActivateToggled?.Invoke(BoostState.Inactive);
+    }
+
+
+    protected virtual IEnumerator BoostRoutine()
+    {
+        while(IsBoostActive())
+        {
+            if(!HasEnoughPower())
+            {
+                DeactivateBoost();
+            }
+            else
+            {
+                DepletePower(-boostCostPerSecond * Time.deltaTime);
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+        DeactivateBoost();
     }
 
     public bool IsBoostActive()
