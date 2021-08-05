@@ -443,11 +443,11 @@ MonoBehaviour:
   MPDepletePerShot: 1
   muzzleParticlesTag: 
   sound: 0
-  beamObject: {fileID: 1162497829734798004, guid: 2c816f7688a2eb3428654cc20386c483,
+  boomObject: {fileID: 1579409998840964786, guid: 2367a596f369f2a4da91405d28b67904,
     type: 3}
-  beamGrowFactor: 5
-  beamDelay: 2
-  beamShrinkFactor: 15
+  boomMaxScale: 320
+  boomGrowFactor: 0.4
+  boomDelay: 1.4
 --- !u!114 &2068957219282156062
 MonoBehaviour:
   m_ObjectHideFlags: 0

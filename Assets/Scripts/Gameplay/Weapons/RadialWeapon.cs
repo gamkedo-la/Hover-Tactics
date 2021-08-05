@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class RadialWeapon : Weapon
 {
-    [Header("Beam")]
-    [SerializeField] private GameObject beamObject;
-    [SerializeField] private float beamGrowFactor = 5.0f;
-    [SerializeField] private float beamDelay = 2.0f;
-    [SerializeField] private float beamShrinkFactor = 15.0f;
+    [Header("RadialBoom")]
+    [SerializeField] private GameObject boomObject;
+    [SerializeField] private float boomMaxScale = 25.0f;
+    [SerializeField] private float boomGrowFactor = 5.0f;
+    [SerializeField] private float boomDelay = 2.0f;
 
-    private float beamTimer = 0.0f;
+    private float boomTimer = 0.0f;
 
-    private GameObject beam = null;
+    private GameObject boom = null;
 
     void Start()
     {
@@ -23,40 +23,36 @@ public class RadialWeapon : Weapon
     {
         base.Update();
 
-        if(beam != null)
+        if(boom != null)
         {
-            beam.transform.position = GetShootingPoint().transform.position;
-            beam.transform.rotation = GetShootingPoint().transform.rotation;
-            Vector3 rotation = beam.transform.rotation.eulerAngles;
+            boom.transform.position = GetShootingPoint().transform.position;
+            boom.transform.rotation = GetShootingPoint().transform.rotation;
+            Vector3 rotation = boom.transform.rotation.eulerAngles;
             rotation.x = 0.0f;
-            beam.transform.rotation = Quaternion.Euler(rotation);
+            boom.transform.rotation = Quaternion.Euler(rotation);
 
-            if(beamTimer > 0.0f)
+            if(boomTimer > 0.0f)
             {
-                beam.transform.localScale = Vector3.Lerp(beam.transform.localScale, Vector3.one, beamGrowFactor * Time.deltaTime);
-                beamTimer -= Time.deltaTime;
-            }
-            else if(beam.transform.localScale.x > 0.01f)
-            {
-                beam.transform.localScale = Vector3.Lerp(beam.transform.localScale, new Vector3(0.0f, 0.0f, 1.0f), beamShrinkFactor * Time.deltaTime);
+                boom.transform.localScale = Vector3.Lerp(boom.transform.localScale, Vector3.one * boomMaxScale, boomGrowFactor * Time.deltaTime);
+                boomTimer -= Time.deltaTime;
             }
             else
             {
-                Destroy(beam);
-                beam = null;
+                Destroy(boom);
+                boom = null;
             }
         }
     }
 
     protected override void Fire()
     {
-        if(beam == null)
+        if(boom == null)
         {
-            beam = GameObject.Instantiate(beamObject, GetShootingPoint().position, GetShootingPoint().rotation);
-            Vector3 rotation = beam.transform.rotation.eulerAngles;
+            boom = GameObject.Instantiate(boomObject, GetShootingPoint().position, GetShootingPoint().rotation);
+            Vector3 rotation = boom.transform.rotation.eulerAngles;
             rotation.x = 0.0f;
-            beam.transform.rotation = Quaternion.Euler(rotation);
+            boom.transform.rotation = Quaternion.Euler(rotation);
         }
-        beamTimer = beamDelay;
+        boomTimer = boomDelay;
     }
 }
