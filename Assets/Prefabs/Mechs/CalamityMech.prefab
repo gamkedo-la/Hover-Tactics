@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: -8745927409812900009}
   - component: {fileID: 2068957219282156062}
   - component: {fileID: 4850464849410009535}
+  - component: {fileID: 8189179747237387910}
   - component: {fileID: 136759709402847110}
   - component: {fileID: 6260535867820112990}
   - component: {fileID: 568369338441157059}
@@ -404,7 +405,6 @@ MonoBehaviour:
   hoverMechAnimation: {fileID: 5125771059975562220}
   turnSpeed: 100
   turnSensitivity: 0.1
-  mechBoost: {fileID: -8745927409812900009}
   Cursor: {fileID: 0}
 --- !u!114 &7593058205660559874
 MonoBehaviour:
@@ -492,6 +492,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replenishPerSecond: 0.1
+--- !u!114 &8189179747237387910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654337600058745840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde348f4bdd8a3d4ea2406d9e4fb92fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &136759709402847110
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] hoverMechs;
     [SerializeField] private int activeIndex = 0;
+    [Header("Shield Rates")]
+    [SerializeField] private float shieldDepletionInSeconds = 60.0f;
+    [SerializeField] private float shieldRecoveryInSeconds = 45.0f;
 
     static public GameManager instance;
 
@@ -62,6 +66,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown("Fire3")) SwitchHoverMech();
+        UpdateShield();
         UpdateAllMechDisplays();
     }
 
@@ -80,7 +85,27 @@ public class GameManager : MonoBehaviour
 
             HP.fillAmount = hoverMechs[i].GetComponent<Health>().Get();
             MP.fillAmount = hoverMechs[i].GetComponent<Power>().Get();
-            //shield.fillAmount = playerBars.GetShield();
+            shield.fillAmount = hoverMechs[i].GetComponent<Shield>().Get();
         }
+    }
+
+    void UpdateShield()
+    {
+        for(int i = 0; i < hoverMechs.Length; i++)
+        {
+            if(activeIndex == i) hoverMechs[i].GetComponent<Shield>().ChangeBy(Time.deltaTime / shieldRecoveryInSeconds);
+            else hoverMechs[i].GetComponent<Shield>().ChangeBy(-Time.deltaTime / (shieldDepletionInSeconds * (activeIndex == 0 ? 2.0f : 1.0f)));
+
+            if(hoverMechs[i].GetComponent<Shield>().Get() <= 0.0f)
+            {
+                Lose();
+            }
+        }
+        playerBars.UpdateShield(hoverMechs[activeIndex].GetComponent<Shield>().Get());
+    }
+
+    void Lose()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

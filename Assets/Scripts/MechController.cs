@@ -31,7 +31,7 @@ public class MechController : MonoBehaviour
         StopMovement();
         Vector3 position = transform.position;
         float y = position.y;
-        position += hoverMechAnimation.transform.forward * (value * 2.5f);
+        position += hoverMechAnimation.transform.forward * (value * 2.0f);
         position.y = y;
         transform.position = position;
     }
