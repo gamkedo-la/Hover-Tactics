@@ -1781,9 +1781,9 @@ GameObject:
   - component: {fileID: 6730692806992436536}
   - component: {fileID: 8137829999247783970}
   - component: {fileID: 5471539628764871941}
+  - component: {fileID: 4891581321264167179}
   - component: {fileID: 4727262786595552155}
   - component: {fileID: 5689716451623988169}
-  - component: {fileID: 4891581321264167179}
   - component: {fileID: 59975626966411592}
   - component: {fileID: 6327884629601354384}
   - component: {fileID: 491892219600123661}
@@ -1875,6 +1875,22 @@ MonoBehaviour:
   muzzleParticlesTag: TestExplosion2
   sound: 2
   projectileTag: TestProjectile
+--- !u!114 &4891581321264167179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730692806992436542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostMaxValue: 10
+  boostCostPerSecond: 0.75
+  isTeleport: 1
+  mechPower: {fileID: 5689716451623988169}
 --- !u!114 &4727262786595552155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,21 +1917,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replenishPerSecond: 0.1
---- !u!114 &4891581321264167179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730692806992436542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boostMaxValue: 2.5
-  boostCostPerSecond: 0.5
-  mechPower: {fileID: 5689716451623988169}
 --- !u!135 &59975626966411592
 SphereCollider:
   m_ObjectHideFlags: 0

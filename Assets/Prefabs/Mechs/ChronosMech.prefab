@@ -254,9 +254,9 @@ GameObject:
   - component: {fileID: 5300834565054401766}
   - component: {fileID: 6035674963988836273}
   - component: {fileID: 6238674762069699473}
+  - component: {fileID: 5833851236495053071}
   - component: {fileID: 4685571148011314329}
   - component: {fileID: 2138407385781863801}
-  - component: {fileID: 5833851236495053071}
   - component: {fileID: 1453943607737333910}
   - component: {fileID: 4839478484875776846}
   - component: {fileID: 1309400562611693267}
@@ -353,6 +353,22 @@ MonoBehaviour:
   beamGrowFactor: 5
   beamDelay: 2
   beamShrinkFactor: 15
+--- !u!114 &5833851236495053071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300834565054401760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostMaxValue: 2.5
+  boostCostPerSecond: 0.2
+  isTeleport: 0
+  mechPower: {fileID: 2138407385781863801}
 --- !u!114 &4685571148011314329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,21 +395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replenishPerSecond: 0.1
---- !u!114 &5833851236495053071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5300834565054401760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boostMaxValue: 2.5
-  boostCostPerSecond: 0.5
-  mechPower: {fileID: 2138407385781863801}
 --- !u!135 &1453943607737333910
 SphereCollider:
   m_ObjectHideFlags: 0

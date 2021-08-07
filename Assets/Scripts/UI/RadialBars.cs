@@ -35,4 +35,19 @@ public class RadialBars : MonoBehaviour
     {
         shieldMask.alphaCutoff = percent;
     }
+
+    public float GetHP()
+    {
+        return HPMask.alphaCutoff;
+    }
+
+    public float GetMP()
+    {
+        return MPMask.alphaCutoff;
+    }
+
+    public float GetShield()
+    {
+        return shieldMask.alphaCutoff;
+    }
 }

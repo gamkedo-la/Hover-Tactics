@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Assertions;
 
 public class MechController : MonoBehaviour
 {
@@ -13,10 +12,10 @@ public class MechController : MonoBehaviour
     [SerializeField] float turnSpeed;
     [SerializeField] float turnSensitivity;
     [Space]
-    [SerializeField] MechBoost mechBoost;
     [SerializeField] GameObject Cursor;
 
     private Rigidbody rigidbody;
+    private MechBoost mechBoost;
 
     private float horizontal;
     private float vertical;
@@ -27,9 +26,23 @@ public class MechController : MonoBehaviour
         rigidbody.velocity = Vector3.zero;
     }
 
+    public void Teleport(float value)
+    {
+        StopMovement();
+        Vector3 position = transform.position;
+        float y = position.y;
+        position += hoverMechAnimation.transform.forward * (value * 2.5f);
+        position.y = y;
+        transform.position = position;
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        mechBoost = GetComponent<MechBoost>();
+
+        Assert.IsNotNull(rigidbody, "Rigidbody is null!");
+        Assert.IsNotNull(mechBoost, "Mech Boost is null!");
     }
     
     private void Update()
@@ -49,18 +62,10 @@ public class MechController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if(mechBoost != null)
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                mechBoost.ActivateBoost();
-            }
-
-            if(Input.GetKeyUp(KeyCode.Space))
-            {
-                mechBoost.DeactivateBoost();
-            }
-        }
+        if(Input.GetKeyDown(KeyCode.Space))
+            mechBoost.ActivateBoost();
+        if(Input.GetKeyUp(KeyCode.Space))
+            mechBoost.DeactivateBoost();
     }
 
     private void HandleMouseInput()

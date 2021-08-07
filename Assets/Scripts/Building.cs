@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Building : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Building : MonoBehaviour
     void Start()
     {
         health = GetComponent<Health>();
+
+        Assert.IsNotNull(health, "Health is null!");
     }
 
     void Update()

@@ -25,6 +25,11 @@ public class Health : MonoBehaviour
         return current <= 0.0f;
     }
 
+    public float Get()
+    {
+        return current;
+    }
+
     public void SetToFull()
     {
         current = max;
