@@ -77,6 +77,6 @@ public class GameMenu : MonoBehaviour
 
     private void PlaySelectedSound()
     {
-        SoundFXManager.PlayOneShot(SoundFxKey.Select);
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
     }
 }

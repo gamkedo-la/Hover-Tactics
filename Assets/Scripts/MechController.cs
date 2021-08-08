@@ -30,10 +30,12 @@ public class MechController : MonoBehaviour
     {
         StopMovement();
         Vector3 position = transform.position;
+        ObjectPooler.instance.SpawnFromPool("TeleportParticles", position, Quaternion.identity);
         float y = position.y;
         position += hoverMechAnimation.transform.forward * (value * 2.0f);
         position.y = y;
         transform.position = position;
+        ObjectPooler.instance.SpawnFromPool("TeleportParticles", position, Quaternion.identity);
     }
 
     void Start()

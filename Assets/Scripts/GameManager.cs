@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Mech Switch")]
     [SerializeField] private GameObject[] hoverMechs;
     [SerializeField] private int activeIndex = 0;
+    [SerializeField] private SoundFxKey switchSound;
     [Header("Shield Rates")]
     [SerializeField] private float shieldDepletionInSeconds = 60.0f;
     [SerializeField] private float shieldRecoveryInSeconds = 45.0f;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void SwitchHoverMech()
     {
+        SoundFXManager.PlayOneShot(switchSound);
         DeactivateHoverMech(activeIndex++);
         if(activeIndex >= hoverMechs.Length) activeIndex = 0;
         ActivateHoverMech(activeIndex);

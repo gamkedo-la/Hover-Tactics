@@ -4612,7 +4612,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1284
+  m_Name: pb_Mesh-1286
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13772,6 +13772,7 @@ MonoBehaviour:
   - {fileID: 5300834565565048205}
   - {fileID: 5300834564851224343}
   activeIndex: 0
+  switchSound: 3
   shieldDepletionInSeconds: 60
   shieldRecoveryInSeconds: 45
 --- !u!114 &1654012832
@@ -13803,6 +13804,10 @@ MonoBehaviour:
     prefab: {fileID: 7106769922058505212, guid: 4ebcab53bc446184e99d0a9352472999,
       type: 3}
     size: 200
+  - tag: TeleportParticles
+    prefab: {fileID: 7106769922058505212, guid: 49c9ffbac6bd736428d41923efaa6bad,
+      type: 3}
+    size: 50
 --- !u!43 &1686013551
 Mesh:
   m_ObjectHideFlags: 0
@@ -22485,7 +22490,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1274
+  m_Name: pb_Mesh-1276
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22887,7 +22892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformToFollow: {fileID: 660936835}
   offset: {x: -20, y: 28, z: -20}
-  lerpFactor: 5
+  lerpFactor: 7.5
   mouseFactor: 0.3
   cursor: {fileID: 1748713127}
 --- !u!4 &2096401299 stripped

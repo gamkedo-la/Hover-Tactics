@@ -204,16 +204,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainAudioSource: {fileID: 419135673822943499}
   sounds:
-  - key: 1
+  - key: 2
     clips:
     - {fileID: 8300000, guid: e12b8d5b733ebac45aee1832d65d38d5, type: 3}
-  - key: 2
+  - key: 10
     clips:
     - {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
   - key: 3
     clips:
-    - {fileID: 8300000, guid: 9cec47d379eceed41aa1f8099735b235, type: 3}
+    - {fileID: 8300000, guid: c5b3836b0d1352b4a8c05a1ecb4a395e, type: 3}
   - key: 4
     clips:
-    - {fileID: 8300000, guid: 78cb2bd129761d0458f68a382d535e06, type: 3}
+    - {fileID: 8300000, guid: a48d80a38d45a5b499bb5eb31ea46286, type: 3}
+    - {fileID: 8300000, guid: 6ea86cb00eb9edf4cab3d6981bd72efe, type: 3}
+    - {fileID: 8300000, guid: 810bc26f96800dd4ea9659ecd479a157, type: 3}
+  - key: 6
+    clips:
+    - {fileID: 8300000, guid: 1c8c2f2b0722abc4fb5b9c2b9dece9e3, type: 3}
+    - {fileID: 8300000, guid: 59a22cf9f055d5e4aadda697c2163bd4, type: 3}
   logDebug: 0

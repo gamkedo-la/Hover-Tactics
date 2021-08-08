@@ -4,11 +4,26 @@ using UnityEngine;
 
 public enum SoundFxKey
 {
-    None,
-    Select,
-    Explosion,
-    Shoot,
-    RifleFire,
+    NONE,
+
+    //UI
+    HOVER,
+    SELECT,
+
+    //CONTROLS
+    SWITCH,
+
+    //WEAPONS
+    RIFLE,
+    LASER_BEAM,
+    MELTER,
+    PORTAL,
+    MISSILE,
+    BOOM,
+
+    //OTHER
+    SMALL_BUILDING_EXPLOSION,
+    BIG_BUILDING_EXPLOSION,
 };
 
 [System.Serializable]
@@ -65,7 +80,7 @@ public class SoundFXManager : MonoBehaviour
 
     public static void PlayOneShot(SoundFxKey soundFxKey)
     {  
-        if(soundFxKey == SoundFxKey.None) return;
+        if(soundFxKey == SoundFxKey.NONE) return;
         PlayOneShot(soundFxKey, Instance.mainAudioSource);
     }
 
@@ -74,7 +89,7 @@ public class SoundFXManager : MonoBehaviour
         // use this method to play oneshots in a specific audio source
         // this is useful when we want to play audio in specific places in the world.
 
-        if(soundFxKey == SoundFxKey.None) return;
+        if(soundFxKey == SoundFxKey.NONE) return;
 
         if(audioSource == null)
         {

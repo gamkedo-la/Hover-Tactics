@@ -1846,10 +1846,10 @@ MonoBehaviour:
   type: 0
   shootingPoints:
   - {fileID: 3649787712484487969}
-  cooldownDelay: 0.01
+  cooldownDelay: 0.02
   MPDepletePerShot: 0.01
   muzzleParticlesTag: 
-  sound: 0
+  sound: 6
   beamObject: {fileID: 1162497829734798004, guid: cc6af1b7553f5744fb4467b3bb1b4e64,
     type: 3}
   beamGrowFactor: 100
@@ -1873,7 +1873,7 @@ MonoBehaviour:
   cooldownDelay: 0.5
   MPDepletePerShot: 0.5
   muzzleParticlesTag: TestExplosion2
-  sound: 2
+  sound: 10
   projectileTag: TestProjectile
 --- !u!114 &4891581321264167179
 MonoBehaviour:

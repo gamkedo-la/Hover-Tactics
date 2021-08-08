@@ -73,7 +73,7 @@ public class Projectile : MonoBehaviour
         ContactPoint contact = coll.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
-        SoundFXManager.PlayOneShot(SoundFxKey.Explosion);
+        SoundFXManager.PlayOneShot(SoundFxKey.SMALL_BUILDING_EXPLOSION);
     }
 
     void DisableObject()
