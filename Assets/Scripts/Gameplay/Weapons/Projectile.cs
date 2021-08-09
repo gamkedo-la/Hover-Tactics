@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IDamage
 {
     [Header("Forces")]
     [SerializeField] private float forwardForce = 10.0f;
@@ -57,6 +57,14 @@ public class Projectile : MonoBehaviour
             destroyTimer -= Time.deltaTime;
     }
 
+    public Damage GetDamage()
+    {
+        return new Damage()
+        {
+            Value = -damage,
+        };
+    }
+
     void OnCollisionEnter(Collision coll)
     {
         DestroyEffects(coll);
@@ -64,8 +72,8 @@ public class Projectile : MonoBehaviour
         projectileCollider.enabled = false;
         Invoke("DisableObject", 1.0f);
 
-        Health health = coll.transform.GetComponent<Health>();
-        if(health) health.ChangeBy(-damage);
+        AbstractTakeDamage canTakeDamage = coll.transform.GetComponent<AbstractTakeDamage>();
+        if(canTakeDamage) canTakeDamage.TakeDamage(GetDamage());
     }
 
     void DestroyEffects(Collision coll)

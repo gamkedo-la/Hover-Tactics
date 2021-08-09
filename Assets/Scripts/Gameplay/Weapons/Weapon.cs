@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 //Subclasses: RaycastWeapon, ProjectileWeapon, PortalWeapon, BeamWeapon
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour, IDamage
 {
     public enum Type {
         BASIC,
@@ -78,6 +78,7 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Fire() {}
 
+    public virtual Damage GetDamage() => new Damage() { Value = 0 };
     protected void Effects()
     {
         ObjectPooler.instance.SpawnFromPool(

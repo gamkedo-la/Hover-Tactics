@@ -70,8 +70,16 @@ public class RaycastWeapon : Weapon
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitData.normal);
             ObjectPooler.instance.SpawnFromPool(hitImpactTag, hitData.point, rot);
 
-            Health health = hitData.transform.GetComponent<Health>();
-            if(health) health.ChangeBy(-damagePerHit);
+            AbstractTakeDamage canTakeDamage = hitData.transform.GetComponent<AbstractTakeDamage>();
+            if(canTakeDamage) canTakeDamage.TakeDamage(GetDamage());
         }
+    }
+
+    public override Damage GetDamage()
+    {
+        return new Damage()
+        {
+            Value = -damagePerHit
+        };
     }
 }

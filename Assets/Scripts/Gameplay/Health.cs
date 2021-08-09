@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : AbstractTakeDamage
 {
     [SerializeField] private float max = 1.0f;
     private float current = 1.0f;
@@ -13,6 +13,11 @@ public class Health : MonoBehaviour
     private void Start()
     {
         SetToFull();
+    }
+
+    public override void TakeDamage(Damage damage)
+    {
+        ChangeBy(damage.Value);
     }
 
     public void ChangeBy(float value)
