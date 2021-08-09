@@ -77,4 +77,9 @@ public class LaserFence : MonoBehaviour
         angle *= -1.0f;
         lineCollider.transform.Rotate(0.0f, angle, 0.0f);
     }
+
+    public void ToggleFence(bool isActive)
+    {
+        lineRenderer.transform.gameObject.SetActive(isActive);
+    }
 }

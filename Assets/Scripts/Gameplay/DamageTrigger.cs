@@ -28,7 +28,7 @@ public class DamageTrigger : MonoBehaviour, IDamage
         {
             if(takeDamageList.Count > 0)
             {
-                foreach(Health takeDamage in takeDamageList)
+                foreach(AbstractTakeDamage takeDamage in takeDamageList)
                 {
                     takeDamage.TakeDamage(GetDamage());
                 }
