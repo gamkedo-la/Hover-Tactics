@@ -20,19 +20,19 @@ public class Projectile : MonoBehaviour
     private float destroyTimer = 0.0f;
 
     private MeshRenderer meshRenderer;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     private Collider projectileCollider;
     private AudioSource audioSource;
 
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         projectileCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
 
         Assert.IsNotNull(meshRenderer, "Mesh Renderer is null!");
-        Assert.IsNotNull(rigidbody, "Rigidbody is null!");
+        Assert.IsNotNull(rb, "Rigidbody is null!");
         Assert.IsNotNull(projectileCollider, "Projectile Collider is null!");
         Assert.IsNotNull(audioSource, "Audio Source is null!");
     }
@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
     {
         if(impactForce != Vector3.zero)
         {
-            rigidbody.AddForce(impactForce, ForceMode.Impulse);
+            rb.AddForce(impactForce, ForceMode.Impulse);
             impactForce = Vector3.zero;
         }
 

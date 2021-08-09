@@ -14,7 +14,7 @@ public class MechController : MonoBehaviour
     [Space]
     [SerializeField] GameObject Cursor;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     private MechBoost mechBoost;
 
     private float horizontal;
@@ -23,7 +23,7 @@ public class MechController : MonoBehaviour
 
     public void StopMovement()
     {
-        rigidbody.velocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
     }
 
     public void Teleport(float value)
@@ -40,10 +40,10 @@ public class MechController : MonoBehaviour
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         mechBoost = GetComponent<MechBoost>();
 
-        Assert.IsNotNull(rigidbody, "Rigidbody is null!");
+        Assert.IsNotNull(rb, "Rigidbody is null!");
         Assert.IsNotNull(mechBoost, "Mech Boost is null!");
     }
     
@@ -86,7 +86,7 @@ public class MechController : MonoBehaviour
             (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
             (rightDirection * horizontal * sideSpeed);
         
-        rigidbody.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
+        rb.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
     }
 
     private void Turn()
