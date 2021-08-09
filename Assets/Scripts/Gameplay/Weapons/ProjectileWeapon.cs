@@ -8,12 +8,12 @@ public class ProjectileWeapon : Weapon
     [Header("Projectile")]
     [SerializeField] private string projectileTag;
 
-    void Start()
+    protected override void Start()
     {
         base.Start();
     }
 
-    void Update()
+    protected override void Update()
     {
         base.Update();
     }

@@ -14,12 +14,12 @@ public class RadialWeapon : Weapon
 
     private GameObject boom = null;
 
-    void Start()
+    protected override void Start()
     {
         base.Start();
     }
 
-    void Update()
+    protected override void Update()
     {
         base.Update();
 

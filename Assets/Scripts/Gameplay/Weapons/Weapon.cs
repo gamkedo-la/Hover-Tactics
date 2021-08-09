@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
         return shootingPoints[shootingPointIndex];
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         mechController = GetComponent<MechController>();
         power = GetComponent<Power>();
@@ -42,7 +42,7 @@ public class Weapon : MonoBehaviour
         Assert.IsNotNull(audioSource, "Audio Source is null!");
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if(mechController.enabled)
         {

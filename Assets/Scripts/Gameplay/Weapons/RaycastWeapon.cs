@@ -13,7 +13,7 @@ public class RaycastWeapon : Weapon
     private List<LineRenderer> lineRenderers;
     private List<float> lineTimers;
 
-    void Start()
+    protected override void Start()
     {
         base.Start();
 
@@ -32,7 +32,7 @@ public class RaycastWeapon : Weapon
         }
     }
 
-    void Update()
+    protected override void Update()
     {
         base.Update();
 
