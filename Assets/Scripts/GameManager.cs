@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour
         return playerBars;
     }
 
+    public void AddShieldToAll(float value)
+    {
+        for(int i = 0; i < hoverMechs.Length; i++)
+            hoverMechs[i].GetComponent<Shield>().ChangeBy(value);
+    }
+
     void ActivateHoverMech(int index)
     {
         hoverMechs[index].transform.GetChild(1).gameObject.SetActive(false); //Shield
@@ -71,6 +77,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("Fire3")) SwitchHoverMech();
         UpdateShield();
         UpdateAllMechDisplays();
+        UpdateSpecials();
     }
 
     void UpdateAllMechDisplays()
@@ -105,6 +112,11 @@ public class GameManager : MonoBehaviour
             }
         }
         playerBars.UpdateShield(hoverMechs[activeIndex].GetComponent<Shield>().Get());
+    }
+
+    void UpdateSpecials()
+    {
+        playerBars.UpdateSpecials(hoverMechs[activeIndex].GetComponent<Power>().GetSpecials());
     }
 
     void Lose()

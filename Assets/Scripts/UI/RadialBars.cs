@@ -7,6 +7,7 @@ public class RadialBars : MonoBehaviour
     [SerializeField] private SpriteMask HPMask;
     [SerializeField] private SpriteMask MPMask;
     [SerializeField] private SpriteMask shieldMask;
+    [SerializeField] private Transform specialFill;
 
     void Start()
     {
@@ -34,6 +35,15 @@ public class RadialBars : MonoBehaviour
     public void UpdateShield(float percent)
     {
         shieldMask.alphaCutoff = percent;
+    }
+
+    public void UpdateSpecials(int fill)
+    {
+        for(int i = 0; i < specialFill.childCount; i++, fill--)
+        {
+            if(fill > 0) specialFill.GetChild(i).gameObject.SetActive(true);
+            else specialFill.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
     public float GetHP()

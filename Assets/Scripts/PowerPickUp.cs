@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerPickUp : MonoBehaviour
@@ -8,15 +6,12 @@ public class PowerPickUp : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
-			Power powerScript = other.GetComponent<Power>();
-			//Transform powerTransform = other.transform.Find("Power");
-			//if (powerScript != null && powerTransform != null)
-			if (powerScript != null)
-			{
-				//powerTransform.gameObject.SetActive(true);
-				powerScript.enabled = true;
-				Destroy(gameObject);
+			Power power = other.GetComponent<Power>();
+			if (power != null) {
+				power.ChangeBy(1.0f);
+				power.ChangeBy_Special(3);
 			}
+			Destroy(gameObject);
 		}
 	}
 }

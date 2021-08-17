@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replenishPerSecond: 0.1
+  specials: 3
 --- !u!114 &2870371430036494080
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour, IDamage
             if(cooldownTimer <= 0.0f && power.Get() >= MPDepletePerShot)
             {
                 if((type == Type.BASIC && Input.GetButton("Fire1"))
-                || (type == Type.SPECIAL && Input.GetButtonDown("Fire2")))
+                || (type == Type.SPECIAL && power.GetSpecials() > 0 && Input.GetButtonDown("Fire2")))
                 {
                     GetShootingPoint().LookAt(CameraController.singleton.lastAimPoint);
                     Vector3 shootingPointEuler = GetShootingPoint().localRotation.eulerAngles;
@@ -61,6 +61,7 @@ public class Weapon : MonoBehaviour, IDamage
                     Effects();
 
                     power.ChangeBy(-MPDepletePerShot);
+                    if(type == Type.SPECIAL) power.ChangeBy_Special(-1);
 
                     shootingPointIndex++;
                     if(shootingPointIndex > shootingPoints.Length - 1)
