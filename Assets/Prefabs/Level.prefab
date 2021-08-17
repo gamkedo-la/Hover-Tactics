@@ -998,7 +998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7547607585461333049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 3.57, z: 10}
+  m_LocalPosition: {x: -10, y: 3.57, z: -10}
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 6972249570461765466}
@@ -1393,7 +1393,7 @@ PrefabInstance:
     - target: {fileID: 2298107330816948745, guid: d4eab07dd14e4144db1401d70fd1c39b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.75
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2298107330816948745, guid: d4eab07dd14e4144db1401d70fd1c39b,
         type: 3}
@@ -1459,6 +1459,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863374909832274065, guid: d4eab07dd14e4144db1401d70fd1c39b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+        type: 3}
+    - target: {fileID: 4863374909832274065, guid: d4eab07dd14e4144db1401d70fd1c39b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863374909832274065, guid: d4eab07dd14e4144db1401d70fd1c39b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4eab07dd14e4144db1401d70fd1c39b, type: 3}
@@ -6660,7 +6676,7 @@ PrefabInstance:
     - target: {fileID: 6316184867829481138, guid: 90bda53e9a53d4848b1f62da461c7e92,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6316184868573750281, guid: 90bda53e9a53d4848b1f62da461c7e92,
         type: 3}
