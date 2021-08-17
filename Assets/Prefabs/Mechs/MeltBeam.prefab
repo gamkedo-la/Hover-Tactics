@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3439023674997453909}
   - component: {fileID: 2369480093863056258}
   - component: {fileID: 6810088015186605317}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4861,7 +4861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162497829734798005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MeltBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

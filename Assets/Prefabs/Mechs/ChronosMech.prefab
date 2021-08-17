@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2764866125502653183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 3106110771858588059}
   - component: {fileID: 2567686538811469430}
   - component: {fileID: 361237769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535321928241183016}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MiddleShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 1453943607737333910}
   - component: {fileID: 4839478484875776846}
   - component: {fileID: 1309400562611693267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ChronosMech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8381684745374968439}
   - component: {fileID: 5974809571300658428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3656998891429000962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 5995469059869751907}
   - component: {fileID: 3254870894606193403}
   - component: {fileID: 1476687635647184346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,6 +927,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlatypusShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 720554cf8b778b8429eda28805752edb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 720554cf8b778b8429eda28805752edb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 720554cf8b778b8429eda28805752edb, type: 3}

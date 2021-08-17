@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
+
 public class ToggleByDamage : AbstractTakeDamage
 {
     public bool IsActive { set; protected get; }
@@ -20,10 +20,7 @@ public class ToggleByDamage : AbstractTakeDamage
     
     public override void TakeDamage(Damage damage)
     {
-        if(canToggle == false)
-        {
-            return;
-        }
+        if(canToggle == false) return;
 
         Toggle();
     }

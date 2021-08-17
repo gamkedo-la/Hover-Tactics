@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7839275965085325747}
   - component: {fileID: 1162497828262332153}
   - component: {fileID: 3439023674997453909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162497829734798005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LaserBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

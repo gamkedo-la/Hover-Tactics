@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3717276390743100911}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 7332169094421765148}
   - component: {fileID: 5554688410758243670}
   - component: {fileID: 8949652520970109378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4527159358710984331}
   - component: {fileID: 3921207510807085414}
   - component: {fileID: 1569693831918576153}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7032676375119676775}
   - component: {fileID: 5125771059975562220}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 136759709402847110}
   - component: {fileID: 6260535867820112990}
   - component: {fileID: 568369338441157059}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CalamityMech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 5115107729878898035}
   - component: {fileID: 4099177175799463403}
   - component: {fileID: 123448413233533642}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7904148037387578692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlatypusShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
