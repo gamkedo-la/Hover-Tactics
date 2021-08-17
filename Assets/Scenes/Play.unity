@@ -24049,6 +24049,11 @@ PrefabInstance:
       propertyPath: explosionTag
       value: TestExplosion2
       objectReference: {fileID: 0}
+    - target: {fileID: 5689716451623988169, guid: ad976f060e841ad4a82b39ef59708348,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6730692806992436536, guid: ad976f060e841ad4a82b39ef59708348,
         type: 3}
       propertyPath: Cursor
@@ -24133,6 +24138,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4850464849410009535, guid: 36a81f760506f6644ae21bf23159447a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6654337600058745840, guid: 36a81f760506f6644ae21bf23159447a,
         type: 3}
       propertyPath: m_Name
@@ -26009,6 +26019,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d440a52f52368504f93f37fe515735e2, type: 2}
+    - target: {fileID: 2138407385781863801, guid: fd9055a6a20256e429230b6b54b0f95c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2546966144760913068, guid: fd9055a6a20256e429230b6b54b0f95c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
