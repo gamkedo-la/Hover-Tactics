@@ -13359,6 +13359,14 @@ MonoBehaviour:
     prefab: {fileID: 7106769922058505212, guid: 49c9ffbac6bd736428d41923efaa6bad,
       type: 3}
     size: 50
+  - tag: PortalProjectile
+    prefab: {fileID: 7467973104759329047, guid: 0c8ef42c639d1d8469f8cd83876d69a1,
+      type: 3}
+    size: 10
+  - tag: Portal
+    prefab: {fileID: 8113973223521420996, guid: 6959e43dd92c3464392d9861f4636fee,
+      type: 3}
+    size: 20
 --- !u!43 &1686013551
 Mesh:
   m_ObjectHideFlags: 0

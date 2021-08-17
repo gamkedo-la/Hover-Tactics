@@ -1874,7 +1874,7 @@ MonoBehaviour:
   MPDepletePerShot: 0.5
   muzzleParticlesTag: TestExplosion2
   sound: 10
-  projectileTag: TestProjectile
+  projectileTag: PortalProjectile
 --- !u!114 &4891581321264167179
 MonoBehaviour:
   m_ObjectHideFlags: 0

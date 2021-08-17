@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour, IDamage
     [SerializeField] private float upwardForce = 2.5f;
     [Header("Properties")]
     [SerializeField] private float damage = 1.0f;
+    [SerializeField] private string onDestroyObjectTag = "";
     [Header("Effects")]
     [SerializeField] private string explosionTag;
     [SerializeField] private AudioClip explosionSound;
@@ -67,6 +68,8 @@ public class Projectile : MonoBehaviour, IDamage
 
     void OnCollisionEnter(Collision coll)
     {
+        ObjectPooler.instance.SpawnFromPool(onDestroyObjectTag, transform.position, Quaternion.identity);
+
         DestroyEffects(coll);
         meshRenderer.enabled = false;
         projectileCollider.enabled = false;
