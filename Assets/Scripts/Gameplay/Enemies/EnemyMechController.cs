@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class EnemyMechController : BaseMechController
 {
-    [Range(-1,1)]
-    public float turnDirOverride;
-    public Transform positionTarget;
-    public float minDistanceToTarget = 1f;
-    [Range(0.5f, 1.0f)]
-    public float minAngleToTarget = 0.8f;
+
+    [Range(0.0f, 5.0f)]
+    public float nearDistanceThreshold = 1f;
+    [Range(-1.0f, 1.0f)]
+    public float facingTargetTolerance = 0.8f;
     private Vector3 directionToTarget;
 
-    protected override void Start()
-    {
-        base.Start();
-        SetTarget(this.transform); // in case there is no target
-    }
+    private Transform _actualTarget;
+    private Transform positionTarget => _actualTarget == null ? this.transform : this._actualTarget;
+    private float sidewaysMovementFilter = 0.3f;
+    private float minimumFowardMovement = 0.8f;
+
     protected override void SetInput()
     {
         if(positionTarget == null)
@@ -38,7 +37,7 @@ public class EnemyMechController : BaseMechController
 
     public void SetTarget(Transform target)
     {
-        this.positionTarget = target;
+        this._actualTarget = target;
     }
 
     public float GetDistanceFromTarget()
@@ -49,13 +48,13 @@ public class EnemyMechController : BaseMechController
     public bool IsFacingTarget()
     {
         var dot = Vector3.Dot(hoverMechAnimation.transform.forward, (positionTarget.position - transform.position).normalized);
-        return  dot > minAngleToTarget;
+        return  dot > facingTargetTolerance;
     }
 
     public bool IsNearTarget()
     {
         var distance = GetDistanceFromTarget();
-        var isNear = distance < minDistanceToTarget;
+        var isNear = distance < nearDistanceThreshold;
         return isNear;
     }
 
@@ -75,19 +74,16 @@ public class EnemyMechController : BaseMechController
 
         // limiting the side movement to allow for a more natural movement
         // less side ways, thus more towards the target
-        horizontal = Mathf.Abs(directionToTarget.x*0.3f);
+        horizontal = Mathf.Abs(directionToTarget.x * sidewaysMovementFilter);
 
         // making sure it doesn't slow down much by clamping the values
-        vertical = Mathf.Clamp(Mathf.Abs(directionToTarget.z), 0.8f, 1.0f); 
+        vertical = Mathf.Clamp(Mathf.Abs(directionToTarget.z), minimumFowardMovement, 1.0f); 
     }
 
     private void SetTurnValues()
     {
-        Vector3 targetPoint = positionTarget.position;
-        Vector3 relativeDirection = hoverMechAnimation.transform.InverseTransformPoint(targetPoint);
+        Vector3 relativeDirection = hoverMechAnimation.transform.InverseTransformPoint(positionTarget.position);
         turnDir = Mathf.Atan2(relativeDirection.x, relativeDirection.z) * Mathf.Rad2Deg * turnSensitivity;
         turnDir = Mathf.Clamp(turnDir, -1, 1);
-
-        //turnDir = turnDirOverride;
     }
 }
