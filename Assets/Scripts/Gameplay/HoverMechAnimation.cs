@@ -9,7 +9,7 @@ public class HoverMechAnimation : MonoBehaviour
     [SerializeField] private float backwardRotation = 15.0f;
     [SerializeField] private float sideRotation = 20.0f;
 
-    private MechController controller;
+    private BaseMechController controller;
     private float yRotation = 180.0f;
 
     public float GetYRotation()
@@ -24,7 +24,7 @@ public class HoverMechAnimation : MonoBehaviour
 
     void Start()
     {
-        controller = transform.parent.gameObject.GetComponent<MechController>();
+        controller = transform.parent.gameObject.GetComponent<BaseMechController>();
     }
 
     void Update()

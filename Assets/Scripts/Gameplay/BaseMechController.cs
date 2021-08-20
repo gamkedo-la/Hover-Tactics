@@ -65,7 +65,6 @@ public class BaseMechController : MonoBehaviour
         // empty on purpose, child classes need to implement it.
     }
 
-
     private void Move()
     {
         Vector3 rightDirection = hoverMechAnimation.transform.right;

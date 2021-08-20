@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-[RequireComponent(typeof(MechController))]
+[RequireComponent(typeof(BaseMechController))]
 public class Power : MonoBehaviour
 {
     [SerializeField] private float replenishPerSecond = 0.1f;
     [Range(0,3)] [SerializeField] private int specials = 3;
 
-    private MechController mechController;
+    private BaseMechController mechController;
     private float value = 1.0f;
 
     private void Start()
     {
-        mechController = GetComponent<MechController>();
+        mechController = GetComponent<BaseMechController>();
 
         Assert.IsNotNull(mechController, "Mech Controller is null!");
 

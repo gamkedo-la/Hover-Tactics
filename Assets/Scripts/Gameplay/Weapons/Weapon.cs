@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 //Subclasses: RaycastWeapon, ProjectileWeapon, PortalWeapon, BeamWeapon
+[RequireComponent(typeof(BaseMechController))]
 public class Weapon : MonoBehaviour, IDamage
 {
     public enum Type {
@@ -22,7 +23,7 @@ public class Weapon : MonoBehaviour, IDamage
     protected int shootingPointIndex = 0;
     protected float cooldownTimer = 0.0f;
 
-    protected MechController mechController;
+    protected BaseMechController mechController;
     protected Power power;
     protected AudioSource audioSource;
 
@@ -33,7 +34,7 @@ public class Weapon : MonoBehaviour, IDamage
 
     protected virtual void Start()
     {
-        mechController = GetComponent<MechController>();
+        mechController = GetComponent<BaseMechController>();
         power = GetComponent<Power>();
         audioSource = GetComponent<AudioSource>();
 
