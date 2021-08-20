@@ -40,7 +40,7 @@ public class BaseMechController : MonoBehaviour
         ObjectPooler.instance.SpawnFromPool("TeleportParticles", position, Quaternion.identity);
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
         mechBoost = GetComponent<MechBoost>();
