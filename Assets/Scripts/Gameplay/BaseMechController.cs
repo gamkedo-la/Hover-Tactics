@@ -14,7 +14,6 @@ public class BaseMechController : MonoBehaviour
     [SerializeField] private float turnSpeed;
     [SerializeField] protected float turnSensitivity;
     [Space]
-    [SerializeField] protected GameObject Cursor;
 
     private Rigidbody rb;
     protected MechBoost mechBoost;

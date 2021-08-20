@@ -2,6 +2,8 @@
 
 public class MechController : BaseMechController
 {
+    [SerializeField] protected GameObject Cursor;
+
     protected override void SetInput()
     {
         HandleMovementInput();
