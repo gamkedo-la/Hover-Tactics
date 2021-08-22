@@ -6,6 +6,7 @@ public class BeamWeapon : Weapon
 {
     [Header("Beam")]
     [SerializeField] private GameObject beamObject;
+    [SerializeField] private float beamStartDelay = 0.25f;
     [SerializeField] private float beamGrowFactor = 5.0f;
     [SerializeField] private float beamDelay = 2.0f;
     [SerializeField] private float beamShrinkFactor = 15.0f;
@@ -50,6 +51,12 @@ public class BeamWeapon : Weapon
 
     protected override void Fire()
     {
+        StartCoroutine("StartBeam");
+    }
+
+    IEnumerator StartBeam()
+    {
+        yield return new WaitForSeconds(beamStartDelay);
         if(beam == null)
         {
             beam = GameObject.Instantiate(beamObject, GetShootingPoint().position, GetShootingPoint().rotation);

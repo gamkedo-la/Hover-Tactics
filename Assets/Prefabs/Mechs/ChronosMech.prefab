@@ -1033,7 +1033,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3522564694056997106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 1.3}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1.3}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8381684745374968439}
@@ -1143,10 +1143,11 @@ MonoBehaviour:
   - {fileID: 4535321928241183016}
   cooldownDelay: 0.5
   MPDepletePerShot: 1
-  muzzleParticlesTag: TestExplosion2
+  muzzleParticlesTag: LaserBeamWeaponMuzzle
   sound: 10
   beamObject: {fileID: 1162497829734798004, guid: 2c816f7688a2eb3428654cc20386c483,
     type: 3}
+  beamStartDelay: 0.5
   beamGrowFactor: 5
   beamDelay: 2
   beamShrinkFactor: 15
