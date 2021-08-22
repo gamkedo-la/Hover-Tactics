@@ -13,6 +13,8 @@ public class RaycastWeapon : Weapon
     private List<LineRenderer> lineRenderers;
     private List<float> lineTimers;
 
+    private float resetRecoil;
+
     protected override void Start()
     {
         base.Start();
@@ -30,6 +32,9 @@ public class RaycastWeapon : Weapon
             lineRenderers.Add(lineRenderer);
             lineTimers.Add(0.0f);
         }
+
+        if(shootingPoints.Length > 0)
+            resetRecoil = shootingPoints[0].GetChild(0).localPosition.z;
     }
 
     protected override void Update()
@@ -39,6 +44,10 @@ public class RaycastWeapon : Weapon
         //Decreasing Alpha (and ultimately, disabling) Line Renderer as the time passes for each Shooting Point
         for(int i = 0; i < shootingPoints.Length; i++)
         {
+            Vector3 localShooterPosition = shootingPoints[i].GetChild(0).localPosition;
+            localShooterPosition.z = Mathf.Lerp(localShooterPosition.z, resetRecoil, 20.0f * Time.deltaTime);
+            shootingPoints[i].GetChild(0).localPosition = localShooterPosition;
+
             if(lineTimers[i] <= 0.0f)
             {
                 lineRenderers[i].enabled = false;
@@ -62,6 +71,10 @@ public class RaycastWeapon : Weapon
         lineRenderers[shootingPointIndex].SetPosition(1, GetShootingPoint().position + (GetShootingPoint().forward * 1000.0f));
         lineRenderers[shootingPointIndex].enabled = true;
         lineTimers[shootingPointIndex] = lineDelay;
+
+        Vector3 localShooterPosition = GetShootingPoint().GetChild(0).localPosition;
+        localShooterPosition.z -= 2.0f;
+        GetShootingPoint().GetChild(0).localPosition = localShooterPosition;
 
         RaycastHit hitData;
         if (Physics.Raycast(GetShootingPoint().position, GetShootingPoint().forward, out hitData))

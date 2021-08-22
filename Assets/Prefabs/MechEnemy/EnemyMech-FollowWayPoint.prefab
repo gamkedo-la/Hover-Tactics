@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6103971813318211799}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: LeftShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,18 +41,13 @@ GameObject:
   - component: {fileID: 3451366897439032114}
   - component: {fileID: 3451366897439032122}
   - component: {fileID: 3451366897439032123}
-  - component: {fileID: 3870537654329057380}
-  - component: {fileID: 3522332503670039620}
-  - component: {fileID: 3928246984272092890}
   - component: {fileID: 2842775467545842508}
-  - component: {fileID: 8924103850820029100}
-  - component: {fileID: 4728907702054033621}
   - component: {fileID: 8239508251640166211}
   - component: {fileID: 2692210368941513883}
   - component: {fileID: 8385143697957841158}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: EnemyMech-FollowWayPoint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,71 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPoints: {fileID: 0}
   minDistanceToTarget: 1
---- !u!114 &3870537654329057380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3451366897439032117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8208bad9de5d35d49addaeb1862a8791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  shootingPoints:
-  - {fileID: 4623833474536828202}
-  - {fileID: 6103971813318211799}
-  cooldownDelay: 0.05
-  MPDepletePerShot: 0.05
-  muzzleParticlesTag: RifleWeaponMuzzle
-  sound: 4
-  damagePerHit: 0.05
-  hitImpactTag: TestExplosion2
-  lineDelay: 0.05
-  lineMaterial: {fileID: 2100000, guid: 9ce91bee0b3e3f541be8c44206a8bffd, type: 2}
-  lineThickness: 0.75
---- !u!114 &3522332503670039620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3451366897439032117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b4040efef7206141b32be8f49c144ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  shootingPoints:
-  - {fileID: 6378605980847027965}
-  cooldownDelay: 0.5
-  MPDepletePerShot: 1
-  muzzleParticlesTag: TestExplosion2
-  sound: 10
-  beamObject: {fileID: 1162497829734798004, guid: 2c816f7688a2eb3428654cc20386c483,
-    type: 3}
-  beamGrowFactor: 5
-  beamDelay: 2
-  beamShrinkFactor: 15
---- !u!114 &3928246984272092890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3451366897439032117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51436c52b499484ab0630c9378e658e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boostMaxValue: 2.5
-  boostCostPerSecond: 0.2
-  isTeleport: 0
-  mechPower: {fileID: 8924103850820029100}
 --- !u!114 &2842775467545842508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,32 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 1
---- !u!114 &8924103850820029100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3451366897439032117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4270f442e27c34b84d8477617c9736, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  replenishPerSecond: 0.1
-  specials: 3
---- !u!114 &4728907702054033621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3451366897439032117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cde348f4bdd8a3d4ea2406d9e4fb92fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &8239508251640166211
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -346,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307265198958699938}
   - component: {fileID: 3791792007306904361}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6378605980847027965}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: MiddleShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -428,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4623833474536828202}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: RightShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -460,7 +364,7 @@ GameObject:
   - component: {fileID: 5579661222765006414}
   - component: {fileID: 5032682793271009699}
   - component: {fileID: 7383070065765335772}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbadf4f9e47673f4cb7acbdf453487fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mechBoost: {fileID: 3928246984272092890}
+  mechBoost: {fileID: 0}
   trailRenderer: {fileID: 5032682793271009699}
   modifiedColor:
     serializedVersion: 2
@@ -642,6 +546,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MinimapDirectionIndicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 74340388918459876, guid: 5f7f972f192bb1c4fac6a39c2e96f6f1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 761573884018565924, guid: 5f7f972f192bb1c4fac6a39c2e96f6f1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104548071830872542, guid: 5f7f972f192bb1c4fac6a39c2e96f6f1,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104548071830872542, guid: 5f7f972f192bb1c4fac6a39c2e96f6f1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104548071830872542, guid: 5f7f972f192bb1c4fac6a39c2e96f6f1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9221218092766937565, guid: 5f7f972f192bb1c4fac6a39c2e96f6f1,
         type: 3}
@@ -806,12 +735,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 720554cf8b778b8429eda28805752edb, type: 3}
@@ -833,20 +762,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapIndicator
       objectReference: {fileID: 0}
+    - target: {fileID: 74340388918459876, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7111839522917644939, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.39215687
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7111839522917644939, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7111839522917644939, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9221218092766937565, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
         type: 3}
