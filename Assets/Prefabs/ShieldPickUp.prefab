@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5681995640075099103}
   - component: {fileID: 7583630385841336085}
   - component: {fileID: 2346918581438662919}
+  - component: {fileID: 8149496252114939712}
   - component: {fileID: 190150539674507717}
   m_Layer: 0
   m_Name: ShieldPickUp
@@ -96,6 +97,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91380c62cce78941a3237632af77c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8149496252114939712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8232170927656390336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eab9c3182d7bff4ea0343835ddaaa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0.1
+  floatInterval: 1
+  floatSpeed: 0
 --- !u!65 &190150539674507717
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3452218644728675581}
   - component: {fileID: 1749478049453667160}
   - component: {fileID: 4585669708125538194}
+  - component: {fileID: 919132148805526969}
+  - component: {fileID: 919132148805526970}
+  - component: {fileID: 6339202292961419179}
   m_Layer: 0
   m_Name: PowerPickUp
   m_TagString: Untagged
@@ -25,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2640075017202181703}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 7.05, y: 5, z: -2}
   m_LocalScale: {x: 200, y: 200, z: 300}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &1749478049453667160
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -82,3 +85,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &919132148805526969
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640075017202181703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.008
+  m_Height: 0.018
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.00071854296, z: 0}
+--- !u!114 &919132148805526970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640075017202181703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556514ee4071b06458fd3d82046b3d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6339202292961419179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640075017202181703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eab9c3182d7bff4ea0343835ddaaa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0.1
+  floatInterval: 2
+  floatSpeed: 0.1
