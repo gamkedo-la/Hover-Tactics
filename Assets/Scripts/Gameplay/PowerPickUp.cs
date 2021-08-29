@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PowerPickUp : MonoBehaviour
 {
+	[SerializeField] private string particleTag;
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player")
@@ -11,6 +13,7 @@ public class PowerPickUp : MonoBehaviour
 				power.ChangeBy(1.0f);
 				power.ChangeBy_Special(3);
 			}
+			ObjectPooler.instance.SpawnFromPool(particleTag, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}
 	}

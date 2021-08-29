@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556514ee4071b06458fd3d82046b3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleTag: PickupParticles
 --- !u!114 &6339202292961419179
 MonoBehaviour:
   m_ObjectHideFlags: 0

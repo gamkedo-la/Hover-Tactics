@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown("Fire3")) SwitchHoverMech();
+        UpdateHP();
+        //MP bar is updated inside the power script itself
         UpdateShield();
         UpdateAllMechDisplays();
         UpdateSpecials();
@@ -97,6 +99,11 @@ public class GameManager : MonoBehaviour
             MP.fillAmount = hoverMechs[i].GetComponent<Power>().Get();
             shield.fillAmount = hoverMechs[i].GetComponent<Shield>().Get();
         }
+    }
+
+    void UpdateHP()
+    {
+        playerBars.UpdateHP(hoverMechs[activeIndex].GetComponent<Health>().Get());
     }
 
     void UpdateShield()

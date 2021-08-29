@@ -45,9 +45,6 @@ public class BaseMechController : MonoBehaviour
         mechBoost = GetComponent<MechBoost>();
 
         Assert.IsNotNull(rb, "Rigidbody is null!");
-
-        //Mech Boost can be null as enemy mechs won't have this.
-        //Assert.IsNotNull(mechBoost, "Mech Boost is null!");
     }
     
     private void Update()

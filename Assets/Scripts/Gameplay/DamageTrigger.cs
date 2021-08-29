@@ -6,6 +6,12 @@ public class DamageTrigger : MonoBehaviour, IDamage
     [SerializeField] private float damagePerCycle;
     [SerializeField] private float cycleDelay;
 
+    [Header("Optional")]
+    [Tooltip("Destroys the object the moment someone triggers it. Only one cycle of damage will be applied.")]
+    [SerializeField] private bool destroyOnTrigger = false;
+    [Tooltip("Particles are only spawned when destroyOnTrigger is true.")]
+    [SerializeField] private string particleTag = "";
+
     private List<AbstractTakeDamage> takeDamageList;
     private float cycleTimer = 0.0f;
     public Damage GetDamage()
@@ -43,7 +49,19 @@ public class DamageTrigger : MonoBehaviour, IDamage
     void OnTriggerEnter(Collider other)
     {
         AbstractTakeDamage canTakeDamage = other.gameObject.GetComponent<AbstractTakeDamage>();
-        if(canTakeDamage) takeDamageList.Add(canTakeDamage);
+        if(canTakeDamage)
+        {
+            if(destroyOnTrigger)
+            {
+                canTakeDamage.TakeDamage(GetDamage());
+                ObjectPooler.instance.SpawnFromPool(particleTag, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            else
+            {
+                takeDamageList.Add(canTakeDamage);
+            }
+        }
     }
 
     void OnTriggerExit(Collider other)

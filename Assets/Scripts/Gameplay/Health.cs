@@ -22,7 +22,7 @@ public class Health : AbstractTakeDamage
 
     public void ChangeBy(float value)
     {
-        current = Mathf.Clamp(current + value, 0.0f, current);
+        current = Mathf.Clamp(current + value, 0.0f, max);
     }
 
     public bool IsZero()
