@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour, IDamage
     [Header("Forces")]
     [SerializeField] private float forwardForce = 10.0f;
     [SerializeField] private float upwardForce = 2.5f;
+    [SerializeField] private bool relativeUpwardVector = true;
     [Header("Properties")]
     [SerializeField] private float damage = 1.0f;
     [SerializeField] private string onDestroyObjectTag = "";
@@ -41,7 +42,7 @@ public class Projectile : MonoBehaviour, IDamage
     void OnEnable()
     {
         destroyTimer = destroyDelay;
-        this.impactForce = (transform.forward * forwardForce) + (transform.up * upwardForce);
+        this.impactForce = (transform.forward * forwardForce) + ((relativeUpwardVector ? transform.up : Vector3.up) * upwardForce);
     }
 
     void Update()

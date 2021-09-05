@@ -1376,10 +1376,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4920072770334640205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071fe3351359cc849998f245647264da, type: 3}
+  m_Script: {fileID: 11500000, guid: 9437345bd8efe7e44be073e136683905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ruins: {fileID: 3837393294305279452, guid: 87a6cf8881ab911459ead5306b9622a2, type: 3}
+  explosionSound: 11
   explosionTag: TestExplosion
 --- !u!114 &448869580252606242
 MonoBehaviour:

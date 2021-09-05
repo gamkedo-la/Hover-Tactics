@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8972246053447125758}
   - component: {fileID: 8972246053447125757}
-  - component: {fileID: 8972246053447125756}
+  - component: {fileID: 399342322423552343}
   - component: {fileID: 8972246053447125755}
   m_Layer: 0
   m_Name: B_Hanger
@@ -47,7 +47,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7, y: 5, z: 12}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!114 &8972246053447125756
+--- !u!114 &399342322423552343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,10 +56,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8972246053447125759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071fe3351359cc849998f245647264da, type: 3}
+  m_Script: {fileID: 11500000, guid: 9437345bd8efe7e44be073e136683905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruins: {fileID: 3837393294305279452, guid: 87a6cf8881ab911459ead5306b9622a2, type: 3}
+  ruins: {fileID: 6380260134106088751, guid: 46d295b0ba0d0ac47af1b49bbfa23702, type: 3}
+  explosionSound: 11
   explosionTag: TestExplosion
 --- !u!114 &8972246053447125755
 MonoBehaviour:

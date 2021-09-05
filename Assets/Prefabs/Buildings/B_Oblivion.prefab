@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7184408574992850258}
   - component: {fileID: 7184408574992850257}
-  - component: {fileID: -7770318499332292820}
+  - component: {fileID: 7845199694461377969}
   - component: {fileID: 3363994769194758962}
   m_Layer: 0
   m_Name: B_Oblivion
@@ -48,7 +48,7 @@ CapsuleCollider:
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 3, z: 0}
---- !u!114 &-7770318499332292820
+--- !u!114 &7845199694461377969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,10 +57,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7184408574992850256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071fe3351359cc849998f245647264da, type: 3}
+  m_Script: {fileID: 11500000, guid: 9437345bd8efe7e44be073e136683905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ruins: {fileID: 7328109594351825284, guid: 2fa5633cb383d664998b2faa3d2f9f53, type: 3}
+  explosionSound: 11
   explosionTag: TestExplosion
 --- !u!114 &3363994769194758962
 MonoBehaviour:

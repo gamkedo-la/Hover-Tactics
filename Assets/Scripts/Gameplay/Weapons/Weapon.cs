@@ -81,6 +81,7 @@ public class Weapon : MonoBehaviour, IDamage
     protected virtual void Fire() {}
 
     public virtual Damage GetDamage() => new Damage() { Value = 0 };
+    
     protected void Effects()
     {
         ObjectPooler.instance.SpawnFromPool(

@@ -56,10 +56,6 @@ public class LaserFence : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-    }
-
     void AddLineCollider(LineRenderer lineRenderer, Vector3 startPos, Vector3 endPos)
     {
         BoxCollider lineCollider = new GameObject("LineCollider").AddComponent<BoxCollider>();
@@ -76,10 +72,5 @@ public class LaserFence : MonoBehaviour
         angle *= Mathf.Rad2Deg;
         angle *= -1.0f;
         lineCollider.transform.Rotate(0.0f, angle, 0.0f);
-    }
-
-    public void ToggleFence(bool isActive)
-    {
-        lineRenderer.transform.gameObject.SetActive(isActive);
     }
 }
