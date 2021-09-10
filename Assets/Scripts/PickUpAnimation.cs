@@ -7,8 +7,8 @@ public class PickUpAnimation : MonoBehaviour
     public float rotationSpeed;
     public float floatInterval;
     public float floatSpeed;
+    public float height;
 
-    private float height = 0f;
     private Vector3 initialPosition;
 
     void Start()
@@ -18,7 +18,7 @@ public class PickUpAnimation : MonoBehaviour
 
     void Update()
     {
-        transform.position = initialPosition + (Vector3.up * Mathf.Sin(Time.time * floatSpeed) * floatInterval);
+        transform.position = initialPosition + (Vector3.up * height * Mathf.Sin(Time.time * floatSpeed) * floatInterval);
         transform.Rotate(0f, 0f, rotationSpeed);
     }
 }

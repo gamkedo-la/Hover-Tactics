@@ -127,3 +127,4 @@ MonoBehaviour:
   rotationSpeed: 0.2
   floatInterval: 0.6
   floatSpeed: 2
+  height: 0.25
