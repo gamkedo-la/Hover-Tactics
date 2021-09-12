@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7184408574992850257}
   - component: {fileID: 7845199694461377969}
   - component: {fileID: 3363994769194758962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: B_Oblivion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
