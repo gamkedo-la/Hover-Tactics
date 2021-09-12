@@ -95,7 +95,7 @@ public class BuildingComponent : MonoBehaviour
         if(showTimer > 0.0f)
         {
             transform.position = Vector3.Lerp(transform.position, initialPosition, showLerpFactor * Time.deltaTime);
-            Action();
+            if(Vector3.Distance(transform.position, initialPosition) <= 2.0f) Action();
             
             if(autoHide) showTimer -= Time.deltaTime;
         }
