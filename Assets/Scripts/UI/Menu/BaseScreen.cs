@@ -92,6 +92,13 @@ public class BaseScreen : MonoBehaviour
 
     public void QuitToMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Start");
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Play");
     }
 }

@@ -20,6 +20,7 @@ public class GameMenuController : MonoBehaviour
         gameMenu.ToggleStartGameScreen(isShowingStartGameMenu, fadeFx: false);
         gameMenu.TogglePauseScreen(isShowingPauseGameMenu, fadeFx: false);
     }
+
     private void OnEnable()
     {
         gameMenu.OnStartGameButtonPressed += GameStarted;
@@ -59,7 +60,8 @@ public class GameMenuController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape)
+        && SceneManager.GetActiveScene().name == "Play")
         {
             isShowingPauseGameMenu = !isShowingPauseGameMenu;
             gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false);

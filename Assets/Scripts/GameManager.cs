@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     [Header("Shield Rates")]
     [SerializeField] private float shieldDepletionInSeconds = 60.0f;
     [SerializeField] private float shieldRecoveryInSeconds = 45.0f;
+    [Space]
+    [SerializeField] private GameObject gameOverPanel;
 
     static public GameManager instance;
 
@@ -60,6 +63,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
+        
         instance = this;
         camController = Camera.main.GetComponent<CameraController>();
         playerBars = transform.GetChild(0).GetComponent<RadialBars>();
@@ -104,6 +109,15 @@ public class GameManager : MonoBehaviour
     void UpdateHP()
     {
         playerBars.UpdateHP(hoverMechs[activeIndex].GetComponent<Health>().Get());
+
+        for(int i = 0; i < hoverMechs.Length; i++)
+        {
+            if(hoverMechs[i].GetComponent<Health>().Get() <= 0.0f)
+            {
+                SetLoseReason(GetMechName(i) + "'s health got depleted to zero!");
+                Lose();
+            }
+        }
     }
 
     void UpdateShield()
@@ -115,6 +129,7 @@ public class GameManager : MonoBehaviour
 
             if(hoverMechs[i].GetComponent<Shield>().Get() <= 0.0f)
             {
+                SetLoseReason(GetMechName(i) + "'s shield got depleted to zero!");
                 Lose();
             }
         }
@@ -128,6 +143,25 @@ public class GameManager : MonoBehaviour
 
     void Lose()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0.0f;
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    string GetMechName(int i)
+    {
+        switch(i)
+        {
+            case 0: return "Chronos";
+            case 1: return "Wyvern";
+            case 2: return "Calamity";
+        }
+        return "";
+    }
+
+    void SetLoseReason(string text)
+    {
+        gameOverPanel.transform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = text;
     }
 }
