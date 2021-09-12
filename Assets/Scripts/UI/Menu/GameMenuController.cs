@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMenuController : MonoBehaviour
 {
@@ -37,9 +38,11 @@ public class GameMenuController : MonoBehaviour
         
         // hide panel
         isShowingStartGameMenu = false;
-        gameMenu.ToggleStartGameScreen(isShowingStartGameMenu);
+        gameMenu.ToggleStartGameScreen(isShowingStartGameMenu, false);
 
         // do something whenever the start game button has been pressed
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Play");
     }
 
     private void GameResumed()
@@ -48,24 +51,20 @@ public class GameMenuController : MonoBehaviour
 
         // hide panel
         isShowingPauseGameMenu = false;
-        gameMenu.TogglePauseScreen(isShowingPauseGameMenu);
+        gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false);
 
         // do something whenever the resume game button has been pressed
+        Time.timeScale = 1.0f;
     }
 
     private void Update()
     {
-        // EXAMPLE ON HOW TO CONTROL THE GAME MENU
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            isShowingStartGameMenu = !isShowingStartGameMenu;
-            gameMenu.ToggleStartGameScreen(isShowingStartGameMenu);
-        }
-
-        if(Input.GetKeyDown(KeyCode.F10))
-        {
             isShowingPauseGameMenu = !isShowingPauseGameMenu;
-            gameMenu.TogglePauseScreen(isShowingPauseGameMenu);
+            gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false);
+            if(isShowingPauseGameMenu) Time.timeScale = 0.0f;
+            else Time.timeScale = 1.0f;
         }
     }
 }

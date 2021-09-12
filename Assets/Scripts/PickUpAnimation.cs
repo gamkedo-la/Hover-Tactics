@@ -19,6 +19,6 @@ public class PickUpAnimation : MonoBehaviour
     void Update()
     {
         transform.position = initialPosition + (Vector3.up * height * Mathf.Sin(Time.time * floatSpeed) * floatInterval);
-        transform.Rotate(0f, 0f, rotationSpeed);
+        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
     }
 }

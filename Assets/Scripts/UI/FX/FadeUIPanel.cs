@@ -46,6 +46,7 @@ public class FadeUIPanel : BaseFadeFX
             textEndColors[i] = new Color(color.r, color.g, color.b, 0.0f);
         }
     }
+    
     public override void SetFadePercentage(float fadePercentage)
     {
         SetFadePercentageImages(fadePercentage);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class BaseScreen : MonoBehaviour
@@ -87,5 +88,10 @@ public class BaseScreen : MonoBehaviour
     {
         if(logDebug) Debug.Log($"ToggleCreditsPanel [{isVisible}]");
         CreditsPanel.SetActive(isVisible);
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("Start");
     }
 }

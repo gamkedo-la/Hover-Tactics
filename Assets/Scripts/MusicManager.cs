@@ -6,6 +6,8 @@ public class MusicManager : MonoBehaviour
 {
     public AudioSource intro;
     public AudioSource loop;
+    public bool isLoopOnly = true;
+    public float volumeLerp = 0.0f;
 
     [Range(0.0f, 1.0f)]
     public float Volume = .75f;
@@ -13,17 +15,46 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        intro.volume = Volume;
-        loop.volume = Volume;
+        if(volumeLerp <= 0.0f)
+        {
+            if(!isLoopOnly) intro.volume = Volume;
+            loop.volume = Volume;
+        }
+        else
+        {
+            if(!isLoopOnly)
+            {
+                intro.volume = 0.0f;
+                loop.volume = Volume;
+            }
+            else
+            {
+                loop.volume = 0.0f;
+            }
+        }
 
-        intro.Play();
-        loop.PlayDelayed(intro.clip.length);
+        if(!isLoopOnly)
+        {
+            intro.Play();
+            loop.PlayDelayed(intro.clip.length);
+        }
+        else
+        {
+            loop.Play();
+        }
+
         loop.loop = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(volumeLerp > 0.0f)
+        {
+            if(isLoopOnly)
+                loop.volume = Mathf.Lerp(loop.volume, Volume, volumeLerp * Time.unscaledDeltaTime);
+            else
+                intro.volume = Mathf.Lerp(intro.volume, Volume, volumeLerp * Time.unscaledDeltaTime);
+        }
     }
 }

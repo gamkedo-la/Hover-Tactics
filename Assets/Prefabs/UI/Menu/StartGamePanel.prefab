@@ -7,25 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1164071118220917361, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
-        type: 3}
-      propertyPath: m_text
-      value: START GAME
-      objectReference: {fileID: 0}
-    - target: {fileID: 1164071118220917361, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 66.05
-      objectReference: {fileID: 0}
     - target: {fileID: 3190667114945995052, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
         type: 3}
       propertyPath: m_Name
       value: StartGamePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5104377776912718253, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 145.1
       objectReference: {fileID: 0}
     - target: {fileID: 5395388457620689718, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
         type: 3}
@@ -131,21 +116,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5772920709970295551, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -400
-      objectReference: {fileID: 0}
-    - target: {fileID: 5772920709970295551, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5772920710591745605, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0, type: 3}
