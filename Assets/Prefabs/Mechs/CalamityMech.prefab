@@ -2789,6 +2789,7 @@ Transform:
   - {fileID: 6321870986009841212}
   - {fileID: 4527159358710984331}
   - {fileID: 6594689427822668388}
+  - {fileID: 4242009922694892389}
   m_Father: {fileID: 6654337600058745847}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2825,6 +2826,7 @@ GameObject:
   - component: {fileID: 8391538345090805356}
   - component: {fileID: 4850464849410009535}
   - component: {fileID: 8189179747237387910}
+  - component: {fileID: 7381125535121923751}
   - component: {fileID: 136759709402847110}
   - component: {fileID: 6260535867820112990}
   - component: {fileID: 568369338441157059}
@@ -2984,6 +2986,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde348f4bdd8a3d4ea2406d9e4fb92fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7381125535121923751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654337600058745840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43df797ddebb144a98190018438179c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocket: {fileID: 323949187251764307, guid: e30db9521f4f2f84483f0cd1060a86cc, type: 3}
+  rocketCoolDownSeconds: 2
+  rocketSpawnPoint: {fileID: 4242009922694892389}
 --- !u!135 &136759709402847110
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3190,6 +3207,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7401817529432878631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4242009922694892389}
+  m_Layer: 7
+  m_Name: RocketSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4242009922694892389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401817529432878631}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0024995804, y: -1.365, z: 1.6825008}
+  m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 7032676375119676775}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7649047892323044285
 GameObject:
   m_ObjectHideFlags: 0
