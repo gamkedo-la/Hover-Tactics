@@ -10,15 +10,20 @@ public class RocketLauncher : MonoBehaviour
 
     private float rocketTimer = 0;
 
-    // Update is called once per frame
-    void Update()
+	private void Start()
+	{
+        rocketTimer = rocketCoolDownSeconds;
+    }
+
+	// Update is called once per frame
+	void Update()
     {
         rocketTimer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && rocketTimer >= rocketCoolDownSeconds)
+        if (Input.GetKeyDown(KeyCode.Q) && rocketTimer >= rocketCoolDownSeconds)
         {
-            rocketCoolDownSeconds = 0f;
-            Instantiate(rocket, new Vector3(rocketSpawnPoint.position.x, transform.position.y, rocketSpawnPoint.position.z), Quaternion.identity);
+            rocketTimer = 0f;
+            Instantiate(rocket, new Vector3(rocketSpawnPoint.position.x, transform.position.y, rocketSpawnPoint.position.z), rocketSpawnPoint.rotation);
         }
     }
 }
