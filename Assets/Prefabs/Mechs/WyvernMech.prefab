@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1511064884537524415}
   - component: {fileID: 1511064884537524408}
   - component: {fileID: 1511064884537524409}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,9 +786,17 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 0}
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  m_SelectedVertices: 00000000000000000000000000000000
 --- !u!23 &1511064884537524408
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -853,7 +861,7 @@ GameObject:
   - component: {fileID: 1511064885904558313}
   - component: {fileID: 1511064885904558314}
   - component: {fileID: 1511064885904558315}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,7 +1515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3649787712484487969}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: PortalShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -1539,7 +1547,7 @@ GameObject:
   - component: {fileID: 4603662656988303429}
   - component: {fileID: 3988536482050178984}
   - component: {fileID: 6867944242219888775}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1722,7 +1730,7 @@ GameObject:
   - component: {fileID: 3635005948920482334}
   - component: {fileID: 6478243110945030262}
   - component: {fileID: 7441210277891497246}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2916,7 +2924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6965336205420608425}
   - component: {fileID: 5049283021515742498}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2978,7 +2986,7 @@ GameObject:
   - component: {fileID: 59975626966411592}
   - component: {fileID: 6327884629601354384}
   - component: {fileID: 491892219600123661}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: WyvernMech
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3255,7 +3263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8176067283480991370}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: MelterShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3287,7 +3295,7 @@ GameObject:
   - component: {fileID: 5173596769702915005}
   - component: {fileID: 4166953720013325093}
   - component: {fileID: 37821093261061124}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}

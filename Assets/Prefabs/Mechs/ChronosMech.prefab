@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2764866125502653183}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: RightShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201161515425391704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46, y: -0.09, z: 0.6}
+  m_LocalPosition: {x: 0.4, y: -0.09, z: 0.6}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
   m_Children:
   - {fileID: 8410938075381472215}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3106110771858588059}
   - component: {fileID: 2567686538811469430}
   - component: {fileID: 361237769}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 2937965593479317047}
   - component: {fileID: 1160602493636336934}
   - component: {fileID: 1757083587169079603}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,7 +979,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7ed35036d76a3a048a4da51e0f0839b4, type: 2}
+  - {fileID: 2100000, guid: 2bac9b013b3b11f4da4094f36ebdc972, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1018,7 +1018,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535321928241183016}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: MiddleShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 1453943607737333910}
   - component: {fileID: 4839478484875776846}
   - component: {fileID: 1309400562611693267}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: ChronosMech
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   backwardSpeed: 8
   sideSpeed: 10
   hoverMechAnimation: {fileID: 5974809571300658428}
-  turnSpeed: 100
+  turnSpeed: 150
   turnSensitivity: 0.1
   Cursor: {fileID: 0}
 --- !u!114 &6035674963988836273
@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 1268707443094176654}
   - component: {fileID: 4733235727904199500}
   - component: {fileID: 6660636697414165625}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2097,7 +2097,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7ed35036d76a3a048a4da51e0f0839b4, type: 2}
+  - {fileID: 2100000, guid: 2bac9b013b3b11f4da4094f36ebdc972, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2137,7 +2137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8381684745374968439}
   - component: {fileID: 5974809571300658428}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2189,7 +2189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3656998891429000962}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: LeftShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -2222,7 +2222,7 @@ GameObject:
   - component: {fileID: 5995469059869751907}
   - component: {fileID: 3254870894606193403}
   - component: {fileID: 1476687635647184346}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2527,12 +2527,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 720554cf8b778b8429eda28805752edb, type: 3}

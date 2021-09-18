@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3717276390743100911}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: LeftShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4527159358710984331}
   - component: {fileID: 3921207510807085414}
   - component: {fileID: 1569693831918576153}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 5786846325933958874}
   - component: {fileID: 8474570830500406154}
   - component: {fileID: 1128972978756614760}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1022,7 @@ GameObject:
   - component: {fileID: 2486412402664488169}
   - component: {fileID: 5120668381440407955}
   - component: {fileID: 2228203965830023923}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MiddleShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1819,7 +1819,7 @@ GameObject:
   - component: {fileID: 5508256686573608424}
   - component: {fileID: 754687914443388697}
   - component: {fileID: 2740618646721410967}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2117,7 +2117,7 @@ GameObject:
   - component: {fileID: 5686119657992264547}
   - component: {fileID: 6137779891155219517}
   - component: {fileID: 3315997376493746475}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2768,7 +2768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7032676375119676775}
   - component: {fileID: 5125771059975562220}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2830,7 +2830,7 @@ GameObject:
   - component: {fileID: 136759709402847110}
   - component: {fileID: 6260535867820112990}
   - component: {fileID: 568369338441157059}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: CalamityMech
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3137,7 +3137,7 @@ GameObject:
   - component: {fileID: 5115107729878898035}
   - component: {fileID: 4099177175799463403}
   - component: {fileID: 123448413233533642}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3216,7 +3216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4242009922694892389}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: RocketSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3246,7 +3246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3506219616367089881}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: RightShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3279,7 +3279,7 @@ GameObject:
   - component: {fileID: 7155171834050430828}
   - component: {fileID: 4935013758798324893}
   - component: {fileID: 7470693494321301528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

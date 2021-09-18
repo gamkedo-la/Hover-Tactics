@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7467973104759329035}
   - component: {fileID: 3133136962867144064}
   - component: {fileID: 5854656329629546463}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardForce: 400
   upwardForce: 300
+  relativeUpwardVector: 1
   damage: 1
+  onDestroyObjectTag: 
   explosionTag: TestExplosion2
   explosionSound: {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
   destroyDelay: 2
