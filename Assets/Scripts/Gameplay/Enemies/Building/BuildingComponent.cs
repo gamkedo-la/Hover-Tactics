@@ -11,7 +11,7 @@ using UnityEngine.Assertions;
 public class BuildingComponent : MonoBehaviour
 {
     [SerializeField] private string targetTag = "Player";
-    public float destroyBelowHealth = 0.25f;
+    [HideInInspector] public float destroyBelowHealth = 0.25f;
 
     [Header("Show Properties")]
     [SerializeField] private Vector3 hideOffset = Vector3.zero;

@@ -30,7 +30,7 @@ class MultiShooterBComp : BuildingComponent
     protected override void Start()
     {
         base.Start();
-        shotTimer = 0.0f;
+        shotTimer = delayPerShot;
         cycleTimer = 0.0f;
         cycleShots = 0;
     }
