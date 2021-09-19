@@ -47,7 +47,7 @@ public class BaseMechController : MonoBehaviour
         Assert.IsNotNull(rb, "Rigidbody is null!");
     }
     
-    private void Update()
+    protected virtual void Update()
     {
         SetInput();
         Turn();

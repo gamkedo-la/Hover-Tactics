@@ -2,19 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(AudioSource))]
 public class EnemyMechController : BaseMechController
 {
-
     [Range(0.0f, 5.0f)]
     public float nearDistanceThreshold = 1f;
     [Range(-1.0f, 1.0f)]
     public float facingTargetTolerance = 0.8f;
-    private Vector3 directionToTarget;
 
+    [Header("Destroy Effects")]
+    [SerializeField] private SoundFxKey explosionSound;
+    [SerializeField] private string explosionTag;
+
+    private Vector3 directionToTarget;
     private Transform _actualTarget;
     private Transform positionTarget => _actualTarget == null ? this.transform : this._actualTarget;
     private float sidewaysMovementFilter = 0.3f;
     private float minimumFowardMovement = 0.8f;
+
+    private Health health;
+    private AudioSource audioSource;
 
     protected override void SetInput()
     {
@@ -85,5 +93,25 @@ public class EnemyMechController : BaseMechController
         Vector3 relativeDirection = hoverMechAnimation.transform.InverseTransformPoint(positionTarget.position);
         turnDir = Mathf.Atan2(relativeDirection.x, relativeDirection.z) * Mathf.Rad2Deg * turnSensitivity;
         turnDir = Mathf.Clamp(turnDir, -1, 1);
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        health = GetComponent<Health>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if(health.IsZero())
+        {
+            SoundFXManager.PlayOneShot(explosionSound, audioSource);
+            ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
