@@ -34,6 +34,7 @@ public class BuildingComponent : MonoBehaviour
     [Header("Destroy Effects")]
     [SerializeField] private SoundFxKey explosionSound;
     [SerializeField] private string explosionTag;
+    [SerializeField] private float explosionScale = 1.0f;
 
     protected Health health;
     protected AudioSource audioSource;
@@ -107,7 +108,7 @@ public class BuildingComponent : MonoBehaviour
         if(health.Get() <= destroyBelowHealth)
         {
             SoundFXManager.PlayOneShot(explosionSound, audioSource);
-            ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation);
+            ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation).transform.localScale = Vector3.one * explosionScale;
             Destroy(gameObject);
         }
 

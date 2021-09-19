@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class WayPoints : MonoBehaviour
 {
-    public Transform[] WayPointArray;
+    public Color gizmoColor = new Color(1, 1, 0, 0.75F);
 
     public int GetNextIndex(int index)
     {
         index++;
         if(index < 0) return 0;
-        return index % WayPointArray.Length;
+        return index % transform.childCount;
     }
 
     public Transform GetWayPointAt(int index)
     {
-        if(index < 0) return WayPointArray[0];
-        return WayPointArray[index % WayPointArray.Length];
+        if(index < 0) return transform.GetChild(0);
+        return transform.GetChild(index % transform.childCount);
     }
 
     void OnDrawGizmos()
     {
-        Gizmos.color = new Color(1, 1, 0, 0.75F);
+        Gizmos.color = gizmoColor;
 
-        for(int i = 0; i < WayPointArray.Length; i++)
+        for(int i = 0; i < transform.childCount; i++)
         {
             if(i > 0)
-                Gizmos.DrawLine(WayPointArray[i-1].position, WayPointArray[i].position);
-            Gizmos.DrawSphere(WayPointArray[i].position, 1f);
+                Gizmos.DrawLine(transform.GetChild(i-1).position, transform.GetChild(i).position);
+            Gizmos.DrawSphere(transform.GetChild(i).position, 1f);
         }
-        if(WayPointArray.Length > 2)
-            Gizmos.DrawLine(WayPointArray[0].position, WayPointArray[WayPointArray.Length - 1].position);
+        if(transform.childCount > 2)
+            Gizmos.DrawLine(transform.GetChild(0).position, transform.GetChild(transform.childCount - 1).position);
     }
 }
