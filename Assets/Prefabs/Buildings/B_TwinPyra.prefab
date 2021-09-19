@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ruins: {fileID: 3837393294305279452, guid: 87a6cf8881ab911459ead5306b9622a2, type: 3}
   explosionSound: 10
-  explosionTag: TestExplosion
+  explosionTag: BuildingExplosion
   bComps:
   - name: WeakAimShooters
     type: {fileID: 4091004774723912533, guid: fb4e811a62af94440a64cf805087b7f5, type: 3}

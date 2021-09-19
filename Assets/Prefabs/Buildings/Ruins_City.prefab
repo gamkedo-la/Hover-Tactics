@@ -213,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 1523907072448772390, guid: 75420be0e6d84354f8456bb582fbd76c,
         type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1523907072448772391, guid: 75420be0e6d84354f8456bb582fbd76c,
         type: 3}

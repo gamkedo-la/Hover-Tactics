@@ -1122,7 +1122,7 @@ MonoBehaviour:
   muzzleParticlesTag: RifleWeaponMuzzle
   sound: 4
   damagePerHit: 0.05
-  hitImpactTag: TestExplosion2
+  hitImpactTag: ShotImpact
   lineDelay: 0.05
   lineMaterial: {fileID: 2100000, guid: 9ce91bee0b3e3f541be8c44206a8bffd, type: 2}
   lineThickness: 0.75

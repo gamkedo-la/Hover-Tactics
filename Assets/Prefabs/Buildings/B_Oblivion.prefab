@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ruins: {fileID: 7328109594351825284, guid: 2fa5633cb383d664998b2faa3d2f9f53, type: 3}
   explosionSound: 10
-  explosionTag: TestExplosion
+  explosionTag: BuildingExplosion
   bComps: []
 --- !u!114 &3363994769194758962
 MonoBehaviour:
