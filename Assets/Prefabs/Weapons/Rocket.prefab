@@ -512,10 +512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3051279ad4697d4daf4d39d27fe9ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.4
+  damage: 0.3
   rocketSpeed: 80
-  rotateSpeed: 6
-  targetRange: 500
+  rotateSpeed: 4.5
+  targetRange: 1200
   meshObject: {fileID: 2019938919008480321}
   destroyDelay: 5
   explosionTag: ProjectileExplosion

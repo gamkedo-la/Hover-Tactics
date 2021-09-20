@@ -72,8 +72,8 @@ public class Building : MonoBehaviour
         if(health.IsZero())
         {
             SoundFXManager.PlayOneShot(explosionSound, audioSource);
-            ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation);
-            if(ruins) Instantiate(ruins, transform.position, transform.rotation);
+            ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, Quaternion.identity);
+            if(ruins) Instantiate(ruins, transform.position, ruins.transform.rotation);
             Destroy(gameObject);
         }
     }

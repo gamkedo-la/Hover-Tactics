@@ -77,8 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2d26314935075438e1810335412fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerCycle: 0.25
-  cycleDelay: 0.1
+  damagePerCycle: 0.06
+  cycleDelay: 0.05
+  destroyOnTrigger: 0
+  particleTag: 
 --- !u!198 &2369480093863056258
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -87,7 +89,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162497828262332155}
   serializedVersion: 7
-  lengthInSec: 5
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -162,7 +164,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.05
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -215,7 +217,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 60
+      scalar: 120
       minScalar: 10
       maxCurve:
         serializedVersion: 2

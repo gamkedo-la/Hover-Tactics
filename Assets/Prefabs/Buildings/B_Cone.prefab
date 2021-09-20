@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9437345bd8efe7e44be073e136683905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruins: {fileID: 6380260134106088751, guid: 46d295b0ba0d0ac47af1b49bbfa23702, type: 3}
+  ruins: {fileID: 1459647301750839034, guid: 9f71d8691c5f82d4691eed1ace0d90d3, type: 3}
   explosionSound: 10
   explosionTag: BuildingExplosion
   bComps: []
@@ -92,7 +92,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a02b4c6c847884387ac7f8cd232454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 60
+  range: 40
   targetTag: Player
 --- !u!1 &6501590197358549615
 GameObject:

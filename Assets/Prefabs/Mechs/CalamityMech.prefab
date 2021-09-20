@@ -23,12 +23,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657895774089907016}
-  m_LocalRotation: {x: -0.6963643, y: 0.12278784, z: -0.12278784, w: 0.6963643}
-  m_LocalPosition: {x: -0.5, y: 1.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.061628394, y: -0.061628394, z: -0.7044161, w: 0.7044161}
+  m_LocalPosition: {x: 1.375, y: 0.13301277, z: 0.48121834}
+  m_LocalScale: {x: 0.9707289, y: 0.50000006, z: 0.507654}
   m_Children: []
-  m_Father: {fileID: 1713640434689416203}
-  m_RootOrder: 0
+  m_Father: {fileID: 7032676375119676775}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -70, y: 90, z: -90}
 --- !u!1 &2193888181667090863
 GameObject:
@@ -241,8 +241,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.5, w: 0.86602545}
   m_LocalPosition: {x: 0, y: 1, z: 2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3506219616367089881}
+  m_Children: []
   m_Father: {fileID: 6321870986009841212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
@@ -2789,7 +2788,8 @@ Transform:
   - {fileID: 6321870986009841212}
   - {fileID: 4527159358710984331}
   - {fileID: 6594689427822668388}
-  - {fileID: 4242009922694892389}
+  - {fileID: 3506219616367089881}
+  - {fileID: 3717276390743100911}
   m_Father: {fileID: 6654337600058745847}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2891,8 +2891,8 @@ MonoBehaviour:
   - {fileID: 3717276390743100911}
   rotateShootingPoints: 0
   cooldownDelay: 0.4
-  MPDepletePerShot: 0.2
-  muzzleParticlesTag: RifleWeaponMuzzle
+  MPDepletePerShot: 0.15
+  muzzleParticlesTag: RocketWeaponMuzzle
   sound: 0
   projectileTag: Rocket
 --- !u!114 &2996033301170762935
@@ -3130,7 +3130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5115107729878898035
 Transform:
   m_ObjectHideFlags: 0
@@ -3194,36 +3194,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &7401817529432878631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4242009922694892389}
-  m_Layer: 3
-  m_Name: RocketSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4242009922694892389
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7401817529432878631}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0024995804, y: -1.365, z: 2.17}
-  m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
-  m_Children: []
-  m_Father: {fileID: 7032676375119676775}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7649047892323044285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,12 +3217,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7649047892323044285}
-  m_LocalRotation: {x: -0.6963643, y: 0.12278784, z: -0.12278784, w: 0.6963643}
-  m_LocalPosition: {x: -0.5, y: 1.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.061628394, y: -0.061628394, z: -0.7044161, w: 0.7044161}
+  m_LocalPosition: {x: -1.375, y: 0.13301277, z: 0.48121834}
+  m_LocalScale: {x: 0.9707289, y: 0.50000006, z: 0.507654}
   m_Children: []
-  m_Father: {fileID: 4530632836194463852}
-  m_RootOrder: 0
+  m_Father: {fileID: 7032676375119676775}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -70, y: 90, z: -90}
 --- !u!1 &8151101835435097503
 GameObject:
@@ -3283,8 +3253,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.5, w: 0.86602545}
   m_LocalPosition: {x: 0, y: 1, z: -2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3717276390743100911}
+  m_Children: []
   m_Father: {fileID: 6321870986009841212}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
