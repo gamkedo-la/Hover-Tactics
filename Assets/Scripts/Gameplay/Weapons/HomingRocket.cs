@@ -1,37 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class HomingRocket : MonoBehaviour
 {
+    public float damage = 0.5f;
     public float rocketSpeed;
     public float rotateSpeed;
     public float targetRange;
-    public float secondsToSelfDestruct;
+    public GameObject meshObject;
+    public float destroyDelay = 5.0f;
+
+    [Header("Effects")]
+    public string explosionTag;
+    public SoundFxKey explosionSound;
 
     private Rigidbody rb;
+    private Collider projectileCollider;
+    private AudioSource audioSource;
     private Transform target;
-    private float selfDestructTimer = 0f;
+    private float destroyTimer = 0.0f;
 
-    // Start is called before the first frame update
+    void OnEnable()
+    {
+        destroyTimer = destroyDelay;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        projectileCollider = GetComponent<Collider>();
+        audioSource = GetComponent<AudioSource>();
         target = FindClosestEnemy();
+
+        Assert.IsNotNull(rb, "Rigidbody is null!");
+        Assert.IsNotNull(projectileCollider, "Projectile Collider is null!");
+        Assert.IsNotNull(audioSource, "Audio Source is null!");
     }
 
 	private void Update()
 	{
         target = FindClosestEnemy();
 
-        selfDestructTimer += Time.deltaTime;
-        if(selfDestructTimer >= secondsToSelfDestruct)
-		{
-            Destroy(gameObject);
-        }
+        if(destroyTimer <= 0.0f)
+            DisableObject();
+        else
+            destroyTimer -= Time.deltaTime;
     }
 
-	// Update is called once per frame
 	void FixedUpdate()
     {
         if(target == gameObject.transform)
@@ -77,12 +92,32 @@ public class HomingRocket : MonoBehaviour
         }
     }
 
-	private void OnCollisionEnter(Collision collision)
+	private void OnCollisionEnter(Collision coll)
 	{
-        Destroy(gameObject);
-        if(collision.gameObject.tag == "Enemy")
-		{
-            Destroy(collision.gameObject);
-		}
-	}
+        DestroyEffects(coll);
+        meshObject.SetActive(false);
+        projectileCollider.enabled = false;
+        Invoke("DisableObject", 1.0f);
+
+        AbstractTakeDamage canTakeDamage = coll.transform.GetComponent<AbstractTakeDamage>();
+        if(canTakeDamage) canTakeDamage.TakeDamage(GetDamage());
+    }
+
+    private Damage GetDamage() { return new Damage() { Value = -damage }; }
+
+    void DestroyEffects(Collision coll)
+    {
+        ContactPoint contact = coll.contacts[0];
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
+        SoundFXManager.PlayOneShot(explosionSound, audioSource);
+    }
+
+    void DisableObject()
+    {
+        destroyTimer = destroyDelay;
+        meshObject.SetActive(true);
+        projectileCollider.enabled = true;
+        gameObject.SetActive(false);
+    }
 }

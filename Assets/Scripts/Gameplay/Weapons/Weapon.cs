@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour, IDamage
     [Header("Properties")]
     [SerializeField] protected Type type = Type.BASIC;
     [SerializeField] protected Transform[] shootingPoints;
+    [SerializeField] protected bool rotateShootingPoints = true;
     [SerializeField] protected float cooldownDelay = 0.1f;
     [SerializeField] protected float MPDepletePerShot = 0.1f;
 
@@ -52,11 +53,14 @@ public class Weapon : MonoBehaviour, IDamage
                 if((type == Type.BASIC && Input.GetButton("Fire1"))
                 || (type == Type.SPECIAL && power.GetSpecials() > 0 && Input.GetButtonDown("Fire2")))
                 {
-                    GetShootingPoint().LookAt(CameraController.singleton.lastAimPoint);
-                    Vector3 shootingPointEuler = GetShootingPoint().localRotation.eulerAngles;
-                    shootingPointEuler.y = 0;
-                    shootingPointEuler.z = 0;
-                    GetShootingPoint().localRotation = Quaternion.Euler(shootingPointEuler);
+                    if(rotateShootingPoints)
+                    {
+                        GetShootingPoint().LookAt(CameraController.singleton.lastAimPoint);
+                        Vector3 shootingPointEuler = GetShootingPoint().localRotation.eulerAngles;
+                        shootingPointEuler.y = 0;
+                        shootingPointEuler.z = 0;
+                        GetShootingPoint().localRotation = Quaternion.Euler(shootingPointEuler);
+                    }
 
                     Fire();
                     Effects();

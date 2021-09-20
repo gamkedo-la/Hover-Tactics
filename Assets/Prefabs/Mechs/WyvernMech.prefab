@@ -2967,6 +2967,7 @@ MonoBehaviour:
   forwardRotation: 30
   backwardRotation: 10
   sideRotation: 40
+  inputBased: 1
 --- !u!1 &6730692806992436542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,6 +3045,7 @@ MonoBehaviour:
   type: 0
   shootingPoints:
   - {fileID: 8176067283480991370}
+  rotateShootingPoints: 0
   cooldownDelay: 0.02
   MPDepletePerShot: 0.01
   muzzleParticlesTag: 
@@ -3069,10 +3071,11 @@ MonoBehaviour:
   type: 1
   shootingPoints:
   - {fileID: 3649787712484487969}
+  rotateShootingPoints: 0
   cooldownDelay: 0.5
   MPDepletePerShot: 0.5
-  muzzleParticlesTag: TestExplosion2
-  sound: 10
+  muzzleParticlesTag: 
+  sound: 0
   projectileTag: PortalProjectile
 --- !u!114 &4891581321264167179
 MonoBehaviour:

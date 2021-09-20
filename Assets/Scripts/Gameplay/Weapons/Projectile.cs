@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour, IDamage
     [SerializeField] private string onDestroyObjectTag = "";
     [Header("Effects")]
     [SerializeField] private string explosionTag;
-    [SerializeField] private AudioClip explosionSound;
+    [SerializeField] private SoundFxKey explosionSound;
     [SerializeField] private float destroyDelay = 2.0f;
 
     private Vector3 impactForce;
@@ -85,7 +85,7 @@ public class Projectile : MonoBehaviour, IDamage
         ContactPoint contact = coll.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
-        SoundFXManager.PlayOneShot(SoundFxKey.SMALL_BUILDING_EXPLOSION);
+        SoundFXManager.PlayOneShot(explosionSound, audioSource);
     }
 
     void DisableObject()

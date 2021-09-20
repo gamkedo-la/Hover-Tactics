@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 7614029677018290759}
   - component: {fileID: 516923387625585398}
   - component: {fileID: 3868288511125678135}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SelfDestructIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1700,7 +1700,7 @@ GameObject:
   - component: {fileID: 5579661222765006414}
   - component: {fileID: 5032682793271009699}
   - component: {fileID: 7383070065765335772}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

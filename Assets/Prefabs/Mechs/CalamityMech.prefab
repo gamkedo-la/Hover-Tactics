@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657895774089907016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.6963643, y: 0.12278784, z: -0.12278784, w: 0.6963643}
   m_LocalPosition: {x: -0.5, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1713640434689416203}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -70, y: 90, z: -90}
 --- !u!1 &2193888181667090863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,9 +2805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504b68bf71df95242ad897e8fb8ab9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpFactor: 3
-  forwardRotation: 20
-  backwardRotation: 10
+  lerpFactor: 2
+  forwardRotation: 10
+  backwardRotation: 5
   sideRotation: 30
   inputBased: 1
 --- !u!1 &6654337600058745840
@@ -2822,7 +2822,6 @@ GameObject:
   - component: {fileID: 6654337600058745846}
   - component: {fileID: 7593058205660559874}
   - component: {fileID: 2996033301170762935}
-  - component: {fileID: 7381125535121923751}
   - component: {fileID: -8745927409812900009}
   - component: {fileID: 2068957219282156062}
   - component: {fileID: 8391538345090805356}
@@ -2888,13 +2887,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   shootingPoints:
-  - {fileID: 3717276390743100911}
   - {fileID: 3506219616367089881}
-  cooldownDelay: 0.1
-  MPDepletePerShot: 0.1
-  muzzleParticlesTag: 
+  - {fileID: 3717276390743100911}
+  rotateShootingPoints: 0
+  cooldownDelay: 0.4
+  MPDepletePerShot: 0.2
+  muzzleParticlesTag: RifleWeaponMuzzle
   sound: 0
-  projectileTag: TestProjectile
+  projectileTag: Rocket
 --- !u!114 &2996033301170762935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2910,6 +2910,7 @@ MonoBehaviour:
   type: 1
   shootingPoints:
   - {fileID: 1484293213446907572}
+  rotateShootingPoints: 0
   cooldownDelay: 2
   MPDepletePerShot: 1
   muzzleParticlesTag: 
@@ -2919,21 +2920,6 @@ MonoBehaviour:
   boomMaxScale: 320
   boomGrowFactor: 0.4
   boomDelay: 1.4
---- !u!114 &7381125535121923751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654337600058745840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e43df797ddebb144a98190018438179c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rocket: {fileID: 323949187251764307, guid: e30db9521f4f2f84483f0cd1060a86cc, type: 3}
-  rocketCoolDownSeconds: 2
-  rocketSpawnPoint: {fileID: 4242009922694892389}
 --- !u!114 &-8745927409812900009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3261,13 +3247,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7649047892323044285}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.6963643, y: 0.12278784, z: -0.12278784, w: 0.6963643}
   m_LocalPosition: {x: -0.5, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4530632836194463852}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -70, y: 90, z: -90}
 --- !u!1 &8151101835435097503
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,15 +3999,9 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 0}
   m_IsSelectable: 1
-  m_SelectedFaces: 17000000
-  m_SelectedEdges:
-  - a: 81
-    b: 82
-  - a: 82
-    b: 83
-  - a: 83
-    b: 81
-  m_SelectedVertices: 510000005200000053000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!23 &4935013758798324893
 MeshRenderer:
   m_ObjectHideFlags: 0
