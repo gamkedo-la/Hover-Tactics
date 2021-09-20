@@ -7,6 +7,7 @@ TagManager:
   - Shield
   - Enemy
   - Target
+  - MusicManager
   layers:
   - Default
   - TransparentFX
