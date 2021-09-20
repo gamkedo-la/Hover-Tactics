@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3452218644728675581}
   - component: {fileID: 1749478049453667160}
   - component: {fileID: 4585669708125538194}
-  - component: {fileID: 919132148805526969}
   - component: {fileID: 919132148805526970}
   - component: {fileID: 6339202292961419179}
+  - component: {fileID: 4421756121976457931}
   m_Layer: 0
   m_Name: PowerPickUp
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &919132148805526969
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2640075017202181703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.008
-  m_Height: 0.018
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.00071854296, z: 0}
 --- !u!114 &919132148805526970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +114,16 @@ MonoBehaviour:
   floatInterval: 0.6
   floatSpeed: 2
   height: 0.25
+--- !u!65 &4421756121976457931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640075017202181703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0125, y: 0.0125, z: 0.0125}
+  m_Center: {x: 0, y: 0, z: 0}

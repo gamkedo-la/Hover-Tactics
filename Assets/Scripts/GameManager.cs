@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [Header("Shield Rates")]
     [SerializeField] private float shieldDepletionInSeconds = 60.0f;
     [SerializeField] private float shieldRecoveryInSeconds = 45.0f;
+    [Header("Abilities Display")]
+    [SerializeField] private GameObject mechAbilityDisplay;
+    [SerializeField] private float abilityDisplayDelay = 6.0f;
     [Space]
     [SerializeField] private GameObject gameOverPanel;
 
@@ -22,6 +25,8 @@ public class GameManager : MonoBehaviour
     private RadialBars playerBars;
 
     private GameObject mechDisplayGroup;
+
+    private float abilityDisplayTimer = 0.0f;
 
     public GameObject GetActiveHoverMech()
     {
@@ -59,6 +64,7 @@ public class GameManager : MonoBehaviour
         DeactivateHoverMech(activeIndex++);
         if(activeIndex >= hoverMechs.Length) activeIndex = 0;
         ActivateHoverMech(activeIndex);
+        abilityDisplayTimer = abilityDisplayDelay;
     }
 
     void Start()
@@ -75,6 +81,8 @@ public class GameManager : MonoBehaviour
         Assert.IsNotNull(mechDisplayGroup, "Mech Display Group object is null!");
 
         ActivateHoverMech(activeIndex);
+
+        abilityDisplayTimer = abilityDisplayDelay;
     }
 
     void Update()
@@ -85,6 +93,7 @@ public class GameManager : MonoBehaviour
         UpdateShield();
         UpdateAllMechDisplays();
         UpdateSpecials();
+        AbilityDisplay();
     }
 
     void UpdateAllMechDisplays()
@@ -139,6 +148,35 @@ public class GameManager : MonoBehaviour
     void UpdateSpecials()
     {
         playerBars.UpdateSpecials(hoverMechs[activeIndex].GetComponent<Power>().GetSpecials());
+    }
+
+    void AbilityDisplay()
+    {
+        Transform tr = mechAbilityDisplay.transform;
+        GameObject activeObj = tr.GetChild(activeIndex).gameObject;
+        Color col = tr.GetChild(activeIndex).GetComponent<Image>().color;
+
+        if(abilityDisplayTimer > 0.0f)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                tr.GetChild(i).gameObject.SetActive(false);
+            }
+            activeObj.SetActive(true);
+            col = Color.Lerp(col, Color.white, 4.0f * Time.deltaTime);
+
+            abilityDisplayTimer -= Time.deltaTime;
+        }
+        else
+        {
+            if(activeObj.activeSelf)
+            {
+                col = Color.Lerp(col, Color.clear, 2.0f * Time.deltaTime);
+                if(col == Color.clear) activeObj.SetActive(false);
+            }
+        }
+
+        tr.GetChild(activeIndex).GetComponent<Image>().color = col;
     }
 
     void Lose()

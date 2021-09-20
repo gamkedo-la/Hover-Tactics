@@ -49,7 +49,7 @@ public class HomingRocket : MonoBehaviour
 
 	void FixedUpdate()
     {
-        if(target == gameObject.transform)
+        if(!target)
 		{
             rb.velocity = transform.forward * rocketSpeed;
         }
@@ -82,14 +82,8 @@ public class HomingRocket : MonoBehaviour
                 distance = curDistance;
             }
         }
-        if(closest == null)
-		{
-            return gameObject.transform;
-		}
-        else
-		{
-            return closest.transform;
-        }
+        if(closest == null) return null;
+        else return closest.transform;
     }
 
 	private void OnCollisionEnter(Collision coll)
