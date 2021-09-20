@@ -8,6 +8,7 @@ public class HoverMechAnimation : MonoBehaviour
     [SerializeField] private float forwardRotation = 25.0f;
     [SerializeField] private float backwardRotation = 15.0f;
     [SerializeField] private float sideRotation = 20.0f;
+    [SerializeField] private bool inputBased = true;
 
     private BaseMechController controller;
     private float yRotation = 180.0f;
@@ -31,8 +32,12 @@ public class HoverMechAnimation : MonoBehaviour
     {
         if(controller.enabled)
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            float horizontal = 0.0f, vertical = 0.0f;
+            if(inputBased)
+            {
+                horizontal = Input.GetAxis("Horizontal");
+                vertical = Input.GetAxis("Vertical");
+            }
 
             Quaternion quaternionRotation = transform.rotation;
             Vector3 rotation = transform.rotation.eulerAngles;

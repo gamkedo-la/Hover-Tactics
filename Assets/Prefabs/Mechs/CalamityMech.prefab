@@ -2809,6 +2809,7 @@ MonoBehaviour:
   forwardRotation: 20
   backwardRotation: 10
   sideRotation: 30
+  inputBased: 1
 --- !u!1 &6654337600058745840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,12 +2822,12 @@ GameObject:
   - component: {fileID: 6654337600058745846}
   - component: {fileID: 7593058205660559874}
   - component: {fileID: 2996033301170762935}
+  - component: {fileID: 7381125535121923751}
   - component: {fileID: -8745927409812900009}
   - component: {fileID: 2068957219282156062}
   - component: {fileID: 8391538345090805356}
   - component: {fileID: 4850464849410009535}
   - component: {fileID: 8189179747237387910}
-  - component: {fileID: 7381125535121923751}
   - component: {fileID: 136759709402847110}
   - component: {fileID: 6260535867820112990}
   - component: {fileID: 568369338441157059}
@@ -2918,6 +2919,21 @@ MonoBehaviour:
   boomMaxScale: 320
   boomGrowFactor: 0.4
   boomDelay: 1.4
+--- !u!114 &7381125535121923751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654337600058745840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43df797ddebb144a98190018438179c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocket: {fileID: 323949187251764307, guid: e30db9521f4f2f84483f0cd1060a86cc, type: 3}
+  rocketCoolDownSeconds: 2
+  rocketSpawnPoint: {fileID: 4242009922694892389}
 --- !u!114 &-8745927409812900009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2986,21 +3002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde348f4bdd8a3d4ea2406d9e4fb92fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7381125535121923751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654337600058745840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e43df797ddebb144a98190018438179c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rocket: {fileID: 323949187251764307, guid: e30db9521f4f2f84483f0cd1060a86cc, type: 3}
-  rocketCoolDownSeconds: 2
-  rocketSpawnPoint: {fileID: 4242009922694892389}
 --- !u!135 &136759709402847110
 SphereCollider:
   m_ObjectHideFlags: 0

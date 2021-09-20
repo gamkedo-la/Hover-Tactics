@@ -1118,7 +1118,7 @@ MonoBehaviour:
   - {fileID: 2764866125502653183}
   - {fileID: 3656998891429000962}
   cooldownDelay: 0.05
-  MPDepletePerShot: 0.025
+  MPDepletePerShot: 0.02
   muzzleParticlesTag: RifleWeaponMuzzle
   sound: 4
   damagePerHit: 0.05
@@ -2180,6 +2180,7 @@ MonoBehaviour:
   forwardRotation: 30
   backwardRotation: 10
   sideRotation: 40
+  inputBased: 1
 --- !u!1 &7319217341267427501
 GameObject:
   m_ObjectHideFlags: 0

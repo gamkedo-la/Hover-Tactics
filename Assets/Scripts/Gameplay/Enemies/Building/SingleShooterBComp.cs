@@ -60,7 +60,8 @@ class SingleShooterBComp : BuildingComponent
             if(yRotationOnly) transform.rotation = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f);
         }
 
-        if(!shootOnlyOnAim || IsLookingAtTarget())
+        if(GetTarget().GetComponent<MechController>().enabled
+        && (!shootOnlyOnAim || IsLookingAtTarget()))
         {
             if(cycleTimer <= 0.0f)
             {

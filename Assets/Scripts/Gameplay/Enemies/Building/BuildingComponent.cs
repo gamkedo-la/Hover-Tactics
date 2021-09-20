@@ -84,7 +84,8 @@ public class BuildingComponent : MonoBehaviour
         {
             for(int i = 0; i < targetObjects.Length; i++)
             {
-                if(Vector3.Distance(transform.parent.position, targetObjects[i].transform.position) <= detectionDistance)
+                if(targetObjects[i].GetComponent<MechController>().enabled
+                && Vector3.Distance(transform.parent.position, targetObjects[i].transform.position) <= detectionDistance)
                 {
                     targetIndex = i;
                     showTimer = showDelay;

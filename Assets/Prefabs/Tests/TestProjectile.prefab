@@ -69,7 +69,7 @@ MonoBehaviour:
   relativeUpwardVector: 1
   damage: 1
   onDestroyObjectTag: 
-  explosionTag: TestExplosion
+  explosionTag: ProjectileExplosion
   explosionSound: {fileID: 8300000, guid: 435354fc5d6b8824897560bb58b68068, type: 3}
   destroyDelay: 2
 --- !u!23 &7467973104759329034

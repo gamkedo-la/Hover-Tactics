@@ -129,7 +129,7 @@ MonoBehaviour:
   damagePerCycle: 0.25
   cycleDelay: 0
   destroyOnTrigger: 1
-  particleTag: TestExplosion
+  particleTag: ProjectileExplosion
 --- !u!135 &4305943683802507484
 SphereCollider:
   m_ObjectHideFlags: 0

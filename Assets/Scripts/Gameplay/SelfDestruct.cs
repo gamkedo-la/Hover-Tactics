@@ -26,7 +26,8 @@ public class SelfDestruct : MonoBehaviour
         for(int i = 0; i < targets.Length; i++)
         {
             inRange = true;
-            if(Vector3.Distance(targets[i].transform.position, transform.position) <= range)
+            if(targets[i].GetComponent<MechController>().enabled
+            && Vector3.Distance(targets[i].transform.position, transform.position) <= range)
             {
                 if(cycleTimer <= 0.0f)
                 {

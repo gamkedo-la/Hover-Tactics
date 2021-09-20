@@ -48,6 +48,11 @@ public class EnemyMechController : BaseMechController
         this._actualTarget = target;
     }
 
+    public Transform GetTarget()
+    {
+        return this._actualTarget;
+    }
+
     public float GetDistanceFromTarget()
     {
         return Mathf.Abs(Vector3.Distance(this.transform.position, positionTarget.position));
