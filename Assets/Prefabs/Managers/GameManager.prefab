@@ -379,6 +379,10 @@ MonoBehaviour:
     prefab: {fileID: 4145837052111500040, guid: 1fb1dea0e53be5846bbc75f3f5d02034,
       type: 3}
     size: 20
+  - tag: PortalWeaponMuzzle
+    prefab: {fileID: 5069209588166342338, guid: cbcd4939b12be294bba012012618085f,
+      type: 3}
+    size: 10
 --- !u!1001 &3057199800962551957
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
             if(hoverMechs[i].GetComponent<Shield>().Get() <= 0.0f)
             {
                 SetLoseReason(GetMechName(i) + "'s shield got depleted to zero!");
+                
                 Lose();
             }
         }
@@ -191,8 +192,6 @@ public class GameManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0.0f;
-
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     string GetMechName(int i)

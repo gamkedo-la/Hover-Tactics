@@ -126,6 +126,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6161199037194091119}
     m_Modifications:
+    - target: {fileID: 554855560382417745, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 554855560382417745, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 554855560382417745, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 554855560382417745, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 554855560382417745, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 574718804842638922, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: m_Pivot.x

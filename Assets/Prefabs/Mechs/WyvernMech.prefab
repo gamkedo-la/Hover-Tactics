@@ -3074,7 +3074,7 @@ MonoBehaviour:
   rotateShootingPoints: 0
   cooldownDelay: 0.5
   MPDepletePerShot: 0.5
-  muzzleParticlesTag: 
+  muzzleParticlesTag: PortalWeaponMuzzle
   sound: 0
   projectileTag: PortalProjectile
 --- !u!114 &4891581321264167179
