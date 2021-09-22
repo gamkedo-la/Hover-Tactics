@@ -11,6 +11,9 @@ public class DamageTrigger : MonoBehaviour, IDamage
     [SerializeField] private bool destroyOnTrigger = false;
     [Tooltip("Particles are only spawned when destroyOnTrigger is true.")]
     [SerializeField] private string particleTag = "";
+    [SerializeField] private SoundFxKey destroySound;
+
+    private Health health;
 
     private List<AbstractTakeDamage> takeDamageList;
     private float cycleTimer = 0.0f;
@@ -25,6 +28,7 @@ public class DamageTrigger : MonoBehaviour, IDamage
     void Start()
     {
         takeDamageList = new List<AbstractTakeDamage>();
+        health = GetComponent<Health>();
     }
 
     void Update()
@@ -46,6 +50,13 @@ public class DamageTrigger : MonoBehaviour, IDamage
         }
     }
 
+    public void Explode()
+    {
+        ObjectPooler.instance.SpawnFromPool(particleTag, transform.position, Quaternion.identity);
+        SoundFXManager.PlayOneShot(destroySound);
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         AbstractTakeDamage canTakeDamage = other.gameObject.GetComponent<AbstractTakeDamage>();
@@ -54,8 +65,7 @@ public class DamageTrigger : MonoBehaviour, IDamage
             if(destroyOnTrigger)
             {
                 canTakeDamage.TakeDamage(GetDamage());
-                ObjectPooler.instance.SpawnFromPool(particleTag, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                Explode();
             }
             else
             {

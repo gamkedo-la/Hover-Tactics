@@ -1094,11 +1094,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01561ef27a0b9c24a966adefd6168b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 15
-  backwardSpeed: 8
-  sideSpeed: 10
+  forwardSpeed: 20
+  backwardSpeed: 12
+  sideSpeed: 16
   hoverMechAnimation: {fileID: 5974809571300658428}
-  turnSpeed: 150
+  turnSpeed: 120
   turnSensitivity: 0.1
   Cursor: {fileID: 0}
 --- !u!114 &6035674963988836273
@@ -1117,6 +1117,7 @@ MonoBehaviour:
   shootingPoints:
   - {fileID: 2764866125502653183}
   - {fileID: 3656998891429000962}
+  rotateShootingPoints: 1
   cooldownDelay: 0.05
   MPDepletePerShot: 0.02
   muzzleParticlesTag: RifleWeaponMuzzle
@@ -1141,6 +1142,7 @@ MonoBehaviour:
   type: 1
   shootingPoints:
   - {fileID: 4535321928241183016}
+  rotateShootingPoints: 1
   cooldownDelay: 0.5
   MPDepletePerShot: 1
   muzzleParticlesTag: LaserBeamWeaponMuzzle
@@ -2176,10 +2178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504b68bf71df95242ad897e8fb8ab9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpFactor: 3
+  lerpFactor: 4
   forwardRotation: 30
-  backwardRotation: 10
-  sideRotation: 40
+  backwardRotation: 15
+  sideRotation: 45
   inputBased: 1
 --- !u!1 &7319217341267427501
 GameObject:

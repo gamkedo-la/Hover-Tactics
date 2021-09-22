@@ -2963,10 +2963,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504b68bf71df95242ad897e8fb8ab9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpFactor: 5
-  forwardRotation: 30
-  backwardRotation: 10
-  sideRotation: 40
+  lerpFactor: 5.5
+  forwardRotation: 35
+  backwardRotation: 20
+  sideRotation: 50
   inputBased: 1
 --- !u!1 &6730692806992436542
 GameObject:
@@ -3024,10 +3024,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 40
-  backwardSpeed: 25
-  sideSpeed: 30
+  backwardSpeed: 26
+  sideSpeed: 32
   hoverMechAnimation: {fileID: 5049283021515742498}
-  turnSpeed: 200
+  turnSpeed: 250
   turnSensitivity: 0.1
   Cursor: {fileID: 0}
 --- !u!114 &8137829999247783970
@@ -3046,16 +3046,16 @@ MonoBehaviour:
   shootingPoints:
   - {fileID: 8176067283480991370}
   rotateShootingPoints: 0
-  cooldownDelay: 0.02
-  MPDepletePerShot: 0.01
+  cooldownDelay: 0.025
+  MPDepletePerShot: 0.025
   muzzleParticlesTag: 
   sound: 6
   beamObject: {fileID: 1162497829734798004, guid: cc6af1b7553f5744fb4467b3bb1b4e64,
     type: 3}
-  beamStartDelay: 0.25
-  beamGrowFactor: 100
+  beamStartDelay: 0.05
+  beamGrowFactor: 50
   beamDelay: 0.001
-  beamShrinkFactor: 100
+  beamShrinkFactor: 50
 --- !u!114 &5471539628764871941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,7 +3090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostMaxValue: 10
-  boostCostPerSecond: 0.75
+  boostCostPerSecond: 0.5
   isTeleport: 1
   mechPower: {fileID: 5689716451623988169}
 --- !u!114 &4727262786595552155

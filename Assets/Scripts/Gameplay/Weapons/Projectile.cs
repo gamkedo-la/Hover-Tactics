@@ -82,6 +82,8 @@ public class Projectile : MonoBehaviour, IDamage
 
         ContactPoint contact = coll.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+
+        destroyTimer = 999.0f;
         DestroyEffects(rot);
         meshRenderer.enabled = false;
         if(transform.childCount > 0) transform.GetChild(0).gameObject.SetActive(false);
