@@ -786,17 +786,9 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 0}
   m_IsSelectable: 1
-  m_SelectedFaces: 00000000
-  m_SelectedEdges:
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  m_SelectedVertices: 00000000000000000000000000000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!23 &1511064884537524408
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1561,13 +1553,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2252516787863727969}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: -1.2499907, y: 0, z: -0.042470172}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 1511064885904558312}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!96 &3988536482050178984
 TrailRenderer:
   serializedVersion: 2
@@ -3093,6 +3085,9 @@ MonoBehaviour:
   boostCostPerSecond: 0.5
   isTeleport: 1
   mechPower: {fileID: 5689716451623988169}
+  burstTransform: {fileID: 4603662656988303429}
+  startBurstTag: BoostBurst
+  startBurstSound: 0
 --- !u!114 &4727262786595552155
 MonoBehaviour:
   m_ObjectHideFlags: 0

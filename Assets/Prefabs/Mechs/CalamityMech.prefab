@@ -85,13 +85,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2193888181667090863}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.9961947, z: -0.08715578, w: 0}
   m_LocalPosition: {x: 0, y: -0.6, z: -0.5}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 7032676375119676775}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 180, z: 0}
 --- !u!96 &3921207510807085414
 TrailRenderer:
   serializedVersion: 2
@@ -2967,6 +2967,9 @@ MonoBehaviour:
   boostCostPerSecond: 0.2
   isTeleport: 0
   mechPower: {fileID: 4850464849410009535}
+  burstTransform: {fileID: 4527159358710984331}
+  startBurstTag: BoostBurst
+  startBurstSound: 0
 --- !u!114 &2068957219282156062
 MonoBehaviour:
   m_ObjectHideFlags: 0
