@@ -51,7 +51,7 @@ MonoBehaviour:
   startHidden: 1
   autoHide: 1
   showDelay: 2
-  detectionDistance: 30
+  detectionDistance: 50
   showOnlyOnDamage: 0
   showLerpFactor: 10
   hideLerpFactor: 2.5
@@ -69,8 +69,8 @@ MonoBehaviour:
   shotsPerCycle: 1
   delayPerCycle: 0
   muzzleTransform: {fileID: 8614754756003322869}
-  muzzleFlashTag: 
-  projectileTag: TestProjectileShooters
+  muzzleFlashTag: ShooterProjectileMuzzle
+  projectileTag: WeakShooterProjectile
   shotSound: 0
 --- !u!1 &8614754755286160423
 GameObject:

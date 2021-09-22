@@ -18,8 +18,8 @@ public class Building : MonoBehaviour
         public GameObject type;
         public int count;
         public Transform[] transforms;
-        [Range(0.0f, 1.0f)] public float minDestroyHealth;
-        [Range(0.0f, 1.0f)] public float maxDestroyHealth;
+        public float minDestroyHealth;
+        public float maxDestroyHealth;
         public float minHeightVariation;
         public float maxHeightVariation;
 

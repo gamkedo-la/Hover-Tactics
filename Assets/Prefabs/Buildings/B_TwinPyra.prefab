@@ -1456,8 +1456,8 @@ MonoBehaviour:
     - {fileID: 2266656487746623618}
     - {fileID: 1673350565203614909}
     - {fileID: 811601905870693968}
-    minDestroyHealth: 0.4
-    maxDestroyHealth: 0.9
+    minDestroyHealth: 0.5
+    maxDestroyHealth: 1
     minHeightVariation: -0.2
     maxHeightVariation: 0.2
     usedTransformIndexes: 
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a1f9cdd4ff3eb419b06d5d11de73d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 1
+  max: 1.5
 --- !u!82 &5356040039734963507
 AudioSource:
   m_ObjectHideFlags: 0

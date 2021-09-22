@@ -54,9 +54,18 @@ public class Projectile : MonoBehaviour, IDamage
         }
 
         if(destroyTimer <= 0.0f)
-            DisableObject();
+        {
+            destroyTimer = 999.0f;
+            DestroyEffects(transform.rotation);
+            meshRenderer.enabled = false;
+            if(transform.childCount > 0) transform.GetChild(0).gameObject.SetActive(false);
+            projectileCollider.enabled = false;
+            Invoke("DisableObject", 1.0f);
+        }
         else
+        {
             destroyTimer -= Time.deltaTime;
+        }
     }
 
     public Damage GetDamage()
@@ -71,8 +80,11 @@ public class Projectile : MonoBehaviour, IDamage
     {
         ObjectPooler.instance.SpawnFromPool(onDestroyObjectTag, transform.position, Quaternion.identity);
 
-        DestroyEffects(coll);
+        ContactPoint contact = coll.contacts[0];
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+        DestroyEffects(rot);
         meshRenderer.enabled = false;
+        if(transform.childCount > 0) transform.GetChild(0).gameObject.SetActive(false);
         projectileCollider.enabled = false;
         Invoke("DisableObject", 1.0f);
 
@@ -80,11 +92,9 @@ public class Projectile : MonoBehaviour, IDamage
         if(canTakeDamage) canTakeDamage.TakeDamage(GetDamage());
     }
 
-    void DestroyEffects(Collision coll)
+    void DestroyEffects(Quaternion rotation)
     {
-        ContactPoint contact = coll.contacts[0];
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
+        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rotation);
         SoundFXManager.PlayOneShot(explosionSound, audioSource);
     }
 
@@ -92,6 +102,7 @@ public class Projectile : MonoBehaviour, IDamage
     {
         destroyTimer = destroyDelay;
         meshRenderer.enabled = true;
+        if(transform.childCount > 0) transform.GetChild(0).gameObject.SetActive(true);
         projectileCollider.enabled = true;
         impactForce = Vector3.zero;
         gameObject.SetActive(false);

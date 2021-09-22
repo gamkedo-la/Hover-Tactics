@@ -7,7 +7,6 @@ public class ObjectPooler : MonoBehaviour {
 	[System.Serializable]
 	public class Pool
 	{
-		public string tag;
 		public GameObject prefab;
 		public int size;
 	}
@@ -18,12 +17,8 @@ public class ObjectPooler : MonoBehaviour {
 	public static ObjectPooler instance;
 	void Awake()
 	{
-		//Singleton code
 		instance = this;
-		///////////////
-		
 		poolDictionary = new Dictionary<string, Queue<GameObject>>();
-		
 		foreach (Pool pool in pools)
 		{
 			Queue<GameObject> objectPool = new Queue<GameObject>();
@@ -33,24 +28,19 @@ public class ObjectPooler : MonoBehaviour {
 				obj.SetActive(false);
 				objectPool.Enqueue(obj);
 			}
-			poolDictionary.Add(pool.tag, objectPool);
+			poolDictionary.Add(pool.prefab.name, objectPool);
 		}
 	}
-
-	//The above code not in start because of the other code asking for objects!
-	void Start () {
-
-	}
 	
-	public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
+	public GameObject SpawnFromPool(string name, Vector3 position, Quaternion rotation)
 	{
-		if(tag == "") return null;
-		GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+		if(name == "") return null;
+		GameObject objectToSpawn = poolDictionary[name].Dequeue();
 		objectToSpawn.transform.position = position;
 		objectToSpawn.transform.rotation = rotation;
 		Rigidbody rigidbody = objectToSpawn.GetComponent<Rigidbody>();
 		if(rigidbody) rigidbody.velocity = rigidbody.angularVelocity = Vector3.zero;
-		poolDictionary[tag].Enqueue(objectToSpawn);
+		poolDictionary[name].Enqueue(objectToSpawn);
 		objectToSpawn.SetActive(true);
 		return objectToSpawn;
 	}
