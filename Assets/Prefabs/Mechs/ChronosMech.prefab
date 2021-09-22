@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2764866125502653183}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RightShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3106110771858588059}
   - component: {fileID: 2567686538811469430}
   - component: {fileID: 361237769}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 2937965593479317047}
   - component: {fileID: 1160602493636336934}
   - component: {fileID: 1757083587169079603}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RightShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1018,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535321928241183016}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MiddleShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 1268707443094176654}
   - component: {fileID: 4733235727904199500}
   - component: {fileID: 6660636697414165625}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LeftShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2139,7 +2139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8381684745374968439}
   - component: {fileID: 5974809571300658428}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2192,7 +2192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3656998891429000962}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LeftShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -2225,7 +2225,11 @@ GameObject:
   - component: {fileID: 5995469059869751907}
   - component: {fileID: 3254870894606193403}
   - component: {fileID: 1476687635647184346}
-  m_Layer: 3
+  - component: {fileID: 5232902181430084557}
+  - component: {fileID: 8609931477945650901}
+  - component: {fileID: 6600047145666705873}
+  - component: {fileID: 4567776817444132190}
+  m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2295,6 +2299,58 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5232902181430084557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578719201726280369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1, z: 1.1}
+  m_Center: {x: -0.55, y: 0, z: 0}
+--- !u!65 &8609931477945650901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578719201726280369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1, z: 1.1}
+  m_Center: {x: 0.55, y: 0, z: 0}
+--- !u!65 &6600047145666705873
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578719201726280369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -0.55}
+--- !u!65 &4567776817444132190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578719201726280369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0.55}
 --- !u!1001 &1092913339324121615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2530,12 +2586,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 720554cf8b778b8429eda28805752edb,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 720554cf8b778b8429eda28805752edb, type: 3}

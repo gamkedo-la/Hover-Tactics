@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1511064884537524415}
   - component: {fileID: 1511064884537524408}
   - component: {fileID: 1511064884537524409}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +861,7 @@ GameObject:
   - component: {fileID: 1511064885904558313}
   - component: {fileID: 1511064885904558314}
   - component: {fileID: 1511064885904558315}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1515,7 +1515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3649787712484487969}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PortalShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -1547,7 +1547,7 @@ GameObject:
   - component: {fileID: 4603662656988303429}
   - component: {fileID: 3988536482050178984}
   - component: {fileID: 6867944242219888775}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ThrustEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1730,7 +1730,7 @@ GameObject:
   - component: {fileID: 3635005948920482334}
   - component: {fileID: 6478243110945030262}
   - component: {fileID: 7441210277891497246}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2924,7 +2924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6965336205420608425}
   - component: {fileID: 5049283021515742498}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3266,7 +3266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8176067283480991370}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MelterShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3298,7 +3298,11 @@ GameObject:
   - component: {fileID: 5173596769702915005}
   - component: {fileID: 4166953720013325093}
   - component: {fileID: 37821093261061124}
-  m_Layer: 3
+  - component: {fileID: 6269160272852046612}
+  - component: {fileID: 2012124168429460064}
+  - component: {fileID: 5281562099847074661}
+  - component: {fileID: 213064021204290342}
+  m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3368,6 +3372,58 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6269160272852046612
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202903047143826287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0.55}
+--- !u!65 &2012124168429460064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202903047143826287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -0.55}
+--- !u!65 &5281562099847074661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202903047143826287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1, z: 1.1}
+  m_Center: {x: 0.55, y: 0, z: 0}
+--- !u!65 &213064021204290342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202903047143826287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1, z: 1.1}
+  m_Center: {x: -0.55, y: 0, z: 0}
 --- !u!1001 &7464698931736404457
 PrefabInstance:
   m_ObjectHideFlags: 0
