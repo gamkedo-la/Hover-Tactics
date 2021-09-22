@@ -59,6 +59,8 @@ public class DamageTrigger : MonoBehaviour, IDamage
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.layer == 10) return; //NoDamage
+
         AbstractTakeDamage canTakeDamage = other.gameObject.GetComponent<AbstractTakeDamage>();
         if(canTakeDamage)
         {
@@ -76,6 +78,8 @@ public class DamageTrigger : MonoBehaviour, IDamage
 
     void OnTriggerExit(Collider other)
     {
+        if(other.gameObject.layer == 10) return; //NoDamage
+        
         AbstractTakeDamage canTakeDamage = other.gameObject.GetComponent<AbstractTakeDamage>();
         if(canTakeDamage) takeDamageList.Remove(canTakeDamage);
     }

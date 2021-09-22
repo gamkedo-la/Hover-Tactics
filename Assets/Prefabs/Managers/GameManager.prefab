@@ -305,7 +305,7 @@ MonoBehaviour:
   shieldDepletionInSeconds: 60
   shieldRecoveryInSeconds: 45
   mechAbilityDisplay: {fileID: 1342842740535750626}
-  abilityDisplayDelay: 6
+  abilityDisplayDelay: 15
   gameOverPanel: {fileID: 0}
 --- !u!114 &1342842741696817870
 MonoBehaviour:

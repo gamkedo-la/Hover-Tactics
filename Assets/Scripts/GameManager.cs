@@ -181,6 +181,7 @@ public class GameManager : MonoBehaviour
         }
 
         tr.GetChild(activeIndex).GetComponent<Image>().color = col;
+        tr.GetChild(3).gameObject.GetComponent<Image>().color = col; //MoreControls
     }
 
     void UpdateCameraSize()
@@ -192,6 +193,7 @@ public class GameManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0.0f;
+        gameObject.SetActive(false);
     }
 
     string GetMechName(int i)

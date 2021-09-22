@@ -19,7 +19,7 @@ TagManager:
   - PlayerProjectile
   - Enemy
   - EnemyProjectile
-  - 
+  - NoDamage
   - 
   - 
   - 

@@ -46,6 +46,7 @@ public class CameraController : MonoBehaviour
         if (Physics.Raycast(ray, out hitData, 200))
             lastAimPoint = hitData.point;
 
-        cursor.transform.position = lastAimPoint;
+        Cursor.visible = !GameManager.instance.gameObject.activeSelf;
+        if(!Cursor.visible) cursor.transform.position = lastAimPoint;
     }
 }

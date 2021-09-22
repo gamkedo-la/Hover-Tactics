@@ -35,11 +35,9 @@ public class GameMenuController : MonoBehaviour
 
     private void GameStarted()
     {
-        if(logDebug) Debug.Log("START GAME");
-        
         // hide panel
-        isShowingStartGameMenu = false;
-        gameMenu.ToggleStartGameScreen(isShowingStartGameMenu, false);
+        //isShowingStartGameMenu = false;
+        //gameMenu.ToggleStartGameScreen(isShowingStartGameMenu, false);
 
         // do something whenever the start game button has been pressed
         Time.timeScale = 1.0f;
@@ -48,8 +46,6 @@ public class GameMenuController : MonoBehaviour
 
     private void GameResumed()
     {
-        if(logDebug) Debug.Log("RESUME GAME");
-
         // hide panel
         isShowingPauseGameMenu = false;
         gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false);
@@ -60,7 +56,7 @@ public class GameMenuController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)
+        if(Input.GetButtonDown("Cancel")
         && SceneManager.GetActiveScene().name == "Play")
         {
             isShowingPauseGameMenu = !isShowingPauseGameMenu;

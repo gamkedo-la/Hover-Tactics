@@ -83,6 +83,8 @@ public class RaycastWeapon : Weapon
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitData.normal);
             ObjectPooler.instance.SpawnFromPool(hitImpactTag, hitData.point, rot);
 
+            if(hitData.transform.gameObject.layer == 10) return; //NoDamage
+
             AbstractTakeDamage canTakeDamage = hitData.transform.GetComponent<AbstractTakeDamage>();
             if(canTakeDamage) canTakeDamage.TakeDamage(GetDamage());
         }

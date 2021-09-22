@@ -90,6 +90,8 @@ public class Projectile : MonoBehaviour, IDamage
         projectileCollider.enabled = false;
         Invoke("DisableObject", 1.0f);
 
+        if(coll.gameObject.layer == 10) return; //NoDamage
+
         AbstractTakeDamage canTakeDamage = coll.transform.GetComponent<AbstractTakeDamage>();
         if(canTakeDamage) canTakeDamage.TakeDamage(GetDamage());
     }
