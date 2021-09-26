@@ -297,11 +297,11 @@ MonoBehaviour:
   - {fileID: 0}
   activeIndex: 0
   switchSound: 3
-  camera: {fileID: 0}
-  cameraSizes:
-  - 26
-  - 24
-  - 28
+  cam: {fileID: 0}
+  camSizes:
+  - 25
+  - 23
+  - 27
   shieldDepletionInSeconds: 60
   shieldRecoveryInSeconds: 45
   mechAbilityDisplay: {fileID: 1342842740535750626}

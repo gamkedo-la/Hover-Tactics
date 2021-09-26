@@ -29,16 +29,63 @@ public class Building : MonoBehaviour
     [Space]
     [SerializeField] private BuildingComponentParams[] bComps;
 
+    private List<GameObject> bCompReferences = null;
+
     private Health health;
     private AudioSource audioSource;
-
-    void GenerateBComps()
+    
+    [ContextMenu("Clear BComps")]
+    void ClearBComps()
     {
         for(int i = 0; i < bComps.Length; i++)
         {
-            bComps[i].usedTransformIndexes = new List<int>();
+            if(bComps[i].usedTransformIndexes == null)
+                bComps[i].usedTransformIndexes = new List<int>();
+            else
+                bComps[i].usedTransformIndexes.Clear();
+        }
 
-            while(bComps[i].count > 0)
+        if(bCompReferences == null)
+        {
+            bCompReferences = new List<GameObject>();
+        }
+        else
+        {
+            foreach(GameObject bObj in bCompReferences)
+                DestroyImmediate(bObj);
+            bCompReferences.Clear();
+        }
+    }
+
+    [ContextMenu("Generate All Possible BComps")]
+    void GenerateAllPossibleBComps()
+    {
+        ClearBComps();
+        for(int i = 0; i < bComps.Length; i++)
+        {
+            for(int b = 0; b < bComps[i].transforms.Length; b++)
+            {
+                GameObject bCompObject = Instantiate(
+                    bComps[i].type,
+                    bComps[i].transforms[b].position
+                        + new Vector3(0.0f, UnityEngine.Random.Range(bComps[i].minHeightVariation, bComps[i].maxHeightVariation), 0.0f),
+                    bComps[i].transforms[b].rotation
+                );
+                bCompObject.transform.parent = transform;
+                bCompObject.GetComponent<BuildingComponent>().destroyBelowHealth = UnityEngine.Random.Range(bComps[i].minDestroyHealth, bComps[i].maxDestroyHealth);
+                bCompReferences.Add(bCompObject);
+            }
+        }
+    }
+
+    [ContextMenu("Generate Random BComps")]
+    void GenerateBComps()
+    {
+        ClearBComps();
+        for(int i = 0; i < bComps.Length; i++)
+        {
+            int tempCount = bComps[i].count;
+            while(tempCount > 0)
             {
                 int randomTransformIndex = UnityEngine.Random.Range(0, bComps[i].transforms.Length);
 
@@ -52,9 +99,10 @@ public class Building : MonoBehaviour
                     );
                     bCompObject.transform.parent = transform;
                     bCompObject.GetComponent<BuildingComponent>().destroyBelowHealth = UnityEngine.Random.Range(bComps[i].minDestroyHealth, bComps[i].maxDestroyHealth);
+                    bCompReferences.Add(bCompObject);
 
                     bComps[i].usedTransformIndexes.Add(randomTransformIndex);
-                    bComps[i].count--;
+                    tempCount--;
                 }
             }
         }

@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] hoverMechs;
     [SerializeField] private int activeIndex = 0;
     [SerializeField] private SoundFxKey switchSound;
-    [SerializeField] private Camera camera;
-    [SerializeField] private float[] cameraSizes;
+    [SerializeField] private Camera cam;
+    [SerializeField] private float[] camSizes;
     [Header("Shield Rates")]
     [SerializeField] private float shieldDepletionInSeconds = 60.0f;
     [SerializeField] private float shieldRecoveryInSeconds = 45.0f;
@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateCameraSize()
     {
-        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, cameraSizes[activeIndex], 2.0f * Time.deltaTime);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, camSizes[activeIndex], 2.0f * Time.deltaTime);
     }
 
     void Lose()

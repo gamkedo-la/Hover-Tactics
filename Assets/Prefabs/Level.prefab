@@ -14124,16 +14124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: B_Hanger
       objectReference: {fileID: 0}
-    - target: {fileID: 8972246053971543377, guid: 29b4103679617e54b9c47b2e72b361f0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972246053971543377, guid: 29b4103679617e54b9c47b2e72b361f0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8972246053971543378, guid: 29b4103679617e54b9c47b2e72b361f0,
         type: 3}
       propertyPath: m_Mesh
@@ -24136,7 +24126,7 @@ PrefabInstance:
     - target: {fileID: 7184408574992850258, guid: fa4ae66143fc9ce4e81e01a807516126,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.2
+      value: -106.2
       objectReference: {fileID: 0}
     - target: {fileID: 7184408574992850258, guid: fa4ae66143fc9ce4e81e01a807516126,
         type: 3}
@@ -24146,7 +24136,7 @@ PrefabInstance:
     - target: {fileID: 7184408574992850258, guid: fa4ae66143fc9ce4e81e01a807516126,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: 220.6
       objectReference: {fileID: 0}
     - target: {fileID: 7184408574992850258, guid: fa4ae66143fc9ce4e81e01a807516126,
         type: 3}

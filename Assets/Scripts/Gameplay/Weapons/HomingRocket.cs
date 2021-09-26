@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class HomingRocket : MonoBehaviour
 {
+    public string targetTag = "Enemy";
     public float damage = 0.5f;
     public float rocketSpeed;
     public float rotateSpeed;
@@ -30,7 +31,7 @@ public class HomingRocket : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         projectileCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
-        target = FindClosestEnemy();
+        target = FindClosest();
 
         Assert.IsNotNull(rb, "Rigidbody is null!");
         Assert.IsNotNull(projectileCollider, "Projectile Collider is null!");
@@ -39,7 +40,7 @@ public class HomingRocket : MonoBehaviour
 
 	private void Update()
 	{
-        target = FindClosestEnemy();
+        target = FindClosest();
 
         if(destroyTimer <= 0.0f)
             DisableObject();
@@ -65,10 +66,10 @@ public class HomingRocket : MonoBehaviour
         }
     }
 
-    Transform FindClosestEnemy()
+    Transform FindClosest()
     {
         GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        gos = GameObject.FindGameObjectsWithTag(targetTag);
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;

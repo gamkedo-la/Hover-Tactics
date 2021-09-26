@@ -1458,7 +1458,7 @@ MonoBehaviour:
     - {fileID: 811601905870693968}
     minDestroyHealth: 0.5
     maxDestroyHealth: 1
-    minHeightVariation: -0.2
+    minHeightVariation: -0.4
     maxHeightVariation: 0.2
     usedTransformIndexes: 
 --- !u!114 &448869580252606242
