@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 1598409248715119353}
   - component: {fileID: 1598409248715119352}
   - component: {fileID: 387740322963359280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: B_TriggerConeMulti
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   ruins: {fileID: 0}
   explosionSound: 10
   explosionTag: BuildingExplosion
+  shakeOnDamage: 0
   bComps:
   - name: ConeMulti
     type: {fileID: 8298321270770586227, guid: 8fa44038bbe2a0c40aff04892341a7f6, type: 3}

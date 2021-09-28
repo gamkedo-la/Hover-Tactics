@@ -1118,11 +1118,11 @@ MonoBehaviour:
   - {fileID: 2764866125502653183}
   - {fileID: 3656998891429000962}
   rotateShootingPoints: 1
-  cooldownDelay: 0.05
-  MPDepletePerShot: 0.02
+  cooldownDelay: 0.06
+  MPDepletePerShot: 0.016
   muzzleParticlesTag: RifleWeaponMuzzle
   sound: 4
-  damagePerHit: 0.05
+  damagePerHit: 0.075
   hitImpactTag: ShotImpact
   lineDelay: 0.05
   lineMaterial: {fileID: 2100000, guid: 9ce91bee0b3e3f541be8c44206a8bffd, type: 2}

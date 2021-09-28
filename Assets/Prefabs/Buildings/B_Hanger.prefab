@@ -150,6 +150,37 @@ Transform:
   m_Father: {fileID: 7575721453390469262}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4297649990426365349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4333259248762511107}
+  m_Layer: 8
+  m_Name: Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4333259248762511107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297649990426365349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8972246053971543377}
+  m_Father: {fileID: 8972246053447125758}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4326531877341917945
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +340,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8972246053971543377}
+  - {fileID: 4333259248762511107}
   - {fileID: 441505229403470470}
   - {fileID: 7575721453390469262}
   m_Father: {fileID: 0}
@@ -343,6 +374,7 @@ MonoBehaviour:
   ruins: {fileID: 6380260134106088751, guid: 46d295b0ba0d0ac47af1b49bbfa23702, type: 3}
   explosionSound: 10
   explosionTag: BuildingExplosion
+  shakeOnDamage: 1
   bComps:
   - name: WeakAimShooters
     type: {fileID: 4091004774723912533, guid: fb4e811a62af94440a64cf805087b7f5, type: 3}
@@ -509,7 +541,7 @@ Transform:
   m_LocalPosition: {x: 4.1, y: 0, z: -4.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8972246053447125758}
+  m_Father: {fileID: 4333259248762511107}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8972246053971543378

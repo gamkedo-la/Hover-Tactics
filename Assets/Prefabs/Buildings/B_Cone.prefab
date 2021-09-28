@@ -122,11 +122,10 @@ Transform:
   m_LocalPosition: {x: 20, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6757784973123294640}
-  - {fileID: 6757784971385312525}
+  - {fileID: 3467668679348037666}
   - {fileID: 1879585339032195517}
-  - {fileID: 1463552875316381691}
   - {fileID: 4498629726786447632}
+  - {fileID: 1463552875316381691}
   - {fileID: 8482318425131503438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -159,6 +158,7 @@ MonoBehaviour:
   ruins: {fileID: 1459647301750839034, guid: 9f71d8691c5f82d4691eed1ace0d90d3, type: 3}
   explosionSound: 10
   explosionTag: BuildingExplosion
+  shakeOnDamage: 1
   bComps:
   - name: WeakAimShooters
     type: {fileID: 4091004774723912533, guid: fb4e811a62af94440a64cf805087b7f5, type: 3}
@@ -296,6 +296,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 40
   targetTag: Player
+--- !u!1 &3794153129128081560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3467668679348037666}
+  m_Layer: 8
+  m_Name: Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3467668679348037666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3794153129128081560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6757784973123294640}
+  - {fileID: 6757784971385312525}
+  m_Father: {fileID: 3661068449618122007}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4630768000322675890
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +360,7 @@ Transform:
   - {fileID: 339130932528593024}
   - {fileID: 4631426779348310234}
   m_Father: {fileID: 3661068449618122007}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6501590197358549615
 GameObject:
@@ -360,7 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3661068449618122007}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5946212226131127854
 SphereCollider:
@@ -405,7 +437,7 @@ GameObject:
   - component: {fileID: 6757784971385312523}
   - component: {fileID: 6757784971385312520}
   m_Layer: 0
-  m_Name: ShootSphere
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,7 +454,7 @@ Transform:
   m_LocalPosition: {x: -2, y: 4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 3661068449618122007}
+  m_Father: {fileID: 3467668679348037666}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6757784971385312522
@@ -1070,7 +1102,7 @@ Transform:
   m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 0.8, z: 1.5}
   m_Children: []
-  m_Father: {fileID: 3661068449618122007}
+  m_Father: {fileID: 3467668679348037666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6757784973123294641
@@ -1413,7 +1445,7 @@ GameObject:
   - component: {fileID: 4846874419970124043}
   - component: {fileID: 5583258763962653093}
   m_Layer: 0
-  m_Name: Torus
+  m_Name: TorusField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,7 +1463,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3661068449618122007}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2828388122480228848
 MonoBehaviour:

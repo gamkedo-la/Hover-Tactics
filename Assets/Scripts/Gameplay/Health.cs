@@ -22,7 +22,7 @@ public class Health : AbstractTakeDamage
 
     public void ChangeBy(float value)
     {
-        current = Mathf.Clamp(current + value, 0.0f, max);
+        current = Mathf.Clamp(current + value, -0.05f, max);
     }
 
     public bool IsZero()
@@ -33,6 +33,11 @@ public class Health : AbstractTakeDamage
     public float Get()
     {
         return current;
+    }
+
+    public float GetMax()
+    {
+        return max;
     }
 
     public void SetToFull()

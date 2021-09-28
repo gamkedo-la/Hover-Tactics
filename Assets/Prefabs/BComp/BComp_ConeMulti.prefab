@@ -586,8 +586,8 @@ MonoBehaviour:
   startHidden: 1
   autoHide: 0
   showDelay: 999
-  detectionDistance: 80
-  showOnlyOnDamage: 1
+  detectionDistance: 75
+  showOnlyOnDamage: 0
   showLerpFactor: 20
   hideLerpFactor: 20
   showUpSound: 0
@@ -595,13 +595,13 @@ MonoBehaviour:
   explosionSound: 0
   explosionTag: BCompExplosion
   explosionScale: 2
-  delayPerShot: 2
+  delayPerShot: 0.25
   shotsPerCycle: 4
-  delayPerCycle: 8
+  delayPerCycle: 2
   doDelayBetweenShooters: 0
   delayPerShooter: 0
   yRotatePerShooter: 0
-  yRotatePerShot: 0
+  yRotatePerShot: 5.625
   yRotatePerCycle: 11.25
   muzzleTransforms:
   - {fileID: 878131184690975915}

@@ -88,6 +88,8 @@ public class RaycastWeapon : Weapon
             AbstractTakeDamage canTakeDamage = hitData.transform.GetComponent<AbstractTakeDamage>();
             if(canTakeDamage) canTakeDamage.TakeDamage(GetDamage());
         }
+
+        CameraShake.Shake(0.08f, 1, 0.0f);
     }
 
     public override Damage GetDamage()

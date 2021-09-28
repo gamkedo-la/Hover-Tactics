@@ -9,8 +9,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector3 offset;
     [SerializeField] private float lerpFactor;
     [SerializeField] private float mouseFactor;
-    [Space]
     [SerializeField] private GameObject cursor;
+    [SerializeField] private int totalInstances = 6;
 
     public Vector3 lastAimPoint { get; private set; }
     private Camera cam;
@@ -30,6 +30,13 @@ public class CameraController : MonoBehaviour
     {
         Cursor.visible = false;
         cam = GetComponent<Camera>();
+
+        CameraShake.instances = new List<CameraShake>();
+        while(totalInstances > 0)
+        {
+            CameraShake.instances.Add(gameObject.AddComponent<CameraShake>());
+            totalInstances--;
+        }
     }
 
     void Update()

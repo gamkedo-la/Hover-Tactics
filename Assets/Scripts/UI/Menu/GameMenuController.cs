@@ -12,6 +12,8 @@ public class GameMenuController : MonoBehaviour
     public bool isShowingStartGameMenu;
     public bool isShowingPauseGameMenu;
 
+    static public bool playNight = false;
+
     [Header("Debug")]
     [SerializeField] private bool logDebug;
 
@@ -41,7 +43,10 @@ public class GameMenuController : MonoBehaviour
 
         // do something whenever the start game button has been pressed
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Play");
+        //if(playNight) SceneManager.LoadScene("PlayNight");
+        //else SceneManager.LoadScene("Play");
+        if(playNight) FadeToScene.Load("PlayNight");
+        else FadeToScene.Load("Play");
     }
 
     private void GameResumed()
@@ -57,7 +62,7 @@ public class GameMenuController : MonoBehaviour
     private void Update()
     {
         if(Input.GetButtonDown("Cancel")
-        && SceneManager.GetActiveScene().name == "Play")
+        && SceneManager.GetActiveScene().name.Contains("Play"))
         {
             isShowingPauseGameMenu = !isShowingPauseGameMenu;
             gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false);

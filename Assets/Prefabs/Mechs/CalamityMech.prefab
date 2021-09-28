@@ -2858,9 +2858,9 @@ GameObject:
   - component: {fileID: 8391538345090805356}
   - component: {fileID: 4850464849410009535}
   - component: {fileID: 8189179747237387910}
-  - component: {fileID: 136759709402847110}
   - component: {fileID: 6260535867820112990}
   - component: {fileID: 568369338441157059}
+  - component: {fileID: 5356303291476032915}
   m_Layer: 3
   m_Name: CalamityMech
   m_TagString: Player
@@ -2921,8 +2921,8 @@ MonoBehaviour:
   - {fileID: 3506219616367089881}
   - {fileID: 3717276390743100911}
   rotateShootingPoints: 0
-  cooldownDelay: 0.4
-  MPDepletePerShot: 0.15
+  cooldownDelay: 0.3
+  MPDepletePerShot: 0.1
   muzzleParticlesTag: RocketWeaponMuzzle
   sound: 0
   projectileTag: Rocket
@@ -2943,7 +2943,7 @@ MonoBehaviour:
   - {fileID: 3449248696950366731}
   rotateShootingPoints: 0
   cooldownDelay: 2
-  MPDepletePerShot: 1
+  MPDepletePerShot: 0.75
   muzzleParticlesTag: RocketWeaponMuzzle
   sound: 0
   boomObject: {fileID: 1579409998840964786, guid: 2367a596f369f2a4da91405d28b67904,
@@ -3022,19 +3022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde348f4bdd8a3d4ea2406d9e4fb92fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &136759709402847110
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654337600058745840}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 1}
 --- !u!54 &6260535867820112990
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3147,6 +3134,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &5356303291476032915
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654337600058745840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.5
+  m_Height: 8
+  m_Direction: 2
+  m_Center: {x: 0, y: -1.6, z: 1}
 --- !u!1 &7117120694892060065
 GameObject:
   m_ObjectHideFlags: 0

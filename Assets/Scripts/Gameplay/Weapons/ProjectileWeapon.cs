@@ -21,5 +21,6 @@ public class ProjectileWeapon : Weapon
     protected override void Fire()
     {
         ObjectPooler.instance.SpawnFromPool(projectileTag, GetShootingPoint().position, GetShootingPoint().rotation);
+        CameraShake.Shake(0.5f, 1, 0.0f);
     }
 }

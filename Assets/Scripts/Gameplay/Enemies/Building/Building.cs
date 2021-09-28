@@ -10,6 +10,10 @@ public class Building : MonoBehaviour
     [SerializeField] private GameObject ruins;
     [SerializeField] private SoundFxKey explosionSound;
     [SerializeField] private string explosionTag;
+    [SerializeField] private bool shakeOnDamage;
+
+    private float previousHealth;
+    private Transform meshTransform;
 
     [System.Serializable]
     public struct BuildingComponentParams
@@ -113,16 +117,35 @@ public class Building : MonoBehaviour
         health = GetComponent<Health>();
         audioSource = GetComponent<AudioSource>();
         GenerateBComps();
+
+        previousHealth = health.Get();
+        meshTransform = transform.GetChild(0);
     }
 
     void Update()
     {
+        meshTransform.localPosition = Vector3.Lerp(meshTransform.localPosition, Vector3.zero, 25.0f * Time.deltaTime);
+
         if(health.IsZero())
         {
             SoundFXManager.PlayOneShot(explosionSound, audioSource);
             ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, Quaternion.identity);
             if(ruins) Instantiate(ruins, transform.position, ruins.transform.rotation);
+            CameraShake.Shake(2.5f, 10, 0.1f, 0.5f);
             Destroy(gameObject);
+        }
+
+        if(shakeOnDamage && previousHealth > health.Get())
+        {
+            float randomFactor = (health.GetMax() - health.Get()) / health.GetMax();
+
+            Vector3 position = meshTransform.localPosition;
+            position.x += UnityEngine.Random.Range(-randomFactor, randomFactor);
+            position.y += UnityEngine.Random.Range(-randomFactor, randomFactor);
+            position.z += UnityEngine.Random.Range(-randomFactor, randomFactor);
+            meshTransform.localPosition = position;
+
+            previousHealth = health.Get();
         }
     }
 }

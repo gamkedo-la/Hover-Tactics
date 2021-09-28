@@ -41,6 +41,8 @@ public class SoundFXManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool logDebug = false;
 
+    public static bool state = true;
+
     private static SoundFXManager _instance;
     private static SoundFXManager Instance
     {
@@ -80,6 +82,7 @@ public class SoundFXManager : MonoBehaviour
 
     public static void PlayOneShot(SoundFxKey soundFxKey)
     {  
+        if(!state) return;
         if(soundFxKey == SoundFxKey.NONE) return;
         PlayOneShot(soundFxKey, Instance.mainAudioSource);
     }
@@ -88,6 +91,8 @@ public class SoundFXManager : MonoBehaviour
     {
         // use this method to play oneshots in a specific audio source
         // this is useful when we want to play audio in specific places in the world.
+
+        if(!state) return;
 
         if(soundFxKey == SoundFxKey.NONE) return;
 

@@ -14,9 +14,6 @@ public class GameMenu : MonoBehaviour
     [SerializeField] private BaseScreen PauseGameScreen;
     [SerializeField] private FadeUIFX PauseGameScreenFadeFX;
 
-    [Header("Debug")]
-    [SerializeField] private bool logDebug;
-
     private void OnEnable()
     {
         StartGameScreen.OnMainButtonPressed += HandleStartScreenMainButtonPressed;
@@ -65,13 +62,11 @@ public class GameMenu : MonoBehaviour
 
     private void HandleStartScreenMainButtonPressed()
     {
-        if (logDebug) Debug.Log("Start Game Button Pressed");
         OnStartGameButtonPressed?.Invoke();
     }
 
     private void HandlePauseScreenMainButtonPressed()
     {
-        if (logDebug) Debug.Log("Resume Game Button Pressed");
         OnResumeGameButtonPressed?.Invoke();
     }
 

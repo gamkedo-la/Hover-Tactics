@@ -1685,9 +1685,9 @@ MonoBehaviour:
   explosionSound: 0
   explosionTag: BCompExplosion
   explosionScale: 1.5
-  delayPerShot: 0.5
+  delayPerShot: 0.25
   shotsPerCycle: 2
-  delayPerCycle: 5
+  delayPerCycle: 1
   doDelayBetweenShooters: 0
   delayPerShooter: 0
   yRotatePerShooter: 0
@@ -1697,7 +1697,7 @@ MonoBehaviour:
   - {fileID: 6300288899874674881}
   - {fileID: 2369701068900344043}
   muzzleFlashTag: ShooterProjectileMuzzle
-  projectileTag: WeakShooterProjectile
+  projectileTag: MediumShooterProjectile
   shotSound: 0
 --- !u!1 &6300288899113735955
 GameObject:

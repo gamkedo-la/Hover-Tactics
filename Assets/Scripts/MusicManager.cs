@@ -9,6 +9,8 @@ public class MusicManager : MonoBehaviour
     public bool isLoopOnly = true;
     public float volumeLerp = 0.0f;
 
+    public static bool state = true;
+
     [Range(0.0f, 1.0f)]
     public float Volume = .75f;
 
@@ -49,6 +51,9 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!state) { loop.mute = true; if(intro != null) intro.mute = true; }
+        else { loop.mute = false; if(intro != null) intro.mute = false; }
+        
         if(volumeLerp > 0.0f)
         {
             if(isLoopOnly)

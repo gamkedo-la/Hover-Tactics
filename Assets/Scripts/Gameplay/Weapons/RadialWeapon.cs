@@ -52,6 +52,7 @@ public class RadialWeapon : Weapon
             Vector3 rotation = boom.transform.rotation.eulerAngles;
             rotation.x = 0.0f;
             boom.transform.rotation = Quaternion.Euler(rotation);
+            CameraShake.Shake(0.5f, 120, boomDelay/60.0f, 0.98f);
         }
         boomTimer = boomDelay;
     }

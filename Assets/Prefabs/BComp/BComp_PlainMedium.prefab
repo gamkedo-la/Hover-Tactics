@@ -70,7 +70,7 @@ MonoBehaviour:
   delayPerCycle: 0
   muzzleTransform: {fileID: 8614754756003322869}
   muzzleFlashTag: ShooterProjectileMuzzle
-  projectileTag: WeakShooterProjectile
+  projectileTag: MediumShooterProjectile
   shotSound: 0
 --- !u!1 &8614754755286160423
 GameObject:

@@ -36,6 +36,7 @@ public class BeamWeapon : Weapon
             {
                 beam.transform.localScale = Vector3.Lerp(beam.transform.localScale, Vector3.one, beamGrowFactor * Time.deltaTime);
                 beamTimer -= Time.deltaTime;
+                CameraShake.Shake(0.1f, 1, 0.0f);
             }
             else if(beam.transform.localScale.x > 0.01f)
             {

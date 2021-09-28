@@ -60,6 +60,37 @@ Transform:
   m_Father: {fileID: 93394264635502039}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2414725351895691699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7942000405769594948}
+  m_Layer: 8
+  m_Name: Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7942000405769594948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414725351895691699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7223383432402653630}
+  m_Father: {fileID: 7184408574992850258}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4013524967440434510
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +218,7 @@ Transform:
   m_LocalPosition: {x: -33.84, y: 1.64, z: 1.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7223383432402653630}
+  - {fileID: 7942000405769594948}
   - {fileID: 8527911429270006522}
   - {fileID: 93394264635502039}
   m_Father: {fileID: 0}
@@ -222,6 +253,7 @@ MonoBehaviour:
   ruins: {fileID: 7328109594351825284, guid: 2fa5633cb383d664998b2faa3d2f9f53, type: 3}
   explosionSound: 10
   explosionTag: BuildingExplosion
+  shakeOnDamage: 1
   bComps:
   - name: StrongAimShooters
     type: {fileID: 8000297271667003075, guid: 7adf22efe41af304bbff145d5f83f433, type: 3}
@@ -471,7 +503,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7184408574992850258}
+    m_TransformParent: {fileID: 7942000405769594948}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 09fd0e08054c3c04c8ef40834d906999,
         type: 3}
@@ -481,7 +513,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 09fd0e08054c3c04c8ef40834d906999,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 181.6052
+      value: 181.60518
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09fd0e08054c3c04c8ef40834d906999,
         type: 3}

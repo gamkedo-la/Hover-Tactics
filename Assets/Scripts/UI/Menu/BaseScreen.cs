@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class BaseScreen : MonoBehaviour
 {
@@ -93,12 +94,32 @@ public class BaseScreen : MonoBehaviour
     public void QuitToMenu()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Start");
+        //SceneManager.LoadScene("Start");
+        FadeToScene.Load("Start");
     }
 
     public void Restart()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Play");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FadeToScene.Load(SceneManager.GetActiveScene().name);
+    }
+
+    public void ToggleBGM(TextMeshProUGUI textObject)
+    {
+        MusicManager.state = !MusicManager.state;
+        textObject.GetComponent<TextMeshProUGUI>().text = MusicManager.state ? "Music: ON" : "Music: OFF";
+    }
+
+    public void ToggleSFX(TextMeshProUGUI textObject)
+    {
+        SoundFXManager.state = !SoundFXManager.state;
+        textObject.GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
+    }
+
+    public void ToggleDark(TextMeshProUGUI textObject)
+    {
+        GameMenuController.playNight = !GameMenuController.playNight;
+        textObject.GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
     }
 }
