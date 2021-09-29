@@ -43,9 +43,19 @@ public class HomingRocket : MonoBehaviour
         target = FindClosest();
 
         if(destroyTimer <= 0.0f)
-            DisableObject();
+        {
+            if(meshObject.activeSelf)
+            {
+                DestroyEffects(null);
+                meshObject.SetActive(false);
+                projectileCollider.enabled = false;
+                Invoke("DisableObject", 1.0f);
+            }
+        }
         else
+        {
             destroyTimer -= Time.deltaTime;
+        }
     }
 
 	void FixedUpdate()
@@ -102,9 +112,16 @@ public class HomingRocket : MonoBehaviour
 
     void DestroyEffects(Collision coll)
     {
-        ContactPoint contact = coll.contacts[0];
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
+        if(coll != null)
+        {
+            ContactPoint contact = coll.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, rot);
+        }
+        else
+        {
+            ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation);
+        }
         SoundFXManager.PlayOneShot(explosionSound, audioSource);
     }
 
