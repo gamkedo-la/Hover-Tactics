@@ -23,6 +23,8 @@ public class WayPoints : MonoBehaviour
     {
         Gizmos.color = gizmoColor;
 
+        Gizmos.DrawSphere(transform.GetChild(0).position, 4f);
+
         for(int i = 0; i < transform.childCount; i++)
         {
             if(i > 0)

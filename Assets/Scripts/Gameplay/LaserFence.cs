@@ -50,7 +50,7 @@ public class LaserFence : MonoBehaviour
         }
         lineRenderer.SetPositions(positions.ToArray());
 
-        for(int i = 0; i < lineRenderer.positionCount - 1; i++)
+        for(int i = 0; i < lineRenderer.positionCount - 1; i+=3)
         {
             AddLineCollider(lineRenderer, lineRenderer.GetPosition(i), lineRenderer.GetPosition(i+1));
         }
@@ -60,8 +60,9 @@ public class LaserFence : MonoBehaviour
     {
         BoxCollider lineCollider = new GameObject("LineCollider").AddComponent<BoxCollider>();
         lineCollider.transform.parent = lineRenderer.transform;
+        lineCollider.gameObject.layer = 10; //NoDamage
 
-        float lineWidth = lineRenderer.endWidth;
+        float lineWidth = lineRenderer.endWidth * 250.0f;
         float lineLength = Vector3.Distance(startPos, endPos);
         lineCollider.size = new Vector3(lineLength, lineWidth, 1.0f);
 
@@ -72,5 +73,15 @@ public class LaserFence : MonoBehaviour
         angle *= Mathf.Rad2Deg;
         angle *= -1.0f;
         lineCollider.transform.Rotate(0.0f, angle, 0.0f);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1.0f, 0.333f, 0.333f);
+        for(int i = 0; i < transform.GetChild(0).childCount - 1; i++)
+            Gizmos.DrawLine(transform.GetChild(0).GetChild(i).position, transform.GetChild(0).GetChild(i + 1).position);
+
+        if(transform.GetChild(0).childCount > 2 && loop)
+            Gizmos.DrawLine(transform.GetChild(0).GetChild(0).position, transform.GetChild(0).GetChild(transform.GetChild(0).childCount - 1).position);
     }
 }

@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float lerpFactor;
     [SerializeField] private float mouseFactor;
     [SerializeField] private GameObject cursor;
+    [SerializeField] private LayerMask cursorIgnoreLayer;
     [SerializeField] private int totalInstances = 6;
 
     public Vector3 lastAimPoint { get; private set; }
@@ -50,7 +51,7 @@ public class CameraController : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;
-        if (Physics.Raycast(ray, out hitData, 200))
+        if (Physics.Raycast(ray, out hitData, 160, ~cursorIgnoreLayer)) //NoDamage layer is excluded
             lastAimPoint = hitData.point;
 
         Cursor.visible = !GameManager.instance.gameObject.activeSelf;

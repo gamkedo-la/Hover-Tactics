@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserHeights:
-  - 1
+  - 1.6
   - 0
-  - -1
+  - -1.6
+  loop: 1
 --- !u!1 &6316184867829481139
 GameObject:
   m_ObjectHideFlags: 0

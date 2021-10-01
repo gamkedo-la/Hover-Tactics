@@ -26,7 +26,7 @@ public class DistanceActivation : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         if(!activatorTransform) return;
         Gizmos.color = Color.yellow;
