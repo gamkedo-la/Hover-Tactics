@@ -43,10 +43,7 @@ public class GameMenuController : MonoBehaviour
 
         // do something whenever the start game button has been pressed
         Time.timeScale = 1.0f;
-        //if(playNight) SceneManager.LoadScene("PlayNight");
-        //else SceneManager.LoadScene("Play");
-        if(playNight) FadeToScene.Load("PlayNight");
-        else FadeToScene.Load("Play");
+        FadeToScene.Load("Prologue");
     }
 
     private void GameResumed()
