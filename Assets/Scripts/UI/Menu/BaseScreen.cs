@@ -35,6 +35,19 @@ public class BaseScreen : MonoBehaviour
         SetupButtonHandlers();
     }
 
+    private void Start()
+    {
+        //Updating setting's button group text
+        if(SceneManager.GetActiveScene().name == "Start")
+        {
+            GameObject buttonsGroup = ControllersPanel.transform.GetChild(1).gameObject;
+            buttonsGroup.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = MusicManager.state ? "Music: ON" : "Music: OFF";
+            buttonsGroup.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
+            buttonsGroup.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = QualitySettings.GetQualityLevel() == 0 ? "Quality: Low" : "Quality: Standard";
+            buttonsGroup.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
+        }
+    }
+
     public void ActivatePanel(Panels panel)
     {
         if(logDebug) Debug.Log($"Activating Panel [{panel}]");
@@ -115,6 +128,12 @@ public class BaseScreen : MonoBehaviour
     {
         SoundFXManager.state = !SoundFXManager.state;
         textObject.GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
+    }
+
+    public void ToggleQuality(TextMeshProUGUI textObject)
+    {
+        QualitySettings.SetQualityLevel(QualitySettings.GetQualityLevel() == 0 ? 1 : 0, true);
+        textObject.GetComponent<TextMeshProUGUI>().text = QualitySettings.GetQualityLevel() == 0 ? "Quality: Low" : "Quality: Standard";
     }
 
     public void ToggleDark(TextMeshProUGUI textObject)

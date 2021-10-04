@@ -38,6 +38,8 @@ public class CameraController : MonoBehaviour
             CameraShake.instances.Add(gameObject.AddComponent<CameraShake>());
             totalInstances--;
         }
+
+        QualitySettingsEffect();
     }
 
     void Update()
@@ -56,5 +58,16 @@ public class CameraController : MonoBehaviour
 
         Cursor.visible = !GameManager.instance.gameObject.activeSelf;
         if(!Cursor.visible) cursor.transform.position = lastAimPoint;
+    }
+
+    void QualitySettingsEffect()
+    {
+        if(QualitySettings.GetQualityLevel() == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(3).gameObject.SetActive(true);
+        }
     }
 }
