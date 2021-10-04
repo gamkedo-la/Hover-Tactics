@@ -42,8 +42,26 @@ public class Prologue : MonoBehaviour
     {
         if(Input.anyKeyDown || Input.GetMouseButtonDown(0))
         {
-            proceed = true;
-            charTimer /= 2.0f;
+            if(!mechDisplay && charIndex < beforeMechLines[lineIndex].Length)
+            {
+                while(charIndex < beforeMechLines[lineIndex].Length)
+                {
+                    dlgText.text += (beforeMechLines[lineIndex])[charIndex];
+                    charIndex++;
+                }
+            }
+            else if(mechDisplay && charIndex < afterMechLines[lineIndex].Length)
+            {
+                while(charIndex < afterMechLines[lineIndex].Length)
+                {
+                    dlgText.text += (afterMechLines[lineIndex])[charIndex];
+                    charIndex++;
+                }
+            }
+            else
+            {
+                proceed = true;
+            }
         }
 
         if(!mechDisplay)
@@ -55,7 +73,7 @@ public class Prologue : MonoBehaviour
                     if(charTimer <= 0.0f)
                     {
                         dlgText.text += (beforeMechLines[lineIndex])[charIndex];
-                        audioSource.PlayOneShot(dlgSounds[UnityEngine.Random.Range(0, dlgSounds.Length - 1)]);
+                        if(SoundFXManager.state) audioSource.PlayOneShot(dlgSounds[UnityEngine.Random.Range(0, dlgSounds.Length - 1)]);
                         charIndex++;
                         charTimer = charDelay;
                     }
@@ -97,7 +115,7 @@ public class Prologue : MonoBehaviour
                         else if(lineIndex == 3) audioSource.pitch = 0.6f;
                         else audioSource.pitch = 1.5f;
 
-                        audioSource.PlayOneShot(dlgSounds[UnityEngine.Random.Range(0, dlgSounds.Length - 1)]);
+                        if(SoundFXManager.state) audioSource.PlayOneShot(dlgSounds[UnityEngine.Random.Range(0, dlgSounds.Length - 1)]);
                         charIndex++;
                         charTimer = charDelay;
                     }

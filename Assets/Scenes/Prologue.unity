@@ -489,8 +489,8 @@ MonoBehaviour:
   - {fileID: 2082995702}
   - {fileID: 730642121}
   - {fileID: 1895094445}
-  startDelay: 0.5
-  charDelay: 0.05
+  startDelay: 0.6
+  charDelay: 0.04
   dlgText: {fileID: 2121084770}
   dlgSounds:
   - {fileID: 8300000, guid: d88234868d7b41545b4dcefde36d344a, type: 3}

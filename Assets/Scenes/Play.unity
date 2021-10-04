@@ -50861,6 +50861,11 @@ PrefabInstance:
       propertyPath: m_Tangents.Array.data[47].z
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 1301805110262185282, guid: c262fe22a756b174e838f476317299b3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 125
+      objectReference: {fileID: 0}
     - target: {fileID: 1389600081000139497, guid: c262fe22a756b174e838f476317299b3,
         type: 3}
       propertyPath: m_Mesh
@@ -65956,6 +65961,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2064389410}
+    - target: {fileID: 8301931702820873453, guid: c262fe22a756b174e838f476317299b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8400749873727025841, guid: c262fe22a756b174e838f476317299b3,
         type: 3}
       propertyPath: m_Mesh
@@ -67816,6 +67826,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1986550701}
+    - target: {fileID: 8905377414985090112, guid: c262fe22a756b174e838f476317299b3,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8950562923572116121, guid: c262fe22a756b174e838f476317299b3,
         type: 3}
       propertyPath: m_Mesh
