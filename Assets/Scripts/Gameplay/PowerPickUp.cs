@@ -8,8 +8,12 @@ public class PowerPickUp : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
+			Health health = other.GetComponent<Health>();
+			if (health != null) health.ChangeBy(1.0f);
+			
 			Power power = other.GetComponent<Power>();
-			if (power != null) {
+			if (power != null)
+			{
 				power.ChangeBy(1.0f);
 				power.ChangeBy_Special(3);
 			}
