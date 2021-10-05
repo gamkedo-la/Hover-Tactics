@@ -49,7 +49,7 @@ public class CameraController : MonoBehaviour
             cam.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y)),
             mouseFactor
         );
-        transform.position = Vector3.Lerp(transform.position, position, lerpFactor * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, position, lerpFactor * Time.unscaledDeltaTime);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;

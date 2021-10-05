@@ -60,7 +60,7 @@ public class FadeToScene : MonoBehaviour
 
     IEnumerator LoadSceneDelayed()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
         string scene = fadeToSceneName;
         if(scene != "")
         {

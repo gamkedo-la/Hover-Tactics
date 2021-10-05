@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -126,8 +127,16 @@ public class GameManager : MonoBehaviour
         {
             if(hoverMechs[i].GetComponent<Health>().Get() <= 0.0f)
             {
-                SetLoseReason(GetMechName(i) + "'s health got depleted to zero!");
-                Lose();
+                if(Time.timeScale > 0.0f)
+                {
+                    hoverMechs[i].GetComponent<MechController>().enabled = false;
+                    hoverMechs[i].transform.GetChild(0).gameObject.SetActive(false); //Mesh
+                    hoverMechs[i].transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false; //Shield
+                    CameraShake.Shake(6f, 15, 0.1f, 0.75f);
+                    ObjectPooler.instance.SpawnFromPool("BuildingExplosion", hoverMechs[i].transform.position, Quaternion.identity);
+                    SetLoseReason(GetMechName(i) + "'s health got depleted to zero!");
+                    StartCoroutine("Lose");
+                }
             }
         }
     }
@@ -141,9 +150,16 @@ public class GameManager : MonoBehaviour
 
             if(hoverMechs[i].GetComponent<Shield>().Get() <= 0.0f)
             {
-                SetLoseReason(GetMechName(i) + "'s shield got depleted to zero!");
-                
-                Lose();
+                if(Time.timeScale > 0.0f)
+                {
+                    hoverMechs[i].GetComponent<MechController>().enabled = false;
+                    hoverMechs[i].transform.GetChild(0).gameObject.SetActive(false); //Mesh
+                    hoverMechs[i].transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false; //Shield
+                    CameraShake.Shake(6f, 15, 0.1f, 0.75f);
+                    ObjectPooler.instance.SpawnFromPool("BuildingExplosion", hoverMechs[i].transform.position, Quaternion.identity);
+                    SetLoseReason(GetMechName(i) + "'s shield got depleted to zero!");
+                    StartCoroutine("Lose");
+                }
             }
         }
         playerBars.UpdateShield(hoverMechs[activeIndex].GetComponent<Shield>().Get());
@@ -189,11 +205,13 @@ public class GameManager : MonoBehaviour
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, camSizes[activeIndex], 2.0f * Time.deltaTime);
     }
 
-    void Lose()
+    IEnumerator Lose()
     {
-        gameOverPanel.SetActive(true);
         Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(1.0f);
+        gameOverPanel.SetActive(true);
         gameObject.SetActive(false);
+        yield return null;
     }
 
     string GetMechName(int i)

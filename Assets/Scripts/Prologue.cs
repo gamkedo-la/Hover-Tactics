@@ -42,7 +42,9 @@ public class Prologue : MonoBehaviour
     {
         if(Input.anyKeyDown || Input.GetMouseButtonDown(0))
         {
-            if(!mechDisplay && charIndex < beforeMechLines[lineIndex].Length)
+            if(!mechDisplay
+            && lineIndex < beforeMechLines.Length
+            && charIndex < beforeMechLines[lineIndex].Length)
             {
                 while(charIndex < beforeMechLines[lineIndex].Length)
                 {
@@ -50,7 +52,9 @@ public class Prologue : MonoBehaviour
                     charIndex++;
                 }
             }
-            else if(mechDisplay && charIndex < afterMechLines[lineIndex].Length)
+            else if(mechDisplay
+            && lineIndex < afterMechLines.Length
+            && charIndex < afterMechLines[lineIndex].Length)
             {
                 while(charIndex < afterMechLines[lineIndex].Length)
                 {
