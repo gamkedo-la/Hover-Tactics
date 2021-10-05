@@ -2922,6 +2922,8 @@ MonoBehaviour:
   - {fileID: 3717276390743100911}
   rotateShootingPoints: 0
   cooldownDelay: 0.3
+  cooldownPowerDependence: 1
+  cooldownPowerRatio: 1.25
   MPDepletePerShot: 0.1
   muzzleParticlesTag: RocketWeaponMuzzle
   sound: 0
@@ -2943,6 +2945,8 @@ MonoBehaviour:
   - {fileID: 3449248696950366731}
   rotateShootingPoints: 0
   cooldownDelay: 2
+  cooldownPowerDependence: 0
+  cooldownPowerRatio: 1
   MPDepletePerShot: 0.75
   muzzleParticlesTag: RocketWeaponMuzzle
   sound: 0

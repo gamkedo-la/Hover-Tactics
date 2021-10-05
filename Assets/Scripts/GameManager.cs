@@ -227,6 +227,6 @@ public class GameManager : MonoBehaviour
 
     void SetLoseReason(string text)
     {
-        gameOverPanel.transform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = text;
+        gameOverPanel.transform.GetChild(1).GetChild(2).GetComponent<TextMeshProUGUI>().text = text;
     }
 }

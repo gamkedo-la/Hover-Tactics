@@ -1119,6 +1119,8 @@ MonoBehaviour:
   - {fileID: 3656998891429000962}
   rotateShootingPoints: 1
   cooldownDelay: 0.06
+  cooldownPowerDependence: 1
+  cooldownPowerRatio: 1.25
   MPDepletePerShot: 0.016
   muzzleParticlesTag: RifleWeaponMuzzle
   sound: 4
@@ -1144,6 +1146,8 @@ MonoBehaviour:
   - {fileID: 4535321928241183016}
   rotateShootingPoints: 1
   cooldownDelay: 0.5
+  cooldownPowerDependence: 0
+  cooldownPowerRatio: 1
   MPDepletePerShot: 1
   muzzleParticlesTag: LaserBeamWeaponMuzzle
   sound: 10

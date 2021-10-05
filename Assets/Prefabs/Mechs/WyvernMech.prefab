@@ -3039,6 +3039,8 @@ MonoBehaviour:
   - {fileID: 8176067283480991370}
   rotateShootingPoints: 0
   cooldownDelay: 0.025
+  cooldownPowerDependence: 1
+  cooldownPowerRatio: 1.25
   MPDepletePerShot: 0.025
   muzzleParticlesTag: 
   sound: 6
@@ -3065,6 +3067,8 @@ MonoBehaviour:
   - {fileID: 3649787712484487969}
   rotateShootingPoints: 0
   cooldownDelay: 0.5
+  cooldownPowerDependence: 0
+  cooldownPowerRatio: 1
   MPDepletePerShot: 0.5
   muzzleParticlesTag: PortalWeaponMuzzle
   sound: 0

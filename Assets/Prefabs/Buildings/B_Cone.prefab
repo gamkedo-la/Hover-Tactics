@@ -159,6 +159,7 @@ MonoBehaviour:
   explosionSound: 10
   explosionTag: BuildingExplosion
   shakeOnDamage: 1
+  shakeIntensity: 2
   bComps:
   - name: WeakAimShooters
     type: {fileID: 4091004774723912533, guid: fb4e811a62af94440a64cf805087b7f5, type: 3}
@@ -2095,6 +2096,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3661068449618122007}
     m_Modifications:
+    - target: {fileID: 74340388918459876, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7111839522917644939, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
         type: 3}
       propertyPath: m_Color.b

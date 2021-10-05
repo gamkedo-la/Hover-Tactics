@@ -124,7 +124,7 @@ public class Building : MonoBehaviour
 
     void Update()
     {
-        meshTransform.localPosition = Vector3.Lerp(meshTransform.localPosition, Vector3.zero, 25.0f * Time.deltaTime);
+        meshTransform.localPosition = Vector3.Lerp(meshTransform.localPosition, Vector3.zero, 60.0f * Time.deltaTime);
 
         if(health.IsZero())
         {
@@ -137,14 +137,12 @@ public class Building : MonoBehaviour
 
         if(shakeOnDamage && previousHealth > health.Get())
         {
-            float randomFactor = (health.GetMax() - health.Get()) / health.GetMax();
-
-            Vector3 position = meshTransform.localPosition;
-            position.x += UnityEngine.Random.Range(-randomFactor, randomFactor);
-            position.y += UnityEngine.Random.Range(-randomFactor, randomFactor);
-            position.z += UnityEngine.Random.Range(-randomFactor, randomFactor);
-            meshTransform.localPosition = position;
-
+            float randomFactor = ((health.GetMax() - health.Get()) / health.GetMax()) * 2.5f;
+            meshTransform.localPosition = new Vector3(
+                UnityEngine.Random.Range(-randomFactor, randomFactor),
+                UnityEngine.Random.Range(-randomFactor, randomFactor),
+                UnityEngine.Random.Range(-randomFactor, randomFactor)
+            );
             previousHealth = health.Get();
         }
     }

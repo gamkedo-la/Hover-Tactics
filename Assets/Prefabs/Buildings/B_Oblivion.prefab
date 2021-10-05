@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487104349535963164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: -3.5}
+  m_LocalPosition: {x: 6.5, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93394264635502039}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909379268530536945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: -3.5}
+  m_LocalPosition: {x: -6.5, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93394264635502039}
@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4111340693707638267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7}
+  m_LocalPosition: {x: 0, y: 0, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93394264635502039}
@@ -205,7 +205,7 @@ GameObject:
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7184408574992850258
 Transform:
@@ -254,10 +254,11 @@ MonoBehaviour:
   explosionSound: 10
   explosionTag: BuildingExplosion
   shakeOnDamage: 1
+  shakeIntensity: 2
   bComps:
   - name: StrongAimShooters
     type: {fileID: 8000297271667003075, guid: 7adf22efe41af304bbff145d5f83f433, type: 3}
-    count: 3
+    count: 2
     transforms:
     - {fileID: 2833596662714024961}
     - {fileID: 2043024228684243062}
@@ -455,6 +456,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7184408574992850258}
     m_Modifications:
+    - target: {fileID: 74340388918459876, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7111839522917644939, guid: 5872eaf42c4c7d24dbe92a0fd3b26907,
         type: 3}
       propertyPath: m_Color.b
@@ -593,7 +599,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 09fd0e08054c3c04c8ef40834d906999,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09fd0e08054c3c04c8ef40834d906999, type: 3}

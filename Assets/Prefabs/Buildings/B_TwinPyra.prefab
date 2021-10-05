@@ -1444,6 +1444,7 @@ MonoBehaviour:
   explosionSound: 10
   explosionTag: BuildingExplosion
   shakeOnDamage: 1
+  shakeIntensity: 2
   bComps:
   - name: WeakAimShooters
     type: {fileID: 4091004774723912533, guid: fb4e811a62af94440a64cf805087b7f5, type: 3}

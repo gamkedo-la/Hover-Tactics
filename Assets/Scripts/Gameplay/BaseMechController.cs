@@ -17,10 +17,12 @@ public class BaseMechController : MonoBehaviour
 
     private Rigidbody rb;
     protected MechBoost mechBoost;
+    private Health health;
 
     protected float horizontal;
     protected float vertical;
     protected float turnDir;
+    private float previousHealth;
 
     public void StopMovement()
     {
@@ -43,14 +45,19 @@ public class BaseMechController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mechBoost = GetComponent<MechBoost>();
+        health = GetComponent<Health>();
 
         Assert.IsNotNull(rb, "Rigidbody is null!");
+        Assert.IsNotNull(health, "Health is null!");
+
+        previousHealth = health.Get();
     }
     
     protected virtual void Update()
     {
         SetInput();
         Turn();
+        ShakeOnDamage();
     }
 
     private void FixedUpdate()
@@ -77,5 +84,14 @@ public class BaseMechController : MonoBehaviour
     private void Turn()
     {
         hoverMechAnimation.SetYRotation(hoverMechAnimation.GetYRotation() + turnDir * turnSpeed * Time.deltaTime);
+    }
+
+    private void ShakeOnDamage()
+    {
+        if(previousHealth > health.Get())
+        {
+            CameraShake.Shake(10.0f * (previousHealth - health.Get()), 1, 0.0f);
+            previousHealth = health.Get();
+        }
     }
 }

@@ -877,7 +877,7 @@ MonoBehaviour:
   startHidden: 1
   autoHide: 1
   showDelay: 1
-  detectionDistance: 40
+  detectionDistance: 50
   showOnlyOnDamage: 0
   showLerpFactor: 20
   hideLerpFactor: 5
@@ -891,7 +891,7 @@ MonoBehaviour:
   yRotationOnly: 1
   shootOnlyOnAim: 0
   aimThresholdInDegrees: 0
-  delayPerShot: 2.5
+  delayPerShot: 2
   shotsPerCycle: 1
   delayPerCycle: 0
   muzzleTransform: {fileID: 4091004773622648906}
