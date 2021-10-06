@@ -8,6 +8,7 @@ using UnityEngine.Assertions;
 public class Building : MonoBehaviour
 {
     [SerializeField] private GameObject ruins;
+    [SerializeField] private GameObject deactivateOnDestroy;
     [SerializeField] private SoundFxKey explosionSound;
     [SerializeField] private string explosionTag;
     [SerializeField] private bool shakeOnDamage;
@@ -128,6 +129,7 @@ public class Building : MonoBehaviour
 
         if(health.IsZero())
         {
+            if(deactivateOnDestroy != null) deactivateOnDestroy.SetActive(false);
             SoundFXManager.PlayOneShot(explosionSound, audioSource);
             ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, Quaternion.identity);
             if(ruins) Instantiate(ruins, transform.position, ruins.transform.rotation);

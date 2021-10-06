@@ -1043,9 +1043,9 @@ MonoBehaviour:
   yRotationOnly: 1
   shootOnlyOnAim: 0
   aimThresholdInDegrees: 0
-  delayPerShot: 0.4
+  delayPerShot: 0.5
   shotsPerCycle: 5
-  delayPerCycle: 3
+  delayPerCycle: 5
   muzzleTransform: {fileID: 503876304286428262}
   muzzleFlashTag: ShooterProjectileMuzzle
   projectileTag: StrongShooterProjectile

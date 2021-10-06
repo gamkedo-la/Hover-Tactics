@@ -21,7 +21,6 @@ public class EnemyMechController : BaseMechController
     private float sidewaysMovementFilter = 0.3f;
     private float minimumFowardMovement = 0.8f;
 
-    private Health health;
     private AudioSource audioSource;
 
     protected override void SetInput()

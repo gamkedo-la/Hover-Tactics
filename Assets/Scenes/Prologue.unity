@@ -615,10 +615,9 @@ MonoBehaviour:
   - '"Commander, give me the order. I can handle it!"'
   - '"This Chronos will help with maintaining the shields and my beam can crush the
     enemies."'
-  - '"Hold on! You have to get out of the laser cages first in order to perform.
-    Let Wyvern help you with that!"'
-  - '"I am stuck inside too but this Calamity has immense fire power to deal with
-    all troubles!"'
+  - '"Hold on! You have to get out of the laser cages in order to perform. Let Wyvern''s
+    portals help you!"'
+  - '"Release me too for this Calamity has immense fire power to deal with our troubles!"'
   - 'Objective: Destroy their vital points in order for mankind to land on Mars!'
   covers:
   - {fileID: 2082995702}

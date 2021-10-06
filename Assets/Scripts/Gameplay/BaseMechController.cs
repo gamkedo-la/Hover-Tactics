@@ -17,7 +17,7 @@ public class BaseMechController : MonoBehaviour
 
     private Rigidbody rb;
     protected MechBoost mechBoost;
-    private Health health;
+    protected Health health;
 
     protected float horizontal;
     protected float vertical;

@@ -709,13 +709,13 @@ MonoBehaviour:
   wayPoints: {fileID: 0}
   minDistanceToTarget: 1
   targetTag: Player
-  targetDetectDistance: 75
+  targetDetectDistance: 60
   shootingCore: {fileID: 7218016424529358220}
   shootingPoints:
   - {fileID: 5266767589148771411}
   - {fileID: 6740150580112986542}
   shootingCoreRotationFactor: 1
-  cooldownDelay: 1.5
+  cooldownDelay: 1.6
   projectileTag: EnemyRocket
   muzzleParticlesTag: RocketWeaponMuzzle
   sound: 0

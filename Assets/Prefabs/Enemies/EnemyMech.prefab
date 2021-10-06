@@ -625,13 +625,13 @@ MonoBehaviour:
   wayPoints: {fileID: 0}
   minDistanceToTarget: 1
   targetTag: Player
-  targetDetectDistance: 75
+  targetDetectDistance: 60
   shootingCore: {fileID: 8757654662185029896}
   shootingPoints:
   - {fileID: 6103971813318211799}
   - {fileID: 4623833474536828202}
   shootingCoreRotationFactor: 1
-  cooldownDelay: 0.15
+  cooldownDelay: 0.2
   damagePerHit: 0.01
   hitImpactTag: ShotImpact
   lineDelay: 0.04
@@ -664,7 +664,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3
-  m_Center: {x: 0, y: 0.75, z: 1.25}
+  m_Center: {x: 0, y: 0.75, z: 1.75}
 --- !u!54 &2692210368941513883
 Rigidbody:
   m_ObjectHideFlags: 0
