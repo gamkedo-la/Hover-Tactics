@@ -53698,9 +53698,19 @@ PrefabInstance:
       objectReference: {fileID: 2086097057}
     - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
         type: 3}
+      propertyPath: winPanel
+      value: 
+      objectReference: {fileID: 5679920827065279681}
+    - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
+        type: 3}
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 1793730055}
+    - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
+        type: 3}
+      propertyPath: waypointGroup
+      value: 
+      objectReference: {fileID: 5064844073128269768}
     - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
         type: 3}
       propertyPath: hoverMechs.Array.data[0]
@@ -73897,6 +73907,12 @@ PrefabInstance:
       objectReference: {fileID: 742994738}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c262fe22a756b174e838f476317299b3, type: 3}
+--- !u!1 &5064844073128269768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4798434704338083020, guid: c262fe22a756b174e838f476317299b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5064844073128269767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5300834564401992859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74122,3 +74138,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b32e8f09eb0afe4ca63ba73aed2b279, type: 3}
+--- !u!1 &5679920827065279681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5918985732594676286, guid: 4b32e8f09eb0afe4ca63ba73aed2b279,
+    type: 3}
+  m_PrefabInstance: {fileID: 5679920827065279680}
+  m_PrefabAsset: {fileID: 0}

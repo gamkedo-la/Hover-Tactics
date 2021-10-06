@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float abilityDisplayDelay = 6.0f;
     [Space]
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject waypointGroup;
+    [SerializeField] private GameObject winPanel;
 
     static public GameManager instance;
 
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
         UpdateSpecials();
         AbilityDisplay();
         UpdateCameraSize();
+        CheckWin();
     }
 
     void UpdateAllMechDisplays()
@@ -228,5 +231,26 @@ public class GameManager : MonoBehaviour
     void SetLoseReason(string text)
     {
         gameOverPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = text;
+    }
+
+    void CheckWin()
+    {
+        bool allVitalPointsDestroyed = true;
+        for(int i = 0; i < waypointGroup.transform.childCount; i++)
+        {
+            if(waypointGroup.transform.GetChild(i).gameObject.activeSelf)
+            {
+                allVitalPointsDestroyed = false;
+                break;
+            }
+        }
+
+        if(allVitalPointsDestroyed)
+        {
+            hoverMechs[activeIndex].GetComponent<MechController>().enabled = false;
+            Time.timeScale = 0.0f;
+            winPanel.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 }
