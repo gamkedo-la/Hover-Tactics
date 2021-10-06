@@ -118,7 +118,7 @@ MonoBehaviour:
   StartGameScreenFadeFx: {fileID: 554855561003951899}
   PauseGameScreen: {fileID: 8483967578766225477}
   PauseGameScreenFadeFX: {fileID: 8982256645738554772}
-  logDebug: 0
+  DarkLayer: 0
 --- !u!1001 &628419658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,6 +256,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2008253214359783048, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696460828110455459, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3643531930316660097, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: m_fontSize
@@ -286,6 +296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868568357038791632, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7016058824796200016, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
@@ -351,6 +366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697468445181812245, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8104282695555154936, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
@@ -432,6 +452,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6161199037194091119}
     m_Modifications:
+    - target: {fileID: 1280915798945695319, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1828128132093976695, guid: ac88beeadd55cbe418273bf45e48d475,
         type: 3}
       propertyPath: fadeCurve.m_Curve.Array.size
@@ -486,6 +511,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072658986834199442, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809332905635519201, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974636896873651914, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9002013202928563720, guid: ac88beeadd55cbe418273bf45e48d475,
         type: 3}

@@ -48,7 +48,7 @@ public class Weapon : MonoBehaviour, IDamage
 
     protected virtual void Update()
     {
-        if(mechController.enabled)
+        if(mechController.enabled && Time.timeScale > 0.0f)
         {
             if(cooldownTimer <= 0.0f && power.Get() >= MPDepletePerShot)
             {

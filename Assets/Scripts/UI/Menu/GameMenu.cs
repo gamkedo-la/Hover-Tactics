@@ -13,32 +13,50 @@ public class GameMenu : MonoBehaviour
     [SerializeField] private FadeUIFX StartGameScreenFadeFx;
     [SerializeField] private BaseScreen PauseGameScreen;
     [SerializeField] private FadeUIFX PauseGameScreenFadeFX;
+    [SerializeField] private bool DarkLayer = false;
 
     private void OnEnable()
     {
-        StartGameScreen.OnMainButtonPressed += HandleStartScreenMainButtonPressed;
-        PauseGameScreen.OnMainButtonPressed += HandlePauseScreenMainButtonPressed; 
+        if(StartGameScreen) StartGameScreen.OnMainButtonPressed += HandleStartScreenMainButtonPressed;
+        if(PauseGameScreen) PauseGameScreen.OnMainButtonPressed += HandlePauseScreenMainButtonPressed; 
 
         // menu button clicks
-        StartGameScreen.OnButtonPressed += PlaySelectedSound;
-        PauseGameScreen.OnButtonPressed += PlaySelectedSound;
+        if(StartGameScreen) StartGameScreen.OnButtonPressed += PlaySelectedSound;
+        if(PauseGameScreen) PauseGameScreen.OnButtonPressed += PlaySelectedSound;
     }
 
     private void OnDisable()
     {
-        StartGameScreen.OnMainButtonPressed -= HandleStartScreenMainButtonPressed;
-        PauseGameScreen.OnMainButtonPressed += HandlePauseScreenMainButtonPressed;
+        if(StartGameScreen) StartGameScreen.OnMainButtonPressed -= HandleStartScreenMainButtonPressed;
+        if(PauseGameScreen) PauseGameScreen.OnMainButtonPressed += HandlePauseScreenMainButtonPressed;
 
         // menu button clicks
-        StartGameScreen.OnButtonPressed -= PlaySelectedSound;
-        PauseGameScreen.OnButtonPressed -= PlaySelectedSound;
+        if(StartGameScreen) StartGameScreen.OnButtonPressed -= PlaySelectedSound;
+        if(PauseGameScreen) PauseGameScreen.OnButtonPressed -= PlaySelectedSound;
+    }
+
+    private bool IsAnyActive()
+    {
+        for(int i = (DarkLayer ? 1 : 0); i < transform.childCount; i++)
+        {
+            if(transform.GetChild(i).gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void Update()
+    {
+        if(DarkLayer) transform.GetChild(0).gameObject.SetActive(IsAnyActive());
     }
 
     public void ToggleStartGameScreen(bool isVisible, bool fadeFx = true)
     {
         if(fadeFx == false)
         {
-            StartGameScreen.gameObject.SetActive(isVisible);
+            if(StartGameScreen) StartGameScreen.gameObject.SetActive(isVisible);
             return;
         }
 
@@ -47,17 +65,20 @@ public class GameMenu : MonoBehaviour
         });
     }
 
-    public void TogglePauseScreen(bool isVisible, bool fadeFx = true)
+    public bool TogglePauseScreen(bool isVisible, bool fadeFx = true)
     {
+        if(isVisible && IsAnyActive()) return false;
+
         if(fadeFx == false)
         {
-            PauseGameScreen.gameObject.SetActive(isVisible);
-            return;
+            if(PauseGameScreen) PauseGameScreen.gameObject.SetActive(isVisible);
+            return true;
         }
 
         PauseGameScreenFadeFX.Fade(isVisible, () => {
             PauseGameScreen.gameObject.SetActive(isVisible);
         });
+        return true;
     }
 
     private void HandleStartScreenMainButtonPressed()
