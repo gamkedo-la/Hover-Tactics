@@ -28,7 +28,7 @@ public class Attract : MonoBehaviour
                         targets[i].transform.position,
                         transform.position,
                         (1.0f - (distance/range))
-                        * (targets[i].name.Contains("Wyvern") ? 0.08f : 0.006f));
+                        * (targets[i].name.Contains("Wyvern") ? 0.1f : 0.025f));
                 position.y = y;
                 targets[i].transform.position = position;
             }
