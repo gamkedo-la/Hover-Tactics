@@ -12,6 +12,7 @@ public class ShieldPickUp : MonoBehaviour
 			if (health != null) health.ChangeBy(1.0f);
 			
 			GameManager.instance.AddShieldToAll(1.0f);
+			SoundFXManager.PlayOneShot(SoundFxKey.PICKUP);
 			ObjectPooler.instance.SpawnFromPool(particleTag, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}

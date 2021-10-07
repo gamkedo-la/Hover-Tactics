@@ -18,6 +18,6 @@ public class ToggleSFX : MonoBehaviour
 
     private void ChangeSFXState(Toggle change)
 	{
-        SoundFXManager.state = myToggle.isOn;
+        SoundFXManager.SetState(change.isOn);
 	}
 }

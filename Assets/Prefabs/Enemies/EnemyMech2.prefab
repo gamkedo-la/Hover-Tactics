@@ -690,6 +690,7 @@ MonoBehaviour:
   hoverMechAnimation: {fileID: 4971284812048965168}
   turnSpeed: 100
   turnSensitivity: 0.1
+  moveAudioSource: {fileID: 0}
   nearDistanceThreshold: 1
   facingTargetTolerance: 0.8
   explosionSound: 0
@@ -771,18 +772,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4ab01603086f607428c526de6f4609d9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1.0018692
-  MaxDistance: 500
+  DopplerLevel: 0.5
+  MinDistance: 50
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -817,7 +818,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -832,7 +833,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1388889
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -103,6 +103,6 @@ public class Weapon : MonoBehaviour, IDamage
             GetShootingPoint().position,
             GetShootingPoint().rotation
         );
-        SoundFXManager.PlayOneShot(sound, audioSource);
+        SoundFXManager.PlayOneShot(sound);//, audioSource);
     }
 }

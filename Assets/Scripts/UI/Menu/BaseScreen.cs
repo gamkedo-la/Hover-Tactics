@@ -107,14 +107,12 @@ public class BaseScreen : MonoBehaviour
     public void QuitToMenu()
     {
         Time.timeScale = 1.0f;
-        //SceneManager.LoadScene("Start");
         FadeToScene.Load("Start");
     }
 
     public void Restart()
     {
         Time.timeScale = 1.0f;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         FadeToScene.Load(SceneManager.GetActiveScene().name);
     }
 
@@ -126,7 +124,7 @@ public class BaseScreen : MonoBehaviour
 
     public void ToggleSFX(TextMeshProUGUI textObject)
     {
-        SoundFXManager.state = !SoundFXManager.state;
+        SoundFXManager.SetState(!SoundFXManager.state);
         textObject.GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
     }
 

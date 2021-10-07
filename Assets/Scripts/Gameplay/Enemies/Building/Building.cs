@@ -9,7 +9,7 @@ public class Building : MonoBehaviour
 {
     [SerializeField] private GameObject ruins;
     [SerializeField] private GameObject deactivateOnDestroy;
-    [SerializeField] private SoundFxKey explosionSound;
+    [SerializeField] private SoundFxKey damageSound;
     [SerializeField] private string explosionTag;
     [SerializeField] private bool shakeOnDamage;
 
@@ -130,15 +130,15 @@ public class Building : MonoBehaviour
         if(health.IsZero())
         {
             if(deactivateOnDestroy != null) deactivateOnDestroy.SetActive(false);
-            SoundFXManager.PlayOneShot(explosionSound, audioSource);
             ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, Quaternion.identity);
             if(ruins) Instantiate(ruins, transform.position, ruins.transform.rotation);
             CameraShake.Shake(2.5f, 10, 0.1f, 0.5f);
             Destroy(gameObject);
         }
-
-        if(shakeOnDamage && previousHealth > health.Get())
+        else if(shakeOnDamage && previousHealth > health.Get())
         {
+            SoundFXManager.PlayOneShot(damageSound, audioSource);
+
             float randomFactor = ((health.GetMax() - health.Get()) / health.GetMax()) * 2.5f;
             meshTransform.localPosition = new Vector3(
                 UnityEngine.Random.Range(-randomFactor, randomFactor),

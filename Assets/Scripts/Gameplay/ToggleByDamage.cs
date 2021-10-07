@@ -29,6 +29,9 @@ public class ToggleByDamage : AbstractTakeDamage
     {
         IsActive = !IsActive;
 
+        if(IsActive) SoundFXManager.PlayOneShot(SoundFxKey.SWITCH_ON);
+        else SoundFXManager.PlayOneShot(SoundFxKey.SWITCH_OFF);
+
         if(fireEvent)
         {
             OnToggled?.Invoke(IsActive);

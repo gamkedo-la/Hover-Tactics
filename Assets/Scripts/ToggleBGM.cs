@@ -12,11 +12,11 @@ public class ToggleBGM : MonoBehaviour
         myToggle = GetComponent<Toggle>();
         myToggle.onValueChanged.AddListener(delegate
         {
-            ChangeSFXState(myToggle);
+            ChangeBGMState(myToggle);
         });
     }
 
-    private void ChangeSFXState(Toggle change)
+    private void ChangeBGMState(Toggle change)
     {
         MusicManager.state = myToggle.isOn;
     }

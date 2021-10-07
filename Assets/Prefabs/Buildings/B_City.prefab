@@ -182,11 +182,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  DopplerLevel: 0.5
+  MinDistance: 40
+  MaxDistance: 120
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -219,7 +219,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -234,7 +234,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.11111111
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -272,10 +272,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ruins: {fileID: 2004474877675477048, guid: 61f93bff4ecccdf4c9a30b818f915c18, type: 3}
-  explosionSound: 10
+  deactivateOnDestroy: {fileID: 0}
+  damageSound: 9
   explosionTag: BuildingExplosion
   shakeOnDamage: 1
-  shakeIntensity: 2
   bComps:
   - name: MediumAimShooters
     type: {fileID: 8614754754939275498, guid: 4672a39fe7cf0d74ba6a47d22d3e49ef, type: 3}

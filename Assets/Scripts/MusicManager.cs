@@ -14,7 +14,6 @@ public class MusicManager : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float Volume = .75f;
 
-    // Start is called before the first frame update
     void Start()
     {
         if(volumeLerp <= 0.0f)
@@ -48,11 +47,10 @@ public class MusicManager : MonoBehaviour
         loop.loop = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(!state) { loop.mute = true; if(intro != null) intro.mute = true; }
-        else { loop.mute = false; if(intro != null) intro.mute = false; }
+        if(!state) { loop.enabled = false; if(intro != null) intro.enabled = false; }
+        else { loop.enabled = true; if(intro != null) intro.enabled = true; }
         
         if(volumeLerp > 0.0f)
         {

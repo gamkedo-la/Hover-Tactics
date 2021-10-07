@@ -251,10 +251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ruins: {fileID: 7328109594351825284, guid: 2fa5633cb383d664998b2faa3d2f9f53, type: 3}
-  explosionSound: 10
+  deactivateOnDestroy: {fileID: 0}
+  damageSound: 9
   explosionTag: BuildingExplosion
   shakeOnDamage: 1
-  shakeIntensity: 2
   bComps:
   - name: StrongAimShooters
     type: {fileID: 8000297271667003075, guid: 7adf22efe41af304bbff145d5f83f433, type: 3}
@@ -312,11 +312,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  DopplerLevel: 0.5
+  MinDistance: 40
+  MaxDistance: 120
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -349,7 +349,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -364,7 +364,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.11111111
       inSlope: 0
       outSlope: 0
       tangentMode: 0
