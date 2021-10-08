@@ -12,6 +12,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartGamePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3624052100599212912, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
+        type: 3}
+      propertyPath: m_text
+      value: "\u2022 Bilal A. Cheema: Project lead, core gameplay, main mech development
+        (models and functionality), level design, portal weapon, building models,
+        enemy mech AI, night mode, minimap, Mars textures, muzzle flash, emissions
+        effects, lighting, in-game cursor, camera functionality, projectile pooling,
+        orthographic setup, shield bar, additional weapon sounds, assorted bug fixes,
+        culling optimization, low shield warning, quality settings\n\u2022 Will McKay:
+        Gameplay music, menu music, forcefields shader, explosion effect, aim improvements,
+        laser shaders, editor script bug fix, explosion pooling, hitpoints system,
+        crater models, fire and smoke effects, additional building, music manager\n\u2022
+        tiago.dev: Boost feature functionality, UI, AI waypoints support, sound manager,
+        initial sound integration, start menu, assorted code/warnings cleanup, menu
+        fade, menu colors\n\u2022 Filipe Dottori: Laser fence, grid wall, additional
+        rock model, shield pickup, power pickup, pick up rotation, building repair,
+        Calamity homing rockets, sound and music toggles, controller settings menu\n\u2022
+        Nouman Waheed: Initial prototype functionality, original design co-lead for
+        weapons and mechs, trigger and camera design, spaceship model, aim functionality\n\u2022
+        Patrick McKeown: Sounds (shield pickup, low shield warning, ion cannon, EMP,
+        power pickup, rifle, rocket, bomb, portal, building destruction, enemy cannon),
+        several rock models\n\u2022 Abhishek: Calamity rockets sound\n\u2022 Philip
+        Greene: Selection sound"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624052100599212912, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 33.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624052100599212912, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
+        type: 3}
+      propertyPath: m_overflowMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624052100599212912, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5395388457620689718, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -115,6 +154,11 @@ PrefabInstance:
     - target: {fileID: 5395388457620689718, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051177037660832819, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
