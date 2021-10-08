@@ -17,6 +17,7 @@ public class PowerPickUp : MonoBehaviour
 				power.ChangeBy(1.0f);
 				power.ChangeBy_Special(3);
 			}
+			SoundFXManager.PlayOneShot(SoundFxKey.PICKUP);
 			ObjectPooler.instance.SpawnFromPool(particleTag, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}

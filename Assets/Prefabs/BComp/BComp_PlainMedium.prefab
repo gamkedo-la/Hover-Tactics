@@ -51,7 +51,7 @@ MonoBehaviour:
   startHidden: 1
   autoHide: 1
   showDelay: 2
-  detectionDistance: 50
+  detectionDistance: 60
   showOnlyOnDamage: 0
   showLerpFactor: 10
   hideLerpFactor: 2.5

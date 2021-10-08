@@ -586,7 +586,7 @@ MonoBehaviour:
   startHidden: 1
   autoHide: 0
   showDelay: 999
-  detectionDistance: 75
+  detectionDistance: 80
   showOnlyOnDamage: 0
   showLerpFactor: 20
   hideLerpFactor: 20
@@ -596,8 +596,8 @@ MonoBehaviour:
   explosionTag: BCompExplosion
   explosionScale: 2
   delayPerShot: 0.25
-  shotsPerCycle: 4
-  delayPerCycle: 2
+  shotsPerCycle: 5
+  delayPerCycle: 3
   doDelayBetweenShooters: 0
   delayPerShooter: 0
   yRotatePerShooter: 0

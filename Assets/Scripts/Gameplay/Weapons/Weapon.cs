@@ -15,6 +15,8 @@ public class Weapon : MonoBehaviour, IDamage
     [SerializeField] protected Transform[] shootingPoints;
     [SerializeField] protected bool rotateShootingPoints = true;
     [SerializeField] protected float cooldownDelay = 0.1f;
+    [SerializeField] protected bool cooldownPowerDependence = false;
+    [SerializeField] protected float cooldownPowerRatio = 1.0f;
     [SerializeField] protected float MPDepletePerShot = 0.1f;
 
     [Header("Effects")]
@@ -46,7 +48,7 @@ public class Weapon : MonoBehaviour, IDamage
 
     protected virtual void Update()
     {
-        if(mechController.enabled)
+        if(mechController.enabled && Time.timeScale > 0.0f)
         {
             if(cooldownTimer <= 0.0f && power.Get() >= MPDepletePerShot)
             {
@@ -72,7 +74,15 @@ public class Weapon : MonoBehaviour, IDamage
                     if(shootingPointIndex > shootingPoints.Length - 1)
                         shootingPointIndex = 0;
 
-                    cooldownTimer = cooldownDelay;
+                    if(cooldownPowerDependence)
+                    {
+                        cooldownTimer = cooldownDelay / (power.Get() * cooldownPowerRatio);
+                        if(cooldownTimer > 1.0f) cooldownTimer = 1.0f;
+                    }
+                    else
+                    {
+                        cooldownTimer = cooldownDelay;
+                    }
                 }
             }
             else
@@ -93,6 +103,6 @@ public class Weapon : MonoBehaviour, IDamage
             GetShootingPoint().position,
             GetShootingPoint().rotation
         );
-        SoundFXManager.PlayOneShot(sound, audioSource);
+        SoundFXManager.PlayOneShot(sound);//, audioSource);
     }
 }

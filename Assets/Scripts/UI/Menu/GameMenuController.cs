@@ -62,9 +62,15 @@ public class GameMenuController : MonoBehaviour
         && SceneManager.GetActiveScene().name.Contains("Play"))
         {
             isShowingPauseGameMenu = !isShowingPauseGameMenu;
-            gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false);
-            if(isShowingPauseGameMenu) Time.timeScale = 0.0f;
-            else Time.timeScale = 1.0f;
+            if(!gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false))
+            {
+                isShowingPauseGameMenu = false;
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Time.timeScale = isShowingPauseGameMenu ? 0.0f : 1.0f;
+            }
         }
     }
 }

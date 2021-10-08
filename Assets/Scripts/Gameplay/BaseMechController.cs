@@ -14,13 +14,17 @@ public class BaseMechController : MonoBehaviour
     [SerializeField] private float turnSpeed;
     [SerializeField] protected float turnSensitivity;
     [Space]
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioSource moveAudioSource;
 
     private Rigidbody rb;
     protected MechBoost mechBoost;
+    protected Health health;
 
     protected float horizontal;
     protected float vertical;
     protected float turnDir;
+    private float previousHealth;
 
     public void StopMovement()
     {
@@ -43,14 +47,24 @@ public class BaseMechController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mechBoost = GetComponent<MechBoost>();
+        health = GetComponent<Health>();
+
+        if(audioSource == null) audioSource = GetComponent<AudioSource>();
 
         Assert.IsNotNull(rb, "Rigidbody is null!");
+        Assert.IsNotNull(health, "Health is null!");
+
+        previousHealth = health.Get();
     }
     
     protected virtual void Update()
     {
         SetInput();
         Turn();
+        ShakeOnDamage();
+
+        audioSource.enabled = SoundFXManager.state;
+        if(moveAudioSource) moveAudioSource.enabled = SoundFXManager.state;
     }
 
     private void FixedUpdate()
@@ -70,12 +84,32 @@ public class BaseMechController : MonoBehaviour
         Vector3 movement =
             (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
             (rightDirection * horizontal * sideSpeed);
-        
         rb.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
+
+        if(moveAudioSource == null) return;
+        if(vertical != 0.0f || horizontal != 0.0f)
+        {
+            moveAudioSource.volume = Mathf.Lerp(moveAudioSource.volume, 1.0f, Time.deltaTime * 4.0f);
+            audioSource.volume = 1.0f - moveAudioSource.volume;
+        }
+        else
+        {
+            moveAudioSource.volume = Mathf.Lerp(moveAudioSource.volume, 0.0f, Time.deltaTime * 8.0f);
+            audioSource.volume = 1.0f - moveAudioSource.volume;
+        }
     }
 
     private void Turn()
     {
         hoverMechAnimation.SetYRotation(hoverMechAnimation.GetYRotation() + turnDir * turnSpeed * Time.deltaTime);
+    }
+
+    private void ShakeOnDamage()
+    {
+        if(previousHealth > health.Get())
+        {
+            CameraShake.Shake(10.0f * (previousHealth - health.Get()), 1, 0.0f);
+            previousHealth = health.Get();
+        }
     }
 }

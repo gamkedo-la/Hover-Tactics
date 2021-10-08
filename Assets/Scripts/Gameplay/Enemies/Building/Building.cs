@@ -8,7 +8,8 @@ using UnityEngine.Assertions;
 public class Building : MonoBehaviour
 {
     [SerializeField] private GameObject ruins;
-    [SerializeField] private SoundFxKey explosionSound;
+    [SerializeField] private GameObject deactivateOnDestroy;
+    [SerializeField] private SoundFxKey damageSound;
     [SerializeField] private string explosionTag;
     [SerializeField] private bool shakeOnDamage;
 
@@ -124,27 +125,26 @@ public class Building : MonoBehaviour
 
     void Update()
     {
-        meshTransform.localPosition = Vector3.Lerp(meshTransform.localPosition, Vector3.zero, 25.0f * Time.deltaTime);
+        meshTransform.localPosition = Vector3.Lerp(meshTransform.localPosition, Vector3.zero, 60.0f * Time.deltaTime);
 
         if(health.IsZero())
         {
-            SoundFXManager.PlayOneShot(explosionSound, audioSource);
+            if(deactivateOnDestroy != null) deactivateOnDestroy.SetActive(false);
             ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, Quaternion.identity);
             if(ruins) Instantiate(ruins, transform.position, ruins.transform.rotation);
             CameraShake.Shake(2.5f, 10, 0.1f, 0.5f);
             Destroy(gameObject);
         }
-
-        if(shakeOnDamage && previousHealth > health.Get())
+        else if(shakeOnDamage && previousHealth > health.Get())
         {
-            float randomFactor = (health.GetMax() - health.Get()) / health.GetMax();
+            SoundFXManager.PlayOneShot(damageSound, audioSource);
 
-            Vector3 position = meshTransform.localPosition;
-            position.x += UnityEngine.Random.Range(-randomFactor, randomFactor);
-            position.y += UnityEngine.Random.Range(-randomFactor, randomFactor);
-            position.z += UnityEngine.Random.Range(-randomFactor, randomFactor);
-            meshTransform.localPosition = position;
-
+            float randomFactor = ((health.GetMax() - health.Get()) / health.GetMax()) * 2.5f;
+            meshTransform.localPosition = new Vector3(
+                UnityEngine.Random.Range(-randomFactor, randomFactor),
+                UnityEngine.Random.Range(-randomFactor, randomFactor),
+                UnityEngine.Random.Range(-randomFactor, randomFactor)
+            );
             previousHealth = health.Get();
         }
     }

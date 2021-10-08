@@ -7,7 +7,6 @@ public enum SoundFxKey
     NONE,
 
     //UI
-    HOVER,
     SELECT,
 
     //CONTROLS
@@ -18,12 +17,17 @@ public enum SoundFxKey
     LASER_BEAM,
     MELTER,
     PORTAL,
-    MISSILE,
+    ROCKET,
     BOOM,
 
+    //BUILDING
+    BUILDING_DAMAGE,
+    BUILDING_DESTROY,
+
     //OTHER
-    SMALL_BUILDING_EXPLOSION,
-    BIG_BUILDING_EXPLOSION,
+    PICKUP,
+    SWITCH_ON,
+    SWITCH_OFF
 };
 
 [System.Serializable]
@@ -43,32 +47,21 @@ public class SoundFXManager : MonoBehaviour
 
     public static bool state = true;
 
-    private static SoundFXManager _instance;
-    private static SoundFXManager Instance
-    {
-        get
-        {
-            if(_instance == null)
-            {
-                // instead of logging an error, we could instantiate this as a prefab.
-                Debug.LogError($"There is no object in the current scene with this script attached to it.");
-            }
-
-            return _instance;
-        }
-    }
+    private static SoundFXManager instance;
 
     private Dictionary<SoundFxKey, AudioClip[]> soundFxToAudioClipMap = new Dictionary<SoundFxKey, AudioClip[]>();
 
     private void Awake()
     {
-        _instance = this;
-
+        instance = this;
         Setup();
     }
 
     private void Setup()
     {
+        if(state) instance.mainAudioSource.enabled = true;
+        else instance.mainAudioSource.enabled = false;
+
         SetupOneShotAudioClips();
     }
 
@@ -80,11 +73,17 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
+    public static void SetState(bool state)
+    {
+        SoundFXManager.state = state;
+
+        if(state) instance.mainAudioSource.enabled = true;
+        else instance.mainAudioSource.enabled = false;
+    }
+
     public static void PlayOneShot(SoundFxKey soundFxKey)
-    {  
-        if(!state) return;
-        if(soundFxKey == SoundFxKey.NONE) return;
-        PlayOneShot(soundFxKey, Instance.mainAudioSource);
+    {
+        PlayOneShot(soundFxKey, instance.mainAudioSource);
     }
 
     public static void PlayOneShot(SoundFxKey soundFxKey, AudioSource audioSource)
@@ -93,7 +92,6 @@ public class SoundFXManager : MonoBehaviour
         // this is useful when we want to play audio in specific places in the world.
 
         if(!state) return;
-
         if(soundFxKey == SoundFxKey.NONE) return;
 
         if(audioSource == null)
@@ -104,7 +102,7 @@ public class SoundFXManager : MonoBehaviour
 
         if(false == TryGetRandomClip(soundFxKey, out AudioClip clip))
         {
-            if (Instance.logDebug) Debug.LogWarning($"no audio clip found for [{soundFxKey}]");
+            if (instance && instance.logDebug) Debug.LogWarning($"no audio clip found for [{soundFxKey}]");
             return;
         }
 
@@ -114,16 +112,19 @@ public class SoundFXManager : MonoBehaviour
     private static bool TryGetRandomClip(SoundFxKey soundFxKey, out AudioClip clip)
     {
         clip = null;
-        if(false == Instance.soundFxToAudioClipMap.ContainsKey(soundFxKey))
+        if(!instance) return false;
+        if(soundFxKey == SoundFxKey.NONE) return false;
+        
+        if(false == instance.soundFxToAudioClipMap.ContainsKey(soundFxKey))
         {
-            Debug.LogError($"no audio clip found for sound fx key [{soundFxKey}] on gameobject [{Instance.gameObject.name}].");
+            Debug.LogError($"no audio clip found for sound fx key [{soundFxKey}] on gameobject [{instance.gameObject.name}].");
             return false;
         }
 
-        var clipArray = Instance.soundFxToAudioClipMap[soundFxKey];
+        var clipArray = instance.soundFxToAudioClipMap[soundFxKey];
         if(clipArray == null || clipArray.Length <= 0)
         {
-            Debug.LogError($"audio clip array is null/empty for sound fx key [{soundFxKey}] on gameobject [{Instance.gameObject.name}].");
+            Debug.LogError($"audio clip array is null/empty for sound fx key [{soundFxKey}] on gameobject [{instance.gameObject.name}].");
             return false;
         }
 

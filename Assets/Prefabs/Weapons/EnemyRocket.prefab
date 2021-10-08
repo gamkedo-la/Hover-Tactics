@@ -874,8 +874,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Player
   damage: 0.1
-  rocketSpeed: 30
-  rotateSpeed: 2
+  rocketSpeed: 28
+  rotateSpeed: 1.9
   targetRange: 800
   meshObject: {fileID: 5971792068818080659}
   destroyDelay: 5

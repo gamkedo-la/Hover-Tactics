@@ -1676,7 +1676,7 @@ MonoBehaviour:
   startHidden: 1
   autoHide: 1
   showDelay: 2
-  detectionDistance: 75
+  detectionDistance: 80
   showOnlyOnDamage: 0
   showLerpFactor: 20
   hideLerpFactor: 10
@@ -1687,7 +1687,7 @@ MonoBehaviour:
   explosionScale: 1.5
   delayPerShot: 0.25
   shotsPerCycle: 2
-  delayPerCycle: 1
+  delayPerCycle: 2
   doDelayBetweenShooters: 0
   delayPerShooter: 0
   yRotatePerShooter: 0
