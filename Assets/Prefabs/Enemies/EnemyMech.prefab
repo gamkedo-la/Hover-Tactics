@@ -606,10 +606,12 @@ MonoBehaviour:
   hoverMechAnimation: {fileID: 6439995749323104948}
   turnSpeed: 200
   turnSensitivity: 0.1
+  audioSource: {fileID: 0}
   moveAudioSource: {fileID: 0}
+  basePitch: 1
+  boostPitch: 1.4
   nearDistanceThreshold: 1
   facingTargetTolerance: 0.8
-  explosionSound: 0
   explosionTag: EnemyMechExplosion
 --- !u!114 &3451366897439032123
 MonoBehaviour:
@@ -639,7 +641,7 @@ MonoBehaviour:
   lineMaterial: {fileID: 2100000, guid: 146a0ee6a811e3e43a3cac22d72485b0, type: 2}
   lineThickness: 0.6
   muzzleParticlesTag: RifleWeaponMuzzle
-  sound: 4
+  sound: 3
 --- !u!114 &2842775467545842508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,10 +704,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0.5
-  MinDistance: 50
-  MaxDistance: 200
+  MinDistance: 40
+  MaxDistance: 120
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -753,7 +755,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1388889
+      value: 0.11111111
       inSlope: 0
       outSlope: 0
       tangentMode: 0

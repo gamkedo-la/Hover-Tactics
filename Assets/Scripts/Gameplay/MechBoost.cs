@@ -16,22 +16,15 @@ public class MechBoost : MonoBehaviour
     [Space]
     [SerializeField] private Transform burstTransform;
     [SerializeField] private string startBurstTag;
-    [SerializeField] private SoundFxKey startBurstSound;
 
     protected float boostValue = 1.0f;
     protected bool isBoostActivated = false;
     public Action<BoostState> BoostActivateToggled;
-
     private Coroutine boostRoutine;
 
-    private AudioSource audioSource;
-    
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
         Assert.IsNotNull(mechPower, "Mech Power is null!");
-        Assert.IsNotNull(audioSource, "Audio Source is null!");
     }
 
     private void Update()
@@ -83,23 +76,18 @@ public class MechBoost : MonoBehaviour
         BoostActivateToggled?.Invoke(BoostState.Active);
 
         ObjectPooler.instance.SpawnFromPool(startBurstTag, burstTransform.position, burstTransform.rotation);
-        SoundFXManager.PlayOneShot(startBurstSound, audioSource);
+        SoundFXManager.PlayOneShot(SoundFxKey.BOOST_START);
 
         boostRoutine = StartCoroutine(BoostRoutine());
     }
 
     public void DeactivateBoost()
     {
-        if(boostRoutine != null)
-        {
-            StopCoroutine(boostRoutine);
-        }
-
+        if(boostRoutine != null) StopCoroutine(boostRoutine);
         boostValue = 1.0f;
         isBoostActivated = false;
         BoostActivateToggled?.Invoke(BoostState.Inactive);
     }
-
 
     protected virtual IEnumerator BoostRoutine()
     {

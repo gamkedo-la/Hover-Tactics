@@ -32,7 +32,6 @@ public class BuildingComponent : MonoBehaviour
     [SerializeField] private string showUpParticlesTag;
 
     [Header("Destroy Effects")]
-    [SerializeField] private SoundFxKey explosionSound;
     [SerializeField] private string explosionTag;
     [SerializeField] private float explosionScale = 1.0f;
 
@@ -78,6 +77,7 @@ public class BuildingComponent : MonoBehaviour
     {
         if(health.Get() != prevHealth)
         {
+            if(showTimer <= 0.0f) SoundFXManager.PlayOneShot(SoundFxKey.BCOMP_SHOW, audioSource);
             showTimer = showDelay;
         }
         else if(!showOnlyOnDamage)
@@ -87,6 +87,7 @@ public class BuildingComponent : MonoBehaviour
                 if(targetObjects[i].GetComponent<MechController>().enabled
                 && Vector3.Distance(transform.parent.position, targetObjects[i].transform.position) <= detectionDistance)
                 {
+                    if(showTimer <= 0.0f) SoundFXManager.PlayOneShot(SoundFxKey.BCOMP_SHOW, audioSource);
                     targetIndex = i;
                     showTimer = showDelay;
                     break;
@@ -103,12 +104,18 @@ public class BuildingComponent : MonoBehaviour
         }
         else
         {
+            if(showTimer <= 0.0f && showTimer > -2.0f)
+            {
+                SoundFXManager.PlayOneShot(SoundFxKey.BCOMP_HIDE, audioSource);
+                showTimer = -10.0f;
+            }
+
             transform.position = Vector3.Lerp(transform.position, initialPosition + hideOffset, hideLerpFactor * Time.deltaTime);
         }
 
         if(health.Get() <= destroyBelowHealth)
         {
-            SoundFXManager.PlayOneShot(explosionSound, audioSource);
+            SoundFXManager.PlayOneShot(SoundFxKey.BCOMP_DESTROY, audioSource);
             ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation).transform.localScale = Vector3.one * explosionScale;
             Destroy(gameObject);
         }

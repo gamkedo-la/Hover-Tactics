@@ -41,6 +41,8 @@ public class GameMenuController : MonoBehaviour
         //isShowingStartGameMenu = false;
         //gameMenu.ToggleStartGameScreen(isShowingStartGameMenu, false);
 
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
+
         // do something whenever the start game button has been pressed
         Time.timeScale = 1.0f;
         FadeToScene.Load("Prologue");
@@ -48,6 +50,8 @@ public class GameMenuController : MonoBehaviour
 
     private void GameResumed()
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
+
         // hide panel
         isShowingPauseGameMenu = false;
         gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false);
@@ -61,6 +65,7 @@ public class GameMenuController : MonoBehaviour
         if(Input.GetButtonDown("Cancel")
         && SceneManager.GetActiveScene().name.Contains("Play"))
         {
+            SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
             isShowingPauseGameMenu = !isShowingPauseGameMenu;
             if(!gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false))
             {

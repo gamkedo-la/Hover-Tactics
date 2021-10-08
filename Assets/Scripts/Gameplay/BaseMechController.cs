@@ -13,9 +13,12 @@ public class BaseMechController : MonoBehaviour
     [SerializeField] protected HoverMechAnimation hoverMechAnimation;
     [SerializeField] private float turnSpeed;
     [SerializeField] protected float turnSensitivity;
-    [Space]
+    [Header("Sounds")]
     [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected AudioSource moveAudioSource;
+    [SerializeField] private float basePitch = 1.0f;
+    [SerializeField] private float boostPitch = 1.4f;
+    [Space]
 
     private Rigidbody rb;
     protected MechBoost mechBoost;
@@ -41,6 +44,7 @@ public class BaseMechController : MonoBehaviour
         position.y = y;
         transform.position = position;
         ObjectPooler.instance.SpawnFromPool("TeleportParticles", position, Quaternion.identity);
+        SoundFXManager.PlayOneShot(SoundFxKey.TELEPORT_BOOST);
     }
 
     protected virtual void Start()
@@ -55,6 +59,8 @@ public class BaseMechController : MonoBehaviour
         Assert.IsNotNull(health, "Health is null!");
 
         previousHealth = health.Get();
+
+        audioSource.pitch = basePitch;
     }
     
     protected virtual void Update()
@@ -87,6 +93,9 @@ public class BaseMechController : MonoBehaviour
         rb.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
 
         if(moveAudioSource == null) return;
+
+        moveAudioSource.pitch = Mathf.Lerp(moveAudioSource.pitch, mechBoost.IsBoostActive() ? boostPitch : basePitch, Time.deltaTime * 8.0f);
+
         if(vertical != 0.0f || horizontal != 0.0f)
         {
             moveAudioSource.volume = Mathf.Lerp(moveAudioSource.volume, 1.0f, Time.deltaTime * 4.0f);
@@ -108,6 +117,7 @@ public class BaseMechController : MonoBehaviour
     {
         if(previousHealth > health.Get())
         {
+            SoundFXManager.PlayOneShot(SoundFxKey.MECH_DAMAGE);
             CameraShake.Shake(10.0f * (previousHealth - health.Get()), 1, 0.0f);
             previousHealth = health.Get();
         }

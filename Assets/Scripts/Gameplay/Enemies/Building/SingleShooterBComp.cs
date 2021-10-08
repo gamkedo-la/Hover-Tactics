@@ -20,7 +20,6 @@ class SingleShooterBComp : BuildingComponent
 
     [Header("Projectile")]
     [SerializeField] private string projectileTag;
-    [SerializeField] private SoundFxKey shotSound;
 
     private float shotTimer = 0.0f;
     private float cycleTimer = 0.0f;
@@ -69,7 +68,7 @@ class SingleShooterBComp : BuildingComponent
                 {
                     ObjectPooler.instance.SpawnFromPool(projectileTag, muzzleTransform.position, muzzleTransform.rotation);
                     ObjectPooler.instance.SpawnFromPool(muzzleFlashTag, muzzleTransform.position, muzzleTransform.rotation);
-                    SoundFXManager.PlayOneShot(shotSound, audioSource);
+                    SoundFXManager.PlayOneShot(SoundFxKey.BCOMP_SHOOT, audioSource);
                     cycleShots--;
 
                     if(delayPerCycle > 0 && cycleShots <= 0)

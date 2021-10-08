@@ -3024,6 +3024,8 @@ MonoBehaviour:
   turnSensitivity: 0.1
   audioSource: {fileID: 491892219600123661}
   moveAudioSource: {fileID: 7009719171095356010}
+  basePitch: 1.2
+  boostPitch: 1.6
   Cursor: {fileID: 0}
 --- !u!114 &8137829999247783970
 MonoBehaviour:
@@ -3074,7 +3076,7 @@ MonoBehaviour:
   cooldownPowerRatio: 1
   MPDepletePerShot: 0.5
   muzzleParticlesTag: PortalWeaponMuzzle
-  sound: 0
+  sound: 6
   projectileTag: PortalProjectile
 --- !u!114 &4891581321264167179
 MonoBehaviour:
@@ -3089,12 +3091,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostMaxValue: 10
-  boostCostPerSecond: 0.5
+  boostCostPerSecond: 0.4
   isTeleport: 1
   mechPower: {fileID: 5689716451623988169}
   burstTransform: {fileID: 4603662656988303429}
   startBurstTag: BoostBurst
-  startBurstSound: 0
 --- !u!114 &4727262786595552155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,7 +3121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4270f442e27c34b84d8477617c9736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replenishPerSecond: 0.1
+  replenishPerSecond: 0.12
   specials: 3
 --- !u!114 &2467151990954281571
 MonoBehaviour:

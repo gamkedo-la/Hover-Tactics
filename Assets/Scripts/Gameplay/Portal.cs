@@ -11,8 +11,11 @@ public class Portal : MonoBehaviour
 
     static public void ClearPortals()
     {
-        portals.Clear();
-        portals = null;
+        if(portals != null)
+        {
+            portals.Clear();
+            portals = null;
+        }
     }
 
     void Start()
@@ -46,6 +49,7 @@ public class Portal : MonoBehaviour
             position.x = portals[jumpToPortal].transform.position.x;
             position.z = portals[jumpToPortal].transform.position.z;
             other.transform.position = position;
+            SoundFXManager.PlayOneShot(SoundFxKey.TELEPORT);
 
             portals[jumpToPortal].teleportPauseTimer = teleportPauseDelay;
             portals[jumpToPortal].portalUser = portalUser;

@@ -690,10 +690,12 @@ MonoBehaviour:
   hoverMechAnimation: {fileID: 4971284812048965168}
   turnSpeed: 100
   turnSensitivity: 0.1
+  audioSource: {fileID: 0}
   moveAudioSource: {fileID: 0}
+  basePitch: 1
+  boostPitch: 1.4
   nearDistanceThreshold: 1
   facingTargetTolerance: 0.8
-  explosionSound: 0
   explosionTag: EnemyMechExplosion
 --- !u!114 &3622948923715469232
 MonoBehaviour:
@@ -719,7 +721,7 @@ MonoBehaviour:
   cooldownDelay: 1.6
   projectileTag: EnemyRocket
   muzzleParticlesTag: RocketWeaponMuzzle
-  sound: 0
+  sound: 7
 --- !u!114 &4238285307953754056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,10 +784,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0.5
-  MinDistance: 50
-  MaxDistance: 200
+  MinDistance: 40
+  MaxDistance: 120
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -833,7 +835,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1388889
+      value: 0.11111111
       inSlope: 0
       outSlope: 0
       tangentMode: 0

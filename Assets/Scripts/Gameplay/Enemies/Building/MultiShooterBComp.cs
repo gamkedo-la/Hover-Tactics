@@ -52,7 +52,7 @@ class MultiShooterBComp : BuildingComponent
                         ObjectPooler.instance.SpawnFromPool(projectileTag, muzzleTransforms[i].position, muzzleTransforms[i].rotation);
                         ObjectPooler.instance.SpawnFromPool(muzzleFlashTag, muzzleTransforms[i].position, muzzleTransforms[i].rotation);
                     }
-                    SoundFXManager.PlayOneShot(shotSound, audioSource);
+                    SoundFXManager.PlayOneShot(SoundFxKey.BCOMP_SHOOT, audioSource);
                 }
                 cycleShots--;
 

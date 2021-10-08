@@ -2906,6 +2906,8 @@ MonoBehaviour:
   turnSensitivity: 0.1
   audioSource: {fileID: 568369338441157059}
   moveAudioSource: {fileID: 6002125334695018998}
+  basePitch: 0.8
+  boostPitch: 1.2
   Cursor: {fileID: 0}
 --- !u!114 &7593058205660559874
 MonoBehaviour:
@@ -2952,7 +2954,7 @@ MonoBehaviour:
   cooldownPowerRatio: 1
   MPDepletePerShot: 0.75
   muzzleParticlesTag: RocketWeaponMuzzle
-  sound: 0
+  sound: 8
   boomObject: {fileID: 1579409998840964786, guid: 2367a596f369f2a4da91405d28b67904,
     type: 3}
   boomMaxScale: 320
@@ -2971,12 +2973,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostMaxValue: 2.5
-  boostCostPerSecond: 0.2
+  boostCostPerSecond: 0.1
   isTeleport: 0
   mechPower: {fileID: 4850464849410009535}
   burstTransform: {fileID: 4527159358710984331}
   startBurstTag: BoostBurst
-  startBurstSound: 0
 --- !u!114 &2068957219282156062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3015,7 +3016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4270f442e27c34b84d8477617c9736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replenishPerSecond: 0.1
+  replenishPerSecond: 0.12
   specials: 3
 --- !u!114 &8189179747237387910
 MonoBehaviour:

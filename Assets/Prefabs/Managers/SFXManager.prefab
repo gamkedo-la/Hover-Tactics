@@ -208,4 +208,40 @@ MonoBehaviour:
   - key: 13
     clips:
     - {fileID: 8300000, guid: aeca14647fb363f49afcab0a82e85bef, type: 3}
+  - key: 14
+    clips:
+    - {fileID: 8300000, guid: 3cb81614bea81a443b79c602ef3ff177, type: 3}
+  - key: 15
+    clips:
+    - {fileID: 8300000, guid: 5ee0294d2d5c7494ca662f3a207c470e, type: 3}
+  - key: 16
+    clips:
+    - {fileID: 8300000, guid: c1204c64183cddc47b89a852c6203774, type: 3}
+  - key: 8
+    clips:
+    - {fileID: 8300000, guid: 27299ae4b5e6fcd45a270a78845dbb0f, type: 3}
+  - key: 4
+    clips:
+    - {fileID: 8300000, guid: d80b3de44e2294d4b9135e85e85afa2b, type: 3}
+  - key: 6
+    clips:
+    - {fileID: 8300000, guid: 558b0df063cc62e46a59cb14fb004592, type: 3}
+  - key: 17
+    clips:
+    - {fileID: 8300000, guid: 0515509bb48493f428c83c965ff91aca, type: 3}
+  - key: 18
+    clips:
+    - {fileID: 8300000, guid: 5ca5eec4b8a78ac42810ce06c110fd97, type: 3}
+  - key: 19
+    clips:
+    - {fileID: 8300000, guid: d100140a92ef15447b7647ecc4162c0d, type: 3}
+  - key: 20
+    clips:
+    - {fileID: 8300000, guid: d9cb460f425b6d7408233d863e4938d2, type: 3}
+  - key: 21
+    clips:
+    - {fileID: 8300000, guid: 1a912a8278506de4c995eaac750a4d95, type: 3}
+  - key: 22
+    clips:
+    - {fileID: 8300000, guid: 936389bb2c8ec3246a0ba68abf7946e6, type: 3}
   logDebug: 0

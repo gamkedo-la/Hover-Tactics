@@ -38,14 +38,11 @@ public class BaseScreen : MonoBehaviour
     private void Start()
     {
         //Updating setting's button group text
-        if(SceneManager.GetActiveScene().name == "Start")
-        {
-            GameObject buttonsGroup = ControllersPanel.transform.GetChild(1).gameObject;
-            buttonsGroup.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = MusicManager.state ? "Music: ON" : "Music: OFF";
-            buttonsGroup.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
-            buttonsGroup.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = QualitySettings.GetQualityLevel() == 0 ? "Quality: Low" : "Quality: Standard";
-            buttonsGroup.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
-        }
+        GameObject buttonsGroup = ControllersPanel.transform.GetChild(1).gameObject;
+        buttonsGroup.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = MusicManager.state ? "Music: ON" : "Music: OFF";
+        buttonsGroup.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
+        buttonsGroup.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = QualitySettings.GetQualityLevel() == 0 ? "Quality: Low" : "Quality: Standard";
+        buttonsGroup.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
     }
 
     public void ActivatePanel(Panels panel)
@@ -106,36 +103,42 @@ public class BaseScreen : MonoBehaviour
 
     public void QuitToMenu()
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
         Time.timeScale = 1.0f;
         FadeToScene.Load("Start");
     }
 
     public void Restart()
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
         Time.timeScale = 1.0f;
         FadeToScene.Load(SceneManager.GetActiveScene().name);
     }
 
     public void ToggleBGM(TextMeshProUGUI textObject)
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
         MusicManager.state = !MusicManager.state;
         textObject.GetComponent<TextMeshProUGUI>().text = MusicManager.state ? "Music: ON" : "Music: OFF";
     }
 
     public void ToggleSFX(TextMeshProUGUI textObject)
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
         SoundFXManager.SetState(!SoundFXManager.state);
         textObject.GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
     }
 
     public void ToggleQuality(TextMeshProUGUI textObject)
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
         QualitySettings.SetQualityLevel(QualitySettings.GetQualityLevel() == 0 ? 1 : 0, true);
         textObject.GetComponent<TextMeshProUGUI>().text = QualitySettings.GetQualityLevel() == 0 ? "Quality: Low" : "Quality: Standard";
     }
 
     public void ToggleDark(TextMeshProUGUI textObject)
     {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
         GameMenuController.playNight = !GameMenuController.playNight;
         textObject.GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
     }

@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Enemy
-  damage: 0.35
+  damage: 0.5
   rocketSpeed: 80
   rotateSpeed: 4.5
   targetRange: 1200

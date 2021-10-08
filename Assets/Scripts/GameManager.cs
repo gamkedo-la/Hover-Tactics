@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
         ActivateHoverMech(activeIndex);
 
         abilityDisplayTimer = abilityDisplayDelay;
+
+        Portal.ClearPortals();
     }
 
     void Update()

@@ -27,7 +27,18 @@ public enum SoundFxKey
     //OTHER
     PICKUP,
     SWITCH_ON,
-    SWITCH_OFF
+    SWITCH_OFF,
+
+    PROJECTILE_DESTROY,
+    BOOST_START,
+    MECH_DAMAGE,
+    TELEPORT_BOOST,
+    TELEPORT,
+
+    BCOMP_SHOW,
+    BCOMP_HIDE,
+    BCOMP_SHOOT,
+    BCOMP_DESTROY,
 };
 
 [System.Serializable]

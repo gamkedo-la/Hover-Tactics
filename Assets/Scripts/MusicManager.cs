@@ -49,8 +49,19 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        if(!state) { loop.enabled = false; if(intro != null) intro.enabled = false; }
-        else { loop.enabled = true; if(intro != null) intro.enabled = true; }
+        if(!state)
+        {
+            loop.enabled = false;
+            if(intro != null)
+                intro.enabled = false;
+        }
+        else if(loop.enabled == false)
+        {
+            loop.enabled = true;
+            if(intro != null)
+                intro.enabled = true;
+            Start();
+        }
         
         if(volumeLerp > 0.0f)
         {

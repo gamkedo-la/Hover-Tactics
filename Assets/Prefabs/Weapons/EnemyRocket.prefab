@@ -873,7 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
-  damage: 0.1
+  damage: 0.08
   rocketSpeed: 28
   rotateSpeed: 1.9
   targetRange: 800

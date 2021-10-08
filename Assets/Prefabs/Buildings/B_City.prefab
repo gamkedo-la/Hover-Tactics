@@ -291,7 +291,7 @@ MonoBehaviour:
     maxDestroyHealth: 5.5
     minHeightVariation: -2
     maxHeightVariation: 0
-    usedTransformIndexes: 
+    usedTransformIndexes: 00000000050000000300000002000000
 --- !u!65 &3397849732025442799
 BoxCollider:
   m_ObjectHideFlags: 0

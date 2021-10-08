@@ -12,7 +12,6 @@ public class EnemyMechController : BaseMechController
     public float facingTargetTolerance = 0.8f;
 
     [Header("Destroy Effects")]
-    [SerializeField] private SoundFxKey explosionSound;
     [SerializeField] private string explosionTag;
 
     private Vector3 directionToTarget;
@@ -102,7 +101,6 @@ public class EnemyMechController : BaseMechController
         base.Start();
 
         health = GetComponent<Health>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void Update()
@@ -111,7 +109,6 @@ public class EnemyMechController : BaseMechController
 
         if(health.IsZero())
         {
-            SoundFXManager.PlayOneShot(explosionSound, audioSource);
             ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, transform.rotation);
             Destroy(gameObject);
         }
