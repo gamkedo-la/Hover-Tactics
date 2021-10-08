@@ -39,6 +39,8 @@ public enum SoundFxKey
     BCOMP_HIDE,
     BCOMP_SHOOT,
     BCOMP_DESTROY,
+
+    WIN
 };
 
 [System.Serializable]

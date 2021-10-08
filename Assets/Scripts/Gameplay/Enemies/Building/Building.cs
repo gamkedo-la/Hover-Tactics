@@ -115,6 +115,8 @@ public class Building : MonoBehaviour
 
     void Start()
     {
+        GameManager.instance.IncrementBuildingsLeft();
+
         health = GetComponent<Health>();
         audioSource = GetComponent<AudioSource>();
         GenerateBComps();
@@ -129,6 +131,7 @@ public class Building : MonoBehaviour
 
         if(health.IsZero())
         {
+            GameManager.instance.DecrementBuildingsLeft();
             if(deactivateOnDestroy != null) deactivateOnDestroy.SetActive(false);
             ObjectPooler.instance.SpawnFromPool(explosionTag, transform.position, Quaternion.identity);
             if(ruins) Instantiate(ruins, transform.position, ruins.transform.rotation);

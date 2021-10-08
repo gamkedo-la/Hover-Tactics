@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject waypointGroup;
     [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject lowShieldWarning;
+    [SerializeField] private GameObject progressDisplay;
 
     static public GameManager instance;
 
@@ -32,6 +34,20 @@ public class GameManager : MonoBehaviour
     private GameObject mechDisplayGroup;
 
     private float abilityDisplayTimer = 0.0f;
+
+    private int totalBuildingsLeft = 0;
+    private int maxBuildings = 0;
+
+    public void IncrementBuildingsLeft()
+    {
+        totalBuildingsLeft++;
+        maxBuildings++;
+    }
+
+    public void DecrementBuildingsLeft()
+    {
+        totalBuildingsLeft--;
+    }
 
     public GameObject GetActiveHoverMech()
     {
@@ -72,6 +88,11 @@ public class GameManager : MonoBehaviour
         abilityDisplayTimer = abilityDisplayDelay;
     }
 
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -90,6 +111,8 @@ public class GameManager : MonoBehaviour
         abilityDisplayTimer = abilityDisplayDelay;
 
         Portal.ClearPortals();
+
+        progressDisplay.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width/2, 8.0f);
     }
 
     void Update()
@@ -103,6 +126,7 @@ public class GameManager : MonoBehaviour
         AbilityDisplay();
         UpdateCameraSize();
         CheckWin();
+        LowShieldWarning();
     }
 
     void UpdateAllMechDisplays()
@@ -237,22 +261,49 @@ public class GameManager : MonoBehaviour
 
     void CheckWin()
     {
-        bool allVitalPointsDestroyed = true;
-        for(int i = 0; i < waypointGroup.transform.childCount; i++)
+        if(Mathf.FloorToInt(Time.time * 2.0f) % 2 == 0)
         {
-            if(waypointGroup.transform.GetChild(i).gameObject.activeSelf)
+            int remainingVitalPoints = 0;
+            for(int i = 0; i < waypointGroup.transform.childCount; i++)
             {
-                allVitalPointsDestroyed = false;
+                if(waypointGroup.transform.GetChild(i).gameObject.activeSelf)
+                {
+                    remainingVitalPoints++;
+                }
+            }
+
+            progressDisplay.transform.GetChild(0).gameObject.GetComponent<Image>().fillAmount = ((float)totalBuildingsLeft / (float)maxBuildings);
+            progressDisplay.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "Vitals left: " + remainingVitalPoints.ToString();
+
+            if(remainingVitalPoints <= 0)
+            {
+                hoverMechs[activeIndex].GetComponent<MechController>().enabled = false;
+                Time.timeScale = 0.0f;
+                SoundFXManager.PlayOneShot(SoundFxKey.WIN);
+                winPanel.SetActive(true);
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    void LowShieldWarning()
+    {
+        bool isShieldLow = false;
+        for(int i = 0; i < hoverMechs.Length; i++)
+        {
+            if(hoverMechs[i].GetComponent<Shield>().Get() < 0.15f && !winPanel.activeSelf && !gameOverPanel.activeSelf)
+            {
+                isShieldLow = true;
                 break;
             }
         }
+        lowShieldWarning.SetActive(isShieldLow);
 
-        if(allVitalPointsDestroyed)
-        {
-            hoverMechs[activeIndex].GetComponent<MechController>().enabled = false;
-            Time.timeScale = 0.0f;
-            winPanel.SetActive(true);
-            gameObject.SetActive(false);
-        }
+        if(Mathf.FloorToInt(Time.time * 2.0f) % 2 == 0)
+            lowShieldWarning.transform.GetChild(0).localScale = lowShieldWarning.transform.GetChild(1).localScale = Vector3.one * 1.12f;
+        
+        lowShieldWarning.transform.GetChild(0).localScale = lowShieldWarning.transform.GetChild(1).localScale = Vector3.Lerp(lowShieldWarning.transform.GetChild(0).localScale, Vector3.one, Time.deltaTime * 4.0f);
+
+        if(lowShieldWarning.activeSelf) lowShieldWarning.GetComponent<AudioSource>().enabled = SoundFXManager.state;
     }
 }

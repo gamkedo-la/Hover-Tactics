@@ -3590,7 +3590,6 @@ MonoBehaviour:
   hideLerpFactor: 5
   showUpSound: 0
   showUpParticlesTag: 
-  explosionSound: 0
   explosionTag: BCompExplosion
   explosionScale: 0.6
   aimAtTarget: 1
@@ -3604,7 +3603,6 @@ MonoBehaviour:
   muzzleTransform: {fileID: 47270356899941639}
   muzzleFlashTag: ShooterProjectileMuzzle
   projectileTag: WeakShooterProjectile
-  shotSound: 0
 --- !u!1 &976265250875042651
 GameObject:
   m_ObjectHideFlags: 0
@@ -13300,8 +13298,8 @@ MonoBehaviour:
   spawnParticleTag: TeleportParticles
   properties:
   - mech: {fileID: 3451366897439032117, guid: 97c1bfefaa2f93842a0efe67c050d949, type: 3}
-    minSpawnDelay: 30
-    maxSpawnDelay: 60
+    minSpawnDelay: 10
+    maxSpawnDelay: 20
     wayPointSpawnProperty:
     - waypoints: {fileID: 8153527240184060626}
       amountLimit: 2
@@ -13318,11 +13316,11 @@ MonoBehaviour:
     - waypoints: {fileID: 2150427576593063919}
       amountLimit: 1
       mechs: []
-    spawnTimer: 30
+    spawnTimer: 10
     mechs: []
   - mech: {fileID: 3622948923715469233, guid: 9f598f4f507807b45be07b5b61d91626, type: 3}
-    minSpawnDelay: 60
-    maxSpawnDelay: 120
+    minSpawnDelay: 20
+    maxSpawnDelay: 40
     wayPointSpawnProperty:
     - waypoints: {fileID: 2567355454757444140}
       amountLimit: 2
@@ -13333,7 +13331,7 @@ MonoBehaviour:
     - waypoints: {fileID: 8290652590836748809}
       amountLimit: 3
       mechs: []
-    spawnTimer: 60
+    spawnTimer: 20
     mechs: []
 --- !u!1 &4806650927729893286
 GameObject:
@@ -15866,7 +15864,6 @@ MonoBehaviour:
   hideLerpFactor: 5
   showUpSound: 0
   showUpParticlesTag: 
-  explosionSound: 0
   explosionTag: BCompExplosion
   explosionScale: 0.6
   aimAtTarget: 1
@@ -15880,7 +15877,6 @@ MonoBehaviour:
   muzzleTransform: {fileID: 5529522897403689433}
   muzzleFlashTag: ShooterProjectileMuzzle
   projectileTag: WeakShooterProjectile
-  shotSound: 0
 --- !u!1 &5607664641826731436
 GameObject:
   m_ObjectHideFlags: 0
