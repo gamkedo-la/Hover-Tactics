@@ -2974,6 +2974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostMaxValue: 2.5
   boostCostPerSecond: 0.1
+  minPowerForBoost: 0.1
   isTeleport: 0
   mechPower: {fileID: 4850464849410009535}
   burstTransform: {fileID: 4527159358710984331}

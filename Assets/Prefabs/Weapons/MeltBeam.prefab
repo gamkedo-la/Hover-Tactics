@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2d26314935075438e1810335412fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerCycle: 0.12
+  damagePerCycle: 0.125
   cycleDelay: 0.05
   destroyOnTrigger: 0
   particleTag: 

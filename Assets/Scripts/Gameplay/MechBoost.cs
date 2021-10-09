@@ -11,6 +11,7 @@ public class MechBoost : MonoBehaviour
     [SerializeField] protected float boostMaxValue = 2.5f;
     [Range(0.1f, 2.5f)]
     [SerializeField] protected float boostCostPerSecond = 0.2f;
+    [SerializeField] protected float minPowerForBoost = 0.2f;
     [SerializeField] protected bool isTeleport = false;
     [SerializeField] private Power mechPower;
     [Space]
@@ -43,7 +44,7 @@ public class MechBoost : MonoBehaviour
     {
         if(isTeleport)
         {
-            if(isBoostActivated && mechPower.Get() >= boostCostPerSecond)
+            if(isBoostActivated && HasEnoughPower())
             {
                 GetComponent<MechController>().Teleport(boostMaxValue);
                 mechPower.ChangeBy(-boostCostPerSecond);
@@ -119,7 +120,7 @@ public class MechBoost : MonoBehaviour
 
     protected virtual bool HasEnoughPower()
     {
-        return mechPower.Get() > 0;
+        return mechPower.Get() > minPowerForBoost;
     }
 
     protected virtual void DepletePower(float value)

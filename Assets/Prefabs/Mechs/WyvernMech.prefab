@@ -3043,10 +3043,10 @@ MonoBehaviour:
   shootingPoints:
   - {fileID: 8176067283480991370}
   rotateShootingPoints: 0
-  cooldownDelay: 0.025
+  cooldownDelay: 0.02
   cooldownPowerDependence: 1
   cooldownPowerRatio: 1.25
-  MPDepletePerShot: 0.025
+  MPDepletePerShot: 0.02
   muzzleParticlesTag: 
   sound: 5
   beamObject: {fileID: 1162497829734798004, guid: cc6af1b7553f5744fb4467b3bb1b4e64,
@@ -3092,6 +3092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostMaxValue: 10
   boostCostPerSecond: 0.4
+  minPowerForBoost: 0.4
   isTeleport: 1
   mechPower: {fileID: 5689716451623988169}
   burstTransform: {fileID: 4603662656988303429}

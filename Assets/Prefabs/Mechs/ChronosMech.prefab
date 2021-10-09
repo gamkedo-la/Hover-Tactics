@@ -1123,13 +1123,13 @@ MonoBehaviour:
   - {fileID: 2764866125502653183}
   - {fileID: 3656998891429000962}
   rotateShootingPoints: 1
-  cooldownDelay: 0.06
+  cooldownDelay: 0.05
   cooldownPowerDependence: 1
   cooldownPowerRatio: 1.25
-  MPDepletePerShot: 0.016
+  MPDepletePerShot: 0.015
   muzzleParticlesTag: RifleWeaponMuzzle
   sound: 3
-  damagePerHit: 0.08
+  damagePerHit: 0.1
   hitImpactTag: ShotImpact
   lineDelay: 0.05
   lineMaterial: {fileID: 2100000, guid: 9ce91bee0b3e3f541be8c44206a8bffd, type: 2}
@@ -1176,6 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostMaxValue: 2.5
   boostCostPerSecond: 0.1
+  minPowerForBoost: 0.1
   isTeleport: 0
   mechPower: {fileID: 2138407385781863801}
   burstTransform: {fileID: 3106110771858588059}

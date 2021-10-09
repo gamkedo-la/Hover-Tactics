@@ -62,9 +62,9 @@ public class LaserFence : MonoBehaviour
         lineCollider.transform.parent = lineRenderer.transform;
         lineCollider.gameObject.layer = 10; //NoDamage
 
-        float lineWidth = lineRenderer.endWidth * 250.0f;
+        float lineWidth = lineRenderer.endWidth * 400.0f;
         float lineLength = Vector3.Distance(startPos, endPos);
-        lineCollider.size = new Vector3(lineLength, lineWidth, 1.0f);
+        lineCollider.size = new Vector3(lineLength, lineWidth, 1.2f);
 
         Vector3 midPoint = (startPos + endPos) / 2.0f;
         lineCollider.transform.position = midPoint;

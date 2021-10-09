@@ -73,7 +73,7 @@ public class BaseMechController : MonoBehaviour
         if(moveAudioSource) moveAudioSource.enabled = SoundFXManager.state;
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Move();
     }
@@ -117,8 +117,16 @@ public class BaseMechController : MonoBehaviour
     {
         if(previousHealth > health.Get())
         {
-            SoundFXManager.PlayOneShot(SoundFxKey.MECH_DAMAGE);
-            CameraShake.Shake(10.0f * (previousHealth - health.Get()), 1, 0.0f);
+            if(gameObject.tag == "Player")
+            {
+                SoundFXManager.PlayOneShot(SoundFxKey.MECH_DAMAGE);
+                CameraShake.Shake(10.0f * (previousHealth - health.Get()), 1, 0.0f);
+            }
+            else
+            {
+                if(audioSource != null) SoundFXManager.PlayOneShot(SoundFxKey.MECH_DAMAGE, audioSource);
+                CameraShake.Shake(1.0f * (previousHealth - health.Get()), 1, 0.0f);
+            }
             previousHealth = health.Get();
         }
     }
