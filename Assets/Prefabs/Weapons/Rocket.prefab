@@ -518,7 +518,7 @@ MonoBehaviour:
   rotateSpeed: 4.5
   targetRange: 1200
   meshObject: {fileID: 2019938919008480321}
-  destroyDelay: 5
+  destroyDelay: 4
   explosionTag: ProjectileExplosion
   explosionSound: 0
 --- !u!82 &1616847502954846474

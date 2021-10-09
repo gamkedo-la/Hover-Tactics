@@ -13302,16 +13302,16 @@ MonoBehaviour:
     maxSpawnDelay: 20
     wayPointSpawnProperty:
     - waypoints: {fileID: 8153527240184060626}
-      amountLimit: 2
+      amountLimit: 1
       mechs: []
     - waypoints: {fileID: 7852745490893541767}
-      amountLimit: 3
-      mechs: []
-    - waypoints: {fileID: 3978164542936551545}
       amountLimit: 2
       mechs: []
+    - waypoints: {fileID: 3978164542936551545}
+      amountLimit: 1
+      mechs: []
     - waypoints: {fileID: 3169864115486285284}
-      amountLimit: 3
+      amountLimit: 2
       mechs: []
     - waypoints: {fileID: 2150427576593063919}
       amountLimit: 1
@@ -13323,13 +13323,13 @@ MonoBehaviour:
     maxSpawnDelay: 40
     wayPointSpawnProperty:
     - waypoints: {fileID: 2567355454757444140}
-      amountLimit: 2
+      amountLimit: 1
       mechs: []
     - waypoints: {fileID: 2135356581502379445}
-      amountLimit: 3
+      amountLimit: 1
       mechs: []
     - waypoints: {fileID: 8290652590836748809}
-      amountLimit: 3
+      amountLimit: 1
       mechs: []
     spawnTimer: 20
     mechs: []

@@ -328,62 +328,62 @@ MonoBehaviour:
   pools:
   - prefab: {fileID: 7106769922058505212, guid: 4ebcab53bc446184e99d0a9352472999,
       type: 3}
-    size: 100
+    size: 80
   - prefab: {fileID: 7106769922058505212, guid: 1d4c9b841b9e85948b2f1d37e6b487ec,
       type: 3}
-    size: 100
+    size: 80
   - prefab: {fileID: 7106769922058505212, guid: b40e9a775d5198a468df2f88e900c123,
       type: 3}
-    size: 10
+    size: 5
   - prefab: {fileID: 5069209588166342338, guid: cbcd4939b12be294bba012012618085f,
       type: 3}
-    size: 10
+    size: 5
   - prefab: {fileID: 7467973104759329047, guid: 0c8ef42c639d1d8469f8cd83876d69a1,
       type: 3}
-    size: 10
+    size: 5
   - prefab: {fileID: 8113973223521420996, guid: 6959e43dd92c3464392d9861f4636fee,
       type: 3}
     size: 20
   - prefab: {fileID: 7106769922058505212, guid: 49c9ffbac6bd736428d41923efaa6bad,
       type: 3}
-    size: 50
+    size: 20
   - prefab: {fileID: 4145837052111500040, guid: 1fb1dea0e53be5846bbc75f3f5d02034,
       type: 3}
-    size: 20
+    size: 10
   - prefab: {fileID: 323949187251764307, guid: e30db9521f4f2f84483f0cd1060a86cc, type: 3}
     size: 20
   - prefab: {fileID: 2743643752712557580, guid: 77bee953b28901a4e98839125854ed13,
       type: 3}
-    size: 50
+    size: 80
   - prefab: {fileID: 7165009041390276278, guid: 57c3af4fa42ca864e8c6df40085f149a,
       type: 3}
-    size: 20
+    size: 40
   - prefab: {fileID: 7916681641544358561, guid: 81a205a4733e39046b0d65f65b322467,
       type: 3}
-    size: 20
+    size: 15
   - prefab: {fileID: 3197362628146015055, guid: 5ec3632bbbb9944499e6fed984f8267e,
       type: 3}
-    size: 10
+    size: 5
   - prefab: {fileID: 8269410867313776931, guid: c15c68797ae18dc40939b79dffc51b4d,
       type: 3}
     size: 80
   - prefab: {fileID: 7654532574432492732, guid: 9d0f0e3a8b761ce4186db0623a7145b3,
       type: 3}
-    size: 80
+    size: 60
   - prefab: {fileID: 7467973104759329047, guid: dcea642111260d64ca9b86f71aec8fd6,
       type: 3}
-    size: 50
+    size: 60
   - prefab: {fileID: 3306710841019016322, guid: 5ece2f1d5f6f4b14bafae4b66c3ff793,
       type: 3}
-    size: 40
+    size: 30
   - prefab: {fileID: 7968838687585774679, guid: 4f8fdc2c61d15144aae8e65ac56db82f,
       type: 3}
-    size: 30
+    size: 60
   - prefab: {fileID: 326184609947149900, guid: ebf2079f1100bfe478672e0a63ebd66b, type: 3}
-    size: 20
+    size: 8
   - prefab: {fileID: 5374681737063547777, guid: eee213ee66df35c4b82387da7a7b0120,
       type: 3}
-    size: 50
+    size: 40
 --- !u!1 &2850299073913972583
 GameObject:
   m_ObjectHideFlags: 0

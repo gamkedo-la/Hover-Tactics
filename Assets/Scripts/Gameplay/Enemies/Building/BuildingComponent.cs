@@ -124,10 +124,4 @@ public class BuildingComponent : MonoBehaviour
     }
 
     protected virtual void Action() {}
-
-    private void OnDrawGizmosSelected()
-    {
-        UnityEditor.Handles.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, detectionDistance);
-    }
 }

@@ -126,6 +126,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6161199037194091119}
     m_Modifications:
+    - target: {fileID: 286038335200022116, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 554855560382417745, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: fadeCurve.m_Curve.Array.size
@@ -266,6 +271,11 @@ PrefabInstance:
       propertyPath: m_UpdateMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3496401954755246415, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3643531930316660097, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: m_fontSize
@@ -385,7 +395,7 @@ PrefabInstance:
     - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 24.9
       objectReference: {fileID: 0}
     - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
@@ -398,6 +408,12 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5387407493069278861, guid: 7089d3b3ab96c2d40a54e350877a6945,
+        type: 2}
     - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: m_VerticalAlignment

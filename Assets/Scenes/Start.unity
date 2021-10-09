@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19048,6 +19048,26 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6932507767692297284, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -39.999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932507767692297284, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932507767692297284, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932507767692297284, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7016058825250451482, guid: 0d0a32af304a6f84e9bad5f25af35733,
         type: 3}
       propertyPath: m_IsActive
@@ -19120,8 +19140,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9174591847192148550, guid: 0d0a32af304a6f84e9bad5f25af35733,
         type: 3}
+      propertyPath: m_text
+      value: "\u2022 Bilal A. Cheema: Project lead, core gameplay, main mech development
+        (models and functionality), level design, portal weapon, building models,
+        enemy mech AI, night mode, minimap, Mars textures, muzzle flash, emissions
+        effects, lighting, in-game cursor, camera functionality, projectile pooling,
+        orthographic setup, shield bar, additional weapon sounds, assorted bug fixes,
+        culling optimization, low shield warning, quality settings\n\n\u2022 Will
+        McKay: Gameplay music, menu music, forcefields shader, explosion effect,
+        aim improvements, laser shaders, editor script bug fix, explosion pooling,
+        hitpoints system, crater models, fire and smoke effects, additional building,
+        music manager\n\n\u2022 tiago.dev: Boost feature functionality, UI, AI waypoints
+        support, sound manager, initial sound integration, start menu, assorted code/warnings
+        cleanup, menu fade, menu colors\n\n\u2022 Filipe Dottori: Laser fence, grid
+        wall, additional rock model, shield pickup, power pickup, pick up rotation,
+        building repair, Calamity homing rockets, sound and music toggles, controller
+        settings menu\n\n\u2022 Nouman Waheed: Initial prototype functionality, original
+        design co-lead for weapons and mechs, trigger and camera design, spaceship
+        model, aim functionality\n\n\u2022 Patrick McKeown: Sounds (shield pickup,
+        low shield warning, ion cannon, EMP, power pickup, rifle, rocket, bomb, portal,
+        building destruction, enemy cannon), several rock models\n\n\u2022 Abhishek
+        @akhmin_ak: Calamity rockets sound\n\n\u2022 Philip Greene: Selection sound"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174591847192148550, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174591847192148550, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174591847192148550, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174591847192148550, guid: 0d0a32af304a6f84e9bad5f25af35733,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d0a32af304a6f84e9bad5f25af35733, type: 3}

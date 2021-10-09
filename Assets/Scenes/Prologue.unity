@@ -627,7 +627,7 @@ MonoBehaviour:
   charDelay: 0.03
   dlgText: {fileID: 2121084770}
   dlgSounds:
-  - {fileID: 8300000, guid: d88234868d7b41545b4dcefde36d344a, type: 3}
+  - {fileID: 8300000, guid: 20fb1d073522a8d4c86f6e8b0f81fd9e, type: 3}
 --- !u!82 &1132167684
 AudioSource:
   m_ObjectHideFlags: 0
