@@ -33,8 +33,8 @@ PrefabInstance:
         weapons and mechs, trigger and camera design, spaceship model, aim functionality\n\u2022
         Patrick McKeown: Sounds (shield pickup, low shield warning, ion cannon, EMP,
         power pickup, rifle, rocket, bomb, portal, building destruction, enemy cannon),
-        several rock models\n\u2022 Abhishek: Calamity rockets sound\n\u2022 Philip
-        Greene: Selection sound"
+        several rock models\n\u2022 Abhishek @akhmin_ak: Calamity rockets sound\n\u2022
+        Philip Greene: Selection sound"
       objectReference: {fileID: 0}
     - target: {fileID: 3624052100599212912, guid: 476baf5f8b1bf5c47b24f6ff934c2dd0,
         type: 3}
