@@ -15,6 +15,6 @@ public class HealthRegeneration : MonoBehaviour
 
     void Update()
     {
-        health.ChangeBy(regenerationRate * Time.deltaTime);
+        health.ChangeBy(regenerationRate * Time.deltaTime * AssistPanel.GetHealth());
     }
 }

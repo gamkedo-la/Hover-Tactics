@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Health : AbstractTakeDamage
 {
+    [SerializeField] private bool isPlayer = false;
     [SerializeField] private float max = 1.0f;
     private float current = 1.0f;
 
@@ -22,6 +23,16 @@ public class Health : AbstractTakeDamage
 
     public void ChangeBy(float value)
     {
+        if(isPlayer)
+        {
+            if(value < 0.0f) value /= AssistPanel.GetHealth();
+            else value *= AssistPanel.GetHealth();
+        }
+        else
+        {
+            value *= AssistPanel.GetDamage();
+        }
+        
         current = Mathf.Clamp(current + value, -0.05f, max);
     }
 

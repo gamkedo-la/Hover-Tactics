@@ -29,6 +29,9 @@ public class Power : MonoBehaviour
 
     public void ChangeBy(float value)
     {
+        if(value < 0.0f) value /= AssistPanel.GetPower();
+        else value *= AssistPanel.GetPower();
+        
         this.value = Mathf.Clamp(this.value + value, 0.0f, 1.0f);
     }
 

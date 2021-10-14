@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
             lastAimPoint = hitData.point;
         }
 
-        Cursor.visible = !GameManager.instance.gameObject.activeSelf;
+        Cursor.visible = Time.timeScale <= 0.1f;
         if(!Cursor.visible) cursor.transform.position = lastAimPoint;
     }
 

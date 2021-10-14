@@ -508,7 +508,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: If the game feels very hard, make it easy to play using this Assist Panel
+  m_text: 'If the game feels very hard, make it easy to play using this Assist Panel.
+
+    <size=24><b>With
+    all that said, Hard is recommended!</b></size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7089d3b3ab96c2d40a54e350877a6945, type: 2}
   m_sharedMaterial: {fileID: -5387407493069278861, guid: 7089d3b3ab96c2d40a54e350877a6945,
@@ -1325,7 +1328,19 @@ MonoBehaviour:
   m_Group: {fileID: 5728670877479566105}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistHealth
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1040669016200539623
 GameObject:
@@ -1545,7 +1560,19 @@ MonoBehaviour:
   m_Group: {fileID: 6073680342811942759}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistDamage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1088048180747292144
 GameObject:
@@ -2268,7 +2295,19 @@ MonoBehaviour:
   m_Group: {fileID: 2094662985147925217}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistPower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1269617887203971472
 GameObject:
@@ -2436,6 +2475,7 @@ GameObject:
   - component: {fileID: 3923247381954325564}
   - component: {fileID: 1327555072703692958}
   - component: {fileID: 6436360371667021531}
+  - component: {fileID: 6803055389907066667}
   m_Layer: 5
   m_Name: AssistMode
   m_TagString: Untagged
@@ -2450,7 +2490,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368439727866696053}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2462,13 +2502,13 @@ RectTransform:
   - {fileID: 7346379150778329644}
   - {fileID: 1461852361902962214}
   - {fileID: 4027112447392299692}
-  m_Father: {fileID: 3620527645961582505}
+  m_Father: {fileID: 2992979696354239663}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 10}
-  m_SizeDelta: {x: 600, y: 420}
+  m_AnchoredPosition: {x: 20, y: 115.00001}
+  m_SizeDelta: {x: 600, y: 440}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1327555072703692958
 CanvasRenderer:
@@ -2508,6 +2548,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6803055389907066667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368439727866696053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d766a976033e79145b87455f209c53fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1457338328847547607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,7 +2643,19 @@ MonoBehaviour:
   m_Group: {fileID: 3121397031257750419}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistShield
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1501198842521288267
 GameObject:
@@ -2811,7 +2875,19 @@ MonoBehaviour:
   m_Group: {fileID: 5728670877479566105}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistHealth
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1723032765105638000
 GameObject:
@@ -3791,7 +3867,19 @@ MonoBehaviour:
   m_Group: {fileID: 2094662985147925217}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistPower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2386571382093571909
 GameObject:
@@ -4031,7 +4119,19 @@ MonoBehaviour:
   m_Group: {fileID: 6073680342811942759}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistDamage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2481004561874243437
 GameObject:
@@ -4174,7 +4274,19 @@ MonoBehaviour:
   m_Group: {fileID: 6073680342811942759}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistDamage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2937331354405854817
 GameObject:
@@ -4632,6 +4744,7 @@ RectTransform:
   m_Children:
   - {fileID: 1410914611146640276}
   - {fileID: 8930571703784303413}
+  - {fileID: 3923247381954325564}
   m_Father: {fileID: 2937331354405854816}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5017,7 +5130,19 @@ MonoBehaviour:
   m_Group: {fileID: 3121397031257750419}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistShield
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &4256304127905694032
 GameObject:
@@ -5814,7 +5939,19 @@ MonoBehaviour:
   m_Group: {fileID: 5584399761695095990}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistMovement
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &4732701525147619743
 GameObject:
@@ -6113,7 +6250,19 @@ MonoBehaviour:
   m_Group: {fileID: 5584399761695095990}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistMovement
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &4877306985979628516
 GameObject:
@@ -7014,7 +7163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -200}
+  m_AnchoredPosition: {x: 300, y: -220}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5679920826778908281
@@ -8432,7 +8581,6 @@ RectTransform:
   m_Children:
   - {fileID: 2937331354405854816}
   - {fileID: 2937331354849691218}
-  - {fileID: 3923247381954325564}
   m_Father: {fileID: 1969154990552894793}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8565,7 +8713,19 @@ MonoBehaviour:
   m_Group: {fileID: 5584399761695095990}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistMovement
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &6347703940176930315
 GameObject:
@@ -8785,7 +8945,19 @@ MonoBehaviour:
   m_Group: {fileID: 2094662985147925217}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistPower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &6516459398169611211
 GameObject:
@@ -9560,7 +9732,19 @@ MonoBehaviour:
   m_Group: {fileID: 3121397031257750419}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistShield
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &7566723503788514163
 GameObject:
@@ -10423,7 +10607,19 @@ MonoBehaviour:
   m_Group: {fileID: 5728670877479566105}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4282424576298960739}
+        m_TargetAssemblyTypeName: BaseScreen, Assembly-CSharp
+        m_MethodName: SetAssistHealth
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &8597631402058571217
 GameObject:

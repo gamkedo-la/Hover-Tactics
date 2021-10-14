@@ -11,6 +11,9 @@ public class Shield : MonoBehaviour
 
     public void ChangeBy(float value)
     {
+        if(value < 0.0f) value /= AssistPanel.GetShield();
+        else value *= AssistPanel.GetShield();
+
         this.value = Mathf.Clamp(this.value + value, 0.0f, 1.0f);
     }
 

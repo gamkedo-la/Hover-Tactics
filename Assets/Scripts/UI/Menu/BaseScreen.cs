@@ -151,4 +151,31 @@ public class BaseScreen : MonoBehaviour
         GameMenuController.playNight = !GameMenuController.playNight;
         textObject.GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
     }
+
+    //Easy = 3, Medium = 2, Hard = 1
+
+    public void SetAssistMovement(int value)
+    {
+        AssistPanel.movement = value;
+    }
+
+    public void SetAssistDamage(int value)
+    {
+        AssistPanel.damage = value;
+    }
+
+    public void SetAssistHealth(int value)
+    {
+        AssistPanel.health = value;
+    }
+
+    public void SetAssistPower(int value)
+    {
+        AssistPanel.power = value;
+    }
+
+    public void SetAssistShield(int value)
+    {
+        AssistPanel.shield = value;
+    }
 }

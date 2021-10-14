@@ -88,8 +88,8 @@ public class BaseMechController : MonoBehaviour
         Vector3 rightDirection = hoverMechAnimation.transform.right;
         rightDirection.y = 0.0f;
         Vector3 movement =
-            (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed)) +
-            (rightDirection * horizontal * sideSpeed);
+            (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed) * AssistPanel.GetMovement()) +
+            (rightDirection * horizontal * sideSpeed * AssistPanel.GetMovement());
         rb.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
 
         if(moveAudioSource == null) return;
@@ -110,7 +110,7 @@ public class BaseMechController : MonoBehaviour
 
     private void Turn()
     {
-        hoverMechAnimation.SetYRotation(hoverMechAnimation.GetYRotation() + turnDir * turnSpeed * Time.deltaTime);
+        hoverMechAnimation.SetYRotation(hoverMechAnimation.GetYRotation() + turnDir * turnSpeed * AssistPanel.GetMovement() * Time.deltaTime);
     }
 
     private void ShakeOnDamage()
