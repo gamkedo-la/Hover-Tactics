@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     static public GameManager instance;
 
+    [HideInInspector] public float useSpecial = 0.0f;
+    public void UseSpecial() { useSpecial = 0.25f; }
+
     private CameraController camController;
     private RadialBars playerBars;
 
@@ -79,7 +82,7 @@ public class GameManager : MonoBehaviour
         hoverMechs[index].GetComponent<MechController>().StopMovement();
     }
 
-    void SwitchHoverMech()
+    public void SwitchHoverMech()
     {
         SoundFXManager.PlayOneShot(switchSound);
         DeactivateHoverMech(activeIndex++);

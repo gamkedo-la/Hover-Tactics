@@ -9,6 +9,8 @@ public class HoverMechAnimation : MonoBehaviour
     [SerializeField] private float backwardRotation = 15.0f;
     [SerializeField] private float sideRotation = 20.0f;
     [SerializeField] private bool inputBased = true;
+    [Header("Touch")]
+    [SerializeField] protected FloatingJoystick movementStick = null;
 
     private BaseMechController controller;
     private float yRotation = 180.0f;
@@ -35,8 +37,16 @@ public class HoverMechAnimation : MonoBehaviour
             float horizontal = 0.0f, vertical = 0.0f;
             if(inputBased)
             {
-                horizontal = Input.GetAxis("Horizontal");
-                vertical = Input.GetAxis("Vertical");
+                if(movementStick && movementStick.transform.parent.gameObject.activeSelf)
+                {
+                    horizontal = movementStick.Horizontal;
+                    vertical = movementStick.Vertical;
+                }
+                else
+                {
+                    horizontal = Input.GetAxis("Horizontal");
+                    vertical = Input.GetAxis("Vertical");
+                }
             }
 
             Quaternion quaternionRotation = transform.rotation;

@@ -52,8 +52,8 @@ public class Weapon : MonoBehaviour, IDamage
         {
             if(cooldownTimer <= 0.0f && power.Get() >= MPDepletePerShot)
             {
-                if((type == Type.BASIC && Input.GetButton("Fire1"))
-                || (type == Type.SPECIAL && power.GetSpecials() > 0 && Input.GetButtonDown("Fire2")))
+                if((type == Type.BASIC && (Input.GetButton("Fire1") || mechController.IsTouchAttacking()))
+                || (type == Type.SPECIAL && power.GetSpecials() > 0 && (Input.GetButtonDown("Fire2") || GameManager.instance.useSpecial > 0.0f)))
                 {
                     if(rotateShootingPoints)
                     {
@@ -68,7 +68,11 @@ public class Weapon : MonoBehaviour, IDamage
                     Effects();
 
                     power.ChangeBy(-MPDepletePerShot);
-                    if(type == Type.SPECIAL) power.ChangeBy_Special(-1);
+                    if(type == Type.SPECIAL)
+                    {
+                        GameManager.instance.useSpecial = 0.0f;
+                        power.ChangeBy_Special(-1);
+                    }
 
                     shootingPointIndex++;
                     if(shootingPointIndex > shootingPoints.Length - 1)
@@ -89,6 +93,8 @@ public class Weapon : MonoBehaviour, IDamage
             {
                 cooldownTimer -= Time.deltaTime;
             }
+
+            if(type == Type.SPECIAL) GameManager.instance.useSpecial -= Time.deltaTime;
         }
     }
 

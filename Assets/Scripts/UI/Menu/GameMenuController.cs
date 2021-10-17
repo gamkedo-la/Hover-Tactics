@@ -60,22 +60,27 @@ public class GameMenuController : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public void Pause()
+    {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
+        isShowingPauseGameMenu = !isShowingPauseGameMenu;
+        if(!gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false))
+        {
+            isShowingPauseGameMenu = false;
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = isShowingPauseGameMenu ? 0.0f : 1.0f;
+        }
+    }
+
     private void Update()
     {
         if(Input.GetButtonDown("Cancel")
         && SceneManager.GetActiveScene().name.Contains("Play"))
         {
-            SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
-            isShowingPauseGameMenu = !isShowingPauseGameMenu;
-            if(!gameMenu.TogglePauseScreen(isShowingPauseGameMenu, false))
-            {
-                isShowingPauseGameMenu = false;
-                Time.timeScale = 0.0f;
-            }
-            else
-            {
-                Time.timeScale = isShowingPauseGameMenu ? 0.0f : 1.0f;
-            }
+            Pause();
         }
     }
 }

@@ -18,6 +18,9 @@ public class BaseMechController : MonoBehaviour
     [SerializeField] protected AudioSource moveAudioSource;
     [SerializeField] private float basePitch = 1.0f;
     [SerializeField] private float boostPitch = 1.4f;
+    [Header("Touch")]
+    [SerializeField] protected FloatingJoystick movementStick = null;
+    [SerializeField] protected FloatingJoystick rotationStick = null;
     [Space]
 
     private Rigidbody rb;
@@ -28,6 +31,16 @@ public class BaseMechController : MonoBehaviour
     protected float vertical;
     protected float turnDir;
     private float previousHealth;
+
+    public bool IsTouchBoosting()
+    {
+        return movementStick && (movementStick.Horizontal >= 1.0f || movementStick.Vertical >= 1.0f);
+    }
+
+    public bool IsTouchAttacking()
+    {
+        return rotationStick && (rotationStick.Horizontal >= 1.0f || rotationStick.Vertical >= 1.0f);
+    }
 
     public void StopMovement()
     {
