@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Target
   - MusicManager
+  - Forward
   layers:
   - Default
   - TransparentFX

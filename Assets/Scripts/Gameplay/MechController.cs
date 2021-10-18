@@ -2,8 +2,6 @@
 
 public class MechController : BaseMechController
 {
-    [SerializeField] protected GameObject Cursor;
-
     protected override void SetInput()
     {
         HandleMovementInput();
@@ -12,7 +10,7 @@ public class MechController : BaseMechController
 
     private void HandleMovementInput()
     {
-        if(movementStick && movementStick.transform.parent.gameObject.activeSelf)
+        if(GameManager.instance.touch && movementStick)
         {
             horizontal = movementStick.Horizontal;
             vertical = movementStick.Vertical;

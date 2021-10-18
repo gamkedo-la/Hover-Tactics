@@ -15,6 +15,9 @@ public class GameMenu : MonoBehaviour
     [SerializeField] private FadeUIFX PauseGameScreenFadeFX;
     [SerializeField] private bool DarkLayer = false;
 
+    [Header("Touch")]
+    [SerializeField] private GameObject touchControls;
+
     private void OnEnable()
     {
         if(StartGameScreen) StartGameScreen.OnMainButtonPressed += HandleStartScreenMainButtonPressed;
@@ -71,7 +74,11 @@ public class GameMenu : MonoBehaviour
 
         if(fadeFx == false)
         {
-            if(PauseGameScreen) PauseGameScreen.gameObject.SetActive(isVisible);
+            if(PauseGameScreen)
+            {
+                PauseGameScreen.gameObject.SetActive(isVisible);
+                if(GameManager.instance.touch) touchControls.SetActive(!isVisible);
+            }
             return true;
         }
 

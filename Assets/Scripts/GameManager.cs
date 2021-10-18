@@ -7,6 +7,9 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Touch")]
+    public bool touch = false;
+    [SerializeField] private GameObject touchControls;
     [Header("Mech Switch")]
     [SerializeField] private GameObject[] hoverMechs;
     [SerializeField] private int activeIndex = 0;
@@ -94,6 +97,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        touchControls.SetActive(touch);
     }
 
     void Start()
@@ -204,32 +208,39 @@ public class GameManager : MonoBehaviour
 
     void AbilityDisplay()
     {
-        Transform tr = mechAbilityDisplay.transform;
-        GameObject activeObj = tr.GetChild(activeIndex).gameObject;
-        Color col = tr.GetChild(activeIndex).GetComponent<Image>().color;
-
-        if(abilityDisplayTimer > 0.0f)
+        if(!touch)
         {
-            for(int i = 0; i < 3; i++)
-            {
-                tr.GetChild(i).gameObject.SetActive(false);
-            }
-            activeObj.SetActive(true);
-            col = Color.Lerp(col, Color.white, 4.0f * Time.deltaTime);
+            Transform tr = mechAbilityDisplay.transform;
+            GameObject activeObj = tr.GetChild(activeIndex).gameObject;
+            Color col = tr.GetChild(activeIndex).GetComponent<Image>().color;
 
-            abilityDisplayTimer -= Time.deltaTime;
+            if(abilityDisplayTimer > 0.0f)
+            {
+                for(int i = 0; i < 3; i++)
+                {
+                    tr.GetChild(i).gameObject.SetActive(false);
+                }
+                activeObj.SetActive(true);
+                col = Color.Lerp(col, Color.white, 4.0f * Time.deltaTime);
+
+                abilityDisplayTimer -= Time.deltaTime;
+            }
+            else
+            {
+                if(activeObj.activeSelf)
+                {
+                    col = Color.Lerp(col, Color.clear, 2.0f * Time.deltaTime);
+                    if(col == Color.clear) activeObj.SetActive(false);
+                }
+            }
+
+            tr.GetChild(activeIndex).GetComponent<Image>().color = col;
+            tr.GetChild(3).gameObject.GetComponent<Image>().color = col; //MoreControls
         }
         else
         {
-            if(activeObj.activeSelf)
-            {
-                col = Color.Lerp(col, Color.clear, 2.0f * Time.deltaTime);
-                if(col == Color.clear) activeObj.SetActive(false);
-            }
+            mechAbilityDisplay.SetActive(false);
         }
-
-        tr.GetChild(activeIndex).GetComponent<Image>().color = col;
-        tr.GetChild(3).gameObject.GetComponent<Image>().color = col; //MoreControls
     }
 
     void UpdateCameraSize()

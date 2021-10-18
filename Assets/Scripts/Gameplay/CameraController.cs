@@ -13,12 +13,12 @@ public class CameraController : MonoBehaviour
     [SerializeField] private LayerMask cursorLayers;
     [SerializeField] private int totalInstances = 6;
     [Space]
-    [SerializeField] private FloatingJoystick rotationStick = null;
+    [SerializeField] private Joystick rotationStick = null;
 
     public Vector3 lastAimPoint { get; private set; }
     private Camera cam;
     private Vector3 position = Vector3.zero;
-    private Vector2 effectorPosition = Vector3.zero;
+    private Vector2 effectorPosition = Vector2.zero;
 
     public void SetTransformToFollow(Transform tr)
     {
@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
+        if(!GameManager.instance.touch) Cursor.visible = false;
         cam = GetComponent<Camera>();
 
         CameraShake.instances = new List<CameraShake>();
@@ -45,11 +45,13 @@ public class CameraController : MonoBehaviour
         QualitySettingsEffect();
 
         position = transformToFollow.position + offset;
+
+        effectorPosition = new Vector2((Screen.width/2.0f), (Screen.height/1.5f));
     }
 
     void Update()
     {
-        if(!rotationStick.transform.parent.gameObject.activeSelf)
+        if(!GameManager.instance.touch)
         {
             effectorPosition = Input.mousePosition;
             Cursor.visible = Time.timeScale <= 0.1f;

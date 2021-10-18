@@ -11,6 +11,7 @@ public class BaseMechController : MonoBehaviour
     [SerializeField] private float sideSpeed;
     [Header("Turning")]
     [SerializeField] protected HoverMechAnimation hoverMechAnimation;
+    [SerializeField] protected GameObject Cursor;
     [SerializeField] private float turnSpeed;
     [SerializeField] protected float turnSensitivity;
     [Header("Sounds")]
@@ -19,13 +20,15 @@ public class BaseMechController : MonoBehaviour
     [SerializeField] private float basePitch = 1.0f;
     [SerializeField] private float boostPitch = 1.4f;
     [Header("Touch")]
-    [SerializeField] protected FloatingJoystick movementStick = null;
-    [SerializeField] protected FloatingJoystick rotationStick = null;
+    [SerializeField] protected Joystick movementStick = null;
+    [SerializeField] protected Joystick rotationStick = null;
     [Space]
 
     private Rigidbody rb;
     protected MechBoost mechBoost;
     protected Health health;
+
+    protected Transform forwardTransform;
 
     protected float horizontal;
     protected float vertical;
@@ -34,12 +37,12 @@ public class BaseMechController : MonoBehaviour
 
     public bool IsTouchBoosting()
     {
-        return movementStick && (movementStick.Horizontal >= 1.0f || movementStick.Vertical >= 1.0f);
+        return movementStick && movementStick.doubleTap;
     }
 
     public bool IsTouchAttacking()
     {
-        return rotationStick && (rotationStick.Horizontal >= 1.0f || rotationStick.Vertical >= 1.0f);
+        return rotationStick && rotationStick.doubleTap;
     }
 
     public void StopMovement()
@@ -74,6 +77,8 @@ public class BaseMechController : MonoBehaviour
         previousHealth = health.Get();
 
         audioSource.pitch = basePitch;
+
+        forwardTransform = GameObject.FindGameObjectWithTag("Forward").transform;
     }
     
     protected virtual void Update()
@@ -98,11 +103,18 @@ public class BaseMechController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 rightDirection = hoverMechAnimation.transform.right;
-        rightDirection.y = 0.0f;
+        hoverMechAnimation.SetHorizontalAndVertical(horizontal, vertical);
+
+        Transform directorTransform = hoverMechAnimation.transform; //forwardTransform;
+
+        Vector3 forwardDirection = directorTransform.forward;
+        Vector3 rightDirection = directorTransform.right;
+        forwardDirection.y = rightDirection.y = 0.0f;
+
         Vector3 movement =
-            (hoverMechAnimation.transform.forward * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed) * AssistPanel.GetMovement()) +
-            (rightDirection * horizontal * sideSpeed * AssistPanel.GetMovement());
+            (forwardDirection.normalized * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed) * AssistPanel.GetMovement()) +
+            (rightDirection.normalized * horizontal * sideSpeed * AssistPanel.GetMovement());
+
         rb.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
 
         if(moveAudioSource == null) return;

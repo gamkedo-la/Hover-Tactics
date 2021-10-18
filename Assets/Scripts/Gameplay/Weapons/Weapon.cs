@@ -52,8 +52,12 @@ public class Weapon : MonoBehaviour, IDamage
         {
             if(cooldownTimer <= 0.0f && power.Get() >= MPDepletePerShot)
             {
-                if((type == Type.BASIC && (Input.GetButton("Fire1") || mechController.IsTouchAttacking()))
-                || (type == Type.SPECIAL && power.GetSpecials() > 0 && (Input.GetButtonDown("Fire2") || GameManager.instance.useSpecial > 0.0f)))
+                if((type == Type.BASIC
+                    && ((Input.GetButton("Fire1") && !GameManager.instance.touch)
+                    || (mechController.IsTouchAttacking() && GameManager.instance.touch)))
+                || (type == Type.SPECIAL && power.GetSpecials() > 0
+                    && ((Input.GetButtonDown("Fire2") && !GameManager.instance.touch)
+                    || (GameManager.instance.useSpecial > 0.0f && GameManager.instance.touch))))
                 {
                     if(rotateShootingPoints)
                     {
@@ -70,7 +74,7 @@ public class Weapon : MonoBehaviour, IDamage
                     power.ChangeBy(-MPDepletePerShot);
                     if(type == Type.SPECIAL)
                     {
-                        GameManager.instance.useSpecial = 0.0f;
+                        if(GameManager.instance.touch) GameManager.instance.useSpecial = 0.0f;
                         power.ChangeBy_Special(-1);
                     }
 
@@ -94,7 +98,9 @@ public class Weapon : MonoBehaviour, IDamage
                 cooldownTimer -= Time.deltaTime;
             }
 
-            if(type == Type.SPECIAL) GameManager.instance.useSpecial -= Time.deltaTime;
+            if(type == Type.SPECIAL
+            && GameManager.instance.touch)
+                GameManager.instance.useSpecial -= Time.deltaTime;
         }
     }
 

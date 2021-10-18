@@ -40,6 +40,10 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     private Vector2 input = Vector2.zero;
 
+    [HideInInspector] public bool doubleTap = false;
+    private float doubleTapTimer = 0.0f;
+    private float doubleTapDelay = 0.3f; //300 ms
+
     protected virtual void Start()
     {
         HandleRange = handleRange;
@@ -57,9 +61,16 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchoredPosition = Vector2.zero;
     }
 
+    private void Update()
+    {
+        doubleTapTimer -= Time.unscaledDeltaTime;
+    }
+
     public virtual void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
+        if(doubleTapTimer > 0.0f) doubleTap = true;
+        doubleTapTimer = doubleTapDelay;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -133,6 +144,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
+        if(doubleTap)
+        {
+            doubleTap = false;
+            doubleTapTimer = 0.0f;
+        }
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
