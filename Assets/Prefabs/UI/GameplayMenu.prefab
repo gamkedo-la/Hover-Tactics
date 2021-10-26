@@ -661,7 +661,7 @@ MonoBehaviour:
   m_text: 'If the game feels very hard, make it easy to play using this Assist Panel.
 
     <size=24><b>With
-    all that said, Hard is recommended!</b></size>'
+    all that said, Medium is recommended!</b></size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7089d3b3ab96c2d40a54e350877a6945, type: 2}
   m_sharedMaterial: {fileID: -5387407493069278861, guid: 7089d3b3ab96c2d40a54e350877a6945,
