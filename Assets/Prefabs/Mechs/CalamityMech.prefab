@@ -2811,7 +2811,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5437239552948375143}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_Children:
@@ -2821,7 +2821,7 @@ Transform:
   - {fileID: 3506219616367089881}
   - {fileID: 3449248696950366731}
   - {fileID: 3717276390743100911}
-  m_Father: {fileID: 6654337600058745847}
+  m_Father: {fileID: 7958180287072374292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5125771059975562220
@@ -2836,11 +2836,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504b68bf71df95242ad897e8fb8ab9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 6654337600058745846}
   lerpFactor: 3
-  forwardRotation: 15
-  backwardRotation: 8
-  sideRotation: 30
-  inputBased: 1
+  rotationLimit: 20
 --- !u!1 &6654337600058745840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,7 +2878,7 @@ Transform:
   m_LocalPosition: {x: 50, y: 5, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7032676375119676775}
+  - {fileID: 7958180287072374292}
   - {fileID: 5115107729878898035}
   - {fileID: 4575574293439739435}
   m_Father: {fileID: 0}
@@ -2902,13 +2900,15 @@ MonoBehaviour:
   backwardSpeed: 8
   sideSpeed: 10
   hoverMechAnimation: {fileID: 5125771059975562220}
+  Cursor: {fileID: 0}
   turnSpeed: 80
   turnSensitivity: 0.1
   audioSource: {fileID: 568369338441157059}
   moveAudioSource: {fileID: 6002125334695018998}
   basePitch: 0.8
   boostPitch: 1.2
-  Cursor: {fileID: 0}
+  movementStick: {fileID: 0}
+  rotationStick: {fileID: 0}
 --- !u!114 &7593058205660559874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4235,6 +4235,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8151101835435097503}
   m_Mesh: {fileID: 0}
+--- !u!1 &8172605585939286066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7958180287072374292}
+  m_Layer: 3
+  m_Name: Rotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7958180287072374292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172605585939286066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7032676375119676775}
+  m_Father: {fileID: 6654337600058745847}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2629350012859165625
 PrefabInstance:
   m_ObjectHideFlags: 0

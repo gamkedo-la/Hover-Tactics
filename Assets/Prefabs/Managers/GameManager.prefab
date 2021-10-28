@@ -293,6 +293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d900abef48fe78948a76b8c3b2d6a776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touch: 1
+  touchControls: {fileID: 0}
+  twinShooterMovementMode: 1
   hoverMechs:
   - {fileID: 0}
   - {fileID: 0}
@@ -313,6 +316,7 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   lowShieldWarning: {fileID: 7316099949347067331}
   progressDisplay: {fileID: 5866042605660677703}
+  useSpecial: 0
 --- !u!114 &1342842741696817870
 MonoBehaviour:
   m_ObjectHideFlags: 0

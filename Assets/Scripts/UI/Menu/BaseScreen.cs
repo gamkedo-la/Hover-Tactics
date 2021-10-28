@@ -43,6 +43,9 @@ public class BaseScreen : MonoBehaviour
         buttonsGroup.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
         buttonsGroup.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = QualitySettings.GetQualityLevel() == 0 ? "Quality: Low" : "Quality: Standard";
         buttonsGroup.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
+
+        //Default -> PC: false, Mobile: true
+        GameManager.instance.twinShooterMovementMode = true;
     }
 
     public void ActivatePanel(Panels panel)
@@ -150,6 +153,13 @@ public class BaseScreen : MonoBehaviour
         SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
         GameMenuController.playNight = !GameMenuController.playNight;
         textObject.GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
+    }
+
+    public void ToggleMovementMode(TextMeshProUGUI textObject)
+    {
+        SoundFXManager.PlayOneShot(SoundFxKey.SELECT);
+        GameManager.instance.twinShooterMovementMode = !GameManager.instance.twinShooterMovementMode;
+        textObject.GetComponent<TextMeshProUGUI>().text = GameManager.instance.twinShooterMovementMode ? "Movement Mode: Twin Stick" : "Movement Mode: Directional";
     }
 
     //Easy = 3, Medium = 2, Hard = 1

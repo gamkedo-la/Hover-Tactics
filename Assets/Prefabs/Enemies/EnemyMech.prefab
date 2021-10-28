@@ -521,12 +521,15 @@ MonoBehaviour:
   backwardSpeed: 8
   sideSpeed: 10
   hoverMechAnimation: {fileID: 6439995749323104948}
+  Cursor: {fileID: 0}
   turnSpeed: 200
   turnSensitivity: 0.1
   audioSource: {fileID: 0}
   moveAudioSource: {fileID: 0}
   basePitch: 1
   boostPitch: 1.4
+  movementStick: {fileID: 0}
+  rotationStick: {fileID: 0}
   nearDistanceThreshold: 1
   facingTargetTolerance: 0.8
   explosionTag: EnemyMechExplosion
@@ -571,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a1f9cdd4ff3eb419b06d5d11de73d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   max: 2
 --- !u!135 &8239508251640166211
 SphereCollider:
@@ -744,11 +748,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504b68bf71df95242ad897e8fb8ab9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 3451366897439032122}
   lerpFactor: 4
   forwardRotation: 25
   backwardRotation: 15
   sideRotation: 20
-  inputBased: 0
 --- !u!1 &6141862179751331752
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [Header("Touch")]
     public bool touch = false;
     [SerializeField] private GameObject touchControls;
+    [Header("Movement Mode")]
+    public bool twinShooterMovementMode = false; //Default is set is BaseScreen.cs
     [Header("Mech Switch")]
     [SerializeField] private GameObject[] hoverMechs;
     [SerializeField] private int activeIndex = 0;

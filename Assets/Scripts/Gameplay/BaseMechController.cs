@@ -50,6 +50,11 @@ public class BaseMechController : MonoBehaviour
         rb.velocity = Vector3.zero;
     }
 
+    public Transform GetForwardTransform()
+    {
+        return forwardTransform;
+    }
+
     public void Teleport(float value)
     {
         StopMovement();
@@ -105,15 +110,15 @@ public class BaseMechController : MonoBehaviour
     {
         hoverMechAnimation.SetHorizontalAndVertical(horizontal, vertical);
 
-        Transform directorTransform = hoverMechAnimation.transform; //forwardTransform;
+        Transform directorTransform = GameManager.instance.twinShooterMovementMode ? forwardTransform : hoverMechAnimation.transform;
 
         Vector3 forwardDirection = directorTransform.forward;
         Vector3 rightDirection = directorTransform.right;
         forwardDirection.y = rightDirection.y = 0.0f;
 
         Vector3 movement =
-            (forwardDirection.normalized * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed) * AssistPanel.GetMovement()) +
-            (rightDirection.normalized * horizontal * sideSpeed * AssistPanel.GetMovement());
+            (forwardDirection.normalized * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed) * AssistPanel.GetMovement() * (GameManager.instance.twinShooterMovementMode ? 1.6f : 1.0f)) +
+            (rightDirection.normalized * horizontal * sideSpeed * AssistPanel.GetMovement() * (GameManager.instance.twinShooterMovementMode ? 1.6f : 1.0f));
 
         rb.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
 

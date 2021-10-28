@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class HoverMechAnimation : MonoBehaviour
 {
+    [SerializeField] private BaseMechController controller;
     [SerializeField] private float lerpFactor = 4.0f;
-    [SerializeField] private float forwardRotation = 25.0f;
-    [SerializeField] private float backwardRotation = 15.0f;
-    [SerializeField] private float sideRotation = 20.0f;
+    [SerializeField] private float rotationLimit = 25.0f;
 
-    private BaseMechController controller;
     private float yRotation = 180.0f;
 
     float horizontal = 0.0f;
@@ -33,20 +31,35 @@ public class HoverMechAnimation : MonoBehaviour
 
     void Start()
     {
-        controller = transform.parent.gameObject.GetComponent<BaseMechController>();
     }
 
     void Update()
     {
         if(controller.enabled)
         {
-            Quaternion quaternionRotation = transform.rotation;
-            Vector3 rotation = transform.rotation.eulerAngles;
-            rotation.x = vertical * (vertical > 0 ? forwardRotation : backwardRotation);
-            rotation.y = 180.0f + yRotation;
-            rotation.z = horizontal * -sideRotation;
-            quaternionRotation = Quaternion.Euler(rotation);
-            transform.rotation = Quaternion.Slerp(transform.rotation, quaternionRotation, Time.deltaTime * lerpFactor);
+            Quaternion qRot = transform.localRotation;
+            Vector3 rot = transform.localRotation.eulerAngles;
+            if(!GameManager.instance.twinShooterMovementMode)
+            {
+                rot.x = vertical * rotationLimit;
+                rot.z = horizontal * -rotationLimit;
+            }
+            rot.y = 180.0f + yRotation;
+            qRot = Quaternion.Euler(rot);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, qRot, Time.deltaTime * lerpFactor * AssistPanel.GetMovement());
+
+            if(GameManager.instance.twinShooterMovementMode)
+            {
+                if(controller.GetForwardTransform() != null)
+                {
+                    qRot = controller.GetForwardTransform().rotation;
+                    rot = controller.GetForwardTransform().rotation.eulerAngles;
+                    rot.x = vertical * rotationLimit;
+                    rot.z = horizontal * -rotationLimit;
+                    qRot = Quaternion.Euler(rot);
+                    transform.parent.localRotation = Quaternion.Slerp(transform.parent.localRotation, qRot, Time.deltaTime * lerpFactor * AssistPanel.GetMovement());
+                }
+            }
         }
     }
 }
