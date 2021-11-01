@@ -92,8 +92,8 @@ public class CameraController : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(true);
-            transform.GetChild(3).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(GameManager.instance.touch ? false : true);
+            transform.GetChild(3).gameObject.SetActive(GameManager.instance.touch ? false : true);
         }
     }
 }
