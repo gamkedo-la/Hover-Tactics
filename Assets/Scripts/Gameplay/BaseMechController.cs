@@ -117,8 +117,8 @@ public class BaseMechController : MonoBehaviour
         forwardDirection.y = rightDirection.y = 0.0f;
 
         Vector3 movement =
-            (forwardDirection.normalized * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed) * AssistPanel.GetMovement() * (GameManager.instance.twinShooterMovementMode ? 1.6f : 1.0f)) +
-            (rightDirection.normalized * horizontal * sideSpeed * AssistPanel.GetMovement() * (GameManager.instance.twinShooterMovementMode ? 1.6f : 1.0f));
+            (forwardDirection.normalized * vertical * (vertical > 0 ? forwardSpeed : backwardSpeed) * AssistPanel.GetMovement()) +
+            (rightDirection.normalized * horizontal * sideSpeed * AssistPanel.GetMovement());
 
         rb.velocity = (mechBoost == null) ? movement : movement * mechBoost.GetBoostValue();
 

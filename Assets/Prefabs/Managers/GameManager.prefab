@@ -295,6 +295,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touch: 1
   touchControls: {fileID: 0}
+  basicWeaponImages:
+  - {fileID: 21300000, guid: f07464d1b9c5b0a4a96860dadb767a79, type: 3}
+  - {fileID: 21300000, guid: aae6be89f922dbb4394248d933f92fa8, type: 3}
+  - {fileID: 21300000, guid: d5425211d87f3f745bc0ad255aa3b907, type: 3}
+  specialWeaponImages:
+  - {fileID: 21300000, guid: bd13d148360e5354f8a63af587a33142, type: 3}
+  - {fileID: 21300000, guid: ca34d8a254f7de84ab517c8780cef2f7, type: 3}
+  - {fileID: 21300000, guid: 332570b1bbc6f754ba9c8df3f3e49449, type: 3}
   twinShooterMovementMode: 1
   hoverMechs:
   - {fileID: 0}

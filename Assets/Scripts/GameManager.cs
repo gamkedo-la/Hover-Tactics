@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [Header("Touch")]
     public bool touch = false;
     [SerializeField] private GameObject touchControls;
+    [SerializeField] private Sprite[] basicWeaponImages;
+    [SerializeField] private Sprite[] specialWeaponImages;
     [Header("Movement Mode")]
     public bool twinShooterMovementMode = false; //Default is set is BaseScreen.cs
     [Header("Mech Switch")]
@@ -78,6 +80,11 @@ public class GameManager : MonoBehaviour
         hoverMechs[index].transform.GetChild(1).gameObject.SetActive(false); //Shield
         hoverMechs[index].GetComponent<MechController>().enabled = true;
         camController.SetTransformToFollow(hoverMechs[index].transform);
+        if(touch)
+        {
+            touchControls.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().sprite = basicWeaponImages[index];
+            touchControls.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = specialWeaponImages[index];
+        }
     }
 
     void DeactivateHoverMech(int index)
