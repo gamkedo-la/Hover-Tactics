@@ -53736,6 +53736,11 @@ PrefabInstance:
       objectReference: {fileID: 2086097057}
     - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
         type: 3}
+      propertyPath: touch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
+        type: 3}
       propertyPath: winPanel
       value: 
       objectReference: {fileID: 5679920827065279681}
@@ -53754,6 +53759,11 @@ PrefabInstance:
       propertyPath: waypointGroup
       value: 
       objectReference: {fileID: 5064844073128269768}
+    - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
+        type: 3}
+      propertyPath: twinShooterMovementMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
         type: 3}
       propertyPath: hoverMechs.Array.data[0]
@@ -71442,12 +71452,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 523486294}
-    - target: {fileID: 8107409798840957392, guid: c262fe22a756b174e838f476317299b3,
-        type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 761ae8153965051479ba393dc9630635,
-        type: 2}
     - target: {fileID: 8132493787937390760, guid: c262fe22a756b174e838f476317299b3,
         type: 3}
       propertyPath: m_Mesh

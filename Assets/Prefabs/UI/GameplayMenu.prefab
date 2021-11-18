@@ -8912,6 +8912,7 @@ MonoBehaviour:
   ShowControllersPanelButton: {fileID: 7550722811023978927}
   ShowCreditsPanelButton: {fileID: 8090811010488122923}
   BackButton: {fileID: 3489757849603579461}
+  pauseMenu: 1
   logDebug: 0
 --- !u!114 &3635604682016690866
 MonoBehaviour:

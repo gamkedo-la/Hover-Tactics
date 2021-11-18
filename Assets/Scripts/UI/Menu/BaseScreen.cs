@@ -25,6 +25,8 @@ public class BaseScreen : MonoBehaviour
     [SerializeField] private Button ShowCreditsPanelButton;
     [SerializeField] private Button BackButton;
 
+    public bool pauseMenu = false;
+
     [Header("Debug")]
     [SerializeField] private bool logDebug;
 
@@ -37,15 +39,17 @@ public class BaseScreen : MonoBehaviour
 
     private void Start()
     {
-        //Updating setting's button group text
+        //Updating buttons/options/settings text
+        if(pauseMenu)
+        {
+            GameManager.instance.twinShooterMovementMode = GameManager.instance.touch;
+            MainScreenPanel.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager.instance.twinShooterMovementMode ? "Movement Mode: Twin Stick" : "Movement Mode: Directional";
+        }
         GameObject buttonsGroup = ControllersPanel.transform.GetChild(1).gameObject;
         buttonsGroup.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = MusicManager.state ? "Music: ON" : "Music: OFF";
         buttonsGroup.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = SoundFXManager.state ? "Sound Effects: ON" : "Sound Effects: OFF";
         buttonsGroup.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = QualitySettings.GetQualityLevel() == 0 ? "Quality: Low" : "Quality: Standard";
         buttonsGroup.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = GameMenuController.playNight ? "Dark Mode: ON" : "Dark Mode: OFF";
-
-        //Default -> PC: false, Mobile: true
-        GameManager.instance.twinShooterMovementMode = true;
     }
 
     public void ActivatePanel(Panels panel)

@@ -77,7 +77,7 @@ public class GameMenu : MonoBehaviour
             if(PauseGameScreen)
             {
                 PauseGameScreen.gameObject.SetActive(isVisible);
-                if(GameManager.instance.touch) touchControls.SetActive(!isVisible);
+                if(GameManager.instance && GameManager.instance.touch) touchControls.SetActive(!isVisible);
             }
             return true;
         }

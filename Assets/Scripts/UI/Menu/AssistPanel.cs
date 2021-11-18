@@ -3,14 +3,18 @@ using UnityEngine.UI;
 
 public class AssistPanel : MonoBehaviour
 {
-    //Defaults -> 1 (Hard) for PC, 2 (Medium) for Touch Devices
-    static public int movement = 2;
-    static public int damage = 2;
-    static public int health = 2;
-    static public int power = 2;
-    static public int shield = 2;
-
     //Easy = 3, Medium = 2, Hard = 1
+    static public int movement = -1;
+    static public int damage = -1;
+    static public int health = -1;
+    static public int power = -1;
+    static public int shield = -1;
+
+    private void Awake()
+    {
+        if(movement == -1 && damage == -1 && health == -1 && power == -1 && shield == -1)
+            movement = damage = health = power = shield = GameManager.instance.touch ? 2 : 1;
+    }
 
     public static float GetMovement()
     {
