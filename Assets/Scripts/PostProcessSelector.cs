@@ -11,6 +11,7 @@ public class PostProcessSelector : MonoBehaviour
     
     void Start()
     {
-        GetComponent<Volume>().profile = GameManager.instance.touch ? mobileProfile : standardProfile;
+        GetComponent<Volume>().profile = IsTouch.touch ? mobileProfile : standardProfile;
+        QualitySettings.SetQualityLevel(IsTouch.touch ? 0 : 1);
     }
 }

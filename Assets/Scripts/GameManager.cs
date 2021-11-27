@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        touch = IsTouch.touch;
         instance = this;
         touchControls.SetActive(touch);
     }

@@ -53737,7 +53737,7 @@ PrefabInstance:
     - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
         type: 3}
       propertyPath: touch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1342842741696817905, guid: cafb058d5ebedc542979450ceae6bf5f,
         type: 3}
