@@ -8028,6 +8028,7 @@ GameObject:
   - component: {fileID: 462384721}
   - component: {fileID: 462384720}
   - component: {fileID: 462384719}
+  - component: {fileID: 462384723}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -8168,6 +8169,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462384717}
   m_CullTransparentMesh: 1
+--- !u!114 &462384723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462384717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c5f1f3e09ba684bbec4e4fff62ab02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &462566548
 Mesh:
   m_ObjectHideFlags: 0
@@ -13392,7 +13405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c81a3304d5b6b4ab4250db608c887e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _touch: 0
 --- !u!4 &689871012
 Transform:
   m_ObjectHideFlags: 0
@@ -59173,6 +59185,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
