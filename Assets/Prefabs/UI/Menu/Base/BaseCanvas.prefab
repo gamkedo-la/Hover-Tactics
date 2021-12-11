@@ -119,6 +119,7 @@ MonoBehaviour:
   PauseGameScreen: {fileID: 8483967578766225477}
   PauseGameScreenFadeFX: {fileID: 8982256645738554772}
   DarkLayer: 0
+  touchControls: {fileID: 0}
 --- !u!1001 &628419658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,21 +284,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3643531930316660097, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 7089d3b3ab96c2d40a54e350877a6945,
-        type: 2}
-    - target: {fileID: 3643531930316660097, guid: b922a8f6733803c459cbd1e91c3b50fb,
-        type: 3}
       propertyPath: m_fontSizeBase
       value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 3643531930316660097, guid: b922a8f6733803c459cbd1e91c3b50fb,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -5387407493069278861, guid: 7089d3b3ab96c2d40a54e350877a6945,
-        type: 2}
     - target: {fileID: 3643531930316660097, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: m_VerticalAlignment
@@ -410,21 +399,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 7089d3b3ab96c2d40a54e350877a6945,
-        type: 2}
-    - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
-        type: 3}
       propertyPath: m_fontSizeBase
       value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -5387407493069278861, guid: 7089d3b3ab96c2d40a54e350877a6945,
-        type: 2}
     - target: {fileID: 9174591847784371724, guid: b922a8f6733803c459cbd1e91c3b50fb,
         type: 3}
       propertyPath: m_VerticalAlignment
@@ -479,6 +456,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6161199037194091119}
     m_Modifications:
+    - target: {fileID: 308195619035336270, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1280915798945695319, guid: ac88beeadd55cbe418273bf45e48d475,
         type: 3}
       propertyPath: m_UpdateMode
@@ -539,20 +521,50 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3387580541654742803, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4072658986834199442, guid: ac88beeadd55cbe418273bf45e48d475,
         type: 3}
       propertyPath: m_UpdateMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887523701318446123, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297411949751846339, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584967578815468021, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6809332905635519201, guid: ac88beeadd55cbe418273bf45e48d475,
         type: 3}
       propertyPath: m_UpdateMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6958891945480600517, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6974636896873651914, guid: ac88beeadd55cbe418273bf45e48d475,
         type: 3}
       propertyPath: m_UpdateMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878234211546441212, guid: ac88beeadd55cbe418273bf45e48d475,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9002013202928563720, guid: ac88beeadd55cbe418273bf45e48d475,
         type: 3}

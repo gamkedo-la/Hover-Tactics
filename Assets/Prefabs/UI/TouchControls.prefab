@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Double Tap The Stick to Boost
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7089d3b3ab96c2d40a54e350877a6945, type: 2}
-  m_sharedMaterial: {fileID: -5387407493069278861, guid: 7089d3b3ab96c2d40a54e350877a6945,
+  m_fontAsset: {fileID: 11400000, guid: 5b21f05b86571ec41abfecfbf7dc51dc, type: 2}
+  m_sharedMaterial: {fileID: 7854723797799267631, guid: 5b21f05b86571ec41abfecfbf7dc51dc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -428,8 +428,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Double Tap The Stick to Fire
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7089d3b3ab96c2d40a54e350877a6945, type: 2}
-  m_sharedMaterial: {fileID: -5387407493069278861, guid: 7089d3b3ab96c2d40a54e350877a6945,
+  m_fontAsset: {fileID: 11400000, guid: 5b21f05b86571ec41abfecfbf7dc51dc, type: 2}
+  m_sharedMaterial: {fileID: 7854723797799267631, guid: 5b21f05b86571ec41abfecfbf7dc51dc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
